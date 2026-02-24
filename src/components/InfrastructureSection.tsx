@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Cpu, CreditCard, Factory, BarChart3, Network } from "lucide-react";
+import smartCareModule from "@/assets/smart-care-module.png";
 
 const features = [
   {
@@ -47,6 +48,44 @@ const InfrastructureSection = () => {
             The Infrastructure Behind Modern Dental Aftercare
           </h2>
           <div className="w-12 h-px bg-gradient-brand" />
+        </motion.div>
+
+        {/* Smart Care Module showcase */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="grid lg:grid-cols-2 gap-12 items-center mb-16"
+        >
+          <div className="flex justify-center">
+            <div className="relative max-w-sm">
+              <img
+                src={smartCareModule}
+                alt="DentoPoint Smart Care Module – in-clinic therapeutic dispensing system"
+                className="rounded-xl shadow-brand-lg"
+                loading="lazy"
+              />
+              <div className="absolute -bottom-3 -right-3 bg-gradient-brand text-primary-foreground text-xs font-medium px-4 py-2 rounded-md">
+                Smart Care Module
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 className="font-display text-2xl font-bold text-foreground mb-4">
+              The Smart Care Module
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              Our precision-engineered in-clinic units connect patients with curated aftercare products — powered by digital membership, QR integration, and contactless payment. Each module is personalised to the clinic and its manufacturer partners.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {["Contactless Payment", "QR Membership", "Clinic-Branded", "Real-Time Analytics"].map((tag) => (
+                <span key={tag} className="px-4 py-2 rounded-md bg-secondary text-secondary-foreground text-xs font-medium border border-border">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
