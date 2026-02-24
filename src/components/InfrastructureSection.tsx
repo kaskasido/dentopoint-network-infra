@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Cpu, CreditCard, Factory, BarChart3, Network } from "lucide-react";
 import smartCareModule from "@/assets/smart-care-module.png";
+import smartCareModuleChina from "@/assets/smart-care-module-china.png";
 
 const features = [
   {
@@ -56,30 +57,48 @@ const InfrastructureSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="grid lg:grid-cols-2 gap-12 items-center mb-16"
+          className="mb-16"
         >
-          <div className="flex justify-center">
-            <div className="relative max-w-sm">
-              <img
-                src={smartCareModule}
-                alt="DentoPoint Smart Care Module – in-clinic therapeutic dispensing system"
-                className="rounded-xl shadow-brand-lg"
-                loading="lazy"
-              />
-              <div className="absolute -bottom-3 -right-3 bg-gradient-brand text-primary-foreground text-xs font-medium px-4 py-2 rounded-md">
-                Smart Care Module
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
+            {/* EU Module */}
+            <div className="flex justify-center">
+              <div className="relative max-w-xs">
+                <img
+                  src={smartCareModule}
+                  alt="DentoPoint Smart Care Module – EU Edition"
+                  className="rounded-xl shadow-brand-lg"
+                  loading="lazy"
+                />
+                <div className="absolute -bottom-3 -right-3 bg-gradient-brand text-primary-foreground text-xs font-medium px-4 py-2 rounded-md">
+                  EU Edition
+                </div>
+              </div>
+            </div>
+            {/* China Module */}
+            <div className="flex justify-center">
+              <div className="relative max-w-xs">
+                <img
+                  src={smartCareModuleChina}
+                  alt="DentoPoint Smart Care Module – China Edition (牙点)"
+                  className="rounded-xl shadow-brand-lg"
+                  loading="lazy"
+                />
+                <div className="absolute -bottom-3 -right-3 bg-foreground text-primary-foreground text-xs font-medium px-4 py-2 rounded-md">
+                  China Edition · 牙点
+                </div>
               </div>
             </div>
           </div>
-          <div>
+
+          <div className="text-center max-w-2xl mx-auto">
             <h3 className="font-display text-2xl font-bold text-foreground mb-4">
               The Smart Care Module
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              Our precision-engineered in-clinic units connect patients with curated aftercare products — powered by digital membership, QR integration, and contactless payment. Each module is personalised to the clinic and its manufacturer partners.
+              Precision-engineered in-clinic units connecting patients with curated aftercare products — powered by digital membership, QR integration, and contactless payment. Deployed across EU and China markets.
             </p>
-            <div className="flex flex-wrap gap-3">
-              {["Contactless Payment", "QR Membership", "Clinic-Branded", "Real-Time Analytics"].map((tag) => (
+            <div className="flex flex-wrap gap-3 justify-center">
+              {["Contactless Payment", "QR Membership", "Clinic-Branded", "Real-Time Analytics", "Multi-Region"].map((tag) => (
                 <span key={tag} className="px-4 py-2 rounded-md bg-secondary text-secondary-foreground text-xs font-medium border border-border">
                   {tag}
                 </span>
