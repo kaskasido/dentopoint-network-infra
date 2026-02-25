@@ -79,12 +79,12 @@ const InfrastructureSection = () => {
               <div className="relative max-w-xs">
                 <img
                   src={smartCareModuleChina}
-                  alt="DentoPoint Smart Care Module – China Edition (牙点)"
+                  alt="DentoPoint Smart Care Module – Asia Edition (牙点)"
                   className="rounded-xl shadow-brand-lg"
                   loading="lazy"
                 />
                 <div className="absolute -bottom-3 -right-3 bg-foreground text-primary-foreground text-xs font-medium px-4 py-2 rounded-md">
-                  China Edition · 牙点
+                  Asia Edition · 牙点
                 </div>
               </div>
             </div>
@@ -95,7 +95,7 @@ const InfrastructureSection = () => {
               The Smart Care Module
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              Precision-engineered in-clinic units connecting patients with curated aftercare products — powered by digital membership, QR integration, and contactless payment. Deployed across EU and China markets.
+              Precision-engineered in-clinic units connecting patients with curated aftercare products — powered by digital membership, QR integration, and contactless payment. Deployed across EU and Asian markets.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               {["Contactless Payment", "QR Membership", "Clinic-Branded", "Real-Time Analytics", "Multi-Region"].map((tag) => (

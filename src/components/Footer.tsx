@@ -69,7 +69,7 @@ const Footer = () => {
             © {new Date().getFullYear()} DentoPoint® — Therapeutisches Versorgungsnetzwerk. All rights reserved.
           </p>
           <p className="text-xs opacity-40">
-            Medical Infrastructure Ecosystem · EU & China
+            Medical Infrastructure Ecosystem · EU & Asia
           </p>
         </div>
       </div>
