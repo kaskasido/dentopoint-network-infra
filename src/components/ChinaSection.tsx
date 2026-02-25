@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { Globe, ShieldCheck, Handshake, ArrowRightLeft } from "lucide-react";
 
 const points = [
-  { icon: ArrowRightLeft, title: "Dual Map Integration", desc: "Google Maps for EU/Global markets, Gaode/Amap for China — automatic region detection." },
-  { icon: ShieldCheck, title: "Local Compliance", desc: "Full regulatory compliance with Chinese healthcare data requirements and EU GDPR." },
-  { icon: Handshake, title: "Partner Infrastructure", desc: "Localised partner network with Chinese dental clinic chains and manufacturer integrations." },
-  { icon: Globe, title: "Scalable Cross-Border Model", desc: "Architecture designed for seamless EU–China operations with multi-currency and multi-language support." },
+  { icon: ArrowRightLeft, title: "Dual Map Integration", desc: "Google Maps for EU/Global markets, Gaode/Amap for Asia — automatic region detection." },
+  { icon: ShieldCheck, title: "Local Compliance", desc: "Full regulatory compliance with Asian healthcare data requirements and EU GDPR." },
+  { icon: Handshake, title: "Partner Infrastructure", desc: "Localised partner network with Asian dental clinic chains and manufacturer integrations." },
+  { icon: Globe, title: "Scalable Cross-Border Model", desc: "Architecture designed for seamless EU–Asia operations with multi-currency and multi-language support." },
 ];
 
 const ChinaSection = () => {
@@ -23,7 +23,7 @@ const ChinaSection = () => {
               International Expansion
             </p>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Bridging Europe and China
+              Bridging Europe and Asia
             </h2>
             <div className="w-12 h-px bg-gradient-brand mb-8" />
 
@@ -72,7 +72,7 @@ const ChinaSection = () => {
               </svg>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
-                  <p className="font-display text-6xl font-bold text-gradient-brand">EU ↔ CN</p>
+                  <p className="font-display text-6xl font-bold text-gradient-brand">EU ↔ Asia</p>
                   <p className="text-sm text-muted-foreground mt-2">Connected Infrastructure</p>
                 </div>
               </div>
