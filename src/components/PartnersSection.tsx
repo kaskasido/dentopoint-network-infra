@@ -30,6 +30,7 @@ const benefits = [
   "Network Scaling",
   "Analytics Access",
   "Asia Expansion",
+  "North America Extension",
 ];
 
 const PartnersSection = () => {
