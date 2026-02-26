@@ -71,6 +71,12 @@ const Navbar = () => {
           </DropdownMenu>
 
           <Link
+            to="/login"
+            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+          >
+            Login
+          </Link>
+          <Link
             to="/#contact"
             className="bg-gradient-brand text-primary-foreground px-5 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-opacity"
           >
