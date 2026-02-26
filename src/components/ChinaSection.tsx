@@ -23,7 +23,7 @@ const ChinaSection = () => {
               International Expansion
             </p>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Bridging Europe and Asia
+              Bridging Europe and Asia and the World
             </h2>
             <div className="w-12 h-px bg-gradient-brand mb-8" />
 
