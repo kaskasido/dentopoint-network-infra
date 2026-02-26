@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Menu, X, Globe } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { Menu, X, Globe, ChevronDown } from "lucide-react";
 import logo from "@/assets/dentopoint-logo.png";
 import {
   DropdownMenu,
@@ -12,8 +12,16 @@ import {
 const navItems = [
   { label: "Platform", href: "/" },
   { label: "Manufacturers", href: "/manufacturers" },
-  { label: "Investors", href: "/investors" },
   { label: "Clinics", href: "/clinics" },
+];
+
+const investorSubItems = [
+  { label: "Overview", href: "/investors" },
+  { label: "Market Opportunity", href: "/investors#markt" },
+  { label: "Scaling Roadmap", href: "/investors#skalierung" },
+  { label: "KPIs", href: "/investors#kpis" },
+  { label: "Expansion Pipeline", href: "/investors#expansion" },
+  { label: "Investor Portal", href: "/portal/investor" },
 ];
 
 const languages = [
@@ -50,6 +58,22 @@ const Navbar = () => {
               {item.label}
             </Link>
           ))}
+
+          {/* Investors Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors outline-none">
+              Investors <ChevronDown size={14} />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="bg-popover min-w-[200px]">
+              {investorSubItems.map((sub) => (
+                <DropdownMenuItem key={sub.href} asChild>
+                  <Link to={sub.href} className="cursor-pointer">
+                    {sub.label}
+                  </Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
 
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors outline-none">
@@ -106,6 +130,20 @@ const Navbar = () => {
               {item.label}
             </Link>
           ))}
+          {/* Investors sub-items mobile */}
+          <div className="py-3 border-b border-border/50">
+            <p className="text-sm font-semibold text-foreground mb-1">Investors</p>
+            {investorSubItems.map((sub) => (
+              <Link
+                key={sub.href}
+                to={sub.href}
+                className="block py-2 pl-3 text-sm text-muted-foreground hover:text-primary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                {sub.label}
+              </Link>
+            ))}
+          </div>
           <Link
             to="/#contact"
             className="block mt-4 bg-gradient-brand text-primary-foreground px-5 py-2.5 rounded-md text-sm font-medium text-center"
