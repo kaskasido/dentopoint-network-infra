@@ -139,13 +139,21 @@ const Navbar = () => {
           </DropdownMenu>
 
           {user ? (
-            <button
-              onClick={handleSignOut}
-              className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-destructive transition-colors"
-            >
-              <LogOut size={16} />
-              {t.nav.logout}
-            </button>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors outline-none">
+                {user.user_metadata?.display_name || user.email?.split("@")[0] || "Account"}
+                <ChevronDown size={14} />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="bg-popover min-w-[160px]">
+                <DropdownMenuItem
+                  onClick={handleSignOut}
+                  className="cursor-pointer text-destructive focus:text-destructive"
+                >
+                  <LogOut size={16} className="mr-2" />
+                  {t.nav.logout}
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           ) : (
             <Link
               to="/login"
