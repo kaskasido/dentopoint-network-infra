@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Handshake, Factory, TrendingUp } from "lucide-react";
+import { Handshake, Factory, TrendingUp, Star } from "lucide-react";
 import NetworkAnimation from "./NetworkAnimation";
 
 const HeroSection = () => {
@@ -68,6 +68,13 @@ const HeroSection = () => {
           >
             <TrendingUp size={18} />
             For Investors
+          </a>
+          <a
+            href="#strategic-partners"
+            className="inline-flex items-center gap-2 border border-accent text-accent px-8 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-colors"
+          >
+            <Star size={18} />
+            Strategic Partners
           </a>
         </motion.div>
       </div>
