@@ -165,4 +165,239 @@ export const ko = {
     copyright: "© {year} DentoPoint® — 치료 케어 네트워크. 모든 권리 보유.",
     tagline: "의료 인프라 생태계 · EU & 아시아",
   },
+
+  clinicsPage: {
+    hero: { label: "클리닉용", title1: "애프터케어", title2: "수익을 혁신하세요", desc: "DentoPoint를 클리닉 워크플로우에 통합하세요. 새로운 수익원, 더 나은 환자 결과, 완전한 규정 준수 — 즉시 사용 가능." },
+    revenue: {
+      label: "수익", title: "새로운 수익원",
+      items: [
+        { title: "애프터케어 수익", desc: "환자를 위한 구조화된 치료 케어 프로그램을 통해 반복 수익을 창출하세요." },
+        { title: "제품 수수료", desc: "DentoPoint 플랫폼을 통해 주문된 추천 케어 제품에서 수수료를 받으세요." },
+        { title: "환자 유지", desc: "케어 네트워크를 통한 지속적인 참여로 환자 생애 가치를 높이세요." },
+        { title: "시간 절약", desc: "자동화된 애프터케어 스케줄링으로 관리 업무를 60% 감소시킵니다." },
+      ],
+    },
+    implementation: {
+      label: "구현", title: "빠르고 쉬운 설정",
+      items: [
+        { title: "통합 설정", desc: "진료 관리 시스템을 연결하세요 — 모든 주요 PMS 플랫폼을 지원합니다.", duration: "1-2일" },
+        { title: "스마트 케어 모듈", desc: "제품 구성과 함께 진료소에 물리적 모듈을 설치합니다.", duration: "1일" },
+        { title: "팀 교육", desc: "플랫폼 사용법과 환자 커뮤니케이션에 대한 팀 온보딩 세션.", duration: "반나절" },
+        { title: "운영 시작", desc: "첫 환자와 함께 시작하고 DentoPoint 파트너 관리팀의 지속적인 지원.", duration: "지속적" },
+      ],
+    },
+    workflow: {
+      label: "워크플로우", title: "최적화된 클리닉 워크플로우",
+      benefits: [
+        "자동화된 환자 애프터케어 스케줄링",
+        "디지털 케어 플랜 생성",
+        "스마트 제품 추천",
+        "환자 커뮤니케이션 자동화",
+        "치료 문서 내보내기",
+        "다중 지점 관리 대시보드",
+      ],
+      cardTitle: "통합 진료 관리",
+      cardDesc: "DentoPoint를 기존 PMS에 연결하세요. 모든 애프터케어 워크플로우, 환자 데이터, 제품 관리를 한 곳에서.",
+      cardCta: "데모 예약",
+    },
+    compliance: {
+      label: "규정 준수", title: "규정 준수",
+      items: [
+        { title: "GDPR 준수", desc: "암호화된 환자 데이터 저장 및 처리를 통한 완전한 EU 데이터 보호 준수." },
+        { title: "MDR 인증", desc: "모든 통합 케어 제품 및 모듈에 대한 의료기기 규정 준수." },
+        { title: "ISO 27001", desc: "데이터 처리 및 인프라에 대한 정보 보안 관리 인증." },
+        { title: "감사 추적", desc: "모든 환자 상호작용, 제품 추천 및 데이터 접근에 대한 완전한 감사 로깅." },
+      ],
+    },
+  },
+
+  manufacturersPage: {
+    hero: { label: "제조업체용", title1: "케어 네트워크에", title2: "통합", desc: "제품을 치료 케어 생태계에 직접 연결하세요. 통합에서 유통까지 — 하나의 플랫폼으로." },
+    integration: {
+      label: "통합", title: "원활한 시스템 통합",
+      items: [
+        { title: "API 우선 아키텍처", desc: "제품 카탈로그 및 재고 통합을 위한 RESTful 및 실시간 API." },
+        { title: "인증 온보딩", desc: "규정 준수 검사 및 품질 검증을 포함한 구조화된 파트너 온보딩." },
+        { title: "플러그 앤 플레이 모듈", desc: "ERP, PIM 및 물류 시스템을 위한 사전 구축된 통합 모듈." },
+        { title: "다중 시장 준비", desc: "로컬라이즈된 구성으로 EU 및 아시아 시장에 동시 배포." },
+      ],
+    },
+    data: {
+      label: "데이터", title: "데이터 인프라 & 표준",
+      items: [
+        { label: "제품 데이터 동기화", value: "실시간" },
+        { label: "재고 정확도", value: "99.8%" },
+        { label: "주문 처리", value: "<2분" },
+        { label: "데이터 형식", value: "GS1 / HL7" },
+      ],
+    },
+    performance: {
+      label: "성과", title: "네트워크 성과 지표",
+      items: [
+        { label: "네트워크 도달 범위", value: "420+", sub: "연결된 클리닉" },
+        { label: "제품 가시성", value: "3.2배", sub: "기존 채널 대비" },
+        { label: "재주문율", value: "67%", sub: "자동 보충" },
+        { label: "시장 출시 시간", value: "14일", sub: "평균 온보딩" },
+      ],
+    },
+    distribution: {
+      label: "유통", title: "직접 유통 채널",
+      benefits: [
+        "클리닉 직배 인프라",
+        "수요 기반 재고 관리",
+        "지역 창고 파트너십",
+        "국경 간 물류 (EU ↔ 아시아)",
+        "화이트라벨 패키징 옵션",
+        "규정 준수 문서 준비",
+      ],
+      cardTitle: "공급망 통합",
+      cardDesc: "제조업체에서 클리닉까지 엔드투엔드 가시성 — 자동화된 주문, 추적 및 규정 준수 문서.",
+      cardCta: "파트너 되기",
+    },
+  },
+
+  investorsPage: {
+    hero: { label: "투자자용", title1: "의료 인프라에", title2: "투자하세요", desc: "120억 유로 이상의 치과 애프터케어 시장을 위한 확장 가능한 디지털 인프라. 투명한 KPI, 검증된 단위 경제학 및 글로벌 확장 로드맵." },
+    market: {
+      label: "시장", title: "시장 기회",
+      items: [
+        { title: "120억€+ 대상 시장", desc: "유럽의 치과 애프터케어 시장만으로도 거대하고 미개척된 기회를 나타냅니다." },
+        { title: "3.8억+ 잠재 환자", desc: "EU와 아시아 시장 합산 — 구조화된 치료 애프터케어에 대한 수요 증가." },
+        { title: "반복 수익 모델", desc: "클리닉, 제조업체 및 케어 제품으로부터의 구독 + 거래 기반 수익." },
+        { title: "선점자 이점", desc: "구조화된 치과 치료 케어를 위한 비교 가능한 디지털 인프라가 존재하지 않습니다." },
+      ],
+    },
+    scaling: {
+      label: "확장", title: "확장 로드맵",
+      items: [
+        { phase: "1단계", title: "DACH 지역", desc: "독일, 오스트리아, 스위스 — 120+ 파트너 클리닉의 초기 시장.", status: "활성" },
+        { phase: "2단계", title: "EU 확장", desc: "로컬라이즈된 규정 준수 및 언어 지원으로 서유럽 롤아웃.", status: "2025" },
+        { phase: "3단계", title: "아시아 진출", desc: "전략적 파트너십과 현지 인프라를 통한 아시아 시장 진출.", status: "2026" },
+        { phase: "4단계", title: "글로벌 스케일", desc: "북미, 중동 — 완전한 국제 인프라 배포.", status: "2027+" },
+      ],
+    },
+    kpis: {
+      label: "KPI", title: "핵심 성과 지표",
+      items: [
+        { label: "MRR 성장", value: "+24%", sub: "월간" },
+        { label: "클리닉 유지율", value: "94%", sub: "연간 비율" },
+        { label: "CAC 회수", value: "4.2개월", sub: "평균" },
+        { label: "LTV:CAC 비율", value: "8.4배", sub: "현재" },
+        { label: "매출총이익률", value: "78%", sub: "플랫폼 수익" },
+        { label: "NPS 점수", value: "72", sub: "파트너 클리닉" },
+      ],
+    },
+    expansion: {
+      label: "확장", title: "글로벌 확장 파이프라인",
+      tableHeaders: { region: "지역", clinics: "클리닉", status: "상태", growth: "성장" },
+      items: [
+        { region: "DACH", clinics: "120+", status: "라이브", growth: "+18%" },
+        { region: "서유럽", clinics: "계획됨", status: "2025 하반기", growth: "—" },
+        { region: "아시아", clinics: "파이프라인", status: "2026", growth: "—" },
+        { region: "북미", clinics: "파이프라인", status: "2027", growth: "—" },
+      ],
+      cta: "투자자 덱 요청",
+    },
+  },
+
+  partnersPage: {
+    hero: { label: "전략적 파트너", title1: "치과 케어의", title2: "미래를 함께 만들어요", desc: "DentoPoint 생태계에 전략적 파트너로 합류하세요. 기술, 의료, 학술 및 산업 제휴가 치료 애프터케어의 혁신을 주도합니다." },
+    technology: {
+      label: "기술", title: "기술 파트너",
+      items: [
+        { title: "PMS 통합", desc: "표준화된 API를 통해 모든 주요 진료 관리 시스템에 원활하게 연결." },
+        { title: "클라우드 & 보안", desc: "엔드투엔드 암호화를 갖춘 ISO 27001 인증 클라우드 인프라." },
+        { title: "IoT 플랫폼", desc: "실시간 데이터 처리를 갖춘 스마트 케어 모듈 하드웨어 생태계." },
+        { title: "상호 운용성", desc: "최대 호환성을 위한 HL7 FHIR 및 GS1 호환 데이터 표준." },
+      ],
+    },
+    healthcare: {
+      label: "의료", title: "의료 네트워크",
+      items: [
+        { title: "클리닉 체인", desc: "DACH 지역 및 유럽 전역의 주요 치과 클리닉 체인과의 파트너십." },
+        { title: "보험 제공업체", desc: "애프터케어 프로그램을 보험 혜택 및 보너스 제도에 통합." },
+        { title: "전문가 협회", desc: "품질 표준을 위한 치과 전문가 협회와의 협력." },
+        { title: "원격 의료", desc: "원격 환자 및 농촌 지역을 위한 원격 의료 애프터케어 모듈." },
+      ],
+    },
+    academic: {
+      label: "학술", title: "학술 파트너",
+      items: [
+        { title: "대학 클리닉", desc: "유럽 전역의 주요 치과 학부와의 연구 협력." },
+        { title: "임상 연구", desc: "DentoPoint 애프터케어 프로토콜의 증거 기반 검증." },
+        { title: "교육 & 훈련", desc: "치과 교육과정 및 평생교육 프로그램에 통합." },
+        { title: "출판물", desc: "공동 과학 출판물 및 학술회의 기여." },
+      ],
+    },
+    industry: {
+      label: "산업", title: "산업 제휴",
+      benefits: [
+        "주요 치과 제조업체와의 독점 유통 파트너십",
+        "제약 애프터케어 제품 통합",
+        "기기 혁신을 위한 메드테크 기업과의 파트너십",
+        "디지털 애프터케어 산업 표준 공동 형성",
+        "공동 마케팅 및 시장 개발",
+        "차세대 제품을 위한 공유 R&D",
+      ],
+      cardTitle: "파트너 되기",
+      cardDesc: "DentoPoint 생태계에 참여하여 치과 치료 애프터케어의 미래를 함께 만들어가세요.",
+      cardCta: "연락하기",
+    },
+    global: {
+      label: "글로벌", title: "글로벌 확장",
+      tableHeaders: { region: "지역", status: "상태", description: "설명" },
+      items: [
+        { region: "DACH", status: "라이브", desc: "강력한 시장 침투율의 핵심 시장" },
+        { region: "EU (프랑스, 베네룩스, 스칸디나비아)", status: "2025", desc: "추가 EU 시장으로 롤아웃" },
+        { region: "아시아태평양 (중국, 한국, 일본)", status: "2026", desc: "합작투자를 통한 시장 진출" },
+        { region: "중동 (UAE, 사우디아라비아)", status: "2027", desc: "프리미엄 치과 시장" },
+      ],
+    },
+  },
+
+  loginPage: {
+    checkEmail: "이메일을 확인하세요",
+    magicLinkSent: "매직 링크를 보냈습니다:",
+    clickToSignIn: "링크를 클릭하여 로그인하세요.",
+    signInTitle: "포털에 로그인",
+    signInDesc: "매직 링크를 받으려면 이메일을 입력하세요.",
+    emailLabel: "이메일",
+    emailPlaceholder: "이름@클리닉.com",
+    sending: "전송 중...",
+    sendMagicLink: "매직 링크 전송",
+    backToPlatform: "← 플랫폼으로 돌아가기",
+  },
+
+  notFoundPage: {
+    title: "404",
+    message: "페이지를 찾을 수 없습니다",
+    backLink: "홈으로 돌아가기",
+  },
+
+  heroSignup: {
+    dialogDesc: "포털에 접근하려면 비즈니스 이메일로 로그인하세요.",
+    emailSent: "이메일 전송됨",
+    magicLinkSentTo: "매직 링크를 보냈습니다:",
+    clickToSignIn: "링크를 클릭하여 로그인하세요.",
+    businessEmail: "비즈니스 이메일",
+    placeholder: "이름@회사.com",
+    confirmCheckbox: "법인(회사)을 대신하여 행동하고 있음을 확인합니다.",
+    confirmError: "법인을 대표하고 있음을 확인해 주세요.",
+    sending: "전송 중...",
+    sendMagicLink: "매직 링크 전송",
+  },
+
+  patients: {
+    label: "환자용",
+    title: "당신의 애프터케어, 간편하게",
+    desc: "치과 애프터케어에 대한 차분하고 구조화된 접근 — 클리닉의 케어 네트워크를 통해 올바른 제품과 프로그램에 연결합니다.",
+    items: [
+      { title: "애프터케어 프로그램", desc: "치료에 맞춤화된 구조화된 후속 관리 프로토콜." },
+      { title: "제품 카테고리", desc: "임상 권장 사항에 맞는 엄선된 치과 케어 제품." },
+      { title: "디지털 멤버십", desc: "안전한 디지털 멤버십 프로필로 케어 네트워크에 접근하세요." },
+      { title: "QR 통합", desc: "클리닉 내 QR 코드를 통한 제품 및 프로그램 즉시 접근." },
+      { title: "정밀 추천", desc: "치료 이력 기반 AI 안내 애프터케어 제안." },
+      { title: "구조화된 후속 관리", desc: "최적의 결과를 위한 자동화된 예약 및 케어 리마인더." },
+    ],
+  },
 };

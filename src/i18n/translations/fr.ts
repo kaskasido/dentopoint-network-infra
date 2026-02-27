@@ -165,4 +165,239 @@ export const fr = {
     copyright: "© {year} DentoPoint® — Réseau de Soins Thérapeutiques. Tous droits réservés.",
     tagline: "Écosystème d'Infrastructure Médicale · UE & Asie",
   },
+
+  clinicsPage: {
+    hero: { label: "Pour les Cliniques", title1: "Transformez Vos", title2: "Revenus de Suivi", desc: "Intégrez DentoPoint dans votre flux clinique. Nouvelles sources de revenus, meilleurs résultats patients et conformité réglementaire complète — prêt à l'emploi." },
+    revenue: {
+      label: "Revenus", title: "Nouvelles Sources de Revenus",
+      items: [
+        { title: "Revenus de Suivi", desc: "Générez des revenus récurrents grâce à des programmes de soins thérapeutiques structurés pour vos patients." },
+        { title: "Commissions Produits", desc: "Gagnez des commissions sur les produits de soins recommandés commandés via la plateforme DentoPoint." },
+        { title: "Fidélisation Patients", desc: "Augmentez la valeur vie patient grâce à un engagement continu via le réseau de soins." },
+        { title: "Gain de Temps", desc: "La planification automatisée du suivi réduit la charge administrative de 60%." },
+      ],
+    },
+    implementation: {
+      label: "Mise en Œuvre", title: "Installation Rapide & Facile",
+      items: [
+        { title: "Configuration Intégration", desc: "Connectez votre système de gestion de cabinet — nous supportons toutes les principales plateformes.", duration: "1-2 jours" },
+        { title: "Module Smart Care", desc: "Installation physique du module dans votre cabinet avec configuration produit.", duration: "1 jour" },
+        { title: "Formation Équipe", desc: "Session d'intégration pour votre équipe sur l'utilisation de la plateforme et la communication patient.", duration: "Demi-journée" },
+        { title: "Lancement", desc: "Démarrage avec les premiers patients et support continu du management partenaire DentoPoint.", duration: "En continu" },
+      ],
+    },
+    workflow: {
+      label: "Flux de Travail", title: "Flux Clinique Optimisé",
+      benefits: [
+        "Planification automatisée du suivi patient",
+        "Génération de plans de soins numériques",
+        "Recommandations produits intelligentes",
+        "Automatisation de la communication patient",
+        "Export de la documentation de traitement",
+        "Tableau de bord multi-établissements",
+      ],
+      cardTitle: "Gestion de Cabinet Intégrée",
+      cardDesc: "Connectez DentoPoint à votre système existant. Tous les flux de suivi, données patients et gestion produits en un seul endroit.",
+      cardCta: "Planifier une Démo",
+    },
+    compliance: {
+      label: "Conformité", title: "Conformité Réglementaire",
+      items: [
+        { title: "Conforme RGPD", desc: "Conformité totale avec la protection des données UE, stockage et traitement chiffrés des données patients." },
+        { title: "Certifié MDR", desc: "Conformité au Règlement sur les Dispositifs Médicaux pour tous les produits et modules intégrés." },
+        { title: "ISO 27001", desc: "Certification de gestion de la sécurité de l'information pour le traitement des données et l'infrastructure." },
+        { title: "Piste d'Audit", desc: "Journalisation complète pour toutes les interactions patients, recommandations produits et accès aux données." },
+      ],
+    },
+  },
+
+  manufacturersPage: {
+    hero: { label: "Pour les Fabricants", title1: "Intégré dans le", title2: "Réseau de Soins", desc: "Connectez vos produits directement à l'écosystème de soins thérapeutiques. De l'intégration à la distribution — tout via une seule plateforme." },
+    integration: {
+      label: "Intégration", title: "Intégration Système Transparente",
+      items: [
+        { title: "Architecture API-First", desc: "APIs RESTful et temps réel pour une intégration transparente du catalogue produits et des stocks." },
+        { title: "Onboarding Certifié", desc: "Intégration structurée des partenaires avec vérifications de conformité et validation qualité." },
+        { title: "Modules Plug & Play", desc: "Modules d'intégration prêts à l'emploi pour systèmes ERP, PIM et logistique." },
+        { title: "Multi-Marché", desc: "Déploiement simultané sur les marchés UE et asiatiques avec configurations localisées." },
+      ],
+    },
+    data: {
+      label: "Données", title: "Infrastructure de Données & Standards",
+      items: [
+        { label: "Données Produits Sync.", value: "Temps réel" },
+        { label: "Précision Stocks", value: "99,8%" },
+        { label: "Traitement Commandes", value: "<2 min" },
+        { label: "Formats de Données", value: "GS1 / HL7" },
+      ],
+    },
+    performance: {
+      label: "Performance", title: "Métriques de Performance Réseau",
+      items: [
+        { label: "Portée Réseau", value: "420+", sub: "Cliniques Connectées" },
+        { label: "Visibilité Produit", value: "3,2x", sub: "vs. Canaux Traditionnels" },
+        { label: "Taux de Réapprovisionnement", value: "67%", sub: "Réappro. Automatisé" },
+        { label: "Time to Market", value: "14 jours", sub: "Onboarding Moyen" },
+      ],
+    },
+    distribution: {
+      label: "Distribution", title: "Canaux de Distribution Directs",
+      benefits: [
+        "Infrastructure de livraison directe aux cliniques",
+        "Gestion des stocks pilotée par la demande",
+        "Partenariats d'entreposage régionaux",
+        "Logistique transfrontalière (UE ↔ Asie)",
+        "Options d'emballage en marque blanche",
+        "Documentation prête pour la conformité",
+      ],
+      cardTitle: "Intégration Chaîne d'Approvisionnement",
+      cardDesc: "Visibilité de bout en bout du fabricant à la clinique — commandes automatisées, suivi et documentation de conformité.",
+      cardCta: "Devenir Partenaire",
+    },
+  },
+
+  investorsPage: {
+    hero: { label: "Pour les Investisseurs", title1: "Investir dans", title2: "l'Infrastructure Santé", desc: "Infrastructure numérique évolutive pour le marché du suivi dentaire de 12 Mrd€+. KPIs transparents, unit economics éprouvés et feuille de route d'expansion mondiale." },
+    market: {
+      label: "Marché", title: "Opportunité de Marché",
+      items: [
+        { title: "Marché Adressable 12 Mrd€+", desc: "Le marché du suivi dentaire en Europe seul représente une opportunité massive et sous-exploitée." },
+        { title: "380M+ Patients Potentiels", desc: "Marchés UE et asiatiques combinés — demande croissante pour un suivi thérapeutique structuré." },
+        { title: "Modèle de Revenus Récurrents", desc: "Revenus par abonnement + transactions de cliniques, fabricants et produits de soins." },
+        { title: "Avantage du Premier Entrant", desc: "Aucune infrastructure numérique comparable pour le suivi thérapeutique dentaire structuré n'existe." },
+      ],
+    },
+    scaling: {
+      label: "Mise à l'Échelle", title: "Feuille de Route de Croissance",
+      items: [
+        { phase: "Phase 1", title: "Région DACH", desc: "Allemagne, Autriche, Suisse — marché initial avec 120+ cliniques partenaires.", status: "Actif" },
+        { phase: "Phase 2", title: "Expansion UE", desc: "Déploiement Europe de l'Ouest avec conformité et support linguistique localisés.", status: "2025" },
+        { phase: "Phase 3", title: "Entrée Asie", desc: "Entrée sur le marché asiatique via des partenariats stratégiques et infrastructure locale.", status: "2026" },
+        { phase: "Phase 4", title: "Échelle Mondiale", desc: "Amérique du Nord, Moyen-Orient — déploiement complet de l'infrastructure internationale.", status: "2027+" },
+      ],
+    },
+    kpis: {
+      label: "KPIs", title: "Indicateurs Clés de Performance",
+      items: [
+        { label: "Croissance MRR", value: "+24%", sub: "Mois après Mois" },
+        { label: "Fidélisation Cliniques", value: "94%", sub: "Taux Annuel" },
+        { label: "Retour CAC", value: "4,2 mois", sub: "Moyenne" },
+        { label: "Ratio LTV:CAC", value: "8,4x", sub: "Actuel" },
+        { label: "Marge Brute", value: "78%", sub: "Revenus Plateforme" },
+        { label: "Score NPS", value: "72", sub: "Cliniques Partenaires" },
+      ],
+    },
+    expansion: {
+      label: "Expansion", title: "Pipeline d'Expansion Mondiale",
+      tableHeaders: { region: "Région", clinics: "Cliniques", status: "Statut", growth: "Croissance" },
+      items: [
+        { region: "DACH", clinics: "120+", status: "Live", growth: "+18%" },
+        { region: "UE Ouest", clinics: "Planifié", status: "S2 2025", growth: "—" },
+        { region: "Asie", clinics: "Pipeline", status: "2026", growth: "—" },
+        { region: "Amérique du Nord", clinics: "Pipeline", status: "2027", growth: "—" },
+      ],
+      cta: "Demander le Deck Investisseur",
+    },
+  },
+
+  partnersPage: {
+    hero: { label: "Partenaires Stratégiques", title1: "Construire l'Avenir de", title2: "la Dentisterie Ensemble", desc: "Rejoignez l'écosystème DentoPoint en tant que partenaire stratégique. Alliances technologiques, santé, académiques et industrielles pour l'innovation." },
+    technology: {
+      label: "Technologie", title: "Partenaires Technologiques",
+      items: [
+        { title: "Intégration PMS", desc: "Connexion transparente à tous les systèmes de gestion de cabinet via des APIs standardisées." },
+        { title: "Cloud & Sécurité", desc: "Infrastructure cloud certifiée ISO 27001 avec chiffrement de bout en bout." },
+        { title: "Plateforme IoT", desc: "Écosystème hardware Smart Care Module avec traitement de données en temps réel." },
+        { title: "Interopérabilité", desc: "Standards de données conformes HL7 FHIR et GS1 pour une compatibilité maximale." },
+      ],
+    },
+    healthcare: {
+      label: "Santé", title: "Réseaux de Santé",
+      items: [
+        { title: "Chaînes de Cliniques", desc: "Partenariats avec les principales chaînes de cliniques dentaires en région DACH et Europe." },
+        { title: "Assureurs", desc: "Intégration des programmes de suivi dans les prestations d'assurance et systèmes bonus." },
+        { title: "Associations Professionnelles", desc: "Collaboration avec les sociétés professionnelles dentaires pour les standards de qualité." },
+        { title: "Télémédecine", desc: "Modules de suivi télémédical pour les patients distants et les régions rurales." },
+      ],
+    },
+    academic: {
+      label: "Académique", title: "Partenaires Académiques",
+      items: [
+        { title: "Cliniques Universitaires", desc: "Collaborations de recherche avec les principales facultés dentaires en Europe." },
+        { title: "Études Cliniques", desc: "Validation basée sur les preuves des protocoles de suivi DentoPoint." },
+        { title: "Éducation & Formation", desc: "Intégration dans les cursus dentaires et programmes de formation continue." },
+        { title: "Publications", desc: "Publications scientifiques conjointes et contributions aux conférences." },
+      ],
+    },
+    industry: {
+      label: "Industrie", title: "Alliances Industrielles",
+      benefits: [
+        "Partenariats de distribution exclusifs avec les principaux fabricants dentaires",
+        "Intégration de produits pharmaceutiques de suivi",
+        "Partenariats avec des entreprises medtech pour l'innovation",
+        "Co-définition des standards industriels pour le suivi numérique",
+        "Co-marketing et développement conjoint du marché",
+        "R&D partagée pour les produits de nouvelle génération",
+      ],
+      cardTitle: "Devenir Partenaire",
+      cardDesc: "Rejoignez l'écosystème DentoPoint et contribuez à façonner l'avenir du suivi thérapeutique dentaire.",
+      cardCta: "Nous Contacter",
+    },
+    global: {
+      label: "Global", title: "Expansion Mondiale",
+      tableHeaders: { region: "Région", status: "Statut", description: "Description" },
+      items: [
+        { region: "DACH", status: "Live", desc: "Marché principal avec forte pénétration" },
+        { region: "UE (France, Benelux, Scandinavie)", status: "2025", desc: "Déploiement dans d'autres marchés UE" },
+        { region: "Asie-Pacifique (Chine, Corée du Sud, Japon)", status: "2026", desc: "Entrée via joint ventures" },
+        { region: "Moyen-Orient (EAU, Arabie Saoudite)", status: "2027", desc: "Marchés dentaires premium" },
+      ],
+    },
+  },
+
+  loginPage: {
+    checkEmail: "Vérifiez votre e-mail",
+    magicLinkSent: "Nous avons envoyé un lien magique à",
+    clickToSignIn: "Cliquez sur le lien pour vous connecter.",
+    signInTitle: "Connectez-vous à votre portail",
+    signInDesc: "Entrez votre e-mail pour recevoir un lien magique.",
+    emailLabel: "E-Mail",
+    emailPlaceholder: "nom@clinique.fr",
+    sending: "Envoi en cours...",
+    sendMagicLink: "Envoyer le Lien Magique",
+    backToPlatform: "← Retour à la Plateforme",
+  },
+
+  notFoundPage: {
+    title: "404",
+    message: "Page non trouvée",
+    backLink: "Retour à l'accueil",
+  },
+
+  heroSignup: {
+    dialogDesc: "Connectez-vous avec votre e-mail professionnel pour accéder au portail.",
+    emailSent: "E-mail envoyé",
+    magicLinkSentTo: "Nous avons envoyé un lien magique à",
+    clickToSignIn: "Cliquez sur le lien pour vous connecter.",
+    businessEmail: "E-mail Professionnel",
+    placeholder: "nom@entreprise.fr",
+    confirmCheckbox: "Je confirme que j'agis au nom d'une personne morale (entreprise).",
+    confirmError: "Veuillez confirmer que vous représentez une personne morale.",
+    sending: "Envoi en cours...",
+    sendMagicLink: "Envoyer le Lien Magique",
+  },
+
+  patients: {
+    label: "Pour les Patients",
+    title: "Votre Suivi, Simplifié",
+    desc: "Une approche calme et structurée du suivi dentaire — vous connectant aux bons produits et programmes via le réseau de soins de votre clinique.",
+    items: [
+      { title: "Programmes de Suivi", desc: "Protocoles de suivi structurés adaptés à votre traitement." },
+      { title: "Catégories de Produits", desc: "Produits de soins dentaires sélectionnés selon les recommandations cliniques." },
+      { title: "Adhésion Numérique", desc: "Accédez à votre réseau de soins avec un profil d'adhésion numérique sécurisé." },
+      { title: "Intégration QR", desc: "Accès instantané aux produits et programmes via les codes QR en clinique." },
+      { title: "Recommandations de Précision", desc: "Suggestions de suivi guidées par l'IA basées sur votre historique de traitement." },
+      { title: "Suivi Structuré", desc: "Rappels automatisés de rendez-vous et de soins pour des résultats optimaux." },
+    ],
+  },
 };

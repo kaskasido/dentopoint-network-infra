@@ -165,4 +165,239 @@ export const cn = {
     copyright: "© {year} DentoPoint® — 治疗护理网络。保留所有权利。",
     tagline: "医疗基础设施生态系统 · 欧盟与亚洲",
   },
+
+  clinicsPage: {
+    hero: { label: "诊所专区", title1: "转变您的", title2: "术后护理收入", desc: "将DentoPoint集成到您的诊所工作流程中。新收入来源、更好的患者效果和完整的法规合规——开箱即用。" },
+    revenue: {
+      label: "收入", title: "新收入来源",
+      items: [
+        { title: "术后护理收入", desc: "通过为患者提供结构化的治疗护理计划产生经常性收入。" },
+        { title: "产品佣金", desc: "通过DentoPoint平台订购的推荐护理产品赚取佣金。" },
+        { title: "患者留存", desc: "通过护理网络的持续互动提升患者终身价值。" },
+        { title: "节省时间", desc: "自动化术后护理调度和跟进将管理开销减少60%。" },
+      ],
+    },
+    implementation: {
+      label: "实施", title: "快速简便设置",
+      items: [
+        { title: "集成设置", desc: "连接您的诊所管理系统——我们支持所有主要的PMS平台。", duration: "1-2天" },
+        { title: "智能护理模块", desc: "在您的诊所进行物理模块安装和产品配置。", duration: "1天" },
+        { title: "团队培训", desc: "关于平台使用和患者沟通的团队培训课程。", duration: "半天" },
+        { title: "正式上线", desc: "与首批患者一起启动，DentoPoint合作伙伴管理团队持续支持。", duration: "持续" },
+      ],
+    },
+    workflow: {
+      label: "工作流程", title: "优化的诊所工作流程",
+      benefits: [
+        "自动化患者术后护理调度",
+        "数字化护理计划生成",
+        "智能产品推荐",
+        "患者沟通自动化",
+        "治疗文档导出",
+        "多院区管理仪表板",
+      ],
+      cardTitle: "集成诊所管理",
+      cardDesc: "将DentoPoint与您现有的PMS连接。所有术后护理工作流程、患者数据和产品管理集于一处。",
+      cardCta: "预约演示",
+    },
+    compliance: {
+      label: "合规", title: "法规合规",
+      items: [
+        { title: "GDPR合规", desc: "完全符合欧盟数据保护要求，加密患者数据存储和处理。" },
+        { title: "MDR认证", desc: "所有集成护理产品和模块符合医疗器械法规。" },
+        { title: "ISO 27001", desc: "数据处理和基础设施的信息安全管理认证。" },
+        { title: "审计跟踪", desc: "所有患者互动、产品推荐和数据访问的完整审计日志。" },
+      ],
+    },
+  },
+
+  manufacturersPage: {
+    hero: { label: "制造商专区", title1: "集成到", title2: "护理网络", desc: "将您的产品直接连接到治疗护理生态系统。从集成到分销——一切通过一个平台。" },
+    integration: {
+      label: "集成", title: "无缝系统集成",
+      items: [
+        { title: "API优先架构", desc: "用于产品目录和库存无缝集成的RESTful和实时API。" },
+        { title: "认证入驻", desc: "带有合规检查和质量验证的结构化合作伙伴入驻。" },
+        { title: "即插即用模块", desc: "为ERP、PIM和物流系统提供的预构建集成模块。" },
+        { title: "多市场就绪", desc: "通过本地化配置同时在欧盟和亚洲市场部署。" },
+      ],
+    },
+    data: {
+      label: "数据", title: "数据基础设施与标准",
+      items: [
+        { label: "产品数据同步", value: "实时" },
+        { label: "库存准确性", value: "99.8%" },
+        { label: "订单处理", value: "<2分钟" },
+        { label: "数据格式", value: "GS1 / HL7" },
+      ],
+    },
+    performance: {
+      label: "性能", title: "网络性能指标",
+      items: [
+        { label: "网络覆盖", value: "420+", sub: "已连接诊所" },
+        { label: "产品可见度", value: "3.2倍", sub: "对比传统渠道" },
+        { label: "复购率", value: "67%", sub: "自动补货" },
+        { label: "上市时间", value: "14天", sub: "平均入驻时间" },
+      ],
+    },
+    distribution: {
+      label: "分销", title: "直接分销渠道",
+      benefits: [
+        "直达诊所的交付基础设施",
+        "需求驱动的库存管理",
+        "区域仓储合作伙伴关系",
+        "跨境物流（欧盟 ↔ 亚洲）",
+        "白标包装选项",
+        "合规就绪的文档",
+      ],
+      cardTitle: "供应链集成",
+      cardDesc: "从制造商到诊所的端到端可见性——自动化订单、跟踪和合规文档。",
+      cardCta: "成为合作伙伴",
+    },
+  },
+
+  investorsPage: {
+    hero: { label: "投资者专区", title1: "投资医疗", title2: "基础设施", desc: "面向120亿欧元以上牙科术后护理市场的可扩展数字基础设施。透明的KPI、经过验证的单位经济学和全球扩展路线图。" },
+    market: {
+      label: "市场", title: "市场机会",
+      items: [
+        { title: "120亿欧元+可寻址市场", desc: "仅欧洲的牙科术后护理市场就代表着一个巨大的、未被充分开发的机会。" },
+        { title: "3.8亿+潜在患者", desc: "欧盟和亚洲市场合计——对结构化治疗护理的需求不断增长。" },
+        { title: "经常性收入模式", desc: "来自诊所、制造商和护理产品的订阅+交易收入。" },
+        { title: "先发优势", desc: "不存在可比的结构化牙科治疗护理数字基础设施。" },
+      ],
+    },
+    scaling: {
+      label: "扩展", title: "扩展路线图",
+      items: [
+        { phase: "第一阶段", title: "DACH地区", desc: "德国、奥地利、瑞士——拥有120+合作诊所的初始市场。", status: "活跃" },
+        { phase: "第二阶段", title: "欧盟扩展", desc: "西欧推广，本地化合规和语言支持。", status: "2025" },
+        { phase: "第三阶段", title: "亚洲进入", desc: "通过战略合作伙伴关系和本地基础设施进入亚洲市场。", status: "2026" },
+        { phase: "第四阶段", title: "全球规模", desc: "北美、中东——完整的国际基础设施部署。", status: "2027+" },
+      ],
+    },
+    kpis: {
+      label: "KPI", title: "关键绩效指标",
+      items: [
+        { label: "MRR增长", value: "+24%", sub: "月环比" },
+        { label: "诊所留存率", value: "94%", sub: "年度率" },
+        { label: "CAC回收期", value: "4.2个月", sub: "平均" },
+        { label: "LTV:CAC比率", value: "8.4倍", sub: "当前" },
+        { label: "毛利率", value: "78%", sub: "平台收入" },
+        { label: "NPS评分", value: "72", sub: "合作诊所" },
+      ],
+    },
+    expansion: {
+      label: "扩展", title: "全球扩展管线",
+      tableHeaders: { region: "地区", clinics: "诊所", status: "状态", growth: "增长" },
+      items: [
+        { region: "DACH", clinics: "120+", status: "已上线", growth: "+18%" },
+        { region: "西欧", clinics: "计划中", status: "2025年下半年", growth: "—" },
+        { region: "亚洲", clinics: "管线", status: "2026", growth: "—" },
+        { region: "北美", clinics: "管线", status: "2027", growth: "—" },
+      ],
+      cta: "申请投资者资料",
+    },
+  },
+
+  partnersPage: {
+    hero: { label: "战略合作伙伴", title1: "共同构建", title2: "牙科护理的未来", desc: "作为战略合作伙伴加入DentoPoint生态系统。技术、医疗、学术和行业联盟推动治疗护理创新。" },
+    technology: {
+      label: "技术", title: "技术合作伙伴",
+      items: [
+        { title: "PMS集成", desc: "通过标准化API无缝连接所有领先的诊所管理系统。" },
+        { title: "云与安全", desc: "ISO 27001认证的云基础设施，端到端加密。" },
+        { title: "物联网平台", desc: "具有实时数据处理功能的智能护理模块硬件生态系统。" },
+        { title: "互操作性", desc: "符合HL7 FHIR和GS1的数据标准，实现最大兼容性。" },
+      ],
+    },
+    healthcare: {
+      label: "医疗", title: "医疗网络",
+      items: [
+        { title: "连锁诊所", desc: "与DACH地区和欧洲领先的牙科连锁诊所建立合作伙伴关系。" },
+        { title: "保险提供商", desc: "将术后护理计划整合到保险福利和奖励方案中。" },
+        { title: "专业协会", desc: "与牙科专业协会合作制定质量标准。" },
+        { title: "远程医疗", desc: "为远程患者和农村地区提供远程医疗术后护理模块。" },
+      ],
+    },
+    academic: {
+      label: "学术", title: "学术合作伙伴",
+      items: [
+        { title: "大学诊所", desc: "与欧洲领先的牙科院系进行研究合作。" },
+        { title: "临床研究", desc: "对DentoPoint术后护理方案的循证验证。" },
+        { title: "教育与培训", desc: "纳入牙科课程和继续教育计划。" },
+        { title: "出版物", desc: "联合科学出版物和会议贡献。" },
+      ],
+    },
+    industry: {
+      label: "行业", title: "行业联盟",
+      benefits: [
+        "与领先牙科制造商的独家分销合作",
+        "整合药品术后护理产品",
+        "与医疗技术公司合作进行设备创新",
+        "共同塑造数字术后护理行业标准",
+        "联合营销和市场开发",
+        "共享下一代产品研发",
+      ],
+      cardTitle: "成为合作伙伴",
+      cardDesc: "加入DentoPoint生态系统，共同塑造牙科治疗术后护理的未来。",
+      cardCta: "联系我们",
+    },
+    global: {
+      label: "全球", title: "全球扩展",
+      tableHeaders: { region: "地区", status: "状态", description: "描述" },
+      items: [
+        { region: "DACH", status: "已上线", desc: "具有强劲市场渗透率的核心市场" },
+        { region: "欧盟（法国、比荷卢、斯堪的纳维亚）", status: "2025", desc: "向更多欧盟市场推广" },
+        { region: "亚太（中国、韩国、日本）", status: "2026", desc: "通过合资企业进入市场" },
+        { region: "中东（阿联酋、沙特阿拉伯）", status: "2027", desc: "高端牙科市场" },
+      ],
+    },
+  },
+
+  loginPage: {
+    checkEmail: "请查收邮件",
+    magicLinkSent: "我们已向以下地址发送了魔法链接：",
+    clickToSignIn: "点击链接登录。",
+    signInTitle: "登录您的门户",
+    signInDesc: "输入您的邮箱以接收魔法链接。",
+    emailLabel: "邮箱",
+    emailPlaceholder: "名字@诊所.com",
+    sending: "发送中...",
+    sendMagicLink: "发送魔法链接",
+    backToPlatform: "← 返回平台",
+  },
+
+  notFoundPage: {
+    title: "404",
+    message: "页面未找到",
+    backLink: "返回首页",
+  },
+
+  heroSignup: {
+    dialogDesc: "使用您的商务邮箱登录以访问门户。",
+    emailSent: "邮件已发送",
+    magicLinkSentTo: "我们已向以下地址发送了魔法链接：",
+    clickToSignIn: "点击链接登录。",
+    businessEmail: "商务邮箱",
+    placeholder: "名字@公司.com",
+    confirmCheckbox: "我确认我代表法人实体（公司）行事。",
+    confirmError: "请确认您代表法人实体。",
+    sending: "发送中...",
+    sendMagicLink: "发送魔法链接",
+  },
+
+  patients: {
+    label: "患者专区",
+    title: "您的术后护理，更简单",
+    desc: "一种平和、结构化的牙科术后护理方式——通过诊所的护理网络将您与正确的产品和计划连接。",
+    items: [
+      { title: "术后护理计划", desc: "根据您的治疗量身定制的结构化随访方案。" },
+      { title: "产品类别", desc: "根据临床建议精选的牙科护理产品。" },
+      { title: "数字会员", desc: "使用安全的数字会员档案访问您的护理网络。" },
+      { title: "QR集成", desc: "通过诊所内QR码即时访问产品和计划。" },
+      { title: "精准推荐", desc: "基于您的治疗历史的AI引导术后护理建议。" },
+      { title: "结构化随访", desc: "自动化的预约和护理提醒，实现最佳效果。" },
+    ],
+  },
 };

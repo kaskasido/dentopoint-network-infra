@@ -3,12 +3,15 @@ import { supabase } from "@/integrations/supabase/client";
 import { Link } from "react-router-dom";
 import logo from "@/assets/dentopoint-logo.png";
 import { Mail, ArrowRight, CheckCircle } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
+  const { t } = useLanguage();
+  const p = t.loginPage;
 
   const handleMagicLink = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -40,51 +43,27 @@ const Login = () => {
           {sent ? (
             <div className="text-center">
               <CheckCircle size={48} className="text-accent mx-auto mb-4" />
-              <h2 className="font-display text-xl font-bold text-foreground mb-2">
-                Check your email
-              </h2>
+              <h2 className="font-display text-xl font-bold text-foreground mb-2">{p.checkEmail}</h2>
               <p className="text-sm text-muted-foreground">
-                We sent a magic link to <strong>{email}</strong>. Click the link to sign in.
+                {p.magicLinkSent} <strong>{email}</strong>. {p.clickToSignIn}
               </p>
             </div>
           ) : (
             <>
-              <h2 className="font-display text-2xl font-bold text-foreground mb-2">
-                Sign in to your portal
-              </h2>
-              <p className="text-sm text-muted-foreground mb-8">
-                Enter your email to receive a magic link.
-              </p>
+              <h2 className="font-display text-2xl font-bold text-foreground mb-2">{p.signInTitle}</h2>
+              <p className="text-sm text-muted-foreground mb-8">{p.signInDesc}</p>
 
               <form onSubmit={handleMagicLink} className="space-y-4">
                 <div>
-                  <label htmlFor="email" className="text-sm font-medium text-foreground mb-1.5 block">
-                    Email
-                  </label>
+                  <label htmlFor="email" className="text-sm font-medium text-foreground mb-1.5 block">{p.emailLabel}</label>
                   <div className="relative">
                     <Mail size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-                    <input
-                      id="email"
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="name@clinic.com"
-                      required
-                      className="w-full pl-10 pr-4 py-2.5 rounded-md border border-input bg-background text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                    />
+                    <input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder={p.emailPlaceholder} required className="w-full pl-10 pr-4 py-2.5 rounded-md border border-input bg-background text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring" />
                   </div>
                 </div>
-
-                {error && (
-                  <p className="text-sm text-destructive">{error}</p>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full flex items-center justify-center gap-2 bg-gradient-brand text-primary-foreground py-2.5 rounded-md text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-50"
-                >
-                  {loading ? "Sending..." : "Send Magic Link"}
+                {error && <p className="text-sm text-destructive">{error}</p>}
+                <button type="submit" disabled={loading} className="w-full flex items-center justify-center gap-2 bg-gradient-brand text-primary-foreground py-2.5 rounded-md text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-50">
+                  {loading ? p.sending : p.sendMagicLink}
                   <ArrowRight size={16} />
                 </button>
               </form>
@@ -93,9 +72,7 @@ const Login = () => {
         </div>
 
         <p className="text-center text-xs text-muted-foreground mt-6">
-          <Link to="/" className="hover:text-primary transition-colors">
-            ← Back to Platform
-          </Link>
+          <Link to="/" className="hover:text-primary transition-colors">{p.backToPlatform}</Link>
         </p>
       </div>
     </div>

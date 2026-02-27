@@ -184,4 +184,247 @@ export const en = {
     copyright: "© {year} DentoPoint® — Therapeutic Care Network. All rights reserved.",
     tagline: "Medical Infrastructure Ecosystem · EU & Asia",
   },
+
+  // Clinics Page
+  clinicsPage: {
+    hero: { label: "For Clinics", title1: "Transform Your", title2: "Aftercare Revenue", desc: "Integrate DentoPoint into your clinic workflow. New revenue streams, better patient outcomes, and full regulatory compliance — out of the box." },
+    revenue: {
+      label: "Revenue", title: "New Revenue Streams",
+      items: [
+        { title: "Aftercare Revenue", desc: "Generate recurring income through structured therapeutic care programs for your patients." },
+        { title: "Product Commissions", desc: "Earn commissions on recommended care products ordered through the DentoPoint platform." },
+        { title: "Patient Retention", desc: "Increase patient lifetime value with continuous engagement through the care network." },
+        { title: "Time Savings", desc: "Automated aftercare scheduling and follow-ups reduce administrative overhead by 60%." },
+      ],
+    },
+    implementation: {
+      label: "Implementation", title: "Quick & Easy Setup",
+      items: [
+        { title: "Integration Setup", desc: "Connect your practice management system — we support all major PMS platforms.", duration: "1-2 days" },
+        { title: "Smart Care Module", desc: "Physical module installation in your practice with product configuration.", duration: "1 day" },
+        { title: "Team Training", desc: "Onboarding session for your team on platform usage and patient communication.", duration: "Half day" },
+        { title: "Go Live", desc: "Launch with first patients and ongoing support from DentoPoint partner management.", duration: "Ongoing" },
+      ],
+    },
+    workflow: {
+      label: "Workflow", title: "Streamlined Clinic Workflow",
+      benefits: [
+        "Automated patient aftercare scheduling",
+        "Digital care plan generation",
+        "Smart product recommendations",
+        "Patient communication automation",
+        "Treatment documentation export",
+        "Multi-location management dashboard",
+      ],
+      cardTitle: "Integrated Practice Management",
+      cardDesc: "Connect DentoPoint with your existing PMS. All aftercare workflows, patient data, and product management in one place.",
+      cardCta: "Schedule a Demo",
+    },
+    compliance: {
+      label: "Compliance", title: "Regulatory Compliance",
+      items: [
+        { title: "GDPR Compliant", desc: "Full EU data protection compliance with encrypted patient data storage and processing." },
+        { title: "MDR Certified", desc: "Medical Device Regulation compliance for all integrated care products and modules." },
+        { title: "ISO 27001", desc: "Information security management certification for data handling and infrastructure." },
+        { title: "Audit Trail", desc: "Complete audit logging for all patient interactions, product recommendations, and data access." },
+      ],
+    },
+  },
+
+  // Manufacturers Page
+  manufacturersPage: {
+    hero: { label: "For Manufacturers", title1: "Integrated into the", title2: "Care Network", desc: "Connect your products directly to the therapeutic care ecosystem. From integration to distribution — everything through one platform." },
+    integration: {
+      label: "Integration", title: "Seamless System Integration",
+      items: [
+        { title: "API-First Architecture", desc: "RESTful and real-time APIs for seamless product catalog and inventory integration." },
+        { title: "Certified Onboarding", desc: "Structured partner onboarding with compliance checks and quality validation." },
+        { title: "Plug & Play Modules", desc: "Pre-built integration modules for ERP, PIM, and logistics systems." },
+        { title: "Multi-Market Ready", desc: "Simultaneous deployment across EU and Asian markets with localised configurations." },
+      ],
+    },
+    data: {
+      label: "Data", title: "Data Infrastructure & Standards",
+      items: [
+        { label: "Product Data Synced", value: "Real-time" },
+        { label: "Inventory Accuracy", value: "99.8%" },
+        { label: "Order Processing", value: "<2 min" },
+        { label: "Data Formats", value: "GS1 / HL7" },
+      ],
+    },
+    performance: {
+      label: "Performance", title: "Network Performance Metrics",
+      items: [
+        { label: "Network Reach", value: "420+", sub: "Connected Clinics" },
+        { label: "Product Visibility", value: "3.2x", sub: "vs. Traditional Channels" },
+        { label: "Reorder Rate", value: "67%", sub: "Automated Replenishment" },
+        { label: "Time to Market", value: "14 days", sub: "Average Onboarding" },
+      ],
+    },
+    distribution: {
+      label: "Distribution", title: "Direct Distribution Channels",
+      benefits: [
+        "Direct-to-Clinic delivery infrastructure",
+        "Demand-driven inventory management",
+        "Regional warehousing partnerships",
+        "Cross-border logistics (EU ↔ Asia)",
+        "White-label packaging options",
+        "Compliance-ready documentation",
+      ],
+      cardTitle: "Supply Chain Integration",
+      cardDesc: "End-to-end visibility from manufacturer to clinic — automated ordering, tracking, and compliance documentation.",
+      cardCta: "Become a Partner",
+    },
+  },
+
+  // Investors Page
+  investorsPage: {
+    hero: { label: "For Investors", title1: "Invest in Healthcare", title2: "Infrastructure", desc: "Scalable digital infrastructure for the €12B+ dental aftercare market. Transparent KPIs, proven unit economics, and global expansion roadmap." },
+    market: {
+      label: "Market", title: "Market Opportunity",
+      items: [
+        { title: "€12B+ Addressable Market", desc: "The dental aftercare market in Europe alone represents a massive, underserved opportunity." },
+        { title: "380M+ Potential Patients", desc: "EU and Asian markets combined — growing demand for structured therapeutic aftercare." },
+        { title: "Recurring Revenue Model", desc: "Subscription + transaction-based revenue from clinics, manufacturers, and care products." },
+        { title: "First-Mover Advantage", desc: "No comparable digital infrastructure for structured dental therapeutic care exists." },
+      ],
+    },
+    scaling: {
+      label: "Scaling", title: "Scaling Roadmap",
+      items: [
+        { phase: "Phase 1", title: "DACH Region", desc: "Germany, Austria, Switzerland — initial market with 120+ partner clinics.", status: "Active" },
+        { phase: "Phase 2", title: "EU Expansion", desc: "Western Europe rollout with localised compliance and language support.", status: "2025" },
+        { phase: "Phase 3", title: "Asia Entry", desc: "Asia market entry through strategic partnerships and local infrastructure.", status: "2026" },
+        { phase: "Phase 4", title: "Global Scale", desc: "North America, Middle East — full international infrastructure deployment.", status: "2027+" },
+      ],
+    },
+    kpis: {
+      label: "KPIs", title: "Key Performance Indicators",
+      items: [
+        { label: "MRR Growth", value: "+24%", sub: "Month over Month" },
+        { label: "Clinic Retention", value: "94%", sub: "Annual Rate" },
+        { label: "CAC Payback", value: "4.2 mo", sub: "Average" },
+        { label: "LTV:CAC Ratio", value: "8.4x", sub: "Current" },
+        { label: "Gross Margin", value: "78%", sub: "Platform Revenue" },
+        { label: "NPS Score", value: "72", sub: "Partner Clinics" },
+      ],
+    },
+    expansion: {
+      label: "Expansion", title: "Global Expansion Pipeline",
+      tableHeaders: { region: "Region", clinics: "Clinics", status: "Status", growth: "Growth" },
+      items: [
+        { region: "DACH", clinics: "120+", status: "Live", growth: "+18%" },
+        { region: "Western EU", clinics: "Planned", status: "H2 2025", growth: "—" },
+        { region: "Asia", clinics: "Pipeline", status: "2026", growth: "—" },
+        { region: "North America", clinics: "Pipeline", status: "2027", growth: "—" },
+      ],
+      cta: "Request Investor Deck",
+    },
+  },
+
+  // Partners Page
+  partnersPage: {
+    hero: { label: "Strategic Partners", title1: "Build the Future of", title2: "Dental Care Together", desc: "Join the DentoPoint ecosystem as a strategic partner. Technology, healthcare, academic, and industry alliances driving innovation in therapeutic aftercare." },
+    technology: {
+      label: "Technology", title: "Technology Partners",
+      items: [
+        { title: "PMS Integration", desc: "Seamless connection to all leading practice management systems via standardised APIs." },
+        { title: "Cloud & Security", desc: "ISO 27001-certified cloud infrastructure with end-to-end encryption." },
+        { title: "IoT Platform", desc: "Smart Care Module hardware ecosystem with real-time data processing." },
+        { title: "Interoperability", desc: "HL7 FHIR and GS1-compliant data standards for maximum compatibility." },
+      ],
+    },
+    healthcare: {
+      label: "Healthcare", title: "Healthcare Networks",
+      items: [
+        { title: "Clinic Chains", desc: "Partnerships with leading dental clinic chains across the DACH region and Europe." },
+        { title: "Insurance Providers", desc: "Integration of aftercare programmes into insurance benefits and bonus schemes." },
+        { title: "Professional Associations", desc: "Collaboration with dental professional societies for quality standards." },
+        { title: "Telemedicine", desc: "Telemedical aftercare modules for remote patients and rural regions." },
+      ],
+    },
+    academic: {
+      label: "Academic", title: "Academic Partners",
+      items: [
+        { title: "University Clinics", desc: "Research collaborations with leading dental faculties across Europe." },
+        { title: "Clinical Studies", desc: "Evidence-based validation of DentoPoint aftercare protocols." },
+        { title: "Education & Training", desc: "Integration into dental curricula and continuing education programmes." },
+        { title: "Publications", desc: "Joint scientific publications and conference contributions." },
+      ],
+    },
+    industry: {
+      label: "Industry", title: "Industry Alliances",
+      benefits: [
+        "Exclusive distribution partnerships with leading dental manufacturers",
+        "Integration of pharmaceutical aftercare products",
+        "Partnerships with medtech companies for device innovation",
+        "Co-shaping industry standards for digital aftercare",
+        "Co-marketing and joint market development",
+        "Shared R&D for next-generation products",
+      ],
+      cardTitle: "Become a Partner",
+      cardDesc: "Join the DentoPoint ecosystem and help shape the future of dental therapeutic aftercare together.",
+      cardCta: "Get in Touch",
+    },
+    global: {
+      label: "Global", title: "Global Expansion",
+      tableHeaders: { region: "Region", status: "Status", description: "Description" },
+      items: [
+        { region: "DACH", status: "Live", desc: "Core market with strong market penetration" },
+        { region: "EU (France, Benelux, Scandinavia)", status: "2025", desc: "Rollout into additional EU markets" },
+        { region: "Asia-Pacific (China, South Korea, Japan)", status: "2026", desc: "Market entry via joint ventures" },
+        { region: "Middle East (UAE, Saudi Arabia)", status: "2027", desc: "Premium dental markets" },
+      ],
+    },
+  },
+
+  // Login Page
+  loginPage: {
+    checkEmail: "Check your email",
+    magicLinkSent: "We sent a magic link to",
+    clickToSignIn: "Click the link to sign in.",
+    signInTitle: "Sign in to your portal",
+    signInDesc: "Enter your email to receive a magic link.",
+    emailLabel: "Email",
+    emailPlaceholder: "name@clinic.com",
+    sending: "Sending...",
+    sendMagicLink: "Send Magic Link",
+    backToPlatform: "← Back to Platform",
+  },
+
+  // NotFound Page
+  notFoundPage: {
+    title: "404",
+    message: "Oops! Page not found",
+    backLink: "Return to Home",
+  },
+
+  // HeroSignupDialog
+  heroSignup: {
+    dialogDesc: "Sign in with your business email to access the portal.",
+    emailSent: "Email sent",
+    magicLinkSentTo: "We sent a magic link to",
+    clickToSignIn: "Click the link to sign in.",
+    businessEmail: "Business Email",
+    placeholder: "name@company.com",
+    confirmCheckbox: "I confirm that I am acting on behalf of a legal entity (company).",
+    confirmError: "Please confirm that you represent a legal entity.",
+    sending: "Sending...",
+    sendMagicLink: "Send Magic Link",
+  },
+
+  // Patients Section
+  patients: {
+    label: "For Patients",
+    title: "Your Aftercare, Simplified",
+    desc: "A calm, structured approach to dental aftercare — connecting you to the right products and programs through your clinic's care network.",
+    items: [
+      { title: "Aftercare Programs", desc: "Structured follow-up protocols tailored to your treatment." },
+      { title: "Product Categories", desc: "Curated dental care products matched to clinical recommendations." },
+      { title: "Digital Membership", desc: "Access your care network with a secure digital membership profile." },
+      { title: "QR Integration", desc: "Instant access to products and programs via in-clinic QR codes." },
+      { title: "Precision Recommendations", desc: "AI-guided aftercare suggestions based on your treatment history." },
+      { title: "Structured Follow-Up", desc: "Automated appointment and care reminders for optimal outcomes." },
+    ],
+  },
 };
