@@ -32,10 +32,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const { data } = await supabase
       .from("user_roles")
       .select("role")
-      .eq("user_id", userId)
-      .limit(1)
-      .single();
-    setRole((data?.role as AppRole) ?? null);
+      .eq("user_id", userId);
+    if (data && data.length > 0) {
+      // Prefer admin role if user has multiple roles
+      const adminRole = data.find((r) => r.role === "admin");
+      setRole((adminRole?.role ?? data[0].role) as AppRole);
+    } else {
+      setRole(null);
+    }
   };
 
   const tryAssignRole = async (userId: string) => {
