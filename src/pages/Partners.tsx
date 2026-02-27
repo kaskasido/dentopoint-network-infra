@@ -3,44 +3,44 @@ import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import {
   Cpu, HeartPulse, GraduationCap, Building2, Globe,
-  ArrowRight, CheckCircle, Shield, Zap, Users, Handshake,
+  ArrowRight, CheckCircle, Shield, Zap, Handshake,
 } from "lucide-react";
 
 const techPartners = [
-  { icon: Cpu, title: "PMS Integration", desc: "Nahtlose Anbindung an alle führenden Praxis-Management-Systeme über standardisierte APIs." },
-  { icon: Shield, title: "Cloud & Security", desc: "ISO 27001-zertifizierte Cloud-Infrastruktur mit End-to-End-Verschlüsselung." },
-  { icon: Zap, title: "IoT Platform", desc: "Smart Care Module Hardware-Ökosystem mit Echtzeit-Datenverarbeitung." },
-  { icon: Globe, title: "Interoperabilität", desc: "HL7 FHIR und GS1-konforme Datenstandards für maximale Kompatibilität." },
+  { icon: Cpu, title: "PMS Integration", desc: "Seamless connection to all leading practice management systems via standardised APIs." },
+  { icon: Shield, title: "Cloud & Security", desc: "ISO 27001-certified cloud infrastructure with end-to-end encryption." },
+  { icon: Zap, title: "IoT Platform", desc: "Smart Care Module hardware ecosystem with real-time data processing." },
+  { icon: Globe, title: "Interoperability", desc: "HL7 FHIR and GS1-compliant data standards for maximum compatibility." },
 ];
 
 const healthcareNetworks = [
-  { title: "Klinikketten", desc: "Partnerschaften mit führenden Dental-Klinikketten in der DACH-Region und Europa." },
-  { title: "Krankenkassen", desc: "Integration von Nachsorge-Programmen in Versicherungsleistungen und Bonusprogramme." },
-  { title: "Fachverbände", desc: "Zusammenarbeit mit zahnmedizinischen Fachgesellschaften für Qualitätsstandards." },
-  { title: "Telemedizin", desc: "Telemedizinische Nachsorge-Module für Remote-Patienten und ländliche Regionen." },
+  { title: "Clinic Chains", desc: "Partnerships with leading dental clinic chains across the DACH region and Europe." },
+  { title: "Insurance Providers", desc: "Integration of aftercare programmes into insurance benefits and bonus schemes." },
+  { title: "Professional Associations", desc: "Collaboration with dental professional societies for quality standards." },
+  { title: "Telemedicine", desc: "Telemedical aftercare modules for remote patients and rural regions." },
 ];
 
 const academicPartners = [
-  { title: "Universitätskliniken", desc: "Forschungskooperationen mit führenden zahnmedizinischen Fakultäten in Europa." },
-  { title: "Klinische Studien", desc: "Evidenzbasierte Validierung der DentoPoint-Nachsorgeprotokolle." },
-  { title: "Lehre & Ausbildung", desc: "Integration in zahnmedizinische Curricula und Fortbildungsprogramme." },
-  { title: "Publikationen", desc: "Gemeinsame wissenschaftliche Veröffentlichungen und Konferenzbeiträge." },
+  { title: "University Clinics", desc: "Research collaborations with leading dental faculties across Europe." },
+  { title: "Clinical Studies", desc: "Evidence-based validation of DentoPoint aftercare protocols." },
+  { title: "Education & Training", desc: "Integration into dental curricula and continuing education programmes." },
+  { title: "Publications", desc: "Joint scientific publications and conference contributions." },
 ];
 
 const industryAlliances = [
-  "Exklusive Vertriebspartnerschaften mit führenden Dental-Herstellern",
-  "Integration pharmazeutischer Nachsorgeprodukte",
-  "Partnerschaften mit Medizintechnik-Unternehmen für Geräteinnovation",
-  "Mitgestaltung von Branchenstandards für digitale Nachsorge",
-  "Co-Marketing und gemeinsame Markterschließung",
-  "Shared R&D für nächste Produktgenerationen",
+  "Exclusive distribution partnerships with leading dental manufacturers",
+  "Integration of pharmaceutical aftercare products",
+  "Partnerships with medtech companies for device innovation",
+  "Co-shaping industry standards for digital aftercare",
+  "Co-marketing and joint market development",
+  "Shared R&D for next-generation products",
 ];
 
 const globalMarkets = [
-  { region: "DACH", status: "Live", desc: "Kernmarkt mit hoher Marktdurchdringung" },
-  { region: "EU (Frankreich, Benelux, Skandinavien)", status: "2025", desc: "Rollout in weitere EU-Märkte" },
-  { region: "Asien-Pazifik (China, Südkorea, Japan)", status: "2026", desc: "Markteintritt über Joint Ventures" },
-  { region: "Naher Osten (UAE, Saudi-Arabien)", status: "2027", desc: "Premium-Dental-Märkte" },
+  { region: "DACH", status: "Live", desc: "Core market with strong market penetration" },
+  { region: "EU (France, Benelux, Scandinavia)", status: "2025", desc: "Rollout into additional EU markets" },
+  { region: "Asia-Pacific (China, South Korea, Japan)", status: "2026", desc: "Market entry via joint ventures" },
+  { region: "Middle East (UAE, Saudi Arabia)", status: "2027", desc: "Premium dental markets" },
 ];
 
 const Partners = () => {
@@ -142,10 +142,10 @@ const Partners = () => {
             </motion.div>
             <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="border border-border rounded-2xl bg-card p-10 shadow-brand">
               <Handshake size={32} className="text-accent mb-6" />
-              <h3 className="font-display text-xl font-bold text-foreground mb-3">Partner werden</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-6">Werden Sie Teil des DentoPoint-Ökosystems und gestalten Sie die Zukunft der zahnmedizinischen Nachsorge mit.</p>
+              <h3 className="font-display text-xl font-bold text-foreground mb-3">Become a Partner</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-6">Join the DentoPoint ecosystem and help shape the future of dental therapeutic aftercare together.</p>
               <a href="/#contact" className="inline-flex items-center gap-2 bg-gradient-brand text-primary-foreground px-6 py-3 rounded-md text-sm font-medium hover:opacity-90 transition-opacity">
-                Kontakt aufnehmen <ArrowRight size={16} />
+                Get in Touch <ArrowRight size={16} />
               </a>
             </motion.div>
           </div>
@@ -167,7 +167,7 @@ const Partners = () => {
                   <tr className="border-b border-border bg-secondary/50">
                     <th className="text-left text-xs font-medium text-muted-foreground uppercase tracking-wider px-6 py-4">Region</th>
                     <th className="text-left text-xs font-medium text-muted-foreground uppercase tracking-wider px-6 py-4">Status</th>
-                    <th className="text-left text-xs font-medium text-muted-foreground uppercase tracking-wider px-6 py-4">Beschreibung</th>
+                    <th className="text-left text-xs font-medium text-muted-foreground uppercase tracking-wider px-6 py-4">Description</th>
                   </tr>
                 </thead>
                 <tbody>
