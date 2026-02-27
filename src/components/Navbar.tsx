@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Menu, X, Globe, ChevronDown, Mail, MapPin } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { Menu, X, Globe, ChevronDown, Mail, MapPin, LogOut } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 import logo from "@/assets/dentopoint-logo.png";
 import { useLanguage, Language } from "@/i18n/LanguageContext";
 import {
@@ -32,6 +33,13 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const { lang, setLang, t } = useLanguage();
+  const { user, signOut } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate("/");
+  };
 
   const navSections = [
     {
@@ -130,12 +138,22 @@ const Navbar = () => {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <Link
-            to="/login"
-            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-          >
-            {t.nav.login}
-          </Link>
+          {user ? (
+            <button
+              onClick={handleSignOut}
+              className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-destructive transition-colors"
+            >
+              <LogOut size={16} />
+              {t.nav.logout}
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+            >
+              {t.nav.login}
+            </Link>
+          )}
           <button
             onClick={() => setContactOpen(true)}
             className="bg-gradient-brand text-primary-foreground px-5 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-opacity"

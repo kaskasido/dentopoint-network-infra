@@ -5,6 +5,7 @@ export const tr = {
     investors: "Yatırımcılar",
     strategicPartners: "Stratejik Ortaklar",
     login: "Giriş",
+    logout: "Çıkış",
     contact: "İletişim",
     contactTitle: "İletişim",
     contactDesc: "DentoPoint ile iletişime geçin",

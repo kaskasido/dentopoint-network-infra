@@ -5,6 +5,7 @@ export const ko = {
     investors: "투자자",
     strategicPartners: "전략적 파트너",
     login: "로그인",
+    logout: "로그아웃",
     contact: "연락처",
     contactTitle: "연락처",
     contactDesc: "DentoPoint에 문의하세요",
