@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Users, Handshake, Factory } from "lucide-react";
+import { Handshake, Factory, TrendingUp } from "lucide-react";
 import NetworkAnimation from "./NetworkAnimation";
 
 const HeroSection = () => {
@@ -49,25 +49,25 @@ const HeroSection = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <a
-            href="#patients"
-            className="inline-flex items-center gap-2 bg-gradient-brand text-primary-foreground px-8 py-3.5 rounded-md font-medium text-sm hover:opacity-90 transition-opacity"
-          >
-            <Users size={18} />
-            For Patients
-          </a>
-          <a
             href="#partners"
-            className="inline-flex items-center gap-2 border border-primary text-primary px-8 py-3.5 rounded-md font-medium text-sm hover:bg-primary hover:text-primary-foreground transition-colors"
+            className="inline-flex items-center gap-2 bg-gradient-brand text-primary-foreground px-8 py-3.5 rounded-md font-medium text-sm hover:opacity-90 transition-opacity"
           >
             <Handshake size={18} />
             For Partners
           </a>
           <a
             href="#manufacturers"
-            className="inline-flex items-center gap-2 border border-border text-foreground px-8 py-3.5 rounded-md font-medium text-sm hover:border-primary hover:text-primary transition-colors"
+            className="inline-flex items-center gap-2 border border-primary text-primary px-8 py-3.5 rounded-md font-medium text-sm hover:bg-primary hover:text-primary-foreground transition-colors"
           >
             <Factory size={18} />
             For Manufacturers
+          </a>
+          <a
+            href="/investors"
+            className="inline-flex items-center gap-2 border border-border text-foreground px-8 py-3.5 rounded-md font-medium text-sm hover:border-primary hover:text-primary transition-colors"
+          >
+            <TrendingUp size={18} />
+            For Investors
           </a>
         </motion.div>
       </div>
