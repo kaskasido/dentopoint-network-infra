@@ -12,6 +12,7 @@ import Clinics from "./pages/Clinics";
 import Partners from "./pages/Partners";
 import Login from "./pages/Login";
 import Impressum from "./pages/Impressum";
+import ResetPassword from "./pages/ResetPassword";
 import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ManufacturerDashboard from "./pages/portal/ManufacturerDashboard";
@@ -34,6 +35,7 @@ const App = () => (
               <Route path="/partners" element={<Partners />} />
               <Route path="/login" element={<Login />} />
               <Route path="/impressum" element={<Impressum />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
               <Route
                 path="/portal/manufacturer/*"
                 element={
