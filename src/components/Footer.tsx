@@ -47,7 +47,7 @@ const Footer = () => {
           <div>
             <h4 className="font-display font-semibold text-sm mb-4 opacity-80">Contact</h4>
             <p className="text-sm opacity-60 leading-relaxed mb-4">
-              info@dentopoint.com
+              info@dentopoint.care
             </p>
 
             <h4 className="font-display font-semibold text-sm mb-3 opacity-80">Language</h4>
