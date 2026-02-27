@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Box, CheckCircle, Database, Package } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const manufacturers = [
   { name: "OralTech GmbH", level: "Full Integration", categories: "Implant Care · Hygiene", data: "Real-time" },
@@ -11,6 +12,8 @@ const manufacturers = [
 ];
 
 const ManufacturersSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="manufacturers" className="py-24 md:py-32 bg-gradient-subtle">
       <div className="container mx-auto px-6">
@@ -22,10 +25,10 @@ const ManufacturersSection = () => {
           className="max-w-3xl mb-16"
         >
           <p className="text-sm font-medium tracking-[0.2em] uppercase text-accent mb-4">
-            For Manufacturers
+            {t.manufacturersSection.label}
           </p>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Integrated into the Care Network
+            {t.manufacturersSection.title}
           </h2>
           <div className="w-12 h-px bg-gradient-brand" />
         </motion.div>
@@ -55,7 +58,7 @@ const ManufacturersSection = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <Database size={14} className="text-accent" />
-                  <span className="text-muted-foreground">Data: {m.data}</span>
+                  <span className="text-muted-foreground">{t.manufacturersSection.dataLabel}: {m.data}</span>
                 </div>
               </div>
             </motion.div>

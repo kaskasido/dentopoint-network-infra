@@ -1,14 +1,12 @@
 import { motion } from "framer-motion";
 import { Globe, ShieldCheck, Handshake, ArrowRightLeft } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
-const points = [
-  { icon: ArrowRightLeft, title: "Dual Map Integration", desc: "Google Maps for EU/Global markets, Gaode/Amap for Asia — automatic region detection." },
-  { icon: ShieldCheck, title: "Local Compliance", desc: "Full regulatory compliance with Asian healthcare data requirements and EU GDPR." },
-  { icon: Handshake, title: "Partner Infrastructure", desc: "Localised partner network with Asian dental clinic chains and manufacturer integrations." },
-  { icon: Globe, title: "Scalable Cross-Border Model", desc: "Architecture designed for seamless EU–Asia operations with multi-currency and multi-language support." },
-];
+const icons = [ArrowRightLeft, ShieldCheck, Handshake, Globe];
 
 const ChinaSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="china" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-6">
@@ -20,36 +18,38 @@ const ChinaSection = () => {
             transition={{ duration: 0.6 }}
           >
             <p className="text-sm font-medium tracking-[0.2em] uppercase text-accent mb-4">
-              International Expansion
+              {t.china.label}
             </p>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Bridging Europe, Asia and the World
+              {t.china.title}
             </h2>
             <div className="w-12 h-px bg-gradient-brand mb-8" />
 
             <div className="space-y-6">
-              {points.map((p, i) => (
-                <motion.div
-                  key={p.title}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className="flex gap-4"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center shrink-0">
-                    <p.icon size={18} className="text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-display font-semibold text-foreground mb-1">{p.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
+              {t.china.points.map((p, i) => {
+                const Icon = icons[i];
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.1 }}
+                    className="flex gap-4"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center shrink-0">
+                      <Icon size={18} className="text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-display font-semibold text-foreground mb-1">{p.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.div>
 
-          {/* Decorative map element */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -58,7 +58,6 @@ const ChinaSection = () => {
             className="relative"
           >
             <div className="aspect-square rounded-2xl border border-border bg-secondary/20 flex items-center justify-center relative overflow-hidden">
-              {/* Abstract connection lines */}
               <svg viewBox="0 0 400 400" className="w-full h-full opacity-20" fill="none">
                 <circle cx="120" cy="180" r="6" fill="hsl(175, 100%, 31%)" />
                 <circle cx="280" cy="200" r="6" fill="hsl(175, 100%, 31%)" />
@@ -73,7 +72,7 @@ const ChinaSection = () => {
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
                   <p className="font-display text-6xl font-bold text-gradient-brand">EU ↔ Asia</p>
-                  <p className="text-sm text-muted-foreground mt-2">Connected Infrastructure</p>
+                  <p className="text-sm text-muted-foreground mt-2">{t.china.connectedInfra}</p>
                 </div>
               </div>
             </div>
