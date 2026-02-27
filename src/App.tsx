@@ -16,6 +16,10 @@ import ResetPassword from "./pages/ResetPassword";
 import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ManufacturerDashboard from "./pages/portal/ManufacturerDashboard";
+import ClinicPortal from "./pages/portal/ClinicPortal";
+import InvestorPortal from "./pages/portal/InvestorPortal";
+import PartnerPortal from "./pages/portal/PartnerPortal";
+import AdminPortal from "./pages/portal/AdminPortal";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +45,38 @@ const App = () => (
                 element={
                   <ProtectedRoute requiredRole="manufacturer">
                     <ManufacturerDashboard />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/portal/clinic/*"
+                element={
+                  <ProtectedRoute requiredRole="clinic">
+                    <ClinicPortal />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/portal/investor/*"
+                element={
+                  <ProtectedRoute requiredRole="investor">
+                    <InvestorPortal />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/portal/partner/*"
+                element={
+                  <ProtectedRoute requiredRole="partner">
+                    <PartnerPortal />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/portal/admin/*"
+                element={
+                  <ProtectedRoute requiredRole="admin">
+                    <AdminPortal />
                   </ProtectedRoute>
                 }
               />
