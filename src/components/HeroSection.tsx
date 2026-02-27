@@ -10,71 +10,12 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import NetworkAnimation from "./NetworkAnimation";
-
-interface DropdownItem {
-  label: string;
-  href: string;
-  icon: LucideIcon;
-}
-
-interface HeroButton {
-  label: string;
-  icon: LucideIcon;
-  items: DropdownItem[];
-  className: string;
-}
-
-const heroButtons: HeroButton[] = [
-  {
-    label: "For Clinics",
-    icon: Handshake,
-    className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
-    items: [
-      { label: "Revenue Streams", href: "/clinics#revenue", icon: Users },
-      { label: "Implementation", href: "/clinics#implementation", icon: ClipboardList },
-      { label: "Clinic Workflow", href: "/clinics#workflow", icon: Stethoscope },
-      { label: "Compliance", href: "/clinics#compliance", icon: ShieldCheck },
-    ],
-  },
-  {
-    label: "For Manufacturers",
-    icon: Factory,
-    className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
-    items: [
-      { label: "System Integration", href: "/manufacturers#integration", icon: Package },
-      { label: "Data & Standards", href: "/manufacturers#data", icon: Globe },
-      { label: "Performance Metrics", href: "/manufacturers#performance", icon: Wrench },
-      { label: "Distribution", href: "/manufacturers#distribution", icon: Award },
-    ],
-  },
-  {
-    label: "For Investors",
-    icon: TrendingUp,
-    className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
-    items: [
-      { label: "Market Opportunity", href: "/investors#markt", icon: BarChart3 },
-      { label: "Scaling Roadmap", href: "/investors#skalierung", icon: LineChart },
-      { label: "KPIs & Metrics", href: "/investors#kpis", icon: PieChart },
-      { label: "Expansion Pipeline", href: "/investors#expansion", icon: Rocket },
-    ],
-  },
-  {
-    label: "Strategic Partners",
-    icon: Star,
-    className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
-    items: [
-      { label: "Technology Partners", href: "/partners#technology", icon: Cpu },
-      { label: "Healthcare Networks", href: "/partners#healthcare", icon: HeartPulse },
-      { label: "Academic Partners", href: "/partners#academic", icon: GraduationCap },
-      { label: "Industry Alliances", href: "/partners#industry", icon: Building2 },
-      { label: "Global Expansion", href: "/partners#global", icon: Globe },
-    ],
-  },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const HeroSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -85,6 +26,54 @@ const HeroSection = () => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  const heroButtons = [
+    {
+      label: t.hero.forClinics,
+      icon: Handshake,
+      className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
+      items: [
+        { label: t.hero.items.revenueStreams, href: "/clinics#revenue", icon: Users },
+        { label: t.hero.items.implementation, href: "/clinics#implementation", icon: ClipboardList },
+        { label: t.hero.items.clinicWorkflow, href: "/clinics#workflow", icon: Stethoscope },
+        { label: t.hero.items.compliance, href: "/clinics#compliance", icon: ShieldCheck },
+      ],
+    },
+    {
+      label: t.hero.forManufacturers,
+      icon: Factory,
+      className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
+      items: [
+        { label: t.hero.items.systemIntegration, href: "/manufacturers#integration", icon: Package },
+        { label: t.hero.items.dataStandards, href: "/manufacturers#data", icon: Globe },
+        { label: t.hero.items.performanceMetrics, href: "/manufacturers#performance", icon: Wrench },
+        { label: t.hero.items.distribution, href: "/manufacturers#distribution", icon: Award },
+      ],
+    },
+    {
+      label: t.hero.forInvestors,
+      icon: TrendingUp,
+      className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
+      items: [
+        { label: t.hero.items.marketOpportunity, href: "/investors#markt", icon: BarChart3 },
+        { label: t.hero.items.scalingRoadmap, href: "/investors#skalierung", icon: LineChart },
+        { label: t.hero.items.kpisMetrics, href: "/investors#kpis", icon: PieChart },
+        { label: t.hero.items.expansionPipeline, href: "/investors#expansion", icon: Rocket },
+      ],
+    },
+    {
+      label: t.hero.strategicPartners,
+      icon: Star,
+      className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
+      items: [
+        { label: t.hero.items.technologyPartners, href: "/partners#technology", icon: Cpu },
+        { label: t.hero.items.healthcareNetworks, href: "/partners#healthcare", icon: HeartPulse },
+        { label: t.hero.items.academicPartners, href: "/partners#academic", icon: GraduationCap },
+        { label: t.hero.items.industryAlliances, href: "/partners#industry", icon: Building2 },
+        { label: t.hero.items.globalExpansion, href: "/partners#global", icon: Globe },
+      ],
+    },
+  ];
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-16">
@@ -106,7 +95,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <p className="text-sm font-medium tracking-[0.3em] uppercase text-accent mb-6">
-            Digital Therapeutic Infrastructure
+            {t.hero.tagline}
           </p>
 
           <h1 className="font-display font-bold text-5xl md:text-7xl lg:text-8xl tracking-tight text-foreground mb-4">
@@ -114,13 +103,13 @@ const HeroSection = () => {
           </h1>
 
           <p className="font-display text-lg md:text-xl font-medium text-muted-foreground mb-4">
-            The Therapeutic Care Network
+            {t.hero.subtitle}
           </p>
 
           <div className="w-16 h-px bg-gradient-brand mx-auto my-8" />
 
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
-            Precision-Driven Dental Infrastructure for Clinics and Networks
+            {t.hero.description}
           </p>
         </motion.div>
 
@@ -132,7 +121,7 @@ const HeroSection = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap"
         >
           {heroButtons.map((btn, idx) => (
-            <div key={btn.label} className="relative">
+            <div key={idx} className="relative">
               <button
                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
                 className={`inline-flex items-center gap-2 px-8 py-3.5 rounded-md font-medium text-sm transition-all ${btn.className}`}
@@ -154,7 +143,7 @@ const HeroSection = () => {
                 >
                   {btn.items.map((item) => (
                     <Link
-                      key={item.label}
+                      key={item.href}
                       to={item.href}
                       onClick={() => setOpenIndex(null)}
                       className="flex items-center gap-3 px-4 py-3 text-sm text-muted-foreground hover:bg-accent/10 hover:text-accent transition-colors"

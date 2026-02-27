@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/hooks/useAuth";
+import { LanguageProvider } from "@/i18n/LanguageContext";
 import Index from "./pages/Index";
 import Manufacturers from "./pages/Manufacturers";
 import Investors from "./pages/Investors";
@@ -17,24 +18,26 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <AuthProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/manufacturers" element={<Manufacturers />} />
-            <Route path="/investors" element={<Investors />} />
-            <Route path="/clinics" element={<Clinics />} />
-            <Route path="/partners" element={<Partners />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/impressum" element={<Impressum />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </AuthProvider>
+    <LanguageProvider>
+      <AuthProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/manufacturers" element={<Manufacturers />} />
+              <Route path="/investors" element={<Investors />} />
+              <Route path="/clinics" element={<Clinics />} />
+              <Route path="/partners" element={<Partners />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/impressum" element={<Impressum />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </AuthProvider>
+    </LanguageProvider>
   </QueryClientProvider>
 );
 

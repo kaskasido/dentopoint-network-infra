@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Globe, ChevronDown, Mail, MapPin } from "lucide-react";
 import logo from "@/assets/dentopoint-logo.png";
+import { useLanguage, Language } from "@/i18n/LanguageContext";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,64 +17,7 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 
-interface NavDropdownItem {
-  label: string;
-  href: string;
-}
-
-interface NavSection {
-  label: string;
-  items: NavDropdownItem[];
-}
-
-const navSections: NavSection[] = [
-  {
-    label: "Clinics",
-    items: [
-      { label: "Overview", href: "/clinics" },
-      { label: "Revenue Streams", href: "/clinics#revenue" },
-      { label: "Implementation", href: "/clinics#implementation" },
-      { label: "Clinic Workflow", href: "/clinics#workflow" },
-      { label: "Compliance", href: "/clinics#compliance" },
-      { label: "Clinic Portal", href: "/login" },
-    ],
-  },
-  {
-    label: "Manufacturers",
-    items: [
-      { label: "Overview", href: "/manufacturers" },
-      { label: "System Integration", href: "/manufacturers#integration" },
-      { label: "Data & Standards", href: "/manufacturers#data" },
-      { label: "Performance Metrics", href: "/manufacturers#performance" },
-      { label: "Distribution", href: "/manufacturers#distribution" },
-      { label: "Manufacturer Portal", href: "/login" },
-    ],
-  },
-  {
-    label: "Investors",
-    items: [
-      { label: "Overview", href: "/investors" },
-      { label: "Market Opportunity", href: "/investors#markt" },
-      { label: "Scaling Roadmap", href: "/investors#skalierung" },
-      { label: "KPIs", href: "/investors#kpis" },
-      { label: "Expansion Pipeline", href: "/investors#expansion" },
-      { label: "Investor Portal", href: "/portal/investor" },
-    ],
-  },
-  {
-    label: "Strategic Partners",
-    items: [
-      { label: "Technology Partners", href: "#tech-partners" },
-      { label: "Healthcare Networks", href: "#healthcare-networks" },
-      { label: "Academic Partners", href: "#academic-partners" },
-      { label: "Industry Alliances", href: "#industry-alliances" },
-      { label: "Global Expansion", href: "#global-expansion" },
-      { label: "Partner Portal", href: "/login" },
-    ],
-  },
-];
-
-const languages = [
+const languages: { code: Language; label: string }[] = [
   { code: "DE", label: "Deutsch" },
   { code: "EN", label: "English" },
   { code: "TR", label: "Türkçe" },
@@ -82,8 +26,55 @@ const languages = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [lang, setLang] = useState("EN");
   const [contactOpen, setContactOpen] = useState(false);
+  const { lang, setLang, t } = useLanguage();
+
+  const navSections = [
+    {
+      label: t.nav.clinics,
+      items: [
+        { label: t.nav.clinicsItems.overview, href: "/clinics" },
+        { label: t.nav.clinicsItems.revenue, href: "/clinics#revenue" },
+        { label: t.nav.clinicsItems.implementation, href: "/clinics#implementation" },
+        { label: t.nav.clinicsItems.workflow, href: "/clinics#workflow" },
+        { label: t.nav.clinicsItems.compliance, href: "/clinics#compliance" },
+        { label: t.nav.clinicsItems.portal, href: "/login" },
+      ],
+    },
+    {
+      label: t.nav.manufacturers,
+      items: [
+        { label: t.nav.manufacturersItems.overview, href: "/manufacturers" },
+        { label: t.nav.manufacturersItems.integration, href: "/manufacturers#integration" },
+        { label: t.nav.manufacturersItems.data, href: "/manufacturers#data" },
+        { label: t.nav.manufacturersItems.performance, href: "/manufacturers#performance" },
+        { label: t.nav.manufacturersItems.distribution, href: "/manufacturers#distribution" },
+        { label: t.nav.manufacturersItems.portal, href: "/login" },
+      ],
+    },
+    {
+      label: t.nav.investors,
+      items: [
+        { label: t.nav.investorsItems.overview, href: "/investors" },
+        { label: t.nav.investorsItems.market, href: "/investors#markt" },
+        { label: t.nav.investorsItems.scaling, href: "/investors#skalierung" },
+        { label: t.nav.investorsItems.kpis, href: "/investors#kpis" },
+        { label: t.nav.investorsItems.expansion, href: "/investors#expansion" },
+        { label: t.nav.investorsItems.portal, href: "/portal/investor" },
+      ],
+    },
+    {
+      label: t.nav.strategicPartners,
+      items: [
+        { label: t.nav.partnersItems.tech, href: "#tech-partners" },
+        { label: t.nav.partnersItems.healthcare, href: "#healthcare-networks" },
+        { label: t.nav.partnersItems.academic, href: "#academic-partners" },
+        { label: t.nav.partnersItems.industry, href: "#industry-alliances" },
+        { label: t.nav.partnersItems.global, href: "#global-expansion" },
+        { label: t.nav.partnersItems.portal, href: "/login" },
+      ],
+    },
+  ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
@@ -139,27 +130,27 @@ const Navbar = () => {
             to="/login"
             className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
           >
-            Login
+            {t.nav.login}
           </Link>
           <button
             onClick={() => setContactOpen(true)}
             className="bg-gradient-brand text-primary-foreground px-5 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-opacity"
           >
-            Contact
+            {t.nav.contact}
           </button>
         </div>
 
         <Dialog open={contactOpen} onOpenChange={setContactOpen}>
           <DialogContent className="sm:max-w-md">
             <DialogHeader>
-              <DialogTitle className="font-display text-xl">Contact</DialogTitle>
-              <DialogDescription>Get in touch with DentoPoint</DialogDescription>
+              <DialogTitle className="font-display text-xl">{t.nav.contactTitle}</DialogTitle>
+              <DialogDescription>{t.nav.contactDesc}</DialogDescription>
             </DialogHeader>
             <div className="space-y-4 pt-2">
               <div className="flex items-start gap-3">
                 <Mail className="h-5 w-5 text-primary mt-0.5" />
                 <div>
-                  <p className="text-sm font-medium text-foreground">E-Mail</p>
+                  <p className="text-sm font-medium text-foreground">{t.nav.email}</p>
                   <a href="mailto:info@dentopoint.care" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                     info@dentopoint.care
                   </a>
@@ -168,7 +159,7 @@ const Navbar = () => {
               <div className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-primary mt-0.5" />
                 <div>
-                  <p className="text-sm font-medium text-foreground">Address</p>
+                  <p className="text-sm font-medium text-foreground">{t.nav.address}</p>
                   <p className="text-sm text-muted-foreground">
                     DentoPoint GmbH<br />
                     Germany
@@ -210,7 +201,7 @@ const Navbar = () => {
             className="block w-full mt-4 bg-gradient-brand text-primary-foreground px-5 py-2.5 rounded-md text-sm font-medium text-center"
             onClick={() => { setIsOpen(false); setContactOpen(true); }}
           >
-            Contact
+            {t.nav.contact}
           </button>
           <div className="flex gap-2 mt-4">
             {languages.map((l) => (

@@ -1,39 +1,12 @@
 import { motion } from "framer-motion";
-import { Building, Network, TrendingUp, BarChart, Globe } from "lucide-react";
+import { Building, Network, TrendingUp, Globe } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
-const partnerTypes = [
-  {
-    title: "Dental Clinics",
-    desc: "Integrate smart care modules directly into your practice and unlock new aftercare revenue streams.",
-    icon: Building,
-  },
-  {
-    title: "Manufacturers",
-    desc: "Connect your dental products to the DentoPoint ecosystem and gain access to real-time usage analytics and distribution insights.",
-    icon: Network,
-  },
-  {
-    title: "Investors",
-    desc: "Invest in scalable healthcare infrastructure with transparent performance analytics and growth metrics.",
-    icon: TrendingUp,
-  },
-  {
-    title: "Strategic Partners",
-    desc: "Join the ecosystem as a technology, distribution, or compliance partner to expand the care network.",
-    icon: Globe,
-  },
-];
-
-const benefits = [
-  "Infrastructure Integration",
-  "Revenue Participation",
-  "Network Scaling",
-  "Analytics Access",
-  "Asia Expansion",
-  "North America Extension",
-];
+const icons = [Building, Network, TrendingUp, Globe];
 
 const PartnersSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="clinics" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-6">
@@ -45,32 +18,34 @@ const PartnersSection = () => {
           className="max-w-3xl mb-16"
         >
           <p className="text-sm font-medium tracking-[0.2em] uppercase text-accent mb-4">
-            For Clinics
+            {t.partnersSection.label}
           </p>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Join the Care Network
+            {t.partnersSection.title}
           </h2>
           <div className="w-12 h-px bg-gradient-brand" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6 mb-16">
-          {partnerTypes.map((partner, i) => (
-            <motion.div
-              key={partner.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="border border-border rounded-lg p-8 bg-card hover:shadow-brand transition-all duration-300"
-            >
-              <partner.icon size={24} className="text-accent mb-4" />
-              <h3 className="font-display font-semibold text-lg text-foreground mb-3">{partner.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{partner.desc}</p>
-            </motion.div>
-          ))}
+          {t.partnersSection.types.map((partner, i) => {
+            const Icon = icons[i];
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                className="border border-border rounded-lg p-8 bg-card hover:shadow-brand transition-all duration-300"
+              >
+                <Icon size={24} className="text-accent mb-4" />
+                <h3 className="font-display font-semibold text-lg text-foreground mb-3">{partner.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{partner.desc}</p>
+              </motion.div>
+            );
+          })}
         </div>
 
-        {/* Benefits bar */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -78,11 +53,8 @@ const PartnersSection = () => {
           transition={{ duration: 0.5 }}
           className="flex flex-wrap gap-3"
         >
-          {benefits.map((b) => (
-            <span
-              key={b}
-              className="px-5 py-2.5 rounded-md bg-secondary text-secondary-foreground text-sm font-medium border border-border"
-            >
+          {t.partnersSection.benefits.map((b) => (
+            <span key={b} className="px-5 py-2.5 rounded-md bg-secondary text-secondary-foreground text-sm font-medium border border-border">
               {b}
             </span>
           ))}
