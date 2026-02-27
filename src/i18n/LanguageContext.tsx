@@ -6,8 +6,9 @@ import { cn } from "./translations/cn";
 import { fr } from "./translations/fr";
 import { it } from "./translations/it";
 import { es } from "./translations/es";
+import { ko } from "./translations/ko";
 
-export type Language = "EN" | "DE" | "TR" | "CN" | "FR" | "IT" | "ES";
+export type Language = "EN" | "DE" | "TR" | "CN" | "FR" | "IT" | "ES" | "KO";
 
 type Translations = typeof en;
 
@@ -19,6 +20,7 @@ const translationMap: Record<string, Translations> = {
   FR: fr as unknown as Translations,
   IT: it as unknown as Translations,
   ES: es as unknown as Translations,
+  KO: ko as unknown as Translations,
 };
 
 interface LanguageContextType {
