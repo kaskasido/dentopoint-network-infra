@@ -38,7 +38,7 @@ const heroButtons: HeroButton[] = [
   {
     label: "For Manufacturers",
     icon: Factory,
-    className: "border border-primary text-primary hover:bg-primary hover:text-primary-foreground",
+    className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
     items: [
       { label: "System Integration", href: "/manufacturers#integration", icon: Package },
       { label: "Data & Standards", href: "/manufacturers#data", icon: Globe },
@@ -50,7 +50,7 @@ const heroButtons: HeroButton[] = [
   {
     label: "For Investors",
     icon: TrendingUp,
-    className: "border border-border text-foreground hover:border-primary hover:text-primary",
+    className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
     items: [
       { label: "Market Opportunity", href: "/investors#markt", icon: BarChart3 },
       { label: "Scaling Roadmap", href: "/investors#skalierung", icon: LineChart },
@@ -62,7 +62,7 @@ const heroButtons: HeroButton[] = [
   {
     label: "Strategic Partners",
     icon: Star,
-    className: "border border-accent text-accent hover:bg-accent hover:text-accent-foreground",
+    className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
     items: [
       { label: "Technology Partners", href: "#tech-partners", icon: Cpu },
       { label: "Healthcare Networks", href: "#healthcare-networks", icon: HeartPulse },
