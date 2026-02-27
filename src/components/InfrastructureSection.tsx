@@ -70,7 +70,7 @@ const InfrastructureSection = () => {
                   loading="lazy"
                 />
                 <div className="absolute -bottom-3 -right-3 bg-gradient-brand text-primary-foreground text-xs font-medium px-4 py-2 rounded-md">
-                  EU Edition
+                  White Edition
                 </div>
               </div>
             </div>
@@ -84,7 +84,7 @@ const InfrastructureSection = () => {
                   loading="lazy"
                 />
                 <div className="absolute -bottom-3 -right-3 bg-foreground text-primary-foreground text-xs font-medium px-4 py-2 rounded-md">
-                  Asia Edition · 牙点
+                  Black Edition · 牙点
                 </div>
               </div>
             </div>
