@@ -37,7 +37,7 @@ const Footer = () => {
           <div>
             <h4 className="font-display font-semibold text-sm mb-4 opacity-80">Legal</h4>
             <ul className="space-y-2.5 text-sm opacity-60">
-              <li><a href="#" className="hover:opacity-100 transition-opacity">Imprint</a></li>
+              <li><a href="/impressum" className="hover:opacity-100 transition-opacity">Impressum</a></li>
               <li><a href="#" className="hover:opacity-100 transition-opacity">Privacy Policy</a></li>
               <li><a href="#" className="hover:opacity-100 transition-opacity">Data Protection</a></li>
               <li><a href="#" className="hover:opacity-100 transition-opacity">IP Notice</a></li>

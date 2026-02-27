@@ -14,6 +14,7 @@ import ClinicDashboard from "./pages/portal/ClinicDashboard";
 import ManufacturerDashboard from "./pages/portal/ManufacturerDashboard";
 import InvestorDashboard from "./pages/portal/InvestorDashboard";
 import AdminDashboard from "./pages/portal/AdminDashboard";
+import Impressum from "./pages/Impressum";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/investors" element={<Investors />} />
             <Route path="/clinics" element={<Clinics />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/impressum" element={<Impressum />} />
 
             {/* Clinic Portal */}
             <Route path="/portal/clinic/*" element={
