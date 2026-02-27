@@ -5,6 +5,7 @@ export const cn = {
     investors: "投资者",
     strategicPartners: "战略合作伙伴",
     login: "登录",
+    logout: "退出",
     contact: "联系我们",
     contactTitle: "联系我们",
     contactDesc: "与DentoPoint取得联系",

@@ -5,6 +5,7 @@ export const es = {
     investors: "Inversores",
     strategicPartners: "Socios Estratégicos",
     login: "Iniciar Sesión",
+    logout: "Cerrar Sesión",
     contact: "Contacto",
     contactTitle: "Contacto",
     contactDesc: "Contacta con DentoPoint",
