@@ -49,11 +49,11 @@ const HeroSection = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <a
-            href="#partners"
+            href="#clinics"
             className="inline-flex items-center gap-2 bg-gradient-brand text-primary-foreground px-8 py-3.5 rounded-md font-medium text-sm hover:opacity-90 transition-opacity"
           >
             <Handshake size={18} />
-            For Partners
+            For Clinics
           </a>
           <a
             href="#manufacturers"

@@ -35,7 +35,7 @@ const benefits = [
 
 const PartnersSection = () => {
   return (
-    <section id="partners" className="py-24 md:py-32 bg-background">
+    <section id="clinics" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -45,7 +45,7 @@ const PartnersSection = () => {
           className="max-w-3xl mb-16"
         >
           <p className="text-sm font-medium tracking-[0.2em] uppercase text-accent mb-4">
-            For Partners
+            For Clinics
           </p>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
             Join the Care Network
