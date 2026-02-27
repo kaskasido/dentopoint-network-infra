@@ -1,8 +1,30 @@
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Handshake, Factory, TrendingUp, Star } from "lucide-react";
+import { Handshake, Factory, TrendingUp, Star, ChevronDown, Building2, Cpu, HeartPulse, GraduationCap, Globe } from "lucide-react";
 import NetworkAnimation from "./NetworkAnimation";
 
+const strategicPartnerItems = [
+  { label: "Technology Partners", href: "#tech-partners", icon: Cpu },
+  { label: "Healthcare Networks", href: "#healthcare-networks", icon: HeartPulse },
+  { label: "Academic Partners", href: "#academic-partners", icon: GraduationCap },
+  { label: "Industry Alliances", href: "#industry-alliances", icon: Building2 },
+  { label: "Global Expansion", href: "#global-expansion", icon: Globe },
+];
+
 const HeroSection = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-16">
       <NetworkAnimation />
@@ -46,7 +68,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap"
         >
           <a
             href="#clinics"
@@ -69,13 +91,42 @@ const HeroSection = () => {
             <TrendingUp size={18} />
             For Investors
           </a>
-          <a
-            href="#strategic-partners"
-            className="inline-flex items-center gap-2 border border-accent text-accent px-8 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-colors"
-          >
-            <Star size={18} />
-            Strategic Partners
-          </a>
+
+          {/* Strategic Partners with dropdown */}
+          <div className="relative" ref={dropdownRef}>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="inline-flex items-center gap-2 border border-accent text-accent px-8 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-colors"
+            >
+              <Star size={18} />
+              Strategic Partners
+              <ChevronDown
+                size={14}
+                className={`transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+              />
+            </button>
+
+            {isOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.2 }}
+                className="absolute left-1/2 -translate-x-1/2 mt-2 w-56 rounded-lg border border-border bg-card shadow-lg overflow-hidden z-50"
+              >
+                {strategicPartnerItems.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center gap-3 px-4 py-3 text-sm text-muted-foreground hover:bg-accent/10 hover:text-accent transition-colors"
+                  >
+                    <item.icon size={16} />
+                    {item.label}
+                  </a>
+                ))}
+              </motion.div>
+            )}
+          </div>
         </motion.div>
       </div>
 
