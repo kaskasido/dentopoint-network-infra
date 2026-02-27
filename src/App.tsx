@@ -13,6 +13,8 @@ import Partners from "./pages/Partners";
 import Login from "./pages/Login";
 import Impressum from "./pages/Impressum";
 import NotFound from "./pages/NotFound";
+import ProtectedRoute from "./components/ProtectedRoute";
+import ManufacturerDashboard from "./pages/portal/ManufacturerDashboard";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +34,14 @@ const App = () => (
               <Route path="/partners" element={<Partners />} />
               <Route path="/login" element={<Login />} />
               <Route path="/impressum" element={<Impressum />} />
+              <Route
+                path="/portal/manufacturer/*"
+                element={
+                  <ProtectedRoute requiredRole="manufacturer">
+                    <ManufacturerDashboard />
+                  </ProtectedRoute>
+                }
+              />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
