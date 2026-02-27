@@ -4,6 +4,9 @@ import { useLanguage, Language } from "@/i18n/LanguageContext";
 const languages: { code: Language; label: string }[] = [
   { code: "DE", label: "Deutsch" },
   { code: "EN", label: "English" },
+  { code: "FR", label: "Français" },
+  { code: "IT", label: "Italiano" },
+  { code: "ES", label: "Español" },
   { code: "TR", label: "Türkçe" },
   { code: "CN", label: "中文" },
 ];
