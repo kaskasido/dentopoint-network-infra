@@ -8,8 +8,8 @@ const partnerTypes = [
     icon: Building,
   },
   {
-    title: "Networks",
-    desc: "Scale DentoPoint infrastructure across multi-location dental networks with centralised management.",
+    title: "Manufacturers",
+    desc: "Connect your dental products to the DentoPoint ecosystem and gain access to real-time usage analytics and distribution insights.",
     icon: Network,
   },
   {
