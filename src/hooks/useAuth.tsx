@@ -2,7 +2,7 @@ import { useState, useEffect, createContext, useContext, ReactNode } from "react
 import { supabase } from "@/integrations/supabase/client";
 import type { User, Session } from "@supabase/supabase-js";
 
-type AppRole = "clinic" | "manufacturer" | "investor" | "admin";
+type AppRole = "clinic" | "manufacturer" | "investor" | "partner" | "admin";
 
 interface AuthContextType {
   user: User | null;
@@ -38,13 +38,20 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setRole((data?.role as AppRole) ?? null);
   };
 
+  const tryAssignRole = async (userId: string) => {
+    // Try to assign initial role from user metadata (for new signups)
+    await supabase.rpc("assign_initial_role");
+    // Then fetch the role
+    await fetchRole(userId);
+  };
+
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (_event, session) => {
         setSession(session);
         setUser(session?.user ?? null);
         if (session?.user) {
-          setTimeout(() => fetchRole(session.user.id), 0);
+          setTimeout(() => tryAssignRole(session.user.id), 0);
         } else {
           setRole(null);
         }
@@ -56,7 +63,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       setSession(session);
       setUser(session?.user ?? null);
       if (session?.user) {
-        fetchRole(session.user.id);
+        tryAssignRole(session.user.id);
       }
       setLoading(false);
     });

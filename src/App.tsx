@@ -13,6 +13,7 @@ import Login from "./pages/Login";
 import ClinicDashboard from "./pages/portal/ClinicDashboard";
 import ManufacturerDashboard from "./pages/portal/ManufacturerDashboard";
 import InvestorDashboard from "./pages/portal/InvestorDashboard";
+import PartnerDashboard from "./pages/portal/PartnerDashboard";
 import AdminDashboard from "./pages/portal/AdminDashboard";
 import Impressum from "./pages/Impressum";
 import NotFound from "./pages/NotFound";
@@ -53,6 +54,13 @@ const App = () => (
             <Route path="/portal/investor/*" element={
               <ProtectedRoute requiredRole="investor">
                 <InvestorDashboard />
+              </ProtectedRoute>
+            } />
+
+            {/* Partner Portal */}
+            <Route path="/portal/partner/*" element={
+              <ProtectedRoute requiredRole="partner">
+                <PartnerDashboard />
               </ProtectedRoute>
             } />
 
