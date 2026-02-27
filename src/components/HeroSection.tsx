@@ -1,24 +1,14 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
-import {
-  Handshake, Factory, TrendingUp, Star, ChevronDown,
-  Building2, Cpu, HeartPulse, GraduationCap, Globe,
-  Stethoscope, ClipboardList, ShieldCheck, Users, Wallet,
-  Package, Wrench, Award, BarChart3, LineChart, PieChart, Landmark, Rocket,
-} from "lucide-react";
+import { Handshake, Factory, TrendingUp, Star } from "lucide-react";
 import NetworkAnimation from "./NetworkAnimation";
-
-interface DropdownItem {
-  label: string;
-  href: string;
-  icon: LucideIcon;
-}
+import HeroSignupDialog from "./HeroSignupDialog";
 
 interface HeroButton {
   label: string;
   icon: LucideIcon;
-  items: DropdownItem[];
+  intendedRole: string;
   className: string;
 }
 
@@ -26,73 +16,42 @@ const heroButtons: HeroButton[] = [
   {
     label: "For Clinics",
     icon: Handshake,
+    intendedRole: "clinic",
     className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
-    items: [
-      { label: "Revenue Streams", href: "/clinics#revenue", icon: Users },
-      { label: "Implementation", href: "/clinics#implementation", icon: ClipboardList },
-      { label: "Clinic Workflow", href: "/clinics#workflow", icon: Stethoscope },
-      { label: "Compliance", href: "/clinics#compliance", icon: ShieldCheck },
-      { label: "Clinic Portal", href: "/login", icon: Wallet },
-    ],
   },
   {
     label: "For Manufacturers",
     icon: Factory,
+    intendedRole: "manufacturer",
     className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
-    items: [
-      { label: "System Integration", href: "/manufacturers#integration", icon: Package },
-      { label: "Data & Standards", href: "/manufacturers#data", icon: Globe },
-      { label: "Performance Metrics", href: "/manufacturers#performance", icon: Wrench },
-      { label: "Distribution", href: "/manufacturers#distribution", icon: Award },
-      { label: "Manufacturer Portal", href: "/login", icon: Wallet },
-    ],
   },
   {
     label: "For Investors",
     icon: TrendingUp,
+    intendedRole: "investor",
     className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
-    items: [
-      { label: "Market Opportunity", href: "/investors#markt", icon: BarChart3 },
-      { label: "Scaling Roadmap", href: "/investors#skalierung", icon: LineChart },
-      { label: "KPIs & Metrics", href: "/investors#kpis", icon: PieChart },
-      { label: "Expansion Pipeline", href: "/investors#expansion", icon: Rocket },
-      { label: "Investor Portal", href: "/login", icon: Landmark },
-    ],
   },
   {
     label: "Strategic Partners",
     icon: Star,
+    intendedRole: "partner",
     className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
-    items: [
-      { label: "Technology Partners", href: "#tech-partners", icon: Cpu },
-      { label: "Healthcare Networks", href: "#healthcare-networks", icon: HeartPulse },
-      { label: "Academic Partners", href: "#academic-partners", icon: GraduationCap },
-      { label: "Industry Alliances", href: "#industry-alliances", icon: Building2 },
-      { label: "Global Expansion", href: "#global-expansion", icon: Globe },
-      { label: "Partner Portal", href: "/login", icon: Landmark },
-    ],
   },
 ];
 
 const HeroSection = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [selectedButton, setSelectedButton] = useState<HeroButton | null>(null);
 
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
-        setOpenIndex(null);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  const handleClick = (btn: HeroButton) => {
+    setSelectedButton(btn);
+    setDialogOpen(true);
+  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-16">
       <NetworkAnimation />
 
-      {/* Subtle grid overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -128,52 +87,34 @@ const HeroSection = () => {
         </motion.div>
 
         <motion.div
-          ref={containerRef}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap"
         >
-          {heroButtons.map((btn, idx) => (
-            <div key={btn.label} className="relative">
-              <button
-                onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                className={`inline-flex items-center gap-2 px-8 py-3.5 rounded-md font-medium text-sm transition-all ${btn.className}`}
-              >
-                <btn.icon size={18} />
-                {btn.label}
-                <ChevronDown
-                  size={14}
-                  className={`transition-transform duration-200 ${openIndex === idx ? "rotate-180" : ""}`}
-                />
-              </button>
-
-              {openIndex === idx && (
-                <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute left-1/2 -translate-x-1/2 mt-2 w-56 rounded-lg border border-border bg-card shadow-lg overflow-hidden z-50"
-                >
-                  {btn.items.map((item) => (
-                    <a
-                      key={item.label}
-                      href={item.href}
-                      onClick={() => setOpenIndex(null)}
-                      className="flex items-center gap-3 px-4 py-3 text-sm text-muted-foreground hover:bg-accent/10 hover:text-accent transition-colors"
-                    >
-                      <item.icon size={16} />
-                      {item.label}
-                    </a>
-                  ))}
-                </motion.div>
-              )}
-            </div>
+          {heroButtons.map((btn) => (
+            <button
+              key={btn.label}
+              onClick={() => handleClick(btn)}
+              className={`inline-flex items-center gap-2 px-8 py-3.5 rounded-md font-medium text-sm transition-all ${btn.className}`}
+            >
+              <btn.icon size={18} />
+              {btn.label}
+            </button>
           ))}
         </motion.div>
       </div>
 
-      {/* Bottom fade */}
+      {selectedButton && (
+        <HeroSignupDialog
+          open={dialogOpen}
+          onOpenChange={setDialogOpen}
+          portalLabel={selectedButton.label}
+          portalIcon={selectedButton.icon}
+          intendedRole={selectedButton.intendedRole}
+        />
+      )}
+
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
