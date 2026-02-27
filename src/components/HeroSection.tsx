@@ -1,24 +1,86 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Handshake, Factory, TrendingUp, Star, ChevronDown, Building2, Cpu, HeartPulse, GraduationCap, Globe } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import {
+  Handshake, Factory, TrendingUp, Star, ChevronDown,
+  Building2, Cpu, HeartPulse, GraduationCap, Globe,
+  Stethoscope, ClipboardList, ShieldCheck, Users, Wallet,
+  Package, Wrench, Award, BarChart3, LineChart, PieChart, Landmark, Rocket,
+} from "lucide-react";
 import NetworkAnimation from "./NetworkAnimation";
 
-const strategicPartnerItems = [
-  { label: "Technology Partners", href: "#tech-partners", icon: Cpu },
-  { label: "Healthcare Networks", href: "#healthcare-networks", icon: HeartPulse },
-  { label: "Academic Partners", href: "#academic-partners", icon: GraduationCap },
-  { label: "Industry Alliances", href: "#industry-alliances", icon: Building2 },
-  { label: "Global Expansion", href: "#global-expansion", icon: Globe },
+interface DropdownItem {
+  label: string;
+  href: string;
+  icon: LucideIcon;
+}
+
+interface HeroButton {
+  label: string;
+  icon: LucideIcon;
+  items: DropdownItem[];
+  className: string;
+}
+
+const heroButtons: HeroButton[] = [
+  {
+    label: "For Clinics",
+    icon: Handshake,
+    className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
+    items: [
+      { label: "Network Access", href: "#clinics", icon: Users },
+      { label: "Patient Management", href: "#patient-mgmt", icon: ClipboardList },
+      { label: "Smart Care Module", href: "#smart-care", icon: Stethoscope },
+      { label: "Quality Assurance", href: "#quality", icon: ShieldCheck },
+      { label: "Clinic Portal", href: "/login", icon: Wallet },
+    ],
+  },
+  {
+    label: "For Manufacturers",
+    icon: Factory,
+    className: "border border-primary text-primary hover:bg-primary hover:text-primary-foreground",
+    items: [
+      { label: "Product Listing", href: "#manufacturers", icon: Package },
+      { label: "Distribution Network", href: "#distribution", icon: Globe },
+      { label: "Technical Integration", href: "#tech-integration", icon: Wrench },
+      { label: "Certification", href: "#certification", icon: Award },
+      { label: "Manufacturer Portal", href: "/login", icon: Wallet },
+    ],
+  },
+  {
+    label: "For Investors",
+    icon: TrendingUp,
+    className: "border border-border text-foreground hover:border-primary hover:text-primary",
+    items: [
+      { label: "Overview", href: "/investors", icon: BarChart3 },
+      { label: "Market Opportunity", href: "/investors#market", icon: LineChart },
+      { label: "KPIs & Metrics", href: "/investors#kpis", icon: PieChart },
+      { label: "Expansion Pipeline", href: "/investors#expansion", icon: Rocket },
+      { label: "Investor Portal", href: "/login", icon: Landmark },
+    ],
+  },
+  {
+    label: "Strategic Partners",
+    icon: Star,
+    className: "border border-accent text-accent hover:bg-accent hover:text-accent-foreground",
+    items: [
+      { label: "Technology Partners", href: "#tech-partners", icon: Cpu },
+      { label: "Healthcare Networks", href: "#healthcare-networks", icon: HeartPulse },
+      { label: "Academic Partners", href: "#academic-partners", icon: GraduationCap },
+      { label: "Industry Alliances", href: "#industry-alliances", icon: Building2 },
+      { label: "Global Expansion", href: "#global-expansion", icon: Globe },
+    ],
+  },
 ];
 
 const HeroSection = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setIsOpen(false);
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setOpenIndex(null);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -65,68 +127,48 @@ const HeroSection = () => {
         </motion.div>
 
         <motion.div
+          ref={containerRef}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap"
         >
-          <a
-            href="#clinics"
-            className="inline-flex items-center gap-2 bg-gradient-brand text-primary-foreground px-8 py-3.5 rounded-md font-medium text-sm hover:opacity-90 transition-opacity"
-          >
-            <Handshake size={18} />
-            For Clinics
-          </a>
-          <a
-            href="#manufacturers"
-            className="inline-flex items-center gap-2 border border-primary text-primary px-8 py-3.5 rounded-md font-medium text-sm hover:bg-primary hover:text-primary-foreground transition-colors"
-          >
-            <Factory size={18} />
-            For Manufacturers
-          </a>
-          <a
-            href="/investors"
-            className="inline-flex items-center gap-2 border border-border text-foreground px-8 py-3.5 rounded-md font-medium text-sm hover:border-primary hover:text-primary transition-colors"
-          >
-            <TrendingUp size={18} />
-            For Investors
-          </a>
-
-          {/* Strategic Partners with dropdown */}
-          <div className="relative" ref={dropdownRef}>
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center gap-2 border border-accent text-accent px-8 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-colors"
-            >
-              <Star size={18} />
-              Strategic Partners
-              <ChevronDown
-                size={14}
-                className={`transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
-              />
-            </button>
-
-            {isOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.2 }}
-                className="absolute left-1/2 -translate-x-1/2 mt-2 w-56 rounded-lg border border-border bg-card shadow-lg overflow-hidden z-50"
+          {heroButtons.map((btn, idx) => (
+            <div key={btn.label} className="relative">
+              <button
+                onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+                className={`inline-flex items-center gap-2 px-8 py-3.5 rounded-md font-medium text-sm transition-all ${btn.className}`}
               >
-                {strategicPartnerItems.map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center gap-3 px-4 py-3 text-sm text-muted-foreground hover:bg-accent/10 hover:text-accent transition-colors"
-                  >
-                    <item.icon size={16} />
-                    {item.label}
-                  </a>
-                ))}
-              </motion.div>
-            )}
-          </div>
+                <btn.icon size={18} />
+                {btn.label}
+                <ChevronDown
+                  size={14}
+                  className={`transition-transform duration-200 ${openIndex === idx ? "rotate-180" : ""}`}
+                />
+              </button>
+
+              {openIndex === idx && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute left-1/2 -translate-x-1/2 mt-2 w-56 rounded-lg border border-border bg-card shadow-lg overflow-hidden z-50"
+                >
+                  {btn.items.map((item) => (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      onClick={() => setOpenIndex(null)}
+                      className="flex items-center gap-3 px-4 py-3 text-sm text-muted-foreground hover:bg-accent/10 hover:text-accent transition-colors"
+                    >
+                      <item.icon size={16} />
+                      {item.label}
+                    </a>
+                  ))}
+                </motion.div>
+              )}
+            </div>
+          ))}
         </motion.div>
       </div>
 
