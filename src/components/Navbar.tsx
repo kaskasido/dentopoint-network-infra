@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Globe, ChevronDown } from "lucide-react";
+import { Menu, X, Globe, ChevronDown, Mail, MapPin } from "lucide-react";
 import logo from "@/assets/dentopoint-logo.png";
 import {
   DropdownMenu,
@@ -8,6 +8,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 interface NavDropdownItem {
   label: string;
@@ -76,6 +83,7 @@ const languages = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [lang, setLang] = useState("EN");
+  const [contactOpen, setContactOpen] = useState(false);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
@@ -133,13 +141,43 @@ const Navbar = () => {
           >
             Login
           </Link>
-          <Link
-            to="/#contact"
+          <button
+            onClick={() => setContactOpen(true)}
             className="bg-gradient-brand text-primary-foreground px-5 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-opacity"
           >
             Contact
-          </Link>
+          </button>
         </div>
+
+        <Dialog open={contactOpen} onOpenChange={setContactOpen}>
+          <DialogContent className="sm:max-w-md">
+            <DialogHeader>
+              <DialogTitle className="font-display text-xl">Contact</DialogTitle>
+              <DialogDescription>Get in touch with DentoPoint</DialogDescription>
+            </DialogHeader>
+            <div className="space-y-4 pt-2">
+              <div className="flex items-start gap-3">
+                <Mail className="h-5 w-5 text-primary mt-0.5" />
+                <div>
+                  <p className="text-sm font-medium text-foreground">E-Mail</p>
+                  <a href="mailto:info@dentopoint.care" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                    info@dentopoint.care
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <MapPin className="h-5 w-5 text-primary mt-0.5" />
+                <div>
+                  <p className="text-sm font-medium text-foreground">Address</p>
+                  <p className="text-sm text-muted-foreground">
+                    DentoPoint GmbH<br />
+                    Germany
+                  </p>
+                </div>
+              </div>
+            </div>
+          </DialogContent>
+        </Dialog>
 
         {/* Mobile toggle */}
         <button
@@ -168,13 +206,12 @@ const Navbar = () => {
               ))}
             </div>
           ))}
-          <Link
-            to="/#contact"
-            className="block mt-4 bg-gradient-brand text-primary-foreground px-5 py-2.5 rounded-md text-sm font-medium text-center"
-            onClick={() => setIsOpen(false)}
+          <button
+            className="block w-full mt-4 bg-gradient-brand text-primary-foreground px-5 py-2.5 rounded-md text-sm font-medium text-center"
+            onClick={() => { setIsOpen(false); setContactOpen(true); }}
           >
             Contact
-          </Link>
+          </button>
           <div className="flex gap-2 mt-4">
             {languages.map((l) => (
               <button
