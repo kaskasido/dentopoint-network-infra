@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Menu, X, Globe, ChevronDown } from "lucide-react";
 import logo from "@/assets/dentopoint-logo.png";
 import {
@@ -9,18 +9,61 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-const navItems = [
-  { label: "Clinics", href: "/clinics" },
-  { label: "Manufacturers", href: "/manufacturers" },
-];
+interface NavDropdownItem {
+  label: string;
+  href: string;
+}
 
-const investorSubItems = [
-  { label: "Overview", href: "/investors" },
-  { label: "Market Opportunity", href: "/investors#markt" },
-  { label: "Scaling Roadmap", href: "/investors#skalierung" },
-  { label: "KPIs", href: "/investors#kpis" },
-  { label: "Expansion Pipeline", href: "/investors#expansion" },
-  { label: "Investor Portal", href: "/portal/investor" },
+interface NavSection {
+  label: string;
+  items: NavDropdownItem[];
+}
+
+const navSections: NavSection[] = [
+  {
+    label: "Clinics",
+    items: [
+      { label: "Overview", href: "/clinics" },
+      { label: "Revenue Streams", href: "/clinics#revenue" },
+      { label: "Implementation", href: "/clinics#implementation" },
+      { label: "Clinic Workflow", href: "/clinics#workflow" },
+      { label: "Compliance", href: "/clinics#compliance" },
+      { label: "Clinic Portal", href: "/login" },
+    ],
+  },
+  {
+    label: "Manufacturers",
+    items: [
+      { label: "Overview", href: "/manufacturers" },
+      { label: "System Integration", href: "/manufacturers#integration" },
+      { label: "Data & Standards", href: "/manufacturers#data" },
+      { label: "Performance Metrics", href: "/manufacturers#performance" },
+      { label: "Distribution", href: "/manufacturers#distribution" },
+      { label: "Manufacturer Portal", href: "/login" },
+    ],
+  },
+  {
+    label: "Investors",
+    items: [
+      { label: "Overview", href: "/investors" },
+      { label: "Market Opportunity", href: "/investors#markt" },
+      { label: "Scaling Roadmap", href: "/investors#skalierung" },
+      { label: "KPIs", href: "/investors#kpis" },
+      { label: "Expansion Pipeline", href: "/investors#expansion" },
+      { label: "Investor Portal", href: "/portal/investor" },
+    ],
+  },
+  {
+    label: "Strategic Partners",
+    items: [
+      { label: "Technology Partners", href: "#tech-partners" },
+      { label: "Healthcare Networks", href: "#healthcare-networks" },
+      { label: "Academic Partners", href: "#academic-partners" },
+      { label: "Industry Alliances", href: "#industry-alliances" },
+      { label: "Global Expansion", href: "#global-expansion" },
+      { label: "Partner Portal", href: "/login" },
+    ],
+  },
 ];
 
 const languages = [
@@ -48,39 +91,22 @@ const Navbar = () => {
 
         {/* Desktop */}
         <div className="hidden lg:flex items-center gap-8">
-          {navItems.map((item) => (
-            <Link
-              key={item.label}
-              to={item.href}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-            >
-              {item.label}
-            </Link>
+          {navSections.map((section) => (
+            <DropdownMenu key={section.label}>
+              <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors outline-none">
+                {section.label} <ChevronDown size={14} />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="bg-popover min-w-[200px]">
+                {section.items.map((sub) => (
+                  <DropdownMenuItem key={sub.href} asChild>
+                    <Link to={sub.href} className="cursor-pointer">
+                      {sub.label}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           ))}
-
-          {/* Investors Dropdown */}
-          <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors outline-none">
-              Investors <ChevronDown size={14} />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start" className="bg-popover min-w-[200px]">
-              {investorSubItems.map((sub) => (
-                <DropdownMenuItem key={sub.href} asChild>
-                  <Link to={sub.href} className="cursor-pointer">
-                    {sub.label}
-                  </Link>
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
-
-          {/* Strategic Partners */}
-          <Link
-            to="/#clinics"
-            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-          >
-            Strategic Partners
-          </Link>
 
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors outline-none">
@@ -127,30 +153,21 @@ const Navbar = () => {
       {/* Mobile menu */}
       {isOpen && (
         <div className="lg:hidden bg-background border-b border-border px-6 pb-6">
-          {navItems.map((item) => (
-            <Link
-              key={item.label}
-              to={item.href}
-              className="block py-3 text-sm font-medium text-muted-foreground hover:text-primary transition-colors border-b border-border/50"
-              onClick={() => setIsOpen(false)}
-            >
-              {item.label}
-            </Link>
+          {navSections.map((section) => (
+            <div key={section.label} className="py-3 border-b border-border/50">
+              <p className="text-sm font-semibold text-foreground mb-1">{section.label}</p>
+              {section.items.map((sub) => (
+                <Link
+                  key={sub.href}
+                  to={sub.href}
+                  className="block py-2 pl-3 text-sm text-muted-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {sub.label}
+                </Link>
+              ))}
+            </div>
           ))}
-          {/* Investors sub-items mobile */}
-          <div className="py-3 border-b border-border/50">
-            <p className="text-sm font-semibold text-foreground mb-1">Investors</p>
-            {investorSubItems.map((sub) => (
-              <Link
-                key={sub.href}
-                to={sub.href}
-                className="block py-2 pl-3 text-sm text-muted-foreground hover:text-primary transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                {sub.label}
-              </Link>
-            ))}
-          </div>
           <Link
             to="/#contact"
             className="block mt-4 bg-gradient-brand text-primary-foreground px-5 py-2.5 rounded-md text-sm font-medium text-center"
