@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
 import {
@@ -30,10 +30,10 @@ const heroButtons: HeroButton[] = [
     icon: Handshake,
     className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
     items: [
-      { label: "Revenue Streams", href: "/portal/clinic/revenue", icon: Users },
-      { label: "Implementation", href: "/portal/clinic/implementation", icon: ClipboardList },
-      { label: "Clinic Workflow", href: "/portal/clinic/workflow", icon: Stethoscope },
-      { label: "Compliance", href: "/portal/clinic/compliance", icon: ShieldCheck },
+      { label: "Revenue Streams", href: "/clinics#revenue", icon: Users },
+      { label: "Implementation", href: "/clinics#implementation", icon: ClipboardList },
+      { label: "Clinic Workflow", href: "/clinics#workflow", icon: Stethoscope },
+      { label: "Compliance", href: "/clinics#compliance", icon: ShieldCheck },
     ],
   },
   {
@@ -41,10 +41,10 @@ const heroButtons: HeroButton[] = [
     icon: Factory,
     className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
     items: [
-      { label: "System Integration", href: "/portal/manufacturer/integration", icon: Package },
-      { label: "Data & Standards", href: "/portal/manufacturer/data", icon: Globe },
-      { label: "Performance Metrics", href: "/portal/manufacturer/performance", icon: Wrench },
-      { label: "Distribution", href: "/portal/manufacturer/distribution", icon: Award },
+      { label: "System Integration", href: "/manufacturers#integration", icon: Package },
+      { label: "Data & Standards", href: "/manufacturers#data", icon: Globe },
+      { label: "Performance Metrics", href: "/manufacturers#performance", icon: Wrench },
+      { label: "Distribution", href: "/manufacturers#distribution", icon: Award },
     ],
   },
   {
@@ -52,10 +52,10 @@ const heroButtons: HeroButton[] = [
     icon: TrendingUp,
     className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
     items: [
-      { label: "Market Opportunity", href: "/portal/investor/market", icon: BarChart3 },
-      { label: "Scaling Roadmap", href: "/portal/investor/scaling", icon: LineChart },
-      { label: "KPIs & Metrics", href: "/portal/investor/kpis", icon: PieChart },
-      { label: "Expansion Pipeline", href: "/portal/investor/expansion", icon: Rocket },
+      { label: "Market Opportunity", href: "/investors#markt", icon: BarChart3 },
+      { label: "Scaling Roadmap", href: "/investors#skalierung", icon: LineChart },
+      { label: "KPIs & Metrics", href: "/investors#kpis", icon: PieChart },
+      { label: "Expansion Pipeline", href: "/investors#expansion", icon: Rocket },
     ],
   },
   {
@@ -63,18 +63,28 @@ const heroButtons: HeroButton[] = [
     icon: Star,
     className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
     items: [
-      { label: "Technology Partners", href: "/portal/partner/technology", icon: Cpu },
-      { label: "Healthcare Networks", href: "/portal/partner/healthcare", icon: HeartPulse },
-      { label: "Academic Partners", href: "/portal/partner/academic", icon: GraduationCap },
-      { label: "Industry Alliances", href: "/portal/partner/industry", icon: Building2 },
-      { label: "Global Expansion", href: "/portal/partner/global", icon: Globe },
+      { label: "Technology Partners", href: "/partners#technology", icon: Cpu },
+      { label: "Healthcare Networks", href: "/partners#healthcare", icon: HeartPulse },
+      { label: "Academic Partners", href: "/partners#academic", icon: GraduationCap },
+      { label: "Industry Alliances", href: "/partners#industry", icon: Building2 },
+      { label: "Global Expansion", href: "/partners#global", icon: Globe },
     ],
   },
 ];
 
 const HeroSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const containerRef = useState<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setOpenIndex(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-16">
@@ -115,6 +125,7 @@ const HeroSection = () => {
         </motion.div>
 
         <motion.div
+          ref={containerRef}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
