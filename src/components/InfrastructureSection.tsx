@@ -79,12 +79,12 @@ const InfrastructureSection = () => {
               <div className="relative max-w-xs">
                 <img
                   src={smartCareModuleChina}
-                  alt="DentoPoint Smart Care Module – Asia Edition (牙点)"
+                  alt="DentoPoint Smart Care Module – Black Edition"
                   className="rounded-xl shadow-brand-lg"
                   loading="lazy"
                 />
                 <div className="absolute -bottom-3 -right-3 bg-foreground text-primary-foreground text-xs font-medium px-4 py-2 rounded-md">
-                  Black Edition · 牙点
+                  Black Edition
                 </div>
               </div>
             </div>
