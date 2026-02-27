@@ -1,17 +1,23 @@
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "@/assets/dentopoint-logo.png";
-import { Mail, ArrowRight, CheckCircle } from "lucide-react";
+import { Mail, ArrowRight, CheckCircle, Lock, Eye, EyeOff } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+
+type AuthMode = "magic" | "password-login" | "password-signup";
 
 const Login = () => {
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
+  const [mode, setMode] = useState<AuthMode>("password-login");
   const { t } = useLanguage();
   const p = t.loginPage;
+  const navigate = useNavigate();
 
   const handleMagicLink = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,10 +28,35 @@ const Login = () => {
       options: { emailRedirectTo: window.location.origin },
     });
     setLoading(false);
-    if (error) {
-      setError(error.message);
+    if (error) setError(error.message);
+    else setSent(true);
+  };
+
+  const handlePasswordAuth = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+
+    if (mode === "password-signup") {
+      const { error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          emailRedirectTo: window.location.origin,
+          data: { intended_role: "manufacturer" },
+        },
+      });
+      setLoading(false);
+      if (error) setError(error.message);
+      else setSent(true);
     } else {
-      setSent(true);
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+      setLoading(false);
+      if (error) {
+        setError(error.message);
+      } else if (data.session) {
+        navigate("/portal/manufacturer");
+      }
     }
   };
 
@@ -43,17 +74,51 @@ const Login = () => {
           {sent ? (
             <div className="text-center">
               <CheckCircle size={48} className="text-accent mx-auto mb-4" />
-              <h2 className="font-display text-xl font-bold text-foreground mb-2">{p.checkEmail}</h2>
+              <h2 className="font-display text-xl font-bold text-foreground mb-2">
+                {mode === "password-signup" ? "Registrierung erfolgreich" : p.checkEmail}
+              </h2>
               <p className="text-sm text-muted-foreground">
-                {p.magicLinkSent} <strong>{email}</strong>. {p.clickToSignIn}
+                {mode === "password-signup"
+                  ? <>Bitte bestätigen Sie Ihre E-Mail-Adresse über den Link, den wir an <strong>{email}</strong> gesendet haben.</>
+                  : <>{p.magicLinkSent} <strong>{email}</strong>. {p.clickToSignIn}</>
+                }
               </p>
             </div>
           ) : (
             <>
-              <h2 className="font-display text-2xl font-bold text-foreground mb-2">{p.signInTitle}</h2>
-              <p className="text-sm text-muted-foreground mb-8">{p.signInDesc}</p>
+              <h2 className="font-display text-2xl font-bold text-foreground mb-2">
+                {mode === "password-signup" ? "Konto erstellen" : p.signInTitle}
+              </h2>
+              <p className="text-sm text-muted-foreground mb-6">
+                {mode === "magic" ? p.signInDesc : "Zugang zum Hersteller-Portal"}
+              </p>
 
-              <form onSubmit={handleMagicLink} className="space-y-4">
+              {/* Mode tabs */}
+              <div className="flex rounded-md border border-border mb-6 text-xs font-medium overflow-hidden">
+                <button
+                  type="button"
+                  onClick={() => { setMode("password-login"); setError(""); }}
+                  className={`flex-1 py-2 transition-colors ${mode === "password-login" ? "bg-accent text-accent-foreground" : "text-muted-foreground hover:bg-muted"}`}
+                >
+                  Login
+                </button>
+                <button
+                  type="button"
+                  onClick={() => { setMode("password-signup"); setError(""); }}
+                  className={`flex-1 py-2 transition-colors ${mode === "password-signup" ? "bg-accent text-accent-foreground" : "text-muted-foreground hover:bg-muted"}`}
+                >
+                  Registrieren
+                </button>
+                <button
+                  type="button"
+                  onClick={() => { setMode("magic"); setError(""); }}
+                  className={`flex-1 py-2 transition-colors ${mode === "magic" ? "bg-accent text-accent-foreground" : "text-muted-foreground hover:bg-muted"}`}
+                >
+                  Magic Link
+                </button>
+              </div>
+
+              <form onSubmit={mode === "magic" ? handleMagicLink : handlePasswordAuth} className="space-y-4">
                 <div>
                   <label htmlFor="email" className="text-sm font-medium text-foreground mb-1.5 block">{p.emailLabel}</label>
                   <div className="relative">
@@ -61,9 +126,33 @@ const Login = () => {
                     <input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder={p.emailPlaceholder} required className="w-full pl-10 pr-4 py-2.5 rounded-md border border-input bg-background text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring" />
                   </div>
                 </div>
+
+                {mode !== "magic" && (
+                  <div>
+                    <label htmlFor="password" className="text-sm font-medium text-foreground mb-1.5 block">Passwort</label>
+                    <div className="relative">
+                      <Lock size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+                      <input
+                        id="password"
+                        type={showPassword ? "text" : "password"}
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="••••••••"
+                        required
+                        minLength={6}
+                        className="w-full pl-10 pr-10 py-2.5 rounded-md border border-input bg-background text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                      />
+                      <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground">
+                        {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                      </button>
+                    </div>
+                  </div>
+                )}
+
                 {error && <p className="text-sm text-destructive">{error}</p>}
+
                 <button type="submit" disabled={loading} className="w-full flex items-center justify-center gap-2 bg-gradient-brand text-primary-foreground py-2.5 rounded-md text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-50">
-                  {loading ? p.sending : p.sendMagicLink}
+                  {loading ? p.sending : mode === "magic" ? p.sendMagicLink : mode === "password-signup" ? "Konto erstellen" : "Anmelden"}
                   <ArrowRight size={16} />
                 </button>
               </form>
