@@ -165,4 +165,239 @@ export const tr = {
     copyright: "© {year} DentoPoint® — Terapötik Bakım Ağı. Tüm hakları saklıdır.",
     tagline: "Tıbbi Altyapı Ekosistemi · AB & Asya",
   },
+
+  clinicsPage: {
+    hero: { label: "Klinikler İçin", title1: "Bakım Sonrası", title2: "Gelirinizi Dönüştürün", desc: "DentoPoint'i klinik iş akışınıza entegre edin. Yeni gelir kaynakları, daha iyi hasta sonuçları ve tam düzenleyici uyumluluk — kullanıma hazır." },
+    revenue: {
+      label: "Gelir", title: "Yeni Gelir Kaynakları",
+      items: [
+        { title: "Bakım Sonrası Geliri", desc: "Hastalarınız için yapılandırılmış terapötik bakım programları ile yinelenen gelir elde edin." },
+        { title: "Ürün Komisyonları", desc: "DentoPoint platformu üzerinden sipariş edilen önerilen bakım ürünlerinden komisyon kazanın." },
+        { title: "Hasta Sadakati", desc: "Bakım ağı üzerinden sürekli etkileşimle hasta yaşam boyu değerini artırın." },
+        { title: "Zaman Tasarrufu", desc: "Otomatik bakım sonrası planlaması yönetim yükünü %60 azaltır." },
+      ],
+    },
+    implementation: {
+      label: "Uygulama", title: "Hızlı & Kolay Kurulum",
+      items: [
+        { title: "Entegrasyon Kurulumu", desc: "Muayenehane yönetim sisteminizi bağlayın — tüm büyük PMS platformlarını destekliyoruz.", duration: "1-2 gün" },
+        { title: "Smart Care Modülü", desc: "Muayenehanenize fiziksel modül kurulumu ve ürün yapılandırması.", duration: "1 gün" },
+        { title: "Ekip Eğitimi", desc: "Platform kullanımı ve hasta iletişimi konusunda ekibiniz için tanıtım oturumu.", duration: "Yarım gün" },
+        { title: "Canlıya Geçiş", desc: "İlk hastalarla başlatma ve DentoPoint partner yönetiminden sürekli destek.", duration: "Devam eden" },
+      ],
+    },
+    workflow: {
+      label: "İş Akışı", title: "Optimize Klinik İş Akışı",
+      benefits: [
+        "Otomatik hasta bakım sonrası planlaması",
+        "Dijital bakım planı oluşturma",
+        "Akıllı ürün önerileri",
+        "Hasta iletişim otomasyonu",
+        "Tedavi dokümantasyonu dışa aktarma",
+        "Çok lokasyonlu yönetim paneli",
+      ],
+      cardTitle: "Entegre Muayenehane Yönetimi",
+      cardDesc: "DentoPoint'i mevcut PMS'inize bağlayın. Tüm bakım sonrası iş akışları, hasta verileri ve ürün yönetimi tek yerde.",
+      cardCta: "Demo Planla",
+    },
+    compliance: {
+      label: "Uyumluluk", title: "Düzenleyici Uyumluluk",
+      items: [
+        { title: "GDPR Uyumlu", desc: "Şifreli hasta verisi depolama ve işleme ile tam AB veri koruma uyumluluğu." },
+        { title: "MDR Sertifikalı", desc: "Tüm entegre bakım ürünleri ve modüller için Tıbbi Cihaz Yönetmeliği uyumluluğu." },
+        { title: "ISO 27001", desc: "Veri işleme ve altyapı için bilgi güvenliği yönetim sertifikası." },
+        { title: "Denetim İzi", desc: "Tüm hasta etkileşimleri, ürün önerileri ve veri erişimleri için eksiksiz denetim kaydı." },
+      ],
+    },
+  },
+
+  manufacturersPage: {
+    hero: { label: "Üreticiler İçin", title1: "Bakım Ağına", title2: "Entegre", desc: "Ürünlerinizi doğrudan terapötik bakım ekosistemine bağlayın. Entegrasyondan dağıtıma — tek bir platform üzerinden." },
+    integration: {
+      label: "Entegrasyon", title: "Sorunsuz Sistem Entegrasyonu",
+      items: [
+        { title: "API-First Mimari", desc: "Ürün kataloğu ve envanter entegrasyonu için RESTful ve gerçek zamanlı API'ler." },
+        { title: "Sertifikalı Katılım", desc: "Uyumluluk kontrolleri ve kalite doğrulama ile yapılandırılmış partner katılımı." },
+        { title: "Plug & Play Modüller", desc: "ERP, PIM ve lojistik sistemleri için hazır entegrasyon modülleri." },
+        { title: "Çoklu Pazar Hazır", desc: "Yerelleştirilmiş yapılandırmalarla AB ve Asya pazarlarında eşzamanlı dağıtım." },
+      ],
+    },
+    data: {
+      label: "Veri", title: "Veri Altyapısı & Standartlar",
+      items: [
+        { label: "Ürün Verisi Senkronize", value: "Gerçek zamanlı" },
+        { label: "Envanter Doğruluğu", value: "%99,8" },
+        { label: "Sipariş İşleme", value: "<2 dk" },
+        { label: "Veri Formatları", value: "GS1 / HL7" },
+      ],
+    },
+    performance: {
+      label: "Performans", title: "Ağ Performans Metrikleri",
+      items: [
+        { label: "Ağ Erişimi", value: "420+", sub: "Bağlı Klinikler" },
+        { label: "Ürün Görünürlüğü", value: "3,2x", sub: "Geleneksel Kanallara Karşı" },
+        { label: "Yeniden Sipariş Oranı", value: "%67", sub: "Otomatik Yenileme" },
+        { label: "Pazara Çıkış Süresi", value: "14 gün", sub: "Ortalama Katılım" },
+      ],
+    },
+    distribution: {
+      label: "Dağıtım", title: "Doğrudan Dağıtım Kanalları",
+      benefits: [
+        "Kliniğe doğrudan teslimat altyapısı",
+        "Talep odaklı envanter yönetimi",
+        "Bölgesel depolama ortaklıkları",
+        "Sınır ötesi lojistik (AB ↔ Asya)",
+        "White-label ambalaj seçenekleri",
+        "Uyumluluk hazır dokümantasyon",
+      ],
+      cardTitle: "Tedarik Zinciri Entegrasyonu",
+      cardDesc: "Üreticiden kliniğe uçtan uca görünürlük — otomatik sipariş, takip ve uyumluluk dokümantasyonu.",
+      cardCta: "Partner Olun",
+    },
+  },
+
+  investorsPage: {
+    hero: { label: "Yatırımcılar İçin", title1: "Sağlık Altyapısına", title2: "Yatırım Yapın", desc: "12 Milyar €+ diş bakım sonrası pazarı için ölçeklenebilir dijital altyapı. Şeffaf KPI'lar, kanıtlanmış birim ekonomisi ve küresel genişleme yol haritası." },
+    market: {
+      label: "Pazar", title: "Pazar Fırsatı",
+      items: [
+        { title: "12 Milyar €+ Hedeflenebilir Pazar", desc: "Yalnızca Avrupa'daki diş bakım sonrası pazarı devasa, yetersiz hizmet alan bir fırsatı temsil ediyor." },
+        { title: "380M+ Potansiyel Hasta", desc: "AB ve Asya pazarları birlikte — yapılandırılmış terapötik bakım sonrası için artan talep." },
+        { title: "Yinelenen Gelir Modeli", desc: "Kliniklerden, üreticilerden ve bakım ürünlerinden abonelik + işlem bazlı gelir." },
+        { title: "İlk Hamle Avantajı", desc: "Yapılandırılmış diş terapötik bakımı için karşılaştırılabilir dijital altyapı mevcut değil." },
+      ],
+    },
+    scaling: {
+      label: "Ölçeklendirme", title: "Ölçeklendirme Yol Haritası",
+      items: [
+        { phase: "Faz 1", title: "DACH Bölgesi", desc: "Almanya, Avusturya, İsviçre — 120+ partner klinikle başlangıç pazarı.", status: "Aktif" },
+        { phase: "Faz 2", title: "AB Genişlemesi", desc: "Yerelleştirilmiş uyumluluk ve dil desteğiyle Batı Avrupa dağıtımı.", status: "2025" },
+        { phase: "Faz 3", title: "Asya Girişi", desc: "Stratejik ortaklıklar ve yerel altyapı ile Asya pazarına giriş.", status: "2026" },
+        { phase: "Faz 4", title: "Küresel Ölçek", desc: "Kuzey Amerika, Orta Doğu — tam uluslararası altyapı dağıtımı.", status: "2027+" },
+      ],
+    },
+    kpis: {
+      label: "KPI'lar", title: "Temel Performans Göstergeleri",
+      items: [
+        { label: "MRR Büyümesi", value: "+%24", sub: "Aydan Aya" },
+        { label: "Klinik Sadakati", value: "%94", sub: "Yıllık Oran" },
+        { label: "CAC Geri Dönüş", value: "4,2 ay", sub: "Ortalama" },
+        { label: "LTV:CAC Oranı", value: "8,4x", sub: "Güncel" },
+        { label: "Brüt Marj", value: "%78", sub: "Platform Geliri" },
+        { label: "NPS Puanı", value: "72", sub: "Partner Klinikler" },
+      ],
+    },
+    expansion: {
+      label: "Genişleme", title: "Küresel Genişleme Hattı",
+      tableHeaders: { region: "Bölge", clinics: "Klinikler", status: "Durum", growth: "Büyüme" },
+      items: [
+        { region: "DACH", clinics: "120+", status: "Canlı", growth: "+%18" },
+        { region: "Batı AB", clinics: "Planlanmış", status: "Y2 2025", growth: "—" },
+        { region: "Asya", clinics: "Hat", status: "2026", growth: "—" },
+        { region: "Kuzey Amerika", clinics: "Hat", status: "2027", growth: "—" },
+      ],
+      cta: "Yatırımcı Dosyası Talep Et",
+    },
+  },
+
+  partnersPage: {
+    hero: { label: "Stratejik Partnerler", title1: "Diş Hekimliğinin", title2: "Geleceğini Birlikte Kurun", desc: "DentoPoint ekosistemine stratejik partner olarak katılın. Terapötik bakım sonrasında inovasyonu yönlendiren teknoloji, sağlık, akademik ve endüstri ittifakları." },
+    technology: {
+      label: "Teknoloji", title: "Teknoloji Partnerleri",
+      items: [
+        { title: "PMS Entegrasyonu", desc: "Standartlaştırılmış API'ler aracılığıyla tüm önde gelen muayenehane yönetim sistemlerine sorunsuz bağlantı." },
+        { title: "Bulut & Güvenlik", desc: "Uçtan uca şifreleme ile ISO 27001 sertifikalı bulut altyapısı." },
+        { title: "IoT Platformu", desc: "Gerçek zamanlı veri işleme ile Smart Care Module donanım ekosistemi." },
+        { title: "Birlikte Çalışabilirlik", desc: "Maksimum uyumluluk için HL7 FHIR ve GS1 uyumlu veri standartları." },
+      ],
+    },
+    healthcare: {
+      label: "Sağlık", title: "Sağlık Ağları",
+      items: [
+        { title: "Klinik Zincirleri", desc: "DACH bölgesi ve Avrupa genelinde önde gelen diş klinik zincirleriyle ortaklıklar." },
+        { title: "Sigorta Sağlayıcıları", desc: "Bakım sonrası programlarının sigorta yardımlarına ve bonus sistemlerine entegrasyonu." },
+        { title: "Meslek Birlikleri", desc: "Kalite standartları için diş hekimliği meslek kuruluşlarıyla işbirliği." },
+        { title: "Teletıp", desc: "Uzak hastalar ve kırsal bölgeler için teletıp bakım sonrası modülleri." },
+      ],
+    },
+    academic: {
+      label: "Akademik", title: "Akademik Partnerler",
+      items: [
+        { title: "Üniversite Klinikleri", desc: "Avrupa genelinde önde gelen diş hekimliği fakülteleriyle araştırma işbirlikleri." },
+        { title: "Klinik Çalışmalar", desc: "DentoPoint bakım sonrası protokollerinin kanıta dayalı doğrulaması." },
+        { title: "Eğitim & Öğretim", desc: "Diş hekimliği müfredatlarına ve sürekli eğitim programlarına entegrasyon." },
+        { title: "Yayınlar", desc: "Ortak bilimsel yayınlar ve konferans katkıları." },
+      ],
+    },
+    industry: {
+      label: "Endüstri", title: "Endüstri İttifakları",
+      benefits: [
+        "Önde gelen diş üreticileriyle özel dağıtım ortaklıkları",
+        "Farmasötik bakım sonrası ürünlerinin entegrasyonu",
+        "Cihaz inovasyonu için medtech şirketleriyle ortaklıklar",
+        "Dijital bakım sonrası için endüstri standartlarının birlikte şekillendirilmesi",
+        "Ortak pazarlama ve pazar geliştirme",
+        "Yeni nesil ürünler için paylaşılan Ar-Ge",
+      ],
+      cardTitle: "Partner Olun",
+      cardDesc: "DentoPoint ekosistemine katılın ve diş terapötik bakım sonrasının geleceğini birlikte şekillendirin.",
+      cardCta: "İletişime Geçin",
+    },
+    global: {
+      label: "Küresel", title: "Küresel Genişleme",
+      tableHeaders: { region: "Bölge", status: "Durum", description: "Açıklama" },
+      items: [
+        { region: "DACH", status: "Canlı", desc: "Güçlü pazar penetrasyonuyla çekirdek pazar" },
+        { region: "AB (Fransa, Benelüks, İskandinavya)", status: "2025", desc: "Ek AB pazarlarına dağıtım" },
+        { region: "Asya-Pasifik (Çin, Güney Kore, Japonya)", status: "2026", desc: "Ortak girişimler yoluyla pazar girişi" },
+        { region: "Orta Doğu (BAE, Suudi Arabistan)", status: "2027", desc: "Premium diş pazarları" },
+      ],
+    },
+  },
+
+  loginPage: {
+    checkEmail: "E-postanızı kontrol edin",
+    magicLinkSent: "Sihirli bir bağlantı gönderdik:",
+    clickToSignIn: "Giriş yapmak için bağlantıya tıklayın.",
+    signInTitle: "Portalınıza giriş yapın",
+    signInDesc: "Sihirli bağlantı almak için e-postanızı girin.",
+    emailLabel: "E-Posta",
+    emailPlaceholder: "ad@klinik.com.tr",
+    sending: "Gönderiliyor...",
+    sendMagicLink: "Sihirli Bağlantı Gönder",
+    backToPlatform: "← Platforma Dön",
+  },
+
+  notFoundPage: {
+    title: "404",
+    message: "Sayfa bulunamadı",
+    backLink: "Ana Sayfaya Dön",
+  },
+
+  heroSignup: {
+    dialogDesc: "Portala erişim için iş e-postanızla giriş yapın.",
+    emailSent: "E-posta gönderildi",
+    magicLinkSentTo: "Sihirli bir bağlantı gönderdik:",
+    clickToSignIn: "Giriş yapmak için bağlantıya tıklayın.",
+    businessEmail: "İş E-postası",
+    placeholder: "ad@sirket.com.tr",
+    confirmCheckbox: "Tüzel kişilik (şirket) adına hareket ettiğimi onaylıyorum.",
+    confirmError: "Lütfen tüzel kişiliği temsil ettiğinizi onaylayın.",
+    sending: "Gönderiliyor...",
+    sendMagicLink: "Sihirli Bağlantı Gönder",
+  },
+
+  patients: {
+    label: "Hastalar İçin",
+    title: "Bakım Sonrasınız, Basitleştirildi",
+    desc: "Diş bakım sonrasına sakin, yapılandırılmış bir yaklaşım — kliniğinizin bakım ağı aracılığıyla doğru ürün ve programlara bağlanmanızı sağlar.",
+    items: [
+      { title: "Bakım Sonrası Programları", desc: "Tedavinize uygun yapılandırılmış takip protokolleri." },
+      { title: "Ürün Kategorileri", desc: "Klinik önerilere uygun seçilmiş diş bakım ürünleri." },
+      { title: "Dijital Üyelik", desc: "Güvenli dijital üyelik profili ile bakım ağınıza erişin." },
+      { title: "QR Entegrasyonu", desc: "Klinik içi QR kodları ile ürün ve programlara anında erişim." },
+      { title: "Hassas Öneriler", desc: "Tedavi geçmişinize dayalı yapay zeka destekli bakım sonrası önerileri." },
+      { title: "Yapılandırılmış Takip", desc: "Optimal sonuçlar için otomatik randevu ve bakım hatırlatıcıları." },
+    ],
+  },
 };
