@@ -69,6 +69,7 @@ const heroButtons: HeroButton[] = [
       { label: "Academic Partners", href: "#academic-partners", icon: GraduationCap },
       { label: "Industry Alliances", href: "#industry-alliances", icon: Building2 },
       { label: "Global Expansion", href: "#global-expansion", icon: Globe },
+      { label: "Partner Portal", href: "/login", icon: Landmark },
     ],
   },
 ];
