@@ -10,10 +10,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const navItems = [
-  { label: "Platform", href: "/" },
-  { label: "Manufacturers", href: "/manufacturers" },
   { label: "Clinics", href: "/clinics" },
-  { label: "Strategic Partners", href: "/#clinics" },
+  { label: "Manufacturers", href: "/manufacturers" },
 ];
 
 const investorSubItems = [
@@ -75,6 +73,14 @@ const Navbar = () => {
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
+
+          {/* Strategic Partners */}
+          <Link
+            to="/#clinics"
+            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+          >
+            Strategic Partners
+          </Link>
 
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors outline-none">
