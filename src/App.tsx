@@ -4,7 +4,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/hooks/useAuth";
-import ProtectedRoute from "@/components/ProtectedRoute";
 import Index from "./pages/Index";
 import Manufacturers from "./pages/Manufacturers";
 import Investors from "./pages/Investors";
@@ -36,40 +35,12 @@ const App = () => (
             <Route path="/login" element={<Login />} />
             <Route path="/impressum" element={<Impressum />} />
 
-            {/* Clinic Portal */}
-            <Route path="/portal/clinic/*" element={
-              <ProtectedRoute requiredRole="clinic">
-                <ClinicDashboard />
-              </ProtectedRoute>
-            } />
-
-            {/* Manufacturer Portal */}
-            <Route path="/portal/manufacturer/*" element={
-              <ProtectedRoute requiredRole="manufacturer">
-                <ManufacturerDashboard />
-              </ProtectedRoute>
-            } />
-
-            {/* Investor Portal */}
-            <Route path="/portal/investor/*" element={
-              <ProtectedRoute requiredRole="investor">
-                <InvestorDashboard />
-              </ProtectedRoute>
-            } />
-
-            {/* Partner Portal */}
-            <Route path="/portal/partner/*" element={
-              <ProtectedRoute requiredRole="partner">
-                <PartnerDashboard />
-              </ProtectedRoute>
-            } />
-
-            {/* Admin Portal */}
-            <Route path="/portal/admin/*" element={
-              <ProtectedRoute requiredRole="admin">
-                <AdminDashboard />
-              </ProtectedRoute>
-            } />
+            {/* Portals (public for now) */}
+            <Route path="/portal/clinic/*" element={<ClinicDashboard />} />
+            <Route path="/portal/manufacturer/*" element={<ManufacturerDashboard />} />
+            <Route path="/portal/investor/*" element={<InvestorDashboard />} />
+            <Route path="/portal/partner/*" element={<PartnerDashboard />} />
+            <Route path="/portal/admin/*" element={<AdminDashboard />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>
