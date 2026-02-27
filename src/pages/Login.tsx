@@ -155,6 +155,25 @@ const Login = () => {
                   {loading ? p.sending : mode === "magic" ? p.sendMagicLink : mode === "password-signup" ? "Konto erstellen" : "Anmelden"}
                   <ArrowRight size={16} />
                 </button>
+
+                {mode === "password-login" && (
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      if (!email) { setError("Bitte geben Sie zuerst Ihre E-Mail-Adresse ein."); return; }
+                      setLoading(true); setError("");
+                      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+                        redirectTo: `${window.location.origin}/reset-password`,
+                      });
+                      setLoading(false);
+                      if (error) setError(error.message);
+                      else setSent(true);
+                    }}
+                    className="w-full text-xs text-muted-foreground hover:text-accent transition-colors mt-1"
+                  >
+                    Passwort vergessen?
+                  </button>
+                )}
               </form>
             </>
           )}
