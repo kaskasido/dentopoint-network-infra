@@ -13,7 +13,6 @@ const navItems = [
   { label: "Platform", href: "/" },
   { label: "Manufacturers", href: "/manufacturers" },
   { label: "Clinics", href: "/clinics" },
-  { label: "Strategic Partners", href: "/#clinics" },
 ];
 
 const investorSubItems = [

@@ -8,7 +8,7 @@ const partnerTypes = [
     icon: Building,
   },
   {
-    title: "Hersteller",
+    title: "Networks",
     desc: "Scale DentoPoint infrastructure across multi-location dental networks with centralised management.",
     icon: Network,
   },
