@@ -55,7 +55,15 @@ const Login = () => {
       if (error) {
         setError(error.message);
       } else if (data.session) {
-        navigate("/portal/manufacturer");
+        // Fetch role to determine redirect
+        const { data: roleData } = await supabase
+          .from("user_roles")
+          .select("role")
+          .eq("user_id", data.session.user.id)
+          .limit(1)
+          .single();
+        const userRole = roleData?.role || "manufacturer";
+        navigate(`/portal/${userRole}`);
       }
     }
   };
