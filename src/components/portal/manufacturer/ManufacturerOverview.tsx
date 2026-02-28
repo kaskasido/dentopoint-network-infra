@@ -1,7 +1,11 @@
 import { mockAutomats, mockAlerts } from "@/data/mockAutomats";
 import { Box, Wifi, WifiOff, Wrench, AlertTriangle, TrendingUp, Euro, Package } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const ManufacturerOverview = () => {
+  const { t } = useLanguage();
+  const mp = t.manufacturerPortal;
+
   const online = mockAutomats.filter((a) => a.status === "online").length;
   const offline = mockAutomats.filter((a) => a.status === "offline").length;
   const wartung = mockAutomats.filter((a) => a.status === "wartung").length;
@@ -10,20 +14,20 @@ const ManufacturerOverview = () => {
   const unresolvedAlerts = mockAlerts.filter((a) => !a.resolved).length;
 
   const stats = [
-    { label: "Automaten gesamt", value: mockAutomats.length, icon: Box, color: "text-accent" },
-    { label: "Online", value: online, icon: Wifi, color: "text-accent" },
-    { label: "Offline", value: offline, icon: WifiOff, color: "text-destructive" },
-    { label: "In Wartung", value: wartung, icon: Wrench, color: "text-muted-foreground" },
-    { label: "Ø Füllstand", value: `${avgFill}%`, icon: Package, color: "text-accent" },
-    { label: "Offene Alerts", value: unresolvedAlerts, icon: AlertTriangle, color: unresolvedAlerts > 0 ? "text-destructive" : "text-accent" },
-    { label: "Umsatz (30 Tage)", value: `€${totalRevenue.toLocaleString("de-DE")}`, icon: Euro, color: "text-accent" },
-    { label: "Ø Umsatz/Automat", value: `€${Math.round(totalRevenue / mockAutomats.length).toLocaleString("de-DE")}`, icon: TrendingUp, color: "text-accent" },
+    { label: mp.totalAutomats, value: mockAutomats.length, icon: Box, color: "text-accent" },
+    { label: mp.online, value: online, icon: Wifi, color: "text-accent" },
+    { label: mp.offline, value: offline, icon: WifiOff, color: "text-destructive" },
+    { label: mp.inMaintenance, value: wartung, icon: Wrench, color: "text-muted-foreground" },
+    { label: mp.avgFillLevel, value: `${avgFill}%`, icon: Package, color: "text-accent" },
+    { label: mp.openAlerts, value: unresolvedAlerts, icon: AlertTriangle, color: unresolvedAlerts > 0 ? "text-destructive" : "text-accent" },
+    { label: mp.revenue30d, value: `€${totalRevenue.toLocaleString("de-DE")}`, icon: Euro, color: "text-accent" },
+    { label: mp.avgRevenuePerAutomat, value: `€${Math.round(totalRevenue / mockAutomats.length).toLocaleString("de-DE")}`, icon: TrendingUp, color: "text-accent" },
   ];
 
   return (
     <div>
-      <h1 className="font-display text-2xl font-bold text-foreground mb-2">Dashboard</h1>
-      <p className="text-muted-foreground text-sm mb-8">Übersicht aller DentoPoint Automaten und Kennzahlen.</p>
+      <h1 className="font-display text-2xl font-bold text-foreground mb-2">{mp.dashboardTitle}</h1>
+      <p className="text-muted-foreground text-sm mb-8">{mp.dashboardDesc}</p>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {stats.map((s) => (
@@ -35,19 +39,19 @@ const ManufacturerOverview = () => {
         ))}
       </div>
 
-      <h2 className="font-display text-lg font-semibold text-foreground mb-4">Alle Automaten</h2>
+      <h2 className="font-display text-lg font-semibold text-foreground mb-4">{mp.allAutomats}</h2>
       <div className="border border-border rounded-lg overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-muted/50">
-                <th className="text-left px-4 py-3 font-medium text-muted-foreground">Nr.</th>
-                <th className="text-left px-4 py-3 font-medium text-muted-foreground">Standort</th>
-                <th className="text-left px-4 py-3 font-medium text-muted-foreground">Stadt</th>
-                <th className="text-left px-4 py-3 font-medium text-muted-foreground">Status</th>
-                <th className="text-left px-4 py-3 font-medium text-muted-foreground">Füllstand</th>
-                <th className="text-left px-4 py-3 font-medium text-muted-foreground">Umsatz (30T)</th>
-                <th className="text-left px-4 py-3 font-medium text-muted-foreground">Nächste Wartung</th>
+                <th className="text-left px-4 py-3 font-medium text-muted-foreground">{mp.nr}</th>
+                <th className="text-left px-4 py-3 font-medium text-muted-foreground">{mp.location}</th>
+                <th className="text-left px-4 py-3 font-medium text-muted-foreground">{mp.city}</th>
+                <th className="text-left px-4 py-3 font-medium text-muted-foreground">{mp.status}</th>
+                <th className="text-left px-4 py-3 font-medium text-muted-foreground">{mp.fillLevel}</th>
+                <th className="text-left px-4 py-3 font-medium text-muted-foreground">{mp.revenue30dShort}</th>
+                <th className="text-left px-4 py-3 font-medium text-muted-foreground">{mp.nextMaintenance}</th>
               </tr>
             </thead>
             <tbody>
@@ -67,18 +71,13 @@ const ManufacturerOverview = () => {
                         a.status === "offline" ? "bg-destructive" :
                         "bg-muted-foreground"
                       }`} />
-                      {a.status === "online" ? "Online" : a.status === "offline" ? "Offline" : "Wartung"}
+                      {a.status === "online" ? mp.online : a.status === "offline" ? mp.offline : mp.maintenance}
                     </span>
                   </td>
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-2">
                       <div className="w-16 h-1.5 bg-muted rounded-full overflow-hidden">
-                        <div
-                          className={`h-full rounded-full ${
-                            a.fillLevel > 60 ? "bg-accent" : a.fillLevel > 30 ? "bg-yellow-500" : "bg-destructive"
-                          }`}
-                          style={{ width: `${a.fillLevel}%` }}
-                        />
+                        <div className={`h-full rounded-full ${a.fillLevel > 60 ? "bg-accent" : a.fillLevel > 30 ? "bg-yellow-500" : "bg-destructive"}`} style={{ width: `${a.fillLevel}%` }} />
                       </div>
                       <span className="text-muted-foreground text-xs">{a.fillLevel}%</span>
                     </div>

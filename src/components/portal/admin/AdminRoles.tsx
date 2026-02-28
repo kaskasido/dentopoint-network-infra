@@ -1,20 +1,24 @@
 import { mockAdminUsers } from "@/data/mockAdminData";
 import { Shield } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const AdminRoles = () => {
+  const { t } = useLanguage();
+  const ap = t.adminPortal;
+
   const roles = ["admin", "manufacturer", "clinic", "investor", "partner"] as const;
   const roleInfo: Record<string, { label: string; desc: string; color: string }> = {
-    admin: { label: "Administrator", desc: "Vollzugriff auf alle Systeme und Nutzerverwaltung", color: "bg-purple-500/10 text-purple-500 border-purple-500/20" },
-    manufacturer: { label: "Hersteller", desc: "Zugriff auf Automaten-Management, Wartung und KPIs", color: "bg-accent/10 text-accent border-accent/20" },
-    clinic: { label: "Klinik", desc: "Zugriff auf eigene Automaten, Bestellungen und Feedback", color: "bg-blue-500/10 text-blue-500 border-blue-500/20" },
-    investor: { label: "Investor", desc: "Zugriff auf Finanzkennzahlen, Wachstum und Regionen", color: "bg-yellow-500/10 text-yellow-500 border-yellow-500/20" },
-    partner: { label: "Partner", desc: "Zugriff auf Deals, Provisionen und Gebietsübersicht", color: "bg-orange-500/10 text-orange-500 border-orange-500/20" },
+    admin: { label: ap.administrator, desc: ap.adminRoleDesc, color: "bg-purple-500/10 text-purple-500 border-purple-500/20" },
+    manufacturer: { label: ap.manufacturerRole, desc: ap.manufacturerRoleDesc, color: "bg-accent/10 text-accent border-accent/20" },
+    clinic: { label: ap.clinicRole, desc: ap.clinicRoleDesc, color: "bg-blue-500/10 text-blue-500 border-blue-500/20" },
+    investor: { label: ap.investorRole, desc: ap.investorRoleDesc, color: "bg-yellow-500/10 text-yellow-500 border-yellow-500/20" },
+    partner: { label: ap.partnerRole, desc: ap.partnerRoleDesc, color: "bg-orange-500/10 text-orange-500 border-orange-500/20" },
   };
 
   return (
     <div>
-      <h1 className="font-display text-2xl font-bold text-foreground mb-2">Rollenverwaltung</h1>
-      <p className="text-muted-foreground text-sm mb-8">Übersicht aller Rollen und zugewiesener Nutzer.</p>
+      <h1 className="font-display text-2xl font-bold text-foreground mb-2">{ap.rolesTitle}</h1>
+      <p className="text-muted-foreground text-sm mb-8">{ap.rolesDesc}</p>
 
       <div className="space-y-4">
         {roles.map((role) => {
@@ -33,7 +37,7 @@ const AdminRoles = () => {
                   </div>
                 </div>
                 <span className={`px-3 py-1 rounded-full text-sm font-semibold ${info.color.split(" ").slice(0, 2).join(" ")}`}>
-                  {users.length} Nutzer
+                  {users.length} {ap.usersCount}
                 </span>
               </div>
               {users.length > 0 && (

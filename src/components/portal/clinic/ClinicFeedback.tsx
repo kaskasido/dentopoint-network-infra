@@ -1,7 +1,11 @@
 import { mockPatientFeedback } from "@/data/mockClinicData";
-import { Star, TrendingUp, MessageSquare } from "lucide-react";
+import { Star, MessageSquare } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const ClinicFeedback = () => {
+  const { t } = useLanguage();
+  const cp = t.clinicPortal;
+
   const avgRating = (mockPatientFeedback.reduce((s, f) => s + f.rating, 0) / mockPatientFeedback.length).toFixed(1);
   const ratingDist = [5, 4, 3, 2, 1].map((r) => ({
     stars: r,
@@ -11,21 +15,19 @@ const ClinicFeedback = () => {
 
   return (
     <div>
-      <h1 className="font-display text-2xl font-bold text-foreground mb-2">Patienten-Feedback</h1>
-      <p className="text-muted-foreground text-sm mb-8">Bewertungen und Kommentare Ihrer Patienten.</p>
+      <h1 className="font-display text-2xl font-bold text-foreground mb-2">{cp.feedbackTitle}</h1>
+      <p className="text-muted-foreground text-sm mb-8">{cp.feedbackDesc}</p>
 
       <div className="grid lg:grid-cols-3 gap-6 mb-8">
-        {/* Average Rating */}
         <div className="border border-border rounded-lg p-6 bg-card text-center">
           <Star size={24} className="text-yellow-500 mx-auto mb-2" />
           <p className="font-display text-4xl font-bold text-foreground">{avgRating}</p>
-          <p className="text-sm text-muted-foreground mt-1">Durchschnittsbewertung</p>
-          <p className="text-xs text-muted-foreground">{mockPatientFeedback.length} Bewertungen</p>
+          <p className="text-sm text-muted-foreground mt-1">{cp.averageRating}</p>
+          <p className="text-xs text-muted-foreground">{mockPatientFeedback.length} {cp.reviews}</p>
         </div>
 
-        {/* Distribution */}
         <div className="border border-border rounded-lg p-6 bg-card col-span-2">
-          <h3 className="text-sm font-medium text-foreground mb-4">Verteilung</h3>
+          <h3 className="text-sm font-medium text-foreground mb-4">{cp.distribution}</h3>
           <div className="space-y-2">
             {ratingDist.map((r) => (
               <div key={r.stars} className="flex items-center gap-3">
@@ -40,8 +42,7 @@ const ClinicFeedback = () => {
         </div>
       </div>
 
-      {/* Comments */}
-      <h2 className="font-display text-lg font-semibold text-foreground mb-4">Letzte Kommentare</h2>
+      <h2 className="font-display text-lg font-semibold text-foreground mb-4">{cp.latestComments}</h2>
       <div className="space-y-3">
         {mockPatientFeedback.map((f) => (
           <div key={f.id} className="border border-border rounded-lg p-4 bg-card">

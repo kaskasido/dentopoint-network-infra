@@ -1,13 +1,16 @@
 import { mockSystemLogs } from "@/data/mockAdminData";
-import { AlertTriangle, Info, AlertCircle, Filter } from "lucide-react";
+import { AlertTriangle, Info, AlertCircle } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const AdminLogs = () => {
+  const { t } = useLanguage();
+  const ap = t.adminPortal;
   const [levelFilter, setLevelFilter] = useState<string>("all");
 
   const filtered = levelFilter === "all" ? mockSystemLogs : mockSystemLogs.filter((l) => l.level === levelFilter);
 
-  const levelConfig = {
+  const levelConfig: Record<string, { icon: typeof Info; color: string; bg: string }> = {
     info: { icon: Info, color: "text-blue-500", bg: "bg-blue-500/10" },
     warning: { icon: AlertTriangle, color: "text-yellow-500", bg: "bg-yellow-500/10" },
     error: { icon: AlertCircle, color: "text-destructive", bg: "bg-destructive/10" },
@@ -15,19 +18,16 @@ const AdminLogs = () => {
 
   return (
     <div>
-      <h1 className="font-display text-2xl font-bold text-foreground mb-2">System-Logs</h1>
-      <p className="text-muted-foreground text-sm mb-8">Aktivitäten und Ereignisse im System.</p>
+      <h1 className="font-display text-2xl font-bold text-foreground mb-2">{ap.logsTitle}</h1>
+      <p className="text-muted-foreground text-sm mb-8">{ap.logsDesc}</p>
 
       <div className="flex gap-2 mb-6">
         {["all", "info", "warning", "error"].map((level) => (
-          <button
-            key={level}
-            onClick={() => setLevelFilter(level)}
+          <button key={level} onClick={() => setLevelFilter(level)}
             className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
               levelFilter === level ? "bg-accent text-accent-foreground" : "bg-muted text-muted-foreground hover:bg-muted/80"
-            }`}
-          >
-            {level === "all" ? "Alle" : level.charAt(0).toUpperCase() + level.slice(1)}
+            }`}>
+            {level === "all" ? ap.all : level.charAt(0).toUpperCase() + level.slice(1)}
             {level !== "all" && ` (${mockSystemLogs.filter((l) => l.level === level).length})`}
           </button>
         ))}
@@ -45,12 +45,10 @@ const AdminLogs = () => {
               <div className="flex-1 min-w-0">
                 <div className="flex items-center justify-between">
                   <p className="text-sm font-medium text-foreground">{log.action}</p>
-                  <span className="text-xs text-muted-foreground shrink-0 ml-4">
-                    {new Date(log.timestamp).toLocaleString("de-DE")}
-                  </span>
+                  <span className="text-xs text-muted-foreground shrink-0 ml-4">{new Date(log.timestamp).toLocaleString("de-DE")}</span>
                 </div>
                 <p className="text-xs text-muted-foreground mt-0.5">{log.details}</p>
-                <p className="text-xs text-muted-foreground mt-0.5">Nutzer: {log.user}</p>
+                <p className="text-xs text-muted-foreground mt-0.5">{ap.user}: {log.user}</p>
               </div>
             </div>
           );
