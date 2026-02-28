@@ -1,0 +1,481 @@
+export const nl = {
+  // Navbar
+  nav: {
+    clinics: "Klinieken",
+    manufacturers: "Fabrikanten",
+    investors: "Investeerders",
+    strategicPartners: "Strategische Partners",
+    login: "Inloggen",
+    logout: "Uitloggen",
+    contact: "Contact",
+    contactTitle: "Contact",
+    contactDesc: "Neem contact op met DentoPoint",
+    email: "E-mail",
+    address: "Adres",
+    clinicsItems: {
+      overview: "Overzicht",
+      revenue: "Inkomstenstromen",
+      implementation: "Implementatie",
+      workflow: "Kliniek Workflow",
+      compliance: "Compliance",
+      portal: "Kliniekportaal",
+    },
+    manufacturersItems: {
+      overview: "Overzicht",
+      integration: "Systeemintegratie",
+      data: "Data & Standaarden",
+      performance: "Prestatiemetrieken",
+      distribution: "Distributie",
+      portal: "Fabrikantenportaal",
+    },
+    investorsItems: {
+      overview: "Overzicht",
+      market: "Marktkans",
+      scaling: "Schaalroutekaart",
+      kpis: "KPI's",
+      expansion: "Uitbreidingspijplijn",
+      portal: "Investeerdersportaal",
+    },
+    partnersItems: {
+      tech: "Technologiepartners",
+      healthcare: "Zorgnetwerken",
+      academic: "Academische Partners",
+      industry: "Industrieallianties",
+      global: "Wereldwijde Uitbreiding",
+      portal: "Partnerportaal",
+    },
+  },
+
+  // Hero
+  hero: {
+    tagline: "Digitale Therapeutische Infrastructuur",
+    subtitle: "Het Therapeutische Zorgnetwerk",
+    description: "Precisiegedreven Tandheelkundige Infrastructuur voor Klinieken en Netwerken",
+    forClinics: "Voor Klinieken",
+    forManufacturers: "Voor Fabrikanten",
+    forInvestors: "Voor Investeerders",
+    strategicPartners: "Strategische Partners",
+    items: {
+      revenueStreams: "Inkomstenstromen",
+      implementation: "Implementatie",
+      clinicWorkflow: "Kliniek Workflow",
+      compliance: "Compliance",
+      systemIntegration: "Systeemintegratie",
+      dataStandards: "Data & Standaarden",
+      performanceMetrics: "Prestatiemetrieken",
+      distribution: "Distributie",
+      marketOpportunity: "Marktkans",
+      scalingRoadmap: "Schaalroutekaart",
+      kpisMetrics: "KPI's & Metrieken",
+      expansionPipeline: "Uitbreidingspijplijn",
+      technologyPartners: "Technologiepartners",
+      healthcareNetworks: "Zorgnetwerken",
+      academicPartners: "Academische Partners",
+      industryAlliances: "Industrieallianties",
+      globalExpansion: "Wereldwijde Uitbreiding",
+    },
+  },
+
+  // Infrastructure
+  infrastructure: {
+    label: "Infrastructuur",
+    title: "De Infrastructuur Achter Moderne Tandheelkundige Nazorg",
+    smartCareTitle: "De Smart Care Module",
+    smartCareDesc: "Precisie-ontworpen units in de kliniek die patiënten verbinden met geselecteerde nazorgproducten — aangedreven door digitaal lidmaatschap, QR-integratie en contactloos betalen. Uitgerold in EU- en Aziatische markten.",
+    whiteEdition: "White Edition",
+    blackEdition: "Black Edition",
+    tags: ["Contactloos Betalen", "QR-Lidmaatschap", "Kliniek-Branded", "Realtime Analytics", "Multi-Regio"],
+    features: [
+      { title: "Smart Care Modules", description: "Intelligente uitgiftesystemen in de kliniek met realtime monitoring en automatische aanvulling." },
+      { title: "Digitale Betalingsintegratie", description: "Naadloze cashless transacties met multi-valuta ondersteuning in Europese en Aziatische markten." },
+      { title: "Fabrikanten Ecosysteem", description: "Directe integratie tussen gecertificeerde tandfabrikanten en de zorgnetwerkinfrastructuur." },
+      { title: "Data & Analytics", description: "Realtime inzichten in nazorgbetrokkenheid, productprestaties en netwerkgebruik." },
+      { title: "Schaalbaar Netwerkmodel", description: "Modulaire architectuur ontworpen voor snelle uitrol over klinieken, regio's en internationale markten." },
+    ],
+  },
+
+  // Locator
+  locator: {
+    label: "De Pin – Locator Module",
+    title: "Vind Uw DentoPoint Locatie",
+    searchPlaceholder: "Zoek kliniek of regio…",
+    filters: ["Categoriefilter", "Fabrikantenfilter", "Regiofilter", "Servicetype"],
+    clinicMunich: "Tandkliniek München",
+    clinicMunichServices: "Implantaatzorg · Hygiëne · Whitening",
+    clinicMunichModules: "3 Smart Modules Actief",
+    clinicShanghai: "Shanghai Tandheelkundig Netwerk",
+    clinicShanghaiServices: "Therapeutische Zorg · Preventieve Programma's",
+    clinicShanghaiModules: "5 Smart Modules Actief",
+    interactiveMap: "Interactieve Kaart",
+    mapDesc: "Google Maps (EU/Wereldwijd) & Gaode/Amap (China) — automatische regiowisseling",
+    locationsActive: "48 Locaties Actief",
+  },
+
+  // Partners (landing page section)
+  partnersSection: {
+    label: "Voor Klinieken",
+    title: "Word Deel van het Zorgnetwerk",
+    types: [
+      { title: "Tandklinieken", desc: "Integreer smart care modules direct in uw praktijk en ontgrendel nieuwe nazorginkomstenstromen." },
+      { title: "Fabrikanten", desc: "Verbind uw tandheelkundige producten met het DentoPoint ecosysteem en krijg toegang tot realtime gebruiksanalyses en distributie-inzichten." },
+      { title: "Investeerders", desc: "Investeer in schaalbare zorginfrastructuur met transparante prestatieanalyses en groeimetrieken." },
+      { title: "Strategische Partners", desc: "Word deel van het ecosysteem als technologie-, distributie- of compliancepartner om het zorgnetwerk uit te breiden." },
+    ],
+    benefits: ["Infrastructuurintegratie", "Inkomstenparticipatie", "Netwerkschaling", "Analytics Toegang", "Azië Uitbreiding", "Noord-Amerika Uitbreiding"],
+  },
+
+  // Manufacturers Section
+  manufacturersSection: {
+    label: "Voor Fabrikanten",
+    title: "Geïntegreerd in het Zorgnetwerk",
+    dataLabel: "Data",
+  },
+
+  // Categories
+  categories: {
+    label: "Product Ecosysteem",
+    title: "Gestructureerde Zorgcategorieën",
+    items: [
+      { name: "Hygiëne", desc: "Professionele mondhygiëneproducten voor dagelijks en klinisch gebruik." },
+      { name: "Implantaatzorg", desc: "Gespecialiseerde nazorgoplossingen voor onderhoud van tandimplantaten." },
+      { name: "Whitening", desc: "Klinische whiteningsystemen met gestructureerde protocollen." },
+      { name: "Therapeutische Zorg", desc: "Gerichte therapeutische producten voor herstel na behandeling." },
+      { name: "Preventieve Programma's", desc: "Langetermijn preventieve zorgpakketten en abonnementsprogramma's." },
+    ],
+  },
+
+  // Analytics
+  analytics: {
+    label: "Digitaal Platform",
+    title: "Investeerder-Grade Analytics",
+    metrics: [
+      { label: "Omzet per Locatie", change: "+18%" },
+      { label: "Conversieratio", change: "+5,1%" },
+      { label: "Nazorgbetrokkenheid", change: "+12%" },
+      { label: "Netwerkgroei", change: "+8 locaties" },
+    ],
+    dashboardTitle: "Netwerkprestatie Overzicht",
+    liveDashboard: "Live Dashboard",
+  },
+
+  // China / International
+  china: {
+    label: "Internationale Uitbreiding",
+    title: "Europa, Azië en de Wereld Verbinden",
+    connectedInfra: "Verbonden Infrastructuur",
+    points: [
+      { title: "Dubbele Kaartintegratie", desc: "Google Maps voor EU/Wereldwijde markten, Gaode/Amap voor Azië — automatische regiodetectie." },
+      { title: "Lokale Compliance", desc: "Volledige naleving van Aziatische gezondheidszorgdata-eisen en EU AVG." },
+      { title: "Partnerinfrastructuur", desc: "Gelokaliseerd partnernetwerk met Aziatische tandkliniekketens en fabrikantintegraties." },
+      { title: "Schaalbaar Grensoverschrijdend Model", desc: "Architectuur ontworpen voor naadloze EU–Azië operaties met multi-valuta en meertalige ondersteuning." },
+    ],
+  },
+
+  // Footer
+  footer: {
+    description: "Het Therapeutische Zorgnetwerk — Digitale infrastructuur voor gestructureerde tandheelkundige nazorg.",
+    platform: "Platform",
+    legal: "Juridisch",
+    impressum: "Impressum",
+    privacyPolicy: "Privacybeleid",
+    dataProtection: "Gegevensbescherming",
+    ipNotice: "IP-Kennisgeving",
+    contactLabel: "Contact",
+    language: "Taal",
+    copyright: "© {year} DentoPoint® — Therapeutisch Zorgnetwerk. Alle rechten voorbehouden.",
+    tagline: "Medische Infrastructuur Ecosysteem · EU & Azië",
+  },
+
+  // Clinics Page
+  clinicsPage: {
+    hero: { label: "Voor Klinieken", title1: "Transformeer Uw", title2: "Nazorgomzet", desc: "Integreer DentoPoint in uw kliniekworkflow. Nieuwe inkomstenstromen, betere patiëntresultaten en volledige regelgevende compliance — kant-en-klaar." },
+    revenue: {
+      label: "Omzet", title: "Nieuwe Inkomstenstromen",
+      items: [
+        { title: "Nazorgomzet", desc: "Genereer terugkerende inkomsten via gestructureerde therapeutische zorgprogramma's voor uw patiënten." },
+        { title: "Productcommissies", desc: "Verdien commissies op aanbevolen zorgproducten besteld via het DentoPoint platform." },
+        { title: "Patiëntretentie", desc: "Verhoog de levenslange waarde van patiënten met continue betrokkenheid via het zorgnetwerk." },
+        { title: "Tijdsbesparing", desc: "Geautomatiseerde nazorgplanning en follow-ups verminderen administratieve overhead met 60%." },
+      ],
+    },
+    implementation: {
+      label: "Implementatie", title: "Snelle & Eenvoudige Setup",
+      items: [
+        { title: "Integratie Setup", desc: "Verbind uw praktijkbeheersysteem — wij ondersteunen alle grote PMS-platformen.", duration: "1-2 dagen" },
+        { title: "Smart Care Module", desc: "Fysieke module-installatie in uw praktijk met productconfiguratie.", duration: "1 dag" },
+        { title: "Teamtraining", desc: "Onboardingsessie voor uw team over platformgebruik en patiëntcommunicatie.", duration: "Halve dag" },
+        { title: "Go Live", desc: "Lancering met eerste patiënten en doorlopende ondersteuning van DentoPoint partnermanagement.", duration: "Doorlopend" },
+      ],
+    },
+    workflow: {
+      label: "Workflow", title: "Gestroomlijnde Kliniek Workflow",
+      benefits: [
+        "Geautomatiseerde patiëntnazorgplanning",
+        "Digitale zorgplangeneratie",
+        "Slimme productaanbevelingen",
+        "Patiëntcommunicatie-automatisering",
+        "Behandeldocumentatie-export",
+        "Multi-locatie managementdashboard",
+      ],
+      cardTitle: "Geïntegreerd Praktijkbeheer",
+      cardDesc: "Verbind DentoPoint met uw bestaande PMS. Alle nazorgworkflows, patiëntgegevens en productbeheer op één plek.",
+      cardCta: "Plan een Demo",
+    },
+    compliance: {
+      label: "Compliance", title: "Regelgevende Compliance",
+      items: [
+        { title: "AVG Compliant", desc: "Volledige EU-gegevensbescherming met versleutelde patiëntgegevensopslag en -verwerking." },
+        { title: "MDR Gecertificeerd", desc: "Medical Device Regulation compliance voor alle geïntegreerde zorgproducten en modules." },
+        { title: "ISO 27001", desc: "Informatiebeveiligingsmanagementcertificering voor gegevensverwerking en infrastructuur." },
+        { title: "Audittrail", desc: "Volledige auditregistratie voor alle patiëntinteracties, productaanbevelingen en datatoegang." },
+      ],
+    },
+  },
+
+  // Manufacturers Page
+  manufacturersPage: {
+    hero: { label: "Voor Fabrikanten", title1: "Geïntegreerd in het", title2: "Zorgnetwerk", desc: "Verbind uw producten direct met het therapeutische zorgecosysteem. Van integratie tot distributie — alles via één platform." },
+    integration: {
+      label: "Integratie", title: "Naadloze Systeemintegratie",
+      items: [
+        { title: "API-First Architectuur", desc: "RESTful en realtime API's voor naadloze productcatalogus- en voorraadintegratie." },
+        { title: "Gecertificeerde Onboarding", desc: "Gestructureerde partneronboarding met compliancecontroles en kwaliteitsvalidatie." },
+        { title: "Plug & Play Modules", desc: "Kant-en-klare integratiemodules voor ERP-, PIM- en logistieke systemen." },
+        { title: "Multi-Markt Gereed", desc: "Gelijktijdige uitrol in EU- en Aziatische markten met gelokaliseerde configuraties." },
+      ],
+    },
+    data: {
+      label: "Data", title: "Data-infrastructuur & Standaarden",
+      items: [
+        { label: "Productdata Gesynchroniseerd", value: "Realtime" },
+        { label: "Voorraadnauwkeurigheid", value: "99,8%" },
+        { label: "Orderverwerking", value: "<2 min" },
+        { label: "Dataformaten", value: "GS1 / HL7" },
+      ],
+    },
+    performance: {
+      label: "Prestaties", title: "Netwerkprestatiemetrieken",
+      items: [
+        { label: "Netwerkbereik", value: "420+", sub: "Verbonden Klinieken" },
+        { label: "Productzichtbaarheid", value: "3,2x", sub: "vs. Traditionele Kanalen" },
+        { label: "Herbestelpercentage", value: "67%", sub: "Automatische Aanvulling" },
+        { label: "Time to Market", value: "14 dagen", sub: "Gemiddelde Onboarding" },
+      ],
+    },
+    distribution: {
+      label: "Distributie", title: "Directe Distributiekanalen",
+      benefits: [
+        "Direct-naar-kliniek leveringsinfrastructuur",
+        "Vraaggestuurd voorraadbeheer",
+        "Regionale opslagpartnerschappen",
+        "Grensoverschrijdende logistiek (EU ↔ Azië)",
+        "White-label verpakkingsopties",
+        "Compliance-klare documentatie",
+      ],
+      cardTitle: "Supply Chain Integratie",
+      cardDesc: "End-to-end zichtbaarheid van fabrikant tot kliniek — geautomatiseerde bestelling, tracking en compliancedocumentatie.",
+      cardCta: "Word een Partner",
+    },
+  },
+
+  // Investors Page
+  investorsPage: {
+    hero: { label: "Voor Investeerders", title1: "Investeer in Zorg", title2: "Infrastructuur", desc: "Schaalbare digitale infrastructuur voor de €12B+ tandheelkundige nazorgmarkt. Transparante KPI's, bewezen unit economics en wereldwijde uitbreidingsroutekaart." },
+    market: {
+      label: "Markt", title: "Marktkans",
+      items: [
+        { title: "€12B+ Adresseerbare Markt", desc: "De tandheelkundige nazorgmarkt in alleen Europa vertegenwoordigt een enorme, onderbediende kans." },
+        { title: "380M+ Potentiële Patiënten", desc: "EU- en Aziatische markten gecombineerd — groeiende vraag naar gestructureerde therapeutische nazorg." },
+        { title: "Terugkerend Omzetmodel", desc: "Abonnement + transactiegebaseerde omzet van klinieken, fabrikanten en zorgproducten." },
+        { title: "First-Mover Voordeel", desc: "Er bestaat geen vergelijkbare digitale infrastructuur voor gestructureerde tandheelkundige therapeutische zorg." },
+      ],
+    },
+    scaling: {
+      label: "Schaling", title: "Schaalroutekaart",
+      items: [
+        { phase: "Fase 1", title: "DACH-Regio", desc: "Duitsland, Oostenrijk, Zwitserland — startmarkt met 120+ partnerklinieken.", status: "Actief" },
+        { phase: "Fase 2", title: "EU-Uitbreiding", desc: "West-Europa uitrol met gelokaliseerde compliance en taalondersteuning.", status: "2025" },
+        { phase: "Fase 3", title: "Azië Entree", desc: "Aziatische markttoetreding via strategische partnerschappen en lokale infrastructuur.", status: "2026" },
+        { phase: "Fase 4", title: "Wereldwijde Schaal", desc: "Noord-Amerika, Midden-Oosten — volledige internationale infrastructuuruitrol.", status: "2027+" },
+      ],
+    },
+    kpis: {
+      label: "KPI's", title: "Kernprestatie-indicatoren",
+      items: [
+        { label: "MRR Groei", value: "+24%", sub: "Maand over Maand" },
+        { label: "Kliniekretentie", value: "94%", sub: "Jaarlijks Percentage" },
+        { label: "CAC Terugverdientijd", value: "4,2 mnd", sub: "Gemiddeld" },
+        { label: "LTV:CAC Ratio", value: "8,4x", sub: "Huidig" },
+        { label: "Brutomarge", value: "78%", sub: "Platform Omzet" },
+        { label: "NPS Score", value: "72", sub: "Partnerklinieken" },
+      ],
+    },
+    expansion: {
+      label: "Uitbreiding", title: "Wereldwijde Uitbreidingspijplijn",
+      tableHeaders: { region: "Regio", clinics: "Klinieken", status: "Status", growth: "Groei" },
+      items: [
+        { region: "DACH", clinics: "120+", status: "Live", growth: "+18%" },
+        { region: "West-EU", clinics: "Gepland", status: "H2 2025", growth: "—" },
+        { region: "Azië", clinics: "Pijplijn", status: "2026", growth: "—" },
+        { region: "Noord-Amerika", clinics: "Pijplijn", status: "2027", growth: "—" },
+      ],
+      cta: "Investeerdersdeck Aanvragen",
+    },
+  },
+
+  // Partners Page
+  partnersPage: {
+    hero: { label: "Strategische Partners", title1: "Bouw de Toekomst van", title2: "Tandheelkundige Zorg Samen", desc: "Word deel van het DentoPoint ecosysteem als strategische partner. Technologie-, zorg-, academische en industrieallianties die innovatie in therapeutische nazorg stimuleren." },
+    technology: {
+      label: "Technologie", title: "Technologiepartners",
+      items: [
+        { title: "PMS Integratie", desc: "Naadloze verbinding met alle toonaangevende praktijkbeheersystemen via gestandaardiseerde API's." },
+        { title: "Cloud & Beveiliging", desc: "ISO 27001-gecertificeerde cloudinfrastructuur met end-to-end encryptie." },
+        { title: "IoT Platform", desc: "Smart Care Module hardware-ecosysteem met realtime dataverwerking." },
+        { title: "Interoperabiliteit", desc: "HL7 FHIR en GS1-conforme datastandaarden voor maximale compatibiliteit." },
+      ],
+    },
+    healthcare: {
+      label: "Gezondheidszorg", title: "Zorgnetwerken",
+      items: [
+        { title: "Kliniekketens", desc: "Partnerschappen met toonaangevende tandkliniekketens in de DACH-regio en Europa." },
+        { title: "Verzekeraars", desc: "Integratie van nazorgprogramma's in verzekeringsvoordelen en bonusregelingen." },
+        { title: "Beroepsverenigingen", desc: "Samenwerking met tandheelkundige beroepsverenigingen voor kwaliteitsstandaarden." },
+        { title: "Telegeneeskunde", desc: "Telemedische nazorgmodules voor patiënten op afstand en landelijke regio's." },
+      ],
+    },
+    academic: {
+      label: "Academisch", title: "Academische Partners",
+      items: [
+        { title: "Universiteitsklinieken", desc: "Onderzoekssamenwerkingen met toonaangevende tandheelkundige faculteiten in heel Europa." },
+        { title: "Klinische Studies", desc: "Wetenschappelijk onderbouwde validatie van DentoPoint nazorgprotocollen." },
+        { title: "Onderwijs & Training", desc: "Integratie in tandheelkundige curricula en bijscholingsprogramma's." },
+        { title: "Publicaties", desc: "Gezamenlijke wetenschappelijke publicaties en conferentiebijdragen." },
+      ],
+    },
+    industry: {
+      label: "Industrie", title: "Industrieallianties",
+      benefits: [
+        "Exclusieve distributiepartnerschappen met toonaangevende tandfabrikanten",
+        "Integratie van farmaceutische nazorgproducten",
+        "Partnerschappen met medtechbedrijven voor apparaatinnovatie",
+        "Mede-vormgeven van industriestandaarden voor digitale nazorg",
+        "Co-marketing en gezamenlijke marktontwikkeling",
+        "Gedeelde R&D voor volgende generatie producten",
+      ],
+      cardTitle: "Word een Partner",
+      cardDesc: "Word deel van het DentoPoint ecosysteem en help samen de toekomst van tandheelkundige therapeutische nazorg vormgeven.",
+      cardCta: "Neem Contact Op",
+    },
+    global: {
+      label: "Wereldwijd", title: "Wereldwijde Uitbreiding",
+      tableHeaders: { region: "Regio", status: "Status", description: "Beschrijving" },
+      items: [
+        { region: "DACH", status: "Live", desc: "Kernmarkt met sterke marktpenetratie" },
+        { region: "EU (Frankrijk, Benelux, Scandinavië)", status: "2025", desc: "Uitrol naar aanvullende EU-markten" },
+        { region: "Azië-Pacific (China, Zuid-Korea, Japan)", status: "2026", desc: "Markttoetreding via joint ventures" },
+        { region: "Midden-Oosten (VAE, Saoedi-Arabië)", status: "2027", desc: "Premium tandheelkundige markten" },
+      ],
+    },
+  },
+
+  // Login Page
+  loginPage: {
+    checkEmail: "Controleer uw e-mail",
+    magicLinkSent: "We hebben een magic link gestuurd naar",
+    clickToSignIn: "Klik op de link om in te loggen.",
+    signInTitle: "Log in op uw portaal",
+    signInDesc: "Voer uw e-mail in om een magic link te ontvangen.",
+    emailLabel: "E-mail",
+    emailPlaceholder: "naam@kliniek.nl",
+    sending: "Verzenden...",
+    sendMagicLink: "Magic Link Versturen",
+    backToPlatform: "← Terug naar Platform",
+  },
+
+  // NotFound Page
+  notFoundPage: {
+    title: "404",
+    message: "Oeps! Pagina niet gevonden",
+    backLink: "Terug naar Home",
+  },
+
+  // HeroSignupDialog
+  heroSignup: {
+    dialogDesc: "Log in met uw zakelijke e-mail om toegang te krijgen tot het portaal.",
+    emailSent: "E-mail verzonden",
+    magicLinkSentTo: "We hebben een magic link gestuurd naar",
+    clickToSignIn: "Klik op de link om in te loggen.",
+    businessEmail: "Zakelijk E-mailadres",
+    placeholder: "naam@bedrijf.nl",
+    confirmCheckbox: "Ik bevestig dat ik handel namens een rechtspersoon (bedrijf).",
+    confirmError: "Bevestig alstublieft dat u een rechtspersoon vertegenwoordigt.",
+    sending: "Verzenden...",
+    sendMagicLink: "Magic Link Versturen",
+  },
+
+  // Patients Section
+  patients: {
+    label: "Voor Patiënten",
+    title: "Uw Nazorg, Vereenvoudigd",
+    desc: "Een rustige, gestructureerde benadering van tandheelkundige nazorg — die u verbindt met de juiste producten en programma's via het zorgnetwerk van uw kliniek.",
+    items: [
+      { title: "Nazorgprogramma's", desc: "Gestructureerde follow-upprotocollen afgestemd op uw behandeling." },
+      { title: "Productcategorieën", desc: "Geselecteerde tandverzorgingsproducten op basis van klinische aanbevelingen." },
+      { title: "Digitaal Lidmaatschap", desc: "Toegang tot uw zorgnetwerk met een beveiligd digitaal lidmaatschapsprofiel." },
+      { title: "QR-Integratie", desc: "Direct toegang tot producten en programma's via QR-codes in de kliniek." },
+      { title: "Precisie-aanbevelingen", desc: "AI-gestuurde nazorgsuggesties op basis van uw behandelgeschiedenis." },
+      { title: "Gestructureerde Follow-Up", desc: "Geautomatiseerde afspraak- en zorgherinneringen voor optimale resultaten." },
+    ],
+  },
+
+  // Portal
+  portal: {
+    signOut: "Uitloggen",
+    portals: "Portalen",
+    manufacturer: {
+      title: "Fabrikantenportaal",
+      dashboard: "Dashboard",
+      map: "Locaties & Kaart",
+      alerts: "Realtime Meldingen",
+      maintenance: "Onderhoud & Geschiedenis",
+      kpis: "Prestatie KPI's",
+      export: "Data Export",
+    },
+    clinic: {
+      title: "Kliniekportaal",
+      dashboard: "Dashboard",
+      automats: "Automaten",
+      orders: "Bestellingen",
+      feedback: "Feedback",
+    },
+    investor: {
+      title: "Investeerdersportaal",
+      dashboard: "Dashboard",
+      growth: "Groei",
+      regions: "Regio's",
+      metrics: "Metrieken",
+    },
+    partner: {
+      title: "Partnerportaal",
+      dashboard: "Dashboard",
+      deals: "Deals",
+      commissions: "Commissies",
+      territories: "Gebieden",
+    },
+    admin: {
+      title: "Admin Portaal",
+      dashboard: "Dashboard",
+      users: "Gebruikers",
+      roles: "Rollen",
+      logs: "Systeemlogboeken",
+    },
+    switcher: {
+      manufacturer: "Fabrikant",
+      clinic: "Kliniek",
+      investor: "Investeerder",
+      partner: "Partner",
+      admin: "Admin",
+    },
+  },
+};

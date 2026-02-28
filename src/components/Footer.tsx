@@ -11,6 +11,7 @@ const languages: { code: Language; label: string }[] = [
   { code: "CN", label: "中文" },
   { code: "KO", label: "한국어" },
   { code: "AR", label: "العربية" },
+  { code: "NL", label: "Nederlands" },
 ];
 
 const Footer = () => {
