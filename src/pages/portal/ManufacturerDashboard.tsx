@@ -1,6 +1,6 @@
-import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import PortalLayout from "@/components/PortalLayout";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { LayoutDashboard, MapPin, AlertTriangle, Wrench, BarChart3, Download } from "lucide-react";
 import ManufacturerOverview from "@/components/portal/manufacturer/ManufacturerOverview";
 import ManufacturerMap from "@/components/portal/manufacturer/ManufacturerMap";
@@ -9,26 +9,29 @@ import ManufacturerMaintenance from "@/components/portal/manufacturer/Manufactur
 import ManufacturerKPIs from "@/components/portal/manufacturer/ManufacturerKPIs";
 import ManufacturerExport from "@/components/portal/manufacturer/ManufacturerExport";
 
-const navItems = [
-  { label: "Dashboard", href: "/portal/manufacturer", icon: LayoutDashboard },
-  { label: "Standorte & Karte", href: "/portal/manufacturer/map", icon: MapPin },
-  { label: "Echtzeit-Alerts", href: "/portal/manufacturer/alerts", icon: AlertTriangle },
-  { label: "Wartung & Historie", href: "/portal/manufacturer/maintenance", icon: Wrench },
-  { label: "Performance KPIs", href: "/portal/manufacturer/kpis", icon: BarChart3 },
-  { label: "Daten-Export", href: "/portal/manufacturer/export", icon: Download },
-];
+const ManufacturerDashboard = () => {
+  const { t } = useLanguage();
+  const navItems = [
+    { label: t.portal.manufacturer.dashboard, href: "/portal/manufacturer", icon: LayoutDashboard },
+    { label: t.portal.manufacturer.map, href: "/portal/manufacturer/map", icon: MapPin },
+    { label: t.portal.manufacturer.alerts, href: "/portal/manufacturer/alerts", icon: AlertTriangle },
+    { label: t.portal.manufacturer.maintenance, href: "/portal/manufacturer/maintenance", icon: Wrench },
+    { label: t.portal.manufacturer.kpis, href: "/portal/manufacturer/kpis", icon: BarChart3 },
+    { label: t.portal.manufacturer.export, href: "/portal/manufacturer/export", icon: Download },
+  ];
 
-const ManufacturerDashboard = () => (
-  <PortalLayout title="Hersteller-Portal" navItems={navItems}>
-    <Routes>
-      <Route index element={<ManufacturerOverview />} />
-      <Route path="map" element={<ManufacturerMap />} />
-      <Route path="alerts" element={<ManufacturerAlerts />} />
-      <Route path="maintenance" element={<ManufacturerMaintenance />} />
-      <Route path="kpis" element={<ManufacturerKPIs />} />
-      <Route path="export" element={<ManufacturerExport />} />
-    </Routes>
-  </PortalLayout>
-);
+  return (
+    <PortalLayout title={t.portal.manufacturer.title} navItems={navItems}>
+      <Routes>
+        <Route index element={<ManufacturerOverview />} />
+        <Route path="map" element={<ManufacturerMap />} />
+        <Route path="alerts" element={<ManufacturerAlerts />} />
+        <Route path="maintenance" element={<ManufacturerMaintenance />} />
+        <Route path="kpis" element={<ManufacturerKPIs />} />
+        <Route path="export" element={<ManufacturerExport />} />
+      </Routes>
+    </PortalLayout>
+  );
+};
 
 export default ManufacturerDashboard;

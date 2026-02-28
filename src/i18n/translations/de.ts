@@ -420,4 +420,53 @@ export const de = {
       { title: "Strukturierte Nachsorge", desc: "Automatisierte Termin- und Pflegeerinnerungen für optimale Ergebnisse." },
     ],
   },
+
+  portal: {
+    signOut: "Abmelden",
+    portals: "Portale",
+    manufacturer: {
+      title: "Hersteller-Portal",
+      dashboard: "Dashboard",
+      map: "Standorte & Karte",
+      alerts: "Echtzeit-Alerts",
+      maintenance: "Wartung & Historie",
+      kpis: "Performance KPIs",
+      export: "Daten-Export",
+    },
+    clinic: {
+      title: "Klinik-Portal",
+      dashboard: "Dashboard",
+      automats: "Automaten",
+      orders: "Bestellungen",
+      feedback: "Feedback",
+    },
+    investor: {
+      title: "Investor-Portal",
+      dashboard: "Dashboard",
+      growth: "Wachstum",
+      regions: "Regionen",
+      metrics: "Kennzahlen",
+    },
+    partner: {
+      title: "Partner-Portal",
+      dashboard: "Dashboard",
+      deals: "Deals",
+      commissions: "Provisionen",
+      territories: "Gebiete",
+    },
+    admin: {
+      title: "Admin-Portal",
+      dashboard: "Dashboard",
+      users: "Nutzer",
+      roles: "Rollen",
+      logs: "System-Logs",
+    },
+    switcher: {
+      manufacturer: "Hersteller",
+      clinic: "Klinik",
+      investor: "Investor",
+      partner: "Partner",
+      admin: "Admin",
+    },
+  },
 };

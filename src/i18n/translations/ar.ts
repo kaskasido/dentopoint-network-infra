@@ -428,4 +428,15 @@ export const ar = {
       { title: "متابعة منظمة", desc: "تذكيرات تلقائية بالمواعيد والرعاية لنتائج مثالية." },
     ],
   },
+
+  portal: {
+    signOut: "تسجيل الخروج",
+    portals: "البوابات",
+    manufacturer: { title: "بوابة المصنّع", dashboard: "لوحة المعلومات", map: "المواقع والخريطة", alerts: "تنبيهات فورية", maintenance: "الصيانة والسجل", kpis: "مؤشرات الأداء", export: "تصدير البيانات" },
+    clinic: { title: "بوابة العيادة", dashboard: "لوحة المعلومات", automats: "الأجهزة", orders: "الطلبات", feedback: "التقييمات" },
+    investor: { title: "بوابة المستثمر", dashboard: "لوحة المعلومات", growth: "النمو", regions: "المناطق", metrics: "المقاييس" },
+    partner: { title: "بوابة الشركاء", dashboard: "لوحة المعلومات", deals: "الصفقات", commissions: "العمولات", territories: "المناطق" },
+    admin: { title: "بوابة الإدارة", dashboard: "لوحة المعلومات", users: "المستخدمون", roles: "الأدوار", logs: "سجلات النظام" },
+    switcher: { manufacturer: "المصنّع", clinic: "العيادة", investor: "المستثمر", partner: "الشركاء", admin: "الإدارة" },
+  },
 };

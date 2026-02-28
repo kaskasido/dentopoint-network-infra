@@ -401,4 +401,15 @@ export const it = {
       { title: "Follow-Up Strutturato", desc: "Promemoria automatizzati per appuntamenti e cure per risultati ottimali." },
     ],
   },
+
+  portal: {
+    signOut: "Disconnetti",
+    portals: "Portali",
+    manufacturer: { title: "Portale Produttore", dashboard: "Dashboard", map: "Sedi & Mappa", alerts: "Avvisi in tempo reale", maintenance: "Manutenzione & Storico", kpis: "KPI di performance", export: "Esportazione dati" },
+    clinic: { title: "Portale Clinica", dashboard: "Dashboard", automats: "Distributori", orders: "Ordini", feedback: "Feedback" },
+    investor: { title: "Portale Investitore", dashboard: "Dashboard", growth: "Crescita", regions: "Regioni", metrics: "Metriche" },
+    partner: { title: "Portale Partner", dashboard: "Dashboard", deals: "Accordi", commissions: "Commissioni", territories: "Territori" },
+    admin: { title: "Portale Admin", dashboard: "Dashboard", users: "Utenti", roles: "Ruoli", logs: "Log di sistema" },
+    switcher: { manufacturer: "Produttore", clinic: "Clinica", investor: "Investitore", partner: "Partner", admin: "Admin" },
+  },
 };

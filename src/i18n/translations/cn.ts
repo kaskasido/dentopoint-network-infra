@@ -401,4 +401,15 @@ export const cn = {
       { title: "结构化随访", desc: "自动化的预约和护理提醒，实现最佳效果。" },
     ],
   },
+
+  portal: {
+    signOut: "退出",
+    portals: "门户",
+    manufacturer: { title: "制造商门户", dashboard: "仪表板", map: "位置与地图", alerts: "实时警报", maintenance: "维护与历史", kpis: "绩效指标", export: "数据导出" },
+    clinic: { title: "诊所门户", dashboard: "仪表板", automats: "自动售货机", orders: "订单", feedback: "反馈" },
+    investor: { title: "投资者门户", dashboard: "仪表板", growth: "增长", regions: "区域", metrics: "指标" },
+    partner: { title: "合作伙伴门户", dashboard: "仪表板", deals: "交易", commissions: "佣金", territories: "区域" },
+    admin: { title: "管理员门户", dashboard: "仪表板", users: "用户", roles: "角色", logs: "系统日志" },
+    switcher: { manufacturer: "制造商", clinic: "诊所", investor: "投资者", partner: "合作伙伴", admin: "管理员" },
+  },
 };

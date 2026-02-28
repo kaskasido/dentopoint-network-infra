@@ -401,4 +401,15 @@ export const fr = {
       { title: "Suivi Structuré", desc: "Rappels automatisés de rendez-vous et de soins pour des résultats optimaux." },
     ],
   },
+
+  portal: {
+    signOut: "Déconnexion",
+    portals: "Portails",
+    manufacturer: { title: "Portail Fabricant", dashboard: "Tableau de bord", map: "Sites & Carte", alerts: "Alertes en temps réel", maintenance: "Maintenance & Historique", kpis: "KPIs de performance", export: "Export de données" },
+    clinic: { title: "Portail Clinique", dashboard: "Tableau de bord", automats: "Automates", orders: "Commandes", feedback: "Retours" },
+    investor: { title: "Portail Investisseur", dashboard: "Tableau de bord", growth: "Croissance", regions: "Régions", metrics: "Indicateurs" },
+    partner: { title: "Portail Partenaire", dashboard: "Tableau de bord", deals: "Contrats", commissions: "Commissions", territories: "Territoires" },
+    admin: { title: "Portail Admin", dashboard: "Tableau de bord", users: "Utilisateurs", roles: "Rôles", logs: "Journaux système" },
+    switcher: { manufacturer: "Fabricant", clinic: "Clinique", investor: "Investisseur", partner: "Partenaire", admin: "Admin" },
+  },
 };

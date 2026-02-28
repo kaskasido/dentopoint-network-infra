@@ -401,4 +401,15 @@ export const ko = {
       { title: "구조화된 후속 관리", desc: "최적의 결과를 위한 자동화된 예약 및 케어 리마인더." },
     ],
   },
+
+  portal: {
+    signOut: "로그아웃",
+    portals: "포털",
+    manufacturer: { title: "제조업체 포털", dashboard: "대시보드", map: "위치 & 지도", alerts: "실시간 알림", maintenance: "유지보수 & 이력", kpis: "성과 KPI", export: "데이터 내보내기" },
+    clinic: { title: "클리닉 포털", dashboard: "대시보드", automats: "자동판매기", orders: "주문", feedback: "피드백" },
+    investor: { title: "투자자 포털", dashboard: "대시보드", growth: "성장", regions: "지역", metrics: "지표" },
+    partner: { title: "파트너 포털", dashboard: "대시보드", deals: "거래", commissions: "수수료", territories: "영역" },
+    admin: { title: "관리자 포털", dashboard: "대시보드", users: "사용자", roles: "역할", logs: "시스템 로그" },
+    switcher: { manufacturer: "제조업체", clinic: "클리닉", investor: "투자자", partner: "파트너", admin: "관리자" },
+  },
 };
