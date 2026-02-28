@@ -3,10 +3,12 @@ import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Cpu, HeartPulse, GraduationCap, Building2, Globe, ArrowRight, CheckCircle, Shield, Zap, Handshake } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { useScrollToHash } from "@/hooks/useScrollToHash";
 
 const techIcons = [Cpu, Shield, Zap, Globe];
 
 const Partners = () => {
+  useScrollToHash();
   const { t } = useLanguage();
   const p = t.partnersPage;
 
