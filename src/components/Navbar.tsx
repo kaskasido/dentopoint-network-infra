@@ -26,10 +26,10 @@ const languages: { code: Language; label: string }[] = [
   { code: "IT", label: "Italiano" },
   { code: "ES", label: "Español" },
   { code: "TR", label: "Türkçe" },
+  { code: "SR", label: "Srpski" },
   { code: "CN", label: "中文" },
   { code: "KO", label: "한국어" },
   { code: "AR", label: "العربية" },
-  { code: "SR", label: "Srpski" },
 ];
 
 const Navbar = () => {
