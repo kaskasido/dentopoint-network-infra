@@ -3,10 +3,12 @@ import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Plug, Database, BarChart3, Truck, CheckCircle, ArrowRight, Box, Zap, Shield, Globe } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { useScrollToHash } from "@/hooks/useScrollToHash";
 
 const integrationIcons = [Plug, Shield, Zap, Globe];
 
 const Manufacturers = () => {
+  useScrollToHash();
   const { t } = useLanguage();
   const p = t.manufacturersPage;
 

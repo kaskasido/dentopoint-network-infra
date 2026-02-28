@@ -3,10 +3,12 @@ import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { TrendingUp, Globe, BarChart, Target, Users, DollarSign, ArrowRight, Activity } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { useScrollToHash } from "@/hooks/useScrollToHash";
 
 const marketIcons = [Target, Users, DollarSign, Globe];
 
 const Investors = () => {
+  useScrollToHash();
   const { t } = useLanguage();
   const p = t.investorsPage;
 
