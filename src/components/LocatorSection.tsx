@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { MapPin, Search, Filter, Building2 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import logo from "@/assets/dentopoint-logo.png";
 
 const LocatorSection = () => {
   const { t } = useLanguage();
@@ -87,8 +88,8 @@ const LocatorSection = () => {
               }}
             />
             <div className="text-center relative z-10 px-6">
-              <div className="w-16 h-16 rounded-full bg-gradient-brand mx-auto mb-4 flex items-center justify-center">
-                <MapPin size={28} className="text-primary-foreground" />
+              <div className="w-16 h-16 rounded-full bg-gradient-brand mx-auto mb-4 flex items-center justify-center p-2">
+                <img src={logo} alt="DentoPoint" className="w-10 h-10 object-contain" />
               </div>
               <p className="font-display font-semibold text-foreground mb-2">{t.locator.interactiveMap}</p>
               <p className="text-sm text-muted-foreground max-w-xs mx-auto">
