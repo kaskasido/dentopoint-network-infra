@@ -19,8 +19,8 @@ import {
 } from "@/components/ui/dialog";
 
 const languages: { code: Language; label: string }[] = [
-  { code: "DE", label: "Deutsch" },
   { code: "EN", label: "English" },
+  { code: "DE", label: "Deutsch" },
   { code: "NL", label: "Nederlands" },
   { code: "FR", label: "Français" },
   { code: "IT", label: "Italiano" },
