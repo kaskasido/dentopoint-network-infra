@@ -1,12 +1,16 @@
 import { mockFinancials, mockGrowthData, mockRegionData } from "@/data/mockInvestorData";
-import { TrendingUp, TrendingDown, BarChart3, Globe, Building, DollarSign } from "lucide-react";
+import { TrendingUp, TrendingDown } from "lucide-react";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from "recharts";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const InvestorOverview = () => {
+  const { t } = useLanguage();
+  const ip = (t as any).investorPortal || {};
+
   return (
     <div>
-      <h1 className="font-display text-2xl font-bold text-foreground mb-2">Investor Dashboard</h1>
-      <p className="text-muted-foreground text-sm mb-8">Finanzkennzahlen, Wachstum und Netzwerk-Expansion.</p>
+      <h1 className="font-display text-2xl font-bold text-foreground mb-2">{ip.overviewTitle || "Investor Dashboard"}</h1>
+      <p className="text-muted-foreground text-sm mb-8">{ip.overviewDesc || "Financial metrics, growth and network expansion."}</p>
 
       {/* KPI Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
@@ -28,7 +32,7 @@ const InvestorOverview = () => {
       {/* Revenue Growth Chart */}
       <div className="grid lg:grid-cols-2 gap-6 mb-8">
         <div className="border border-border rounded-lg p-6 bg-card">
-          <h2 className="font-display text-lg font-semibold text-foreground mb-4">Revenue-Wachstum (MRR)</h2>
+          <h2 className="font-display text-lg font-semibold text-foreground mb-4">{ip.revenueGrowthMRR || "Revenue Growth (MRR)"}</h2>
           <ResponsiveContainer width="100%" height={250}>
             <AreaChart data={mockGrowthData}>
               <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
@@ -41,30 +45,30 @@ const InvestorOverview = () => {
         </div>
 
         <div className="border border-border rounded-lg p-6 bg-card">
-          <h2 className="font-display text-lg font-semibold text-foreground mb-4">Netzwerk-Expansion</h2>
+          <h2 className="font-display text-lg font-semibold text-foreground mb-4">{ip.networkExpansion || "Network Expansion"}</h2>
           <ResponsiveContainer width="100%" height={250}>
             <BarChart data={mockGrowthData}>
               <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
               <XAxis dataKey="month" tick={{ fontSize: 12 }} stroke="hsl(var(--muted-foreground))" />
               <YAxis tick={{ fontSize: 12 }} stroke="hsl(var(--muted-foreground))" />
               <Tooltip contentStyle={{ backgroundColor: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8 }} />
-              <Bar dataKey="automats" name="Automaten" fill="hsl(var(--accent))" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="clinics" name="Kliniken" fill="hsl(var(--accent) / 0.4)" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="automats" name={ip.automats || "Automats"} fill="hsl(var(--accent))" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="clinics" name={ip.clinics || "Clinics"} fill="hsl(var(--accent) / 0.4)" radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
       </div>
 
       {/* Regions Table */}
-      <h2 className="font-display text-lg font-semibold text-foreground mb-4">Regionale Performance</h2>
+      <h2 className="font-display text-lg font-semibold text-foreground mb-4">{ip.regionalPerformance || "Regional Performance"}</h2>
       <div className="border border-border rounded-lg overflow-hidden">
         <table className="w-full text-sm">
           <thead>
             <tr className="bg-muted/50">
-              <th className="text-left px-4 py-3 font-medium text-muted-foreground">Region</th>
-              <th className="text-left px-4 py-3 font-medium text-muted-foreground">Automaten</th>
-              <th className="text-left px-4 py-3 font-medium text-muted-foreground">Revenue</th>
-              <th className="text-left px-4 py-3 font-medium text-muted-foreground">Wachstum</th>
+              <th className="text-left px-4 py-3 font-medium text-muted-foreground">{ip.region || "Region"}</th>
+              <th className="text-left px-4 py-3 font-medium text-muted-foreground">{ip.automats || "Automats"}</th>
+              <th className="text-left px-4 py-3 font-medium text-muted-foreground">{ip.revenue || "Revenue"}</th>
+              <th className="text-left px-4 py-3 font-medium text-muted-foreground">{ip.growth || "Growth"}</th>
             </tr>
           </thead>
           <tbody>
