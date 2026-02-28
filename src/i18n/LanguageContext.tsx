@@ -9,8 +9,9 @@ import { es } from "./translations/es";
 import { ko } from "./translations/ko";
 import { ar } from "./translations/ar";
 import { nl } from "./translations/nl";
+import { sr } from "./translations/sr";
 
-export type Language = "EN" | "DE" | "TR" | "CN" | "FR" | "IT" | "ES" | "KO" | "AR" | "NL";
+export type Language = "EN" | "DE" | "TR" | "CN" | "FR" | "IT" | "ES" | "KO" | "AR" | "NL" | "SR";
 
 type Translations = typeof en;
 
@@ -25,6 +26,7 @@ const translationMap: Record<string, Translations> = {
   KO: ko as unknown as Translations,
   AR: ar as unknown as Translations,
   NL: nl as unknown as Translations,
+  SR: sr as unknown as Translations,
 };
 
 interface LanguageContextType {

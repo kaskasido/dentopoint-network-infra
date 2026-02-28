@@ -11,6 +11,7 @@ const localeMap: Record<Language, string> = {
   KO: "ko-KR",
   AR: "ar-SA",
   NL: "nl-NL",
+  SR: "sr-Latn-RS",
 };
 
 export const getLocale = (lang: Language) => localeMap[lang] || "en-GB";
