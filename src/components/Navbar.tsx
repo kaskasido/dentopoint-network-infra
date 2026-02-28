@@ -81,11 +81,11 @@ const Navbar = () => {
     {
       label: t.nav.strategicPartners,
       items: [
-        { label: t.nav.partnersItems.tech, href: "#tech-partners" },
-        { label: t.nav.partnersItems.healthcare, href: "#healthcare-networks" },
-        { label: t.nav.partnersItems.academic, href: "#academic-partners" },
-        { label: t.nav.partnersItems.industry, href: "#industry-alliances" },
-        { label: t.nav.partnersItems.global, href: "#global-expansion" },
+        { label: t.nav.partnersItems.tech, href: "/partners#technology" },
+        { label: t.nav.partnersItems.healthcare, href: "/partners#healthcare" },
+        { label: t.nav.partnersItems.academic, href: "/partners#academic" },
+        { label: t.nav.partnersItems.industry, href: "/partners#industry" },
+        { label: t.nav.partnersItems.global, href: "/partners#global" },
         { label: t.nav.partnersItems.portal, href: "/login" },
       ],
     },
