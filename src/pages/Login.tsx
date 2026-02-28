@@ -17,7 +17,7 @@ const Login = () => {
   const [mode, setMode] = useState<AuthMode>("password-login");
   const { t } = useLanguage();
   const p = t.loginPage;
-  const le = t.loginExtended;
+  const le = (t as any).loginExtended || { registrationSuccess: "Registration successful", confirmEmail: "Please confirm your email address via the link we sent to", createAccount: "Create Account", portalAccess: "Access to the portal", login: "Login", register: "Register", password: "Password", forgotPassword: "Forgot password?", signIn: "Sign In", enterEmailFirst: "Please enter your email address first." };
   const navigate = useNavigate();
 
   const handleMagicLink = async (e: React.FormEvent) => {
