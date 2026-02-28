@@ -133,6 +133,7 @@ export const es = {
   analytics: {
     label: "Plataforma Digital",
     title: "Analítica de Grado Inversor",
+    description: "Todos los datos de la red alimentan directamente la evidencia del mundo real (RWE) — para estudios clínicos y análisis basados en datos operativos reales.",
     metrics: [
       { label: "Ingresos por Ubicación", change: "+18%" },
       { label: "Tasa de Conversión", change: "+5,1%" },
@@ -325,7 +326,7 @@ export const es = {
       label: "Académico", title: "Socios Académicos",
       items: [
         { title: "Clínicas Universitarias", desc: "Colaboraciones de investigación con las principales facultades dentales en Europa." },
-        { title: "Estudios Clínicos", desc: "Validación basada en evidencia de los protocolos de seguimiento DentoPoint." },
+        { title: "Estudios Clínicos & RWE", desc: "Validación basada en evidencia de los protocolos de seguimiento DentoPoint — generando Real World Evidence (RWE) directamente de los datos de red en vivo." },
         { title: "Educación y Formación", desc: "Integración en currículos dentales y programas de formación continua." },
         { title: "Publicaciones", desc: "Publicaciones científicas conjuntas y contribuciones a conferencias." },
       ],

@@ -133,6 +133,7 @@ export const cn = {
   analytics: {
     label: "数字平台",
     title: "投资者级分析",
+    description: "所有网络数据直接生成真实世界证据 (RWE) — 支持临床研究和基于运营数据的循证分析。",
     metrics: [
       { label: "每个位置收入", change: "+18%" },
       { label: "转化率", change: "+5.1%" },
@@ -325,7 +326,7 @@ export const cn = {
       label: "学术", title: "学术合作伙伴",
       items: [
         { title: "大学诊所", desc: "与欧洲领先的牙科院系进行研究合作。" },
-        { title: "临床研究", desc: "对DentoPoint术后护理方案的循证验证。" },
+        { title: "临床研究与RWE", desc: "对DentoPoint术后护理方案的循证验证 — 直接从实时网络数据生成真实世界证据 (RWE)。" },
         { title: "教育与培训", desc: "纳入牙科课程和继续教育计划。" },
         { title: "出版物", desc: "联合科学出版物和会议贡献。" },
       ],

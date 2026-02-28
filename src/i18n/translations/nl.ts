@@ -148,6 +148,7 @@ export const nl = {
   analytics: {
     label: "Digitaal Platform",
     title: "Investeerder-Grade Analytics",
+    description: "Alle netwerkdata vloeit direct in Real World Evidence (RWE) — voor klinische studies en evidence-based inzichten uit de operationele praktijk.",
     metrics: [
       { label: "Omzet per Locatie", change: "+18%" },
       { label: "Conversieratio", change: "+5,1%" },
@@ -348,7 +349,7 @@ export const nl = {
       label: "Academisch", title: "Academische Partners",
       items: [
         { title: "Universiteitsklinieken", desc: "Onderzoekssamenwerkingen met toonaangevende tandheelkundige faculteiten in heel Europa." },
-        { title: "Klinische Studies", desc: "Wetenschappelijk onderbouwde validatie van DentoPoint nazorgprotocollen." },
+        { title: "Klinische Studies & RWE", desc: "Wetenschappelijk onderbouwde validatie van DentoPoint nazorgprotocollen — Real World Evidence (RWE) direct uit live netwerkdata." },
         { title: "Onderwijs & Training", desc: "Integratie in tandheelkundige curricula en bijscholingsprogramma's." },
         { title: "Publicaties", desc: "Gezamenlijke wetenschappelijke publicaties en conferentiebijdragen." },
       ],
