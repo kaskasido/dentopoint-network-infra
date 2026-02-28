@@ -140,6 +140,7 @@ export const sr = {
   analytics: {
     label: "Digitalna platforma",
     title: "Analitika za investitore",
+    description: "Svi podaci iz mreže direktno generišu dokaze iz stvarnog sveta (RWE) — za kliničke studije i uvide zasnovane na operativnim podacima.",
     metrics: [
       { label: "Prihod po lokaciji", change: "+18%" },
       { label: "Stopa konverzije", change: "+5,1%" },
@@ -334,7 +335,7 @@ export const sr = {
       label: "Akademija", title: "Akademski partneri",
       items: [
         { title: "Univerzitetske klinike", desc: "Istraživačke saradnje sa vodećim dentalnim fakultetima širom Evrope." },
-        { title: "Kliničke studije", desc: "Validacija DentoPoint protokola nege zasnovana na dokazima." },
+        { title: "Kliničke studije i RWE", desc: "Validacija DentoPoint protokola nege zasnovana na dokazima — generisanje dokaza iz stvarnog sveta (RWE) direktno iz podataka mreže uživo." },
         { title: "Obrazovanje i obuka", desc: "Integracija u dentalne nastavne planove i programe kontinuiranog obrazovanja." },
         { title: "Publikacije", desc: "Zajedničke naučne publikacije i konferencijski doprinosi." },
       ],

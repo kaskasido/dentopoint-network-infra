@@ -133,6 +133,7 @@ export const ko = {
   analytics: {
     label: "디지털 플랫폼",
     title: "투자자급 분석",
+    description: "모든 네트워크 데이터가 실세계 증거(RWE)에 직접 반영 — 임상 연구와 운영 데이터 기반의 증거 기반 인사이트를 제공합니다.",
     metrics: [
       { label: "위치별 수익", change: "+18%" },
       { label: "전환율", change: "+5.1%" },
@@ -325,7 +326,7 @@ export const ko = {
       label: "학술", title: "학술 파트너",
       items: [
         { title: "대학 클리닉", desc: "유럽 전역의 주요 치과 학부와의 연구 협력." },
-        { title: "임상 연구", desc: "DentoPoint 애프터케어 프로토콜의 증거 기반 검증." },
+        { title: "임상 연구 & RWE", desc: "DentoPoint 애프터케어 프로토콜의 증거 기반 검증 — 실시간 네트워크 데이터에서 직접 실세계 증거(RWE) 생성." },
         { title: "교육 & 훈련", desc: "치과 교육과정 및 평생교육 프로그램에 통합." },
         { title: "출판물", desc: "공동 과학 출판물 및 학술회의 기여." },
       ],

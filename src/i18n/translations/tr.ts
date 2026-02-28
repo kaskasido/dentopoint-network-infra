@@ -133,6 +133,7 @@ export const tr = {
   analytics: {
     label: "Dijital Platform",
     title: "Yatırımcı Düzeyinde Analitik",
+    description: "Tüm ağ verileri doğrudan Gerçek Dünya Kanıtlarına (RWE) aktarılır — klinik çalışmalar ve operasyonel verilerden kanıta dayalı içgörüler için.",
     metrics: [
       { label: "Konum Başına Gelir", change: "+%18" },
       { label: "Dönüşüm Oranı", change: "+%5,1" },
@@ -325,7 +326,7 @@ export const tr = {
       label: "Akademik", title: "Akademik Partnerler",
       items: [
         { title: "Üniversite Klinikleri", desc: "Avrupa genelinde önde gelen diş hekimliği fakülteleriyle araştırma işbirlikleri." },
-        { title: "Klinik Çalışmalar", desc: "DentoPoint bakım sonrası protokollerinin kanıta dayalı doğrulaması." },
+        { title: "Klinik Çalışmalar & RWE", desc: "DentoPoint bakım sonrası protokollerinin kanıta dayalı doğrulaması — canlı ağ verilerinden doğrudan Gerçek Dünya Kanıtları (RWE) üretimi." },
         { title: "Eğitim & Öğretim", desc: "Diş hekimliği müfredatlarına ve sürekli eğitim programlarına entegrasyon." },
         { title: "Yayınlar", desc: "Ortak bilimsel yayınlar ve konferans katkıları." },
       ],

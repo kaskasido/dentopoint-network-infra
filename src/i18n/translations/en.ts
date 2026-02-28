@@ -148,6 +148,7 @@ export const en = {
   analytics: {
     label: "Digital Platform",
     title: "Investor-Grade Analytics",
+    description: "All network data feeds directly into Real World Evidence (RWE) — enabling clinical studies and evidence-based insights from live operations.",
     metrics: [
       { label: "Revenue per Location", change: "+18%" },
       { label: "Conversion Rate", change: "+5.1%" },
@@ -348,7 +349,7 @@ export const en = {
       label: "Academic", title: "Academic Partners",
       items: [
         { title: "University Clinics", desc: "Research collaborations with leading dental faculties across Europe." },
-        { title: "Clinical Studies", desc: "Evidence-based validation of DentoPoint aftercare protocols." },
+        { title: "Clinical Studies & RWE", desc: "Evidence-based validation of DentoPoint aftercare protocols — generating Real World Evidence (RWE) directly from live network data." },
         { title: "Education & Training", desc: "Integration into dental curricula and continuing education programmes." },
         { title: "Publications", desc: "Joint scientific publications and conference contributions." },
       ],

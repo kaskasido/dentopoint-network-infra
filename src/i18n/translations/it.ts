@@ -133,6 +133,7 @@ export const it = {
   analytics: {
     label: "Piattaforma Digitale",
     title: "Analitica di Grado Investitore",
+    description: "Tutti i dati della rete alimentano direttamente la Real World Evidence (RWE) — per studi clinici e analisi basate sui dati operativi reali.",
     metrics: [
       { label: "Ricavo per Sede", change: "+18%" },
       { label: "Tasso di Conversione", change: "+5,1%" },
@@ -325,7 +326,7 @@ export const it = {
       label: "Accademico", title: "Partner Accademici",
       items: [
         { title: "Cliniche Universitarie", desc: "Collaborazioni di ricerca con le principali facoltà dentali in Europa." },
-        { title: "Studi Clinici", desc: "Validazione basata sulle evidenze dei protocolli aftercare DentoPoint." },
+        { title: "Studi Clinici & RWE", desc: "Validazione basata sulle evidenze dei protocolli aftercare DentoPoint — generazione di Real World Evidence (RWE) direttamente dai dati di rete in tempo reale." },
         { title: "Istruzione & Formazione", desc: "Integrazione nei curricula dentali e programmi di formazione continua." },
         { title: "Pubblicazioni", desc: "Pubblicazioni scientifiche congiunte e contributi a conferenze." },
       ],

@@ -148,6 +148,7 @@ export const de = {
   analytics: {
     label: "Digitale Plattform",
     title: "Investoren-Grade Analytik",
+    description: "Alle Netzwerkdaten fließen direkt in Real World Evidence (RWE) — für klinische Studien und evidenzbasierte Erkenntnisse aus dem laufenden Betrieb.",
     metrics: [
       { label: "Umsatz pro Standort", change: "+18%" },
       { label: "Konversionsrate", change: "+5,1%" },
@@ -344,7 +345,7 @@ export const de = {
       label: "Akademisch", title: "Akademische Partner",
       items: [
         { title: "Universitätskliniken", desc: "Forschungskooperationen mit führenden zahnmedizinischen Fakultäten in Europa." },
-        { title: "Klinische Studien", desc: "Evidenzbasierte Validierung der DentoPoint-Nachsorgeprotokolle." },
+        { title: "Klinische Studien & RWE", desc: "Evidenzbasierte Validierung der DentoPoint-Nachsorgeprotokolle — Real World Evidence (RWE) direkt aus den Netzwerkdaten im laufenden Betrieb." },
         { title: "Aus- & Weiterbildung", desc: "Integration in zahnmedizinische Lehrpläne und Fortbildungsprogramme." },
         { title: "Publikationen", desc: "Gemeinsame wissenschaftliche Publikationen und Konferenzbeiträge." },
       ],

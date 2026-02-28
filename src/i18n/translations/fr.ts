@@ -133,6 +133,7 @@ export const fr = {
   analytics: {
     label: "Plateforme Numérique",
     title: "Analytique de Grade Investisseur",
+    description: "Toutes les données du réseau alimentent directement les preuves en conditions réelles (RWE) — pour des études cliniques et des analyses fondées sur les données opérationnelles.",
     metrics: [
       { label: "Revenu par Emplacement", change: "+18%" },
       { label: "Taux de Conversion", change: "+5,1%" },
@@ -325,7 +326,7 @@ export const fr = {
       label: "Académique", title: "Partenaires Académiques",
       items: [
         { title: "Cliniques Universitaires", desc: "Collaborations de recherche avec les principales facultés dentaires en Europe." },
-        { title: "Études Cliniques", desc: "Validation basée sur les preuves des protocoles de suivi DentoPoint." },
+        { title: "Études Cliniques & RWE", desc: "Validation basée sur les preuves des protocoles de suivi DentoPoint — génération de Real World Evidence (RWE) directement à partir des données réseau en temps réel." },
         { title: "Éducation & Formation", desc: "Intégration dans les cursus dentaires et programmes de formation continue." },
         { title: "Publications", desc: "Publications scientifiques conjointes et contributions aux conférences." },
       ],
