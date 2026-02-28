@@ -95,7 +95,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex items-center justify-between h-16 px-6">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="DentoPoint" className="h-9 w-9" />
+          <img src={logo} alt="DentoPoint" className="h-11 w-11" />
           <div className="leading-none">
             <span className="font-display font-bold text-lg tracking-tight text-foreground">
               Dento<span className="text-accent">Point</span>

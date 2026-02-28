@@ -23,7 +23,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="md:col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <img src={logo} alt="DentoPoint" className="h-8 w-8 rounded" />
+              <img src={logo} alt="DentoPoint" className="h-11 w-11 rounded" />
               <span className="font-display font-bold text-lg">DentoPoint</span>
             </div>
             <p className="text-sm opacity-60 leading-relaxed">
