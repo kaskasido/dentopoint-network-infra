@@ -1,9 +1,13 @@
 import { mockAdminUsers } from "@/data/mockAdminData";
-import { Users, UserCheck, UserX, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const AdminUsers = () => {
+  const { t } = useLanguage();
+  const ap = t.adminPortal;
   const [filter, setFilter] = useState("");
+
   const filtered = mockAdminUsers.filter((u) =>
     u.displayName.toLowerCase().includes(filter.toLowerCase()) ||
     u.email.toLowerCase().includes(filter.toLowerCase()) ||
@@ -26,18 +30,13 @@ const AdminUsers = () => {
 
   return (
     <div>
-      <h1 className="font-display text-2xl font-bold text-foreground mb-2">Nutzerverwaltung</h1>
-      <p className="text-muted-foreground text-sm mb-8">Alle registrierten Nutzer verwalten.</p>
+      <h1 className="font-display text-2xl font-bold text-foreground mb-2">{ap.usersTitle}</h1>
+      <p className="text-muted-foreground text-sm mb-8">{ap.usersDesc}</p>
 
       <div className="relative mb-6">
         <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-        <input
-          type="text"
-          placeholder="Nutzer suchen..."
-          value={filter}
-          onChange={(e) => setFilter(e.target.value)}
-          className="w-full pl-10 pr-4 py-2.5 rounded-md border border-input bg-background text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-        />
+        <input type="text" placeholder={ap.searchUsers} value={filter} onChange={(e) => setFilter(e.target.value)}
+          className="w-full pl-10 pr-4 py-2.5 rounded-md border border-input bg-background text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring" />
       </div>
 
       <div className="border border-border rounded-lg overflow-hidden">
@@ -45,13 +44,13 @@ const AdminUsers = () => {
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-muted/50">
-                <th className="text-left px-4 py-3 font-medium text-muted-foreground">Name</th>
-                <th className="text-left px-4 py-3 font-medium text-muted-foreground">E-Mail</th>
-                <th className="text-left px-4 py-3 font-medium text-muted-foreground">Rolle</th>
-                <th className="text-left px-4 py-3 font-medium text-muted-foreground">Organisation</th>
-                <th className="text-left px-4 py-3 font-medium text-muted-foreground">Status</th>
-                <th className="text-left px-4 py-3 font-medium text-muted-foreground">Letzter Login</th>
-                <th className="text-left px-4 py-3 font-medium text-muted-foreground">Erstellt am</th>
+                <th className="text-left px-4 py-3 font-medium text-muted-foreground">{ap.name}</th>
+                <th className="text-left px-4 py-3 font-medium text-muted-foreground">{ap.email}</th>
+                <th className="text-left px-4 py-3 font-medium text-muted-foreground">{ap.role}</th>
+                <th className="text-left px-4 py-3 font-medium text-muted-foreground">{ap.organization}</th>
+                <th className="text-left px-4 py-3 font-medium text-muted-foreground">{ap.status}</th>
+                <th className="text-left px-4 py-3 font-medium text-muted-foreground">{ap.lastLogin}</th>
+                <th className="text-left px-4 py-3 font-medium text-muted-foreground">{ap.createdAt}</th>
               </tr>
             </thead>
             <tbody>
@@ -59,13 +58,9 @@ const AdminUsers = () => {
                 <tr key={u.id} className="border-t border-border hover:bg-muted/30 transition-colors">
                   <td className="px-4 py-3 font-medium text-foreground">{u.displayName}</td>
                   <td className="px-4 py-3 text-muted-foreground">{u.email}</td>
-                  <td className="px-4 py-3">
-                    <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${roleColors[u.role]}`}>{u.role}</span>
-                  </td>
+                  <td className="px-4 py-3"><span className={`px-2 py-0.5 rounded-full text-xs font-medium ${roleColors[u.role]}`}>{u.role}</span></td>
                   <td className="px-4 py-3 text-muted-foreground">{u.organization}</td>
-                  <td className="px-4 py-3">
-                    <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${statusColors[u.status]}`}>{u.status}</span>
-                  </td>
+                  <td className="px-4 py-3"><span className={`px-2 py-0.5 rounded-full text-xs font-medium ${statusColors[u.status]}`}>{u.status}</span></td>
                   <td className="px-4 py-3 text-muted-foreground text-xs">{new Date(u.lastLogin).toLocaleString("de-DE")}</td>
                   <td className="px-4 py-3 text-muted-foreground text-xs">{new Date(u.createdAt).toLocaleDateString("de-DE")}</td>
                 </tr>
@@ -74,7 +69,7 @@ const AdminUsers = () => {
           </table>
         </div>
       </div>
-      <p className="text-xs text-muted-foreground mt-2">{filtered.length} von {mockAdminUsers.length} Nutzern</p>
+      <p className="text-xs text-muted-foreground mt-2">{filtered.length} {ap.ofUsers} {mockAdminUsers.length} {ap.users}</p>
     </div>
   );
 };

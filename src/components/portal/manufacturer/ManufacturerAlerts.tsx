@@ -1,12 +1,8 @@
 import { mockAlerts } from "@/data/mockAutomats";
 import { AlertTriangle, AlertCircle, Info, CheckCircle } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
-const iconMap = {
-  critical: AlertTriangle,
-  warning: AlertCircle,
-  info: Info,
-};
-
+const iconMap = { critical: AlertTriangle, warning: AlertCircle, info: Info };
 const colorMap = {
   critical: "text-destructive bg-destructive/10 border-destructive/20",
   warning: "text-yellow-600 bg-yellow-50 border-yellow-200",
@@ -14,17 +10,17 @@ const colorMap = {
 };
 
 const ManufacturerAlerts = () => {
+  const { t } = useLanguage();
+  const mp = t.manufacturerPortal;
   const unresolved = mockAlerts.filter((a) => !a.resolved);
   const resolved = mockAlerts.filter((a) => a.resolved);
 
   return (
     <div>
-      <h1 className="font-display text-2xl font-bold text-foreground mb-2">Echtzeit-Alerts</h1>
-      <p className="text-muted-foreground text-sm mb-8">Aktive Warnungen und Benachrichtigungen Ihrer Automaten.</p>
+      <h1 className="font-display text-2xl font-bold text-foreground mb-2">{mp.alertsTitle}</h1>
+      <p className="text-muted-foreground text-sm mb-8">{mp.alertsDesc}</p>
 
-      <h2 className="font-display text-lg font-semibold text-foreground mb-4">
-        Offene Alerts ({unresolved.length})
-      </h2>
+      <h2 className="font-display text-lg font-semibold text-foreground mb-4">{mp.openAlertsCount} ({unresolved.length})</h2>
       <div className="space-y-3 mb-10">
         {unresolved.map((alert) => {
           const Icon = iconMap[alert.type];
@@ -37,17 +33,12 @@ const ManufacturerAlerts = () => {
                   <span className="text-xs opacity-70">{alert.automatName}</span>
                 </div>
                 <p className="text-sm font-medium">{alert.message}</p>
-                <p className="text-xs opacity-60 mt-1">
-                  {new Date(alert.timestamp).toLocaleString("de-DE")}
-                </p>
+                <p className="text-xs opacity-60 mt-1">{new Date(alert.timestamp).toLocaleString("de-DE")}</p>
               </div>
               <span className={`px-2 py-0.5 rounded text-xs font-medium uppercase ${
                 alert.type === "critical" ? "bg-destructive text-destructive-foreground" :
-                alert.type === "warning" ? "bg-yellow-500 text-white" :
-                "bg-accent text-accent-foreground"
-              }`}>
-                {alert.type}
-              </span>
+                alert.type === "warning" ? "bg-yellow-500 text-white" : "bg-accent text-accent-foreground"
+              }`}>{alert.type}</span>
             </div>
           );
         })}
@@ -55,9 +46,7 @@ const ManufacturerAlerts = () => {
 
       {resolved.length > 0 && (
         <>
-          <h2 className="font-display text-lg font-semibold text-foreground mb-4">
-            Gelöste Alerts ({resolved.length})
-          </h2>
+          <h2 className="font-display text-lg font-semibold text-foreground mb-4">{mp.resolvedAlerts} ({resolved.length})</h2>
           <div className="space-y-3">
             {resolved.map((alert) => (
               <div key={alert.id} className="border border-border rounded-lg p-4 flex items-start gap-4 bg-muted/30 opacity-60">
@@ -70,7 +59,7 @@ const ManufacturerAlerts = () => {
                   <p className="text-sm text-muted-foreground">{alert.message}</p>
                   <p className="text-xs text-muted-foreground mt-1">{new Date(alert.timestamp).toLocaleString("de-DE")}</p>
                 </div>
-                <span className="px-2 py-0.5 rounded text-xs font-medium bg-accent/10 text-accent">Gelöst</span>
+                <span className="px-2 py-0.5 rounded text-xs font-medium bg-accent/10 text-accent">{mp.resolved}</span>
               </div>
             ))}
           </div>

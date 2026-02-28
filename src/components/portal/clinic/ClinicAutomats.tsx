@@ -1,11 +1,15 @@
 import { mockClinicAutomats } from "@/data/mockClinicData";
 import { Wifi, WifiOff, Wrench, RefreshCw } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const ClinicAutomats = () => {
+  const { t } = useLanguage();
+  const cp = t.clinicPortal;
+
   return (
     <div>
-      <h1 className="font-display text-2xl font-bold text-foreground mb-2">Ihre Automaten</h1>
-      <p className="text-muted-foreground text-sm mb-8">Detailübersicht aller DentoPoint Automaten in Ihrer Klinik.</p>
+      <h1 className="font-display text-2xl font-bold text-foreground mb-2">{cp.automatsTitle}</h1>
+      <p className="text-muted-foreground text-sm mb-8">{cp.automatsDesc}</p>
 
       <div className="grid md:grid-cols-2 gap-6">
         {mockClinicAutomats.map((a) => (
@@ -21,14 +25,14 @@ const ClinicAutomats = () => {
                 "bg-muted text-muted-foreground"
               }`}>
                 {a.status === "online" ? <Wifi size={12} /> : a.status === "offline" ? <WifiOff size={12} /> : <Wrench size={12} />}
-                {a.status === "online" ? "Online" : a.status === "offline" ? "Offline" : "Wartung"}
+                {a.status === "online" ? cp.online : a.status === "offline" ? "Offline" : cp.maintenance}
               </span>
             </div>
 
             <div className="space-y-3">
               <div>
                 <div className="flex justify-between text-xs text-muted-foreground mb-1">
-                  <span>Füllstand</span>
+                  <span>{cp.fillLevel}</span>
                   <span>{a.fillLevel}%</span>
                 </div>
                 <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
@@ -38,11 +42,11 @@ const ClinicAutomats = () => {
 
               <div className="grid grid-cols-2 gap-4 pt-2">
                 <div>
-                  <p className="text-xs text-muted-foreground">Tägliche Nutzungen</p>
+                  <p className="text-xs text-muted-foreground">{cp.dailyUsagesLabel}</p>
                   <p className="text-lg font-bold text-foreground">{a.dailyUsage}</p>
                 </div>
                 <div>
-                  <p className="text-xs text-muted-foreground">Letzte Befüllung</p>
+                  <p className="text-xs text-muted-foreground">{cp.lastRefill}</p>
                   <p className="text-sm font-medium text-foreground flex items-center gap-1">
                     <RefreshCw size={12} className="text-muted-foreground" />
                     {new Date(a.lastRefill).toLocaleDateString("de-DE")}

@@ -17,16 +17,14 @@ const Login = () => {
   const [mode, setMode] = useState<AuthMode>("password-login");
   const { t } = useLanguage();
   const p = t.loginPage;
+  const le = t.loginExtended;
   const navigate = useNavigate();
 
   const handleMagicLink = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError("");
-    const { error } = await supabase.auth.signInWithOtp({
-      email,
-      options: { emailRedirectTo: window.location.origin },
-    });
+    const { error } = await supabase.auth.signInWithOtp({ email, options: { emailRedirectTo: window.location.origin } });
     setLoading(false);
     if (error) setError(error.message);
     else setSent(true);
@@ -39,12 +37,8 @@ const Login = () => {
 
     if (mode === "password-signup") {
       const { error } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          emailRedirectTo: window.location.origin,
-          data: { intended_role: "manufacturer" },
-        },
+        email, password,
+        options: { emailRedirectTo: window.location.origin, data: { intended_role: "manufacturer" } },
       });
       setLoading(false);
       if (error) setError(error.message);
@@ -55,13 +49,7 @@ const Login = () => {
       if (error) {
         setError(error.message);
       } else if (data.session) {
-        // Fetch role to determine redirect
-        const { data: roleData } = await supabase
-          .from("user_roles")
-          .select("role")
-          .eq("user_id", data.session.user.id)
-          .limit(1)
-          .single();
+        const { data: roleData } = await supabase.from("user_roles").select("role").eq("user_id", data.session.user.id).limit(1).single();
         const userRole = roleData?.role || "manufacturer";
         navigate(`/portal/${userRole}`);
       }
@@ -83,11 +71,11 @@ const Login = () => {
             <div className="text-center">
               <CheckCircle size={48} className="text-accent mx-auto mb-4" />
               <h2 className="font-display text-xl font-bold text-foreground mb-2">
-                {mode === "password-signup" ? "Registrierung erfolgreich" : p.checkEmail}
+                {mode === "password-signup" ? le.registrationSuccess : p.checkEmail}
               </h2>
               <p className="text-sm text-muted-foreground">
                 {mode === "password-signup"
-                  ? <>Bitte bestätigen Sie Ihre E-Mail-Adresse über den Link, den wir an <strong>{email}</strong> gesendet haben.</>
+                  ? <>{le.confirmEmail} <strong>{email}</strong>.</>
                   : <>{p.magicLinkSent} <strong>{email}</strong>. {p.clickToSignIn}</>
                 }
               </p>
@@ -95,33 +83,23 @@ const Login = () => {
           ) : (
             <>
               <h2 className="font-display text-2xl font-bold text-foreground mb-2">
-                {mode === "password-signup" ? "Konto erstellen" : p.signInTitle}
+                {mode === "password-signup" ? le.createAccount : p.signInTitle}
               </h2>
               <p className="text-sm text-muted-foreground mb-6">
-                {mode === "magic" ? p.signInDesc : "Zugang zum Hersteller-Portal"}
+                {mode === "magic" ? p.signInDesc : le.portalAccess}
               </p>
 
-              {/* Mode tabs */}
               <div className="flex rounded-md border border-border mb-6 text-xs font-medium overflow-hidden">
-                <button
-                  type="button"
-                  onClick={() => { setMode("password-login"); setError(""); }}
-                  className={`flex-1 py-2 transition-colors ${mode === "password-login" ? "bg-accent text-accent-foreground" : "text-muted-foreground hover:bg-muted"}`}
-                >
-                  Login
+                <button type="button" onClick={() => { setMode("password-login"); setError(""); }}
+                  className={`flex-1 py-2 transition-colors ${mode === "password-login" ? "bg-accent text-accent-foreground" : "text-muted-foreground hover:bg-muted"}`}>
+                  {le.login}
                 </button>
-                <button
-                  type="button"
-                  onClick={() => { setMode("password-signup"); setError(""); }}
-                  className={`flex-1 py-2 transition-colors ${mode === "password-signup" ? "bg-accent text-accent-foreground" : "text-muted-foreground hover:bg-muted"}`}
-                >
-                  Registrieren
+                <button type="button" onClick={() => { setMode("password-signup"); setError(""); }}
+                  className={`flex-1 py-2 transition-colors ${mode === "password-signup" ? "bg-accent text-accent-foreground" : "text-muted-foreground hover:bg-muted"}`}>
+                  {le.register}
                 </button>
-                <button
-                  type="button"
-                  onClick={() => { setMode("magic"); setError(""); }}
-                  className={`flex-1 py-2 transition-colors ${mode === "magic" ? "bg-accent text-accent-foreground" : "text-muted-foreground hover:bg-muted"}`}
-                >
+                <button type="button" onClick={() => { setMode("magic"); setError(""); }}
+                  className={`flex-1 py-2 transition-colors ${mode === "magic" ? "bg-accent text-accent-foreground" : "text-muted-foreground hover:bg-muted"}`}>
                   Magic Link
                 </button>
               </div>
@@ -137,19 +115,11 @@ const Login = () => {
 
                 {mode !== "magic" && (
                   <div>
-                    <label htmlFor="password" className="text-sm font-medium text-foreground mb-1.5 block">Passwort</label>
+                    <label htmlFor="password" className="text-sm font-medium text-foreground mb-1.5 block">{le.password}</label>
                     <div className="relative">
                       <Lock size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-                      <input
-                        id="password"
-                        type={showPassword ? "text" : "password"}
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="••••••••"
-                        required
-                        minLength={6}
-                        className="w-full pl-10 pr-10 py-2.5 rounded-md border border-input bg-background text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                      />
+                      <input id="password" type={showPassword ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} placeholder="••••••••" required minLength={6}
+                        className="w-full pl-10 pr-10 py-2.5 rounded-md border border-input bg-background text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring" />
                       <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground">
                         {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                       </button>
@@ -160,26 +130,20 @@ const Login = () => {
                 {error && <p className="text-sm text-destructive">{error}</p>}
 
                 <button type="submit" disabled={loading} className="w-full flex items-center justify-center gap-2 bg-gradient-brand text-primary-foreground py-2.5 rounded-md text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-50">
-                  {loading ? p.sending : mode === "magic" ? p.sendMagicLink : mode === "password-signup" ? "Konto erstellen" : "Anmelden"}
+                  {loading ? p.sending : mode === "magic" ? p.sendMagicLink : mode === "password-signup" ? le.createAccount : le.signIn}
                   <ArrowRight size={16} />
                 </button>
 
                 {mode === "password-login" && (
-                  <button
-                    type="button"
-                    onClick={async () => {
-                      if (!email) { setError("Bitte geben Sie zuerst Ihre E-Mail-Adresse ein."); return; }
-                      setLoading(true); setError("");
-                      const { error } = await supabase.auth.resetPasswordForEmail(email, {
-                        redirectTo: `${window.location.origin}/reset-password`,
-                      });
-                      setLoading(false);
-                      if (error) setError(error.message);
-                      else setSent(true);
-                    }}
-                    className="w-full text-xs text-muted-foreground hover:text-accent transition-colors mt-1"
-                  >
-                    Passwort vergessen?
+                  <button type="button" onClick={async () => {
+                    if (!email) { setError(le.enterEmailFirst); return; }
+                    setLoading(true); setError("");
+                    const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: `${window.location.origin}/reset-password` });
+                    setLoading(false);
+                    if (error) setError(error.message);
+                    else setSent(true);
+                  }} className="w-full text-xs text-muted-foreground hover:text-accent transition-colors mt-1">
+                    {le.forgotPassword}
                   </button>
                 )}
               </form>

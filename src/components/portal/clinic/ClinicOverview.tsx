@@ -1,24 +1,28 @@
 import { mockClinicAutomats, mockClinicOrders, mockPatientFeedback } from "@/data/mockClinicData";
 import { Box, Wifi, WifiOff, Wrench, Star, ShoppingCart, TrendingUp, Users } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const ClinicOverview = () => {
+  const { t } = useLanguage();
+  const cp = t.clinicPortal;
+
   const online = mockClinicAutomats.filter((a) => a.status === "online").length;
   const totalUsage = mockClinicAutomats.reduce((s, a) => s + a.dailyUsage, 0);
   const avgRating = (mockPatientFeedback.reduce((s, f) => s + f.rating, 0) / mockPatientFeedback.length).toFixed(1);
   const pendingOrders = mockClinicOrders.filter((o) => o.status !== "geliefert").length;
 
   const stats = [
-    { label: "Automaten", value: mockClinicAutomats.length, icon: Box, color: "text-accent" },
-    { label: "Online", value: online, icon: Wifi, color: "text-accent" },
-    { label: "Tgl. Nutzungen", value: totalUsage, icon: Users, color: "text-accent" },
-    { label: "Ø Bewertung", value: `${avgRating} ★`, icon: Star, color: "text-yellow-500" },
-    { label: "Offene Bestellungen", value: pendingOrders, icon: ShoppingCart, color: "text-accent" },
+    { label: cp.automats, value: mockClinicAutomats.length, icon: Box, color: "text-accent" },
+    { label: cp.online, value: online, icon: Wifi, color: "text-accent" },
+    { label: cp.dailyUsages, value: totalUsage, icon: Users, color: "text-accent" },
+    { label: cp.avgRating, value: `${avgRating} ★`, icon: Star, color: "text-yellow-500" },
+    { label: cp.openOrders, value: pendingOrders, icon: ShoppingCart, color: "text-accent" },
   ];
 
   return (
     <div>
-      <h1 className="font-display text-2xl font-bold text-foreground mb-2">Klinik Dashboard</h1>
-      <p className="text-muted-foreground text-sm mb-8">Übersicht Ihrer DentoPoint Automaten und Bestellungen.</p>
+      <h1 className="font-display text-2xl font-bold text-foreground mb-2">{cp.dashboardTitle}</h1>
+      <p className="text-muted-foreground text-sm mb-8">{cp.dashboardDesc}</p>
 
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
         {stats.map((s) => (
@@ -31,9 +35,8 @@ const ClinicOverview = () => {
       </div>
 
       <div className="grid lg:grid-cols-2 gap-6">
-        {/* Automaten */}
         <div>
-          <h2 className="font-display text-lg font-semibold text-foreground mb-4">Ihre Automaten</h2>
+          <h2 className="font-display text-lg font-semibold text-foreground mb-4">{cp.yourAutomats}</h2>
           <div className="border border-border rounded-lg divide-y divide-border">
             {mockClinicAutomats.map((a) => (
               <div key={a.id} className="p-4 flex items-center justify-between">
@@ -43,7 +46,7 @@ const ClinicOverview = () => {
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="text-right">
-                    <p className="text-xs text-muted-foreground">{a.dailyUsage} Nutzungen/Tag</p>
+                    <p className="text-xs text-muted-foreground">{a.dailyUsage} {cp.usagesPerDay}</p>
                     <div className="flex items-center gap-2 mt-1">
                       <div className="w-12 h-1.5 bg-muted rounded-full overflow-hidden">
                         <div className={`h-full rounded-full ${a.fillLevel > 60 ? "bg-accent" : a.fillLevel > 30 ? "bg-yellow-500" : "bg-destructive"}`} style={{ width: `${a.fillLevel}%` }} />
@@ -58,9 +61,8 @@ const ClinicOverview = () => {
           </div>
         </div>
 
-        {/* Feedback */}
         <div>
-          <h2 className="font-display text-lg font-semibold text-foreground mb-4">Patienten-Feedback</h2>
+          <h2 className="font-display text-lg font-semibold text-foreground mb-4">{cp.patientFeedback}</h2>
           <div className="border border-border rounded-lg divide-y divide-border">
             {mockPatientFeedback.slice(0, 5).map((f) => (
               <div key={f.id} className="p-4">
@@ -76,16 +78,15 @@ const ClinicOverview = () => {
         </div>
       </div>
 
-      {/* Orders */}
-      <h2 className="font-display text-lg font-semibold text-foreground mt-8 mb-4">Bestellungen</h2>
+      <h2 className="font-display text-lg font-semibold text-foreground mt-8 mb-4">{cp.orders}</h2>
       <div className="border border-border rounded-lg overflow-hidden">
         <table className="w-full text-sm">
           <thead>
             <tr className="bg-muted/50">
-              <th className="text-left px-4 py-3 font-medium text-muted-foreground">Produkt</th>
-              <th className="text-left px-4 py-3 font-medium text-muted-foreground">Menge</th>
-              <th className="text-left px-4 py-3 font-medium text-muted-foreground">Status</th>
-              <th className="text-left px-4 py-3 font-medium text-muted-foreground">Datum</th>
+              <th className="text-left px-4 py-3 font-medium text-muted-foreground">{cp.product}</th>
+              <th className="text-left px-4 py-3 font-medium text-muted-foreground">{cp.quantity}</th>
+              <th className="text-left px-4 py-3 font-medium text-muted-foreground">{cp.status}</th>
+              <th className="text-left px-4 py-3 font-medium text-muted-foreground">{cp.date}</th>
             </tr>
           </thead>
           <tbody>
@@ -98,7 +99,7 @@ const ClinicOverview = () => {
                     o.status === "geliefert" ? "bg-accent/10 text-accent" :
                     o.status === "bestellt" ? "bg-blue-500/10 text-blue-500" :
                     "bg-yellow-500/10 text-yellow-500"
-                  }`}>{o.status}</span>
+                  }`}>{o.status === "geliefert" ? cp.delivered : o.status === "bestellt" ? cp.ordered : cp.pending}</span>
                 </td>
                 <td className="px-4 py-3 text-muted-foreground">{new Date(o.date).toLocaleDateString("de-DE")}</td>
               </tr>
