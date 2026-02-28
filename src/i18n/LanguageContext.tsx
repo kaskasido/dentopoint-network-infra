@@ -41,7 +41,19 @@ const LanguageContext = createContext<LanguageContextType>({
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [lang, setLang] = useState<Language>("EN");
-  const t = translationMap[lang] || en;
+  const raw = translationMap[lang] || en;
+  // Deep merge with English fallback so missing keys never crash
+  const t = new Proxy(raw, {
+    get(target, prop: string) {
+      const val = (target as any)[prop];
+      const fallback = (en as any)[prop];
+      if (val === undefined) return fallback;
+      if (typeof val === "object" && val !== null && !Array.isArray(val) && typeof fallback === "object" && fallback !== null) {
+        return { ...fallback, ...val };
+      }
+      return val;
+    },
+  }) as Translations;
 
   return (
     <LanguageContext.Provider value={{ lang, setLang, t }}>
