@@ -428,4 +428,54 @@ export const en = {
       { title: "Structured Follow-Up", desc: "Automated appointment and care reminders for optimal outcomes." },
     ],
   },
+
+  // Portal
+  portal: {
+    signOut: "Sign out",
+    portals: "Portals",
+    manufacturer: {
+      title: "Manufacturer Portal",
+      dashboard: "Dashboard",
+      map: "Locations & Map",
+      alerts: "Real-Time Alerts",
+      maintenance: "Maintenance & History",
+      kpis: "Performance KPIs",
+      export: "Data Export",
+    },
+    clinic: {
+      title: "Clinic Portal",
+      dashboard: "Dashboard",
+      automats: "Automats",
+      orders: "Orders",
+      feedback: "Feedback",
+    },
+    investor: {
+      title: "Investor Portal",
+      dashboard: "Dashboard",
+      growth: "Growth",
+      regions: "Regions",
+      metrics: "Metrics",
+    },
+    partner: {
+      title: "Partner Portal",
+      dashboard: "Dashboard",
+      deals: "Deals",
+      commissions: "Commissions",
+      territories: "Territories",
+    },
+    admin: {
+      title: "Admin Portal",
+      dashboard: "Dashboard",
+      users: "Users",
+      roles: "Roles",
+      logs: "System Logs",
+    },
+    switcher: {
+      manufacturer: "Manufacturer",
+      clinic: "Clinic",
+      investor: "Investor",
+      partner: "Partner",
+      admin: "Admin",
+    },
+  },
 };

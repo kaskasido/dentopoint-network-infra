@@ -401,4 +401,15 @@ export const es = {
       { title: "Seguimiento Estructurado", desc: "Recordatorios automatizados de citas y cuidados para resultados óptimos." },
     ],
   },
+
+  portal: {
+    signOut: "Cerrar Sesión",
+    portals: "Portales",
+    manufacturer: { title: "Portal Fabricante", dashboard: "Panel", map: "Ubicaciones y Mapa", alerts: "Alertas en tiempo real", maintenance: "Mantenimiento e Historial", kpis: "KPIs de rendimiento", export: "Exportar datos" },
+    clinic: { title: "Portal Clínica", dashboard: "Panel", automats: "Dispensadores", orders: "Pedidos", feedback: "Comentarios" },
+    investor: { title: "Portal Inversor", dashboard: "Panel", growth: "Crecimiento", regions: "Regiones", metrics: "Métricas" },
+    partner: { title: "Portal Socio", dashboard: "Panel", deals: "Acuerdos", commissions: "Comisiones", territories: "Territorios" },
+    admin: { title: "Portal Admin", dashboard: "Panel", users: "Usuarios", roles: "Roles", logs: "Registros del sistema" },
+    switcher: { manufacturer: "Fabricante", clinic: "Clínica", investor: "Inversor", partner: "Socio", admin: "Admin" },
+  },
 };
