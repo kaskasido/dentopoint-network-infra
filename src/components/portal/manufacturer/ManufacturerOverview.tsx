@@ -1,10 +1,12 @@
 import { mockAutomats, mockAlerts } from "@/data/mockAutomats";
 import { Box, Wifi, WifiOff, Wrench, AlertTriangle, TrendingUp, Euro, Package } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { getLocale } from "@/i18n/localeMap";
 
 const ManufacturerOverview = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const mp = (t as any).manufacturerPortal || ({} as any);
+  const locale = getLocale(lang);
 
   const online = mockAutomats.filter((a) => a.status === "online").length;
   const offline = mockAutomats.filter((a) => a.status === "offline").length;
@@ -20,8 +22,8 @@ const ManufacturerOverview = () => {
     { label: mp.inMaintenance, value: wartung, icon: Wrench, color: "text-muted-foreground" },
     { label: mp.avgFillLevel, value: `${avgFill}%`, icon: Package, color: "text-accent" },
     { label: mp.openAlerts, value: unresolvedAlerts, icon: AlertTriangle, color: unresolvedAlerts > 0 ? "text-destructive" : "text-accent" },
-    { label: mp.revenue30d, value: `€${totalRevenue.toLocaleString("de-DE")}`, icon: Euro, color: "text-accent" },
-    { label: mp.avgRevenuePerAutomat, value: `€${Math.round(totalRevenue / mockAutomats.length).toLocaleString("de-DE")}`, icon: TrendingUp, color: "text-accent" },
+    { label: mp.revenue30d, value: `€${totalRevenue.toLocaleString(locale)}`, icon: Euro, color: "text-accent" },
+    { label: mp.avgRevenuePerAutomat, value: `€${Math.round(totalRevenue / mockAutomats.length).toLocaleString(locale)}`, icon: TrendingUp, color: "text-accent" },
   ];
 
   return (
@@ -82,8 +84,8 @@ const ManufacturerOverview = () => {
                       <span className="text-muted-foreground text-xs">{a.fillLevel}%</span>
                     </div>
                   </td>
-                  <td className="px-4 py-3 text-foreground">€{a.revenue30d.toLocaleString("de-DE")}</td>
-                  <td className="px-4 py-3 text-muted-foreground">{new Date(a.nextMaintenance).toLocaleDateString("de-DE")}</td>
+                  <td className="px-4 py-3 text-foreground">€{a.revenue30d.toLocaleString(locale)}</td>
+                  <td className="px-4 py-3 text-muted-foreground">{new Date(a.nextMaintenance).toLocaleDateString(locale)}</td>
                 </tr>
               ))}
             </tbody>

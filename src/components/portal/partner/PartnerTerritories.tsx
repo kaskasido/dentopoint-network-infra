@@ -1,10 +1,12 @@
 import { mockTerritories } from "@/data/mockPartnerData";
 import { MapPin, Target, Users } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { getLocale } from "@/i18n/localeMap";
 
 const PartnerTerritories = () => {
-  const { t } = useLanguage();
-  const pp = t.partnerPortal;
+  const { t, lang } = useLanguage();
+  const pp = (t as any).partnerPortal || ({} as any);
+  const locale = getLocale(lang);
 
   const totalLeads = mockTerritories.reduce((s, ter) => s + ter.leads, 0);
   const totalConversions = mockTerritories.reduce((s, ter) => s + ter.conversions, 0);
@@ -40,7 +42,7 @@ const PartnerTerritories = () => {
               <MapPin size={18} className="text-accent" />
               <h3 className="font-display text-lg font-semibold text-foreground">{ter.region}</h3>
             </div>
-            <span className="text-sm font-semibold text-accent">€{ter.revenue.toLocaleString("de-DE")}</span>
+            <span className="text-sm font-semibold text-accent">€{ter.revenue.toLocaleString(locale)}</span>
           </div>
           <div className="grid grid-cols-4 gap-4">
             <div>

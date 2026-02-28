@@ -1,10 +1,27 @@
 import { mockPatientFeedback } from "@/data/mockClinicData";
 import { Star, MessageSquare } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { getLocale } from "@/i18n/localeMap";
+
+const feedbackMap: Record<string, string> = {
+  "Super Angebot, sehr praktisch!": "feedback1",
+  "Gute Auswahl, könnte günstiger sein.": "feedback2",
+  "Endlich Zahnpflegeprodukte in der Klinik!": "feedback3",
+  "Automat war kurzzeitig außer Betrieb.": "feedback4",
+  "Meine Kinder lieben die Kinderzahnbürsten.": "feedback5",
+  "Bezahlung per Karte funktioniert einwandfrei.": "feedback6",
+};
 
 const ClinicFeedback = () => {
-  const { t } = useLanguage();
-  const cp = t.clinicPortal;
+  const { t, lang } = useLanguage();
+  const cp = (t as any).clinicPortal || ({} as any);
+  const md = (t as any).mockData || ({} as any);
+  const locale = getLocale(lang);
+
+  const tr = (val: string) => {
+    const key = feedbackMap[val];
+    return key && md[key] ? md[key] : val;
+  };
 
   const avgRating = (mockPatientFeedback.reduce((s, f) => s + f.rating, 0) / mockPatientFeedback.length).toFixed(1);
   const ratingDist = [5, 4, 3, 2, 1].map((r) => ({
@@ -53,10 +70,10 @@ const ClinicFeedback = () => {
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-xs text-yellow-500">{"★".repeat(f.rating)}{"☆".repeat(5 - f.rating)}</span>
-                <span className="text-xs text-muted-foreground">{new Date(f.date).toLocaleDateString("de-DE")}</span>
+                <span className="text-xs text-muted-foreground">{new Date(f.date).toLocaleDateString(locale)}</span>
               </div>
             </div>
-            <p className="text-sm text-foreground">{f.comment}</p>
+            <p className="text-sm text-foreground">{tr(f.comment)}</p>
           </div>
         ))}
       </div>

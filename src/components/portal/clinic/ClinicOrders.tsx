@@ -1,10 +1,26 @@
 import { mockClinicOrders } from "@/data/mockClinicData";
 import { Package, Truck, Clock, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { getLocale } from "@/i18n/localeMap";
+
+const productMap: Record<string, string> = {
+  "Zahnbürsten-Set Premium": "toothbrushSetPremium",
+  "Zahnpasta Fluor+": "toothpasteFluor",
+  "Mundspülung Sensitiv": "mouthwashSensitive",
+  "Zahnseide Mint": "flossMint",
+  "Interdentalbürsten": "interdentalBrushes",
+};
 
 const ClinicOrders = () => {
-  const { t } = useLanguage();
-  const cp = t.clinicPortal;
+  const { t, lang } = useLanguage();
+  const cp = (t as any).clinicPortal || ({} as any);
+  const md = (t as any).mockData || ({} as any);
+  const locale = getLocale(lang);
+
+  const tr = (val: string) => {
+    const key = productMap[val];
+    return key && md[key] ? md[key] : val;
+  };
 
   const delivered = mockClinicOrders.filter((o) => o.status === "geliefert").length;
   const ordered = mockClinicOrders.filter((o) => o.status === "bestellt").length;
@@ -56,7 +72,7 @@ const ClinicOrders = () => {
                 <tr key={o.id} className="border-t border-border hover:bg-muted/30 transition-colors">
                   <td className="px-4 py-3 font-medium text-foreground flex items-center gap-2">
                     <Package size={14} className="text-muted-foreground" />
-                    {o.product}
+                    {tr(o.product)}
                   </td>
                   <td className="px-4 py-3 text-muted-foreground">{o.quantity} {cp.pcs}</td>
                   <td className="px-4 py-3">
@@ -65,7 +81,7 @@ const ClinicOrders = () => {
                       {cfg.label}
                     </span>
                   </td>
-                  <td className="px-4 py-3 text-muted-foreground">{new Date(o.date).toLocaleDateString("de-DE")}</td>
+                  <td className="px-4 py-3 text-muted-foreground">{new Date(o.date).toLocaleDateString(locale)}</td>
                 </tr>
               );
             })}

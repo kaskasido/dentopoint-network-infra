@@ -1,10 +1,26 @@
 import { mockDeals, mockCommissions, mockTerritories } from "@/data/mockPartnerData";
 import { Handshake, Euro, Target, MapPin, TrendingUp, CheckCircle, Clock, XCircle } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { getLocale } from "@/i18n/localeMap";
+
+const monthMap: Record<string, string> = {
+  "Februar 2026": "february2026",
+  "Januar 2026": "january2026",
+  "Dezember 2025": "december2025",
+  "November 2025": "november2025",
+  "Oktober 2025": "october2025",
+};
 
 const PartnerOverview = () => {
-  const { t } = useLanguage();
-  const pp = t.partnerPortal;
+  const { t, lang } = useLanguage();
+  const pp = (t as any).partnerPortal || ({} as any);
+  const md = (t as any).mockData || ({} as any);
+  const locale = getLocale(lang);
+
+  const trMonth = (val: string) => {
+    const key = monthMap[val];
+    return key && md[key] ? md[key] : val;
+  };
 
   const closedDeals = mockDeals.filter((d) => d.status === "abgeschlossen");
   const totalCommissions = mockCommissions.reduce((s, c) => s + c.amount, 0);
@@ -13,7 +29,7 @@ const PartnerOverview = () => {
   const stats = [
     { label: pp.dealsClosed, value: closedDeals.length, icon: Handshake, color: "text-accent" },
     { label: pp.pipelineValue, value: `€${(pipelineValue / 1000).toFixed(0)}K`, icon: Target, color: "text-accent" },
-    { label: pp.totalCommissions, value: `€${totalCommissions.toLocaleString("de-DE")}`, icon: Euro, color: "text-accent" },
+    { label: pp.totalCommissions, value: `€${totalCommissions.toLocaleString(locale)}`, icon: Euro, color: "text-accent" },
     { label: pp.territories, value: mockTerritories.length, icon: MapPin, color: "text-accent" },
   ];
 
@@ -58,14 +74,14 @@ const PartnerOverview = () => {
                 <tr key={d.id} className="border-t border-border">
                   <td className="px-4 py-3 font-medium text-foreground">{d.clinicName}</td>
                   <td className="px-4 py-3 text-muted-foreground">{d.automats}</td>
-                  <td className="px-4 py-3 text-foreground">€{d.value.toLocaleString("de-DE")}</td>
+                  <td className="px-4 py-3 text-foreground">€{d.value.toLocaleString(locale)}</td>
                   <td className="px-4 py-3">
                     <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium ${cfg.className}`}>
                       <cfg.icon size={12} />
                       {cfg.label}
                     </span>
                   </td>
-                  <td className="px-4 py-3 text-muted-foreground">{new Date(d.date).toLocaleDateString("de-DE")}</td>
+                  <td className="px-4 py-3 text-muted-foreground">{new Date(d.date).toLocaleDateString(locale)}</td>
                 </tr>
               );
             })}
@@ -80,11 +96,11 @@ const PartnerOverview = () => {
             {mockCommissions.map((c) => (
               <div key={c.id} className="p-4 flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-foreground">{c.month}</p>
+                  <p className="text-sm font-medium text-foreground">{trMonth(c.month)}</p>
                   <p className="text-xs text-muted-foreground">{c.deals} Deal{c.deals > 1 ? "s" : ""}</p>
                 </div>
                 <div className="text-right">
-                  <p className="font-semibold text-foreground">€{c.amount.toLocaleString("de-DE")}</p>
+                  <p className="font-semibold text-foreground">€{c.amount.toLocaleString(locale)}</p>
                   <span className={`text-xs ${c.paid ? "text-accent" : "text-yellow-500"}`}>
                     {c.paid ? pp.paidOut : pp.pendingLabel}
                   </span>
@@ -101,7 +117,7 @@ const PartnerOverview = () => {
               <div key={ter.region} className="p-4">
                 <div className="flex items-center justify-between mb-2">
                   <p className="font-medium text-foreground">{ter.region}</p>
-                  <span className="text-sm text-accent font-semibold">€{ter.revenue.toLocaleString("de-DE")}</span>
+                  <span className="text-sm text-accent font-semibold">€{ter.revenue.toLocaleString(locale)}</span>
                 </div>
                 <div className="flex gap-4 text-xs text-muted-foreground">
                   <span>{ter.leads} {pp.leads}</span>

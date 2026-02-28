@@ -2,11 +2,25 @@ import { mockAdminUsers } from "@/data/mockAdminData";
 import { Search } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { getLocale } from "@/i18n/localeMap";
+
+const statusTranslationMap: Record<string, string> = {
+  aktiv: "statusActive",
+  inaktiv: "statusInactive",
+  gesperrt: "statusBlocked",
+};
 
 const AdminUsers = () => {
-  const { t } = useLanguage();
-  const ap = t.adminPortal;
+  const { t, lang } = useLanguage();
+  const ap = (t as any).adminPortal || ({} as any);
+  const md = (t as any).mockData || ({} as any);
+  const locale = getLocale(lang);
   const [filter, setFilter] = useState("");
+
+  const trStatus = (status: string) => {
+    const key = statusTranslationMap[status];
+    return key && md[key] ? md[key] : status;
+  };
 
   const filtered = mockAdminUsers.filter((u) =>
     u.displayName.toLowerCase().includes(filter.toLowerCase()) ||
@@ -60,9 +74,9 @@ const AdminUsers = () => {
                   <td className="px-4 py-3 text-muted-foreground">{u.email}</td>
                   <td className="px-4 py-3"><span className={`px-2 py-0.5 rounded-full text-xs font-medium ${roleColors[u.role]}`}>{u.role}</span></td>
                   <td className="px-4 py-3 text-muted-foreground">{u.organization}</td>
-                  <td className="px-4 py-3"><span className={`px-2 py-0.5 rounded-full text-xs font-medium ${statusColors[u.status]}`}>{u.status}</span></td>
-                  <td className="px-4 py-3 text-muted-foreground text-xs">{new Date(u.lastLogin).toLocaleString("de-DE")}</td>
-                  <td className="px-4 py-3 text-muted-foreground text-xs">{new Date(u.createdAt).toLocaleDateString("de-DE")}</td>
+                  <td className="px-4 py-3"><span className={`px-2 py-0.5 rounded-full text-xs font-medium ${statusColors[u.status]}`}>{trStatus(u.status)}</span></td>
+                  <td className="px-4 py-3 text-muted-foreground text-xs">{new Date(u.lastLogin).toLocaleString(locale)}</td>
+                  <td className="px-4 py-3 text-muted-foreground text-xs">{new Date(u.createdAt).toLocaleDateString(locale)}</td>
                 </tr>
               ))}
             </tbody>

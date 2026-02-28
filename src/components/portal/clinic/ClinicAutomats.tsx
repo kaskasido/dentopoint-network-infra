@@ -1,10 +1,30 @@
 import { mockClinicAutomats } from "@/data/mockClinicData";
 import { Wifi, WifiOff, Wrench, RefreshCw } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { getLocale } from "@/i18n/localeMap";
+
+const locationMap: Record<string, string> = {
+  "Eingangsbereich": "entrance",
+  "Wartezimmer Station A": "waitingRoomA",
+  "Cafeteria": "cafeteria",
+  "Notaufnahme": "emergencyRoom",
+};
+
+const floorMap: Record<string, string> = {
+  "EG": "groundFloor",
+  "1. OG": "firstFloor",
+};
 
 const ClinicAutomats = () => {
-  const { t } = useLanguage();
-  const cp = t.clinicPortal;
+  const { t, lang } = useLanguage();
+  const cp = (t as any).clinicPortal || ({} as any);
+  const md = (t as any).mockData || ({} as any);
+  const locale = getLocale(lang);
+
+  const tr = (map: Record<string, string>, val: string) => {
+    const key = map[val];
+    return key && md[key] ? md[key] : val;
+  };
 
   return (
     <div>
@@ -17,7 +37,7 @@ const ClinicAutomats = () => {
             <div className="flex items-center justify-between mb-4">
               <div>
                 <p className="font-mono text-lg font-bold text-foreground">{a.nr}</p>
-                <p className="text-sm text-muted-foreground">{a.location} • {a.floor}</p>
+                <p className="text-sm text-muted-foreground">{tr(locationMap, a.location)} • {tr(floorMap, a.floor)}</p>
               </div>
               <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium ${
                 a.status === "online" ? "bg-accent/10 text-accent" :
@@ -25,7 +45,7 @@ const ClinicAutomats = () => {
                 "bg-muted text-muted-foreground"
               }`}>
                 {a.status === "online" ? <Wifi size={12} /> : a.status === "offline" ? <WifiOff size={12} /> : <Wrench size={12} />}
-                {a.status === "online" ? cp.online : a.status === "offline" ? "Offline" : cp.maintenance}
+                {a.status === "online" ? cp.online : a.status === "offline" ? cp.offline || "Offline" : cp.maintenance}
               </span>
             </div>
 
@@ -49,7 +69,7 @@ const ClinicAutomats = () => {
                   <p className="text-xs text-muted-foreground">{cp.lastRefill}</p>
                   <p className="text-sm font-medium text-foreground flex items-center gap-1">
                     <RefreshCw size={12} className="text-muted-foreground" />
-                    {new Date(a.lastRefill).toLocaleDateString("de-DE")}
+                    {new Date(a.lastRefill).toLocaleDateString(locale)}
                   </p>
                 </div>
               </div>

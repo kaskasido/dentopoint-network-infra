@@ -1,10 +1,24 @@
 import { mockAdminUsers, mockSystemLogs } from "@/data/mockAdminData";
 import { Users, Shield, Building, AlertTriangle, UserCheck, UserX } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { getLocale } from "@/i18n/localeMap";
+
+const statusTranslationMap: Record<string, string> = {
+  aktiv: "statusActive",
+  inaktiv: "statusInactive",
+  gesperrt: "statusBlocked",
+};
 
 const AdminOverview = () => {
-  const { t } = useLanguage();
-  const ap = t.adminPortal;
+  const { t, lang } = useLanguage();
+  const ap = (t as any).adminPortal || ({} as any);
+  const md = (t as any).mockData || ({} as any);
+  const locale = getLocale(lang);
+
+  const trStatus = (status: string) => {
+    const key = statusTranslationMap[status];
+    return key && md[key] ? md[key] : status;
+  };
 
   const activeUsers = mockAdminUsers.filter((u) => u.status === "aktiv").length;
 
@@ -71,8 +85,8 @@ const AdminOverview = () => {
                   <td className="px-4 py-3 text-muted-foreground">{u.email}</td>
                   <td className="px-4 py-3"><span className={`px-2 py-0.5 rounded-full text-xs font-medium ${roleColors[u.role]}`}>{u.role}</span></td>
                   <td className="px-4 py-3 text-muted-foreground">{u.organization}</td>
-                  <td className="px-4 py-3"><span className={`px-2 py-0.5 rounded-full text-xs font-medium ${statusColors[u.status]}`}>{u.status}</span></td>
-                  <td className="px-4 py-3 text-muted-foreground text-xs">{new Date(u.lastLogin).toLocaleString("de-DE")}</td>
+                  <td className="px-4 py-3"><span className={`px-2 py-0.5 rounded-full text-xs font-medium ${statusColors[u.status]}`}>{trStatus(u.status)}</span></td>
+                  <td className="px-4 py-3 text-muted-foreground text-xs">{new Date(u.lastLogin).toLocaleString(locale)}</td>
                 </tr>
               ))}
             </tbody>
@@ -88,7 +102,7 @@ const AdminOverview = () => {
             <div className="flex-1">
               <div className="flex items-center justify-between">
                 <p className="text-sm font-medium text-foreground">{log.action}</p>
-                <span className="text-xs text-muted-foreground">{new Date(log.timestamp).toLocaleString("de-DE")}</span>
+                <span className="text-xs text-muted-foreground">{new Date(log.timestamp).toLocaleString(locale)}</span>
               </div>
               <p className="text-xs text-muted-foreground mt-0.5">{log.details}</p>
               <p className="text-xs text-muted-foreground mt-0.5">{ap.by}: {log.user}</p>

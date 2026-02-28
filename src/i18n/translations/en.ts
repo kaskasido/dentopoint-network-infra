@@ -714,4 +714,73 @@ export const en = {
     signIn: "Sign In",
     enterEmailFirst: "Please enter your email address first.",
   },
+
+  // Mock data translations
+  mockData: {
+    // Maintenance types
+    scheduledMaintenance: "Scheduled Maintenance",
+    refill: "Refill",
+    faultRepair: "Fault Repair",
+    // Admin user statuses
+    statusActive: "Active",
+    statusInactive: "Inactive",
+    statusBlocked: "Blocked",
+    // Clinic locations
+    entrance: "Entrance",
+    waitingRoomA: "Waiting Room Station A",
+    cafeteria: "Cafeteria",
+    emergencyRoom: "Emergency Room",
+    // Clinic products
+    toothbrushSetPremium: "Toothbrush Set Premium",
+    toothpasteFluor: "Toothpaste Fluor+",
+    mouthwashSensitive: "Mouthwash Sensitive",
+    flossMint: "Dental Floss Mint",
+    interdentalBrushes: "Interdental Brushes",
+    // Patient feedback
+    feedback1: "Great selection, very convenient!",
+    feedback2: "Good range, could be cheaper.",
+    feedback3: "Finally dental care products at the clinic!",
+    feedback4: "Machine was briefly out of order.",
+    feedback5: "My kids love the children's toothbrushes.",
+    feedback6: "Card payment works perfectly.",
+    // Commission months
+    february2026: "February 2026",
+    january2026: "January 2026",
+    december2025: "December 2025",
+    november2025: "November 2025",
+    october2025: "October 2025",
+    // Admin log actions & details
+    logLogin: "Login",
+    logLoginSuccess: "Successfully logged in",
+    logAutomatOffline: "Automat Offline",
+    logConnectionLost: "Connection lost",
+    logRoleAssigned: "Role Assigned",
+    logNewRole: "New role 'manufacturer' for",
+    logFailedLogin: "Failed Login",
+    logFailedAttempts: "3 failed attempts",
+    logOrderCreated: "Order Created",
+    logMaintenancePlanned: "Maintenance Planned",
+    logMaintenanceOn: "Maintenance on",
+    logUserBlocked: "User Blocked",
+    logBlockedReason: "blocked due to suspected abuse",
+    // Alert messages
+    alertOffline48h: "Automat offline – no connection for 48h",
+    alertFillBelow50: "Fill level below 50% – refill recommended",
+    alertScheduledMaint: "Scheduled maintenance in progress",
+    alertLowStock: "Low product stock: Implant Care Kit (3/40)",
+    alertMaintComplete: "Maintenance completed successfully",
+    alertMaintOverdue: "Next maintenance overdue",
+    // Maintenance notes
+    noteCalibration: "Calibration, cleaning, software update v3.2",
+    noteRefillSensor: "All products refilled, sensor checked",
+    noteCompressor: "Compressor replaced, temperature regulation optimized",
+    noteCardReader: "Card reader module replaced, test run successful",
+    noteFullInspection: "Full inspection, no anomalies",
+    noteRefillDisplay: "Products refilled, display calibration",
+    noteSoftwareSensor: "Software update v3.2, sensor check",
+    noteFullRefillNet: "Fully refilled, network check",
+    // Floors
+    groundFloor: "GF",
+    firstFloor: "1F",
+  },
 };

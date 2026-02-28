@@ -1,10 +1,47 @@
 import { mockClinicAutomats, mockClinicOrders, mockPatientFeedback } from "@/data/mockClinicData";
 import { Box, Wifi, WifiOff, Wrench, Star, ShoppingCart, TrendingUp, Users } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { getLocale } from "@/i18n/localeMap";
+
+const locationMap: Record<string, string> = {
+  "Eingangsbereich": "entrance",
+  "Wartezimmer Station A": "waitingRoomA",
+  "Cafeteria": "cafeteria",
+  "Notaufnahme": "emergencyRoom",
+};
+
+const floorMap: Record<string, string> = {
+  "EG": "groundFloor",
+  "1. OG": "firstFloor",
+};
+
+const productMap: Record<string, string> = {
+  "Zahnbürsten-Set Premium": "toothbrushSetPremium",
+  "Zahnpasta Fluor+": "toothpasteFluor",
+  "Mundspülung Sensitiv": "mouthwashSensitive",
+  "Zahnseide Mint": "flossMint",
+  "Interdentalbürsten": "interdentalBrushes",
+};
+
+const feedbackMap: Record<string, string> = {
+  "Super Angebot, sehr praktisch!": "feedback1",
+  "Gute Auswahl, könnte günstiger sein.": "feedback2",
+  "Endlich Zahnpflegeprodukte in der Klinik!": "feedback3",
+  "Automat war kurzzeitig außer Betrieb.": "feedback4",
+  "Meine Kinder lieben die Kinderzahnbürsten.": "feedback5",
+  "Bezahlung per Karte funktioniert einwandfrei.": "feedback6",
+};
 
 const ClinicOverview = () => {
-  const { t } = useLanguage();
-  const cp = t.clinicPortal;
+  const { t, lang } = useLanguage();
+  const cp = (t as any).clinicPortal || ({} as any);
+  const md = (t as any).mockData || ({} as any);
+  const locale = getLocale(lang);
+
+  const tr = (map: Record<string, string>, val: string) => {
+    const key = map[val];
+    return key && md[key] ? md[key] : val;
+  };
 
   const online = mockClinicAutomats.filter((a) => a.status === "online").length;
   const totalUsage = mockClinicAutomats.reduce((s, a) => s + a.dailyUsage, 0);
@@ -42,7 +79,7 @@ const ClinicOverview = () => {
               <div key={a.id} className="p-4 flex items-center justify-between">
                 <div>
                   <p className="font-mono text-sm font-semibold text-foreground">{a.nr}</p>
-                  <p className="text-xs text-muted-foreground">{a.location} • {a.floor}</p>
+                  <p className="text-xs text-muted-foreground">{tr(locationMap, a.location)} • {tr(floorMap, a.floor)}</p>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="text-right">
@@ -70,8 +107,8 @@ const ClinicOverview = () => {
                   <span className="text-xs text-muted-foreground">{f.automatNr}</span>
                   <span className="text-xs text-yellow-500">{"★".repeat(f.rating)}{"☆".repeat(5 - f.rating)}</span>
                 </div>
-                <p className="text-sm text-foreground">{f.comment}</p>
-                <p className="text-xs text-muted-foreground mt-1">{new Date(f.date).toLocaleDateString("de-DE")}</p>
+                <p className="text-sm text-foreground">{tr(feedbackMap, f.comment)}</p>
+                <p className="text-xs text-muted-foreground mt-1">{new Date(f.date).toLocaleDateString(locale)}</p>
               </div>
             ))}
           </div>
@@ -92,7 +129,7 @@ const ClinicOverview = () => {
           <tbody>
             {mockClinicOrders.map((o) => (
               <tr key={o.id} className="border-t border-border">
-                <td className="px-4 py-3 text-foreground">{o.product}</td>
+                <td className="px-4 py-3 text-foreground">{tr(productMap, o.product)}</td>
                 <td className="px-4 py-3 text-muted-foreground">{o.quantity}</td>
                 <td className="px-4 py-3">
                   <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${
@@ -101,7 +138,7 @@ const ClinicOverview = () => {
                     "bg-yellow-500/10 text-yellow-500"
                   }`}>{o.status === "geliefert" ? cp.delivered : o.status === "bestellt" ? cp.ordered : cp.pending}</span>
                 </td>
-                <td className="px-4 py-3 text-muted-foreground">{new Date(o.date).toLocaleDateString("de-DE")}</td>
+                <td className="px-4 py-3 text-muted-foreground">{new Date(o.date).toLocaleDateString(locale)}</td>
               </tr>
             ))}
           </tbody>
