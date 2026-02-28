@@ -29,6 +29,7 @@ const languages: { code: Language; label: string }[] = [
   { code: "KO", label: "한국어" },
   { code: "AR", label: "العربية" },
   { code: "NL", label: "Nederlands" },
+  { code: "SR", label: "Srpski" },
 ];
 
 const Navbar = () => {
