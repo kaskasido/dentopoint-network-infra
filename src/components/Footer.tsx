@@ -10,6 +10,7 @@ const languages: { code: Language; label: string }[] = [
   { code: "TR", label: "Türkçe" },
   { code: "CN", label: "中文" },
   { code: "KO", label: "한국어" },
+  { code: "AR", label: "العربية" },
 ];
 
 const Footer = () => {
