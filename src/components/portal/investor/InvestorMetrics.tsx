@@ -1,13 +1,17 @@
 import { mockFinancials } from "@/data/mockInvestorData";
 import { TrendingUp, TrendingDown, BarChart3, Target, DollarSign, Percent, Users, Repeat } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const metricIcons = [DollarSign, DollarSign, BarChart3, Users, Target, Percent, DollarSign, Repeat];
 
 const InvestorMetrics = () => {
+  const { t } = useLanguage();
+  const ip = (t as any).investorPortal || {};
+
   return (
     <div>
-      <h1 className="font-display text-2xl font-bold text-foreground mb-2">Kennzahlen</h1>
-      <p className="text-muted-foreground text-sm mb-8">Detaillierte Finanz- und Geschäftskennzahlen.</p>
+      <h1 className="font-display text-2xl font-bold text-foreground mb-2">{ip.metricsTitle || "Key Metrics"}</h1>
+      <p className="text-muted-foreground text-sm mb-8">{ip.metricsDesc || "Detailed financial and business metrics."}</p>
 
       <div className="grid md:grid-cols-2 gap-6">
         {mockFinancials.map((m, i) => {

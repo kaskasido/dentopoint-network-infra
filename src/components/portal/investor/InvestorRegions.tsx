@@ -1,31 +1,35 @@
 import { mockRegionData } from "@/data/mockInvestorData";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { Globe, TrendingUp } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const InvestorRegions = () => {
+  const { t } = useLanguage();
+  const ip = (t as any).investorPortal || {};
+
   const totalAutomats = mockRegionData.reduce((s, r) => s + r.automats, 0);
   const totalRevenue = mockRegionData.reduce((s, r) => s + r.revenue, 0);
 
   return (
     <div>
-      <h1 className="font-display text-2xl font-bold text-foreground mb-2">Regionale Expansion</h1>
-      <p className="text-muted-foreground text-sm mb-8">Performance und Wachstum nach Regionen.</p>
+      <h1 className="font-display text-2xl font-bold text-foreground mb-2">{ip.regionsTitle || "Regional Expansion"}</h1>
+      <p className="text-muted-foreground text-sm mb-8">{ip.regionsDesc || "Performance and growth by region."}</p>
 
       <div className="grid grid-cols-2 gap-4 mb-8">
         <div className="border border-border rounded-lg p-5 bg-card">
           <Globe size={20} className="text-accent mb-2" />
           <p className="font-display text-2xl font-bold text-foreground">{mockRegionData.length}</p>
-          <p className="text-xs text-muted-foreground">Aktive Regionen</p>
+          <p className="text-xs text-muted-foreground">{ip.activeRegions || "Active Regions"}</p>
         </div>
         <div className="border border-border rounded-lg p-5 bg-card">
           <TrendingUp size={20} className="text-accent mb-2" />
           <p className="font-display text-2xl font-bold text-foreground">€{(totalRevenue / 1000000).toFixed(1)}M</p>
-          <p className="text-xs text-muted-foreground">Gesamt-Revenue</p>
+          <p className="text-xs text-muted-foreground">{ip.totalRevenue || "Total Revenue"}</p>
         </div>
       </div>
 
       <div className="border border-border rounded-lg p-6 bg-card mb-8">
-        <h2 className="font-display text-lg font-semibold text-foreground mb-4">Revenue nach Region</h2>
+        <h2 className="font-display text-lg font-semibold text-foreground mb-4">{ip.revenueByRegion || "Revenue by Region"}</h2>
         <ResponsiveContainer width="100%" height={300}>
           <BarChart data={mockRegionData} layout="vertical">
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
@@ -41,11 +45,11 @@ const InvestorRegions = () => {
         <table className="w-full text-sm">
           <thead>
             <tr className="bg-muted/50">
-              <th className="text-left px-4 py-3 font-medium text-muted-foreground">Region</th>
-              <th className="text-left px-4 py-3 font-medium text-muted-foreground">Automaten</th>
-              <th className="text-left px-4 py-3 font-medium text-muted-foreground">Marktanteil</th>
-              <th className="text-left px-4 py-3 font-medium text-muted-foreground">Revenue</th>
-              <th className="text-left px-4 py-3 font-medium text-muted-foreground">Wachstum</th>
+              <th className="text-left px-4 py-3 font-medium text-muted-foreground">{ip.region || "Region"}</th>
+              <th className="text-left px-4 py-3 font-medium text-muted-foreground">{ip.automats || "Automats"}</th>
+              <th className="text-left px-4 py-3 font-medium text-muted-foreground">{ip.marketShare || "Market Share"}</th>
+              <th className="text-left px-4 py-3 font-medium text-muted-foreground">{ip.revenue || "Revenue"}</th>
+              <th className="text-left px-4 py-3 font-medium text-muted-foreground">{ip.growth || "Growth"}</th>
             </tr>
           </thead>
           <tbody>
