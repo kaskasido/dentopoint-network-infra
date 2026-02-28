@@ -4,7 +4,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 
 const ManufacturerOverview = () => {
   const { t } = useLanguage();
-  const mp = t.manufacturerPortal;
+  const mp = (t as any).manufacturerPortal || ({} as any);
 
   const online = mockAutomats.filter((a) => a.status === "online").length;
   const offline = mockAutomats.filter((a) => a.status === "offline").length;
