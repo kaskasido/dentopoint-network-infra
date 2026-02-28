@@ -88,8 +88,8 @@ const LocatorSection = () => {
               }}
             />
             <div className="text-center relative z-10 px-6">
-              <div className="w-16 h-16 rounded-full bg-gradient-brand mx-auto mb-4 flex items-center justify-center p-2">
-                <img src={logo} alt="DentoPoint" className="w-10 h-10 object-contain" />
+              <div className="w-20 h-20 rounded-2xl bg-card border border-border shadow-brand mx-auto mb-4 flex items-center justify-center p-3">
+                <img src={logo} alt="DentoPoint" className="w-14 h-14 object-contain" />
               </div>
               <p className="font-display font-semibold text-foreground mb-2">{t.locator.interactiveMap}</p>
               <p className="text-sm text-muted-foreground max-w-xs mx-auto">
