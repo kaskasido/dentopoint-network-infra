@@ -47,7 +47,7 @@ const InfrastructureSection = () => {
             <div className="flex justify-center">
               <div className="relative max-w-xs">
                 <img src={smartCareModuleChina} alt="DentoPoint Smart Care Module – Black Edition" className="rounded-xl shadow-brand-lg" loading="lazy" />
-                <div className="absolute -bottom-3 -right-3 bg-foreground text-primary-foreground text-xs font-medium px-4 py-2 rounded-md">
+                <div className="absolute -bottom-3 -right-3 bg-gradient-brand text-primary-foreground text-xs font-medium px-4 py-2 rounded-md">
                   {t.infrastructure.blackEdition}
                 </div>
               </div>
