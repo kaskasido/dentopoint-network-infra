@@ -21,6 +21,7 @@ import {
 const languages: { code: Language; label: string }[] = [
   { code: "DE", label: "Deutsch" },
   { code: "EN", label: "English" },
+  { code: "NL", label: "Nederlands" },
   { code: "FR", label: "Français" },
   { code: "IT", label: "Italiano" },
   { code: "ES", label: "Español" },
@@ -28,7 +29,6 @@ const languages: { code: Language; label: string }[] = [
   { code: "CN", label: "中文" },
   { code: "KO", label: "한국어" },
   { code: "AR", label: "العربية" },
-  { code: "NL", label: "Nederlands" },
   { code: "SR", label: "Srpski" },
 ];
 
