@@ -2,10 +2,12 @@ import { mockSystemLogs } from "@/data/mockAdminData";
 import { AlertTriangle, Info, AlertCircle } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { getLocale } from "@/i18n/localeMap";
 
 const AdminLogs = () => {
-  const { t } = useLanguage();
-  const ap = t.adminPortal;
+  const { t, lang } = useLanguage();
+  const ap = (t as any).adminPortal || ({} as any);
+  const locale = getLocale(lang);
   const [levelFilter, setLevelFilter] = useState<string>("all");
 
   const filtered = levelFilter === "all" ? mockSystemLogs : mockSystemLogs.filter((l) => l.level === levelFilter);
@@ -45,7 +47,7 @@ const AdminLogs = () => {
               <div className="flex-1 min-w-0">
                 <div className="flex items-center justify-between">
                   <p className="text-sm font-medium text-foreground">{log.action}</p>
-                  <span className="text-xs text-muted-foreground shrink-0 ml-4">{new Date(log.timestamp).toLocaleString("de-DE")}</span>
+                  <span className="text-xs text-muted-foreground shrink-0 ml-4">{new Date(log.timestamp).toLocaleString(locale)}</span>
                 </div>
                 <p className="text-xs text-muted-foreground mt-0.5">{log.details}</p>
                 <p className="text-xs text-muted-foreground mt-0.5">{ap.user}: {log.user}</p>

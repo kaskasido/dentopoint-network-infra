@@ -1,6 +1,7 @@
 import { mockAlerts } from "@/data/mockAutomats";
 import { AlertTriangle, AlertCircle, Info, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { getLocale } from "@/i18n/localeMap";
 
 const iconMap = { critical: AlertTriangle, warning: AlertCircle, info: Info };
 const colorMap = {
@@ -9,11 +10,27 @@ const colorMap = {
   info: "text-accent bg-accent/10 border-accent/20",
 };
 
+const alertMessageMap: Record<string, string> = {
+  "Automat offline – keine Verbindung seit 48h": "alertOffline48h",
+  "Füllstand unter 50% – Nachfüllung empfohlen": "alertFillBelow50",
+  "Planmäßige Wartung läuft": "alertScheduledMaint",
+  "Niedriger Produktbestand: Implant Care Kit (3/40)": "alertLowStock",
+  "Wartung erfolgreich abgeschlossen": "alertMaintComplete",
+  "Nächste Wartung überfällig (05.03.2026)": "alertMaintOverdue",
+};
+
 const ManufacturerAlerts = () => {
-  const { t } = useLanguage();
-  const mp = t.manufacturerPortal;
+  const { t, lang } = useLanguage();
+  const mp = (t as any).manufacturerPortal || ({} as any);
+  const md = (t as any).mockData || ({} as any);
+  const locale = getLocale(lang);
   const unresolved = mockAlerts.filter((a) => !a.resolved);
   const resolved = mockAlerts.filter((a) => a.resolved);
+
+  const translateAlert = (msg: string) => {
+    const key = alertMessageMap[msg] || alertMessageMap[msg.replace(/ \(.*\)$/, "")];
+    return key && md[key] ? md[key] : msg;
+  };
 
   return (
     <div>
@@ -32,8 +49,8 @@ const ManufacturerAlerts = () => {
                   <span className="font-mono text-xs font-semibold">{alert.automatNr}</span>
                   <span className="text-xs opacity-70">{alert.automatName}</span>
                 </div>
-                <p className="text-sm font-medium">{alert.message}</p>
-                <p className="text-xs opacity-60 mt-1">{new Date(alert.timestamp).toLocaleString("de-DE")}</p>
+                <p className="text-sm font-medium">{translateAlert(alert.message)}</p>
+                <p className="text-xs opacity-60 mt-1">{new Date(alert.timestamp).toLocaleString(locale)}</p>
               </div>
               <span className={`px-2 py-0.5 rounded text-xs font-medium uppercase ${
                 alert.type === "critical" ? "bg-destructive text-destructive-foreground" :
@@ -56,8 +73,8 @@ const ManufacturerAlerts = () => {
                     <span className="font-mono text-xs font-semibold">{alert.automatNr}</span>
                     <span className="text-xs text-muted-foreground">{alert.automatName}</span>
                   </div>
-                  <p className="text-sm text-muted-foreground">{alert.message}</p>
-                  <p className="text-xs text-muted-foreground mt-1">{new Date(alert.timestamp).toLocaleString("de-DE")}</p>
+                  <p className="text-sm text-muted-foreground">{translateAlert(alert.message)}</p>
+                  <p className="text-xs text-muted-foreground mt-1">{new Date(alert.timestamp).toLocaleString(locale)}</p>
                 </div>
                 <span className="px-2 py-0.5 rounded text-xs font-medium bg-accent/10 text-accent">{mp.resolved}</span>
               </div>

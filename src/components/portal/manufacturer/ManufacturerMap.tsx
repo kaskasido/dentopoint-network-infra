@@ -2,10 +2,12 @@ import { mockAutomats } from "@/data/mockAutomats";
 import { MapPin, Wifi, WifiOff, Wrench } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { getLocale } from "@/i18n/localeMap";
 
 const ManufacturerMap = () => {
-  const { t } = useLanguage();
-  const mp = t.manufacturerPortal;
+  const { t, lang } = useLanguage();
+  const mp = (t as any).manufacturerPortal || ({} as any);
+  const locale = getLocale(lang);
   const [selected, setSelected] = useState<string | null>(null);
   const selectedAutomat = mockAutomats.find((a) => a.id === selected);
 
@@ -81,15 +83,15 @@ const ManufacturerMap = () => {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">{mp.revenue30dLabel}</span>
-                  <span className="font-medium text-foreground">€{selectedAutomat.revenue30d.toLocaleString("de-DE")}</span>
+                  <span className="font-medium text-foreground">€{selectedAutomat.revenue30d.toLocaleString(locale)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">{mp.lastMaintenance}</span>
-                  <span className="text-foreground">{new Date(selectedAutomat.lastMaintenance).toLocaleDateString("de-DE")}</span>
+                  <span className="text-foreground">{new Date(selectedAutomat.lastMaintenance).toLocaleDateString(locale)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">{mp.installed}</span>
-                  <span className="text-foreground">{new Date(selectedAutomat.installDate).toLocaleDateString("de-DE")}</span>
+                  <span className="text-foreground">{new Date(selectedAutomat.installDate).toLocaleDateString(locale)}</span>
                 </div>
               </div>
               <h5 className="font-display font-semibold text-foreground mt-6 mb-3">{mp.productStock}</h5>
