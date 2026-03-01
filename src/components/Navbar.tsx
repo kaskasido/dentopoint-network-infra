@@ -75,7 +75,7 @@ const Navbar = () => {
         { label: t.nav.investorsItems.scaling, href: "/investors#skalierung" },
         { label: t.nav.investorsItems.kpis, href: "/investors#kpis" },
         { label: t.nav.investorsItems.expansion, href: "/investors#expansion" },
-        { label: t.nav.investorsItems.portal, href: "/portal/investor" },
+        { label: t.nav.investorsItems.portal, href: "/login" },
       ],
     },
     {
