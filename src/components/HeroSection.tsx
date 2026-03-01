@@ -76,7 +76,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-16">
+    <section className="relative min-h-screen flex items-center justify-center bg-background pt-16">
       <NetworkAnimation />
 
       <div
