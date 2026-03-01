@@ -42,7 +42,14 @@ const LanguageContext = createContext<LanguageContextType>({
 });
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [lang, setLang] = useState<Language>("EN");
+  const [lang, setLangState] = useState<Language>(() => {
+    const saved = localStorage.getItem("dentopoint-lang");
+    return (saved as Language) || "EN";
+  });
+  const setLang = (l: Language) => {
+    localStorage.setItem("dentopoint-lang", l);
+    setLangState(l);
+  };
   const raw = translationMap[lang] || en;
   // Deep merge with English fallback so missing keys never crash
   const t = new Proxy(raw, {
