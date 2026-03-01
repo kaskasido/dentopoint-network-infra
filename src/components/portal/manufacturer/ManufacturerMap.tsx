@@ -1,8 +1,19 @@
 import { mockAutomats } from "@/data/mockAutomats";
 import { MapPin, Wifi, WifiOff, Wrench } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { getLocale } from "@/i18n/localeMap";
+import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+
+const FitBounds = () => {
+  const map = useMap();
+  useEffect(() => {
+    const bounds = mockAutomats.map((a) => [a.lat, a.lng] as [number, number]);
+    if (bounds.length) map.fitBounds(bounds, { padding: [40, 40] });
+  }, [map]);
+  return null;
+};
 
 const ManufacturerMap = () => {
   const { t, lang } = useLanguage();
@@ -11,13 +22,8 @@ const ManufacturerMap = () => {
   const [selected, setSelected] = useState<string | null>(null);
   const selectedAutomat = mockAutomats.find((a) => a.id === selected);
 
-  const mapBounds = { minLat: 30, maxLat: 56, minLng: 4, maxLng: 125 };
-  const mapW = 800;
-  const mapH = 500;
-  const toXY = (lat: number, lng: number) => ({
-    x: ((lng - mapBounds.minLng) / (mapBounds.maxLng - mapBounds.minLng)) * mapW,
-    y: ((mapBounds.maxLat - lat) / (mapBounds.maxLat - mapBounds.minLat)) * mapH,
-  });
+  const getColor = (status: string) =>
+    status === "online" ? "#22c55e" : status === "offline" ? "#ef4444" : "#9ca3af";
 
   return (
     <div>
@@ -25,38 +31,42 @@ const ManufacturerMap = () => {
       <p className="text-muted-foreground text-sm mb-8">{mp.mapDesc}</p>
 
       <div className="grid lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 border border-border rounded-lg bg-card p-4 overflow-hidden">
-          <svg viewBox={`0 0 ${mapW} ${mapH}`} className="w-full h-auto" style={{ minHeight: 350 }}>
-            <rect width={mapW} height={mapH} rx="8" fill="hsl(var(--muted))" />
-            {Array.from({ length: 10 }).map((_, i) => (
-              <g key={i}>
-                <line x1={i * (mapW / 10)} y1={0} x2={i * (mapW / 10)} y2={mapH} stroke="hsl(var(--border))" strokeWidth="0.5" />
-                <line x1={0} y1={i * (mapH / 8)} x2={mapW} y2={i * (mapH / 8)} stroke="hsl(var(--border))" strokeWidth="0.5" />
-              </g>
+        <div className="lg:col-span-2 border border-border rounded-lg bg-card overflow-hidden" style={{ minHeight: 500 }}>
+          <MapContainer
+            center={[48.5, 11.5]}
+            zoom={5}
+            style={{ height: "100%", width: "100%", minHeight: 500 }}
+            scrollWheelZoom={true}
+          >
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <FitBounds />
+            {mockAutomats.map((a) => (
+              <CircleMarker
+                key={a.id}
+                center={[a.lat, a.lng]}
+                radius={selected === a.id ? 12 : 8}
+                pathOptions={{
+                  color: getColor(a.status),
+                  fillColor: getColor(a.status),
+                  fillOpacity: 0.8,
+                  weight: selected === a.id ? 3 : 2,
+                }}
+                eventHandlers={{ click: () => setSelected(a.id) }}
+              >
+                <Popup>
+                  <strong>{a.nr}</strong> – {a.name}<br />
+                  {a.city}, {a.country}
+                </Popup>
+              </CircleMarker>
             ))}
-            {mockAutomats.map((a) => {
-              const { x, y } = toXY(a.lat, a.lng);
-              const isSelected = selected === a.id;
-              const pinColor = a.status === "online" ? "hsl(var(--accent))" : a.status === "offline" ? "hsl(var(--destructive))" : "hsl(var(--muted-foreground))";
-              return (
-                <g key={a.id} onClick={() => setSelected(a.id)} className="cursor-pointer">
-                  {isSelected && (
-                    <circle cx={x} cy={y} r="18" fill="none" stroke={pinColor} strokeWidth="2" opacity="0.3">
-                      <animate attributeName="r" values="12;22;12" dur="2s" repeatCount="indefinite" />
-                      <animate attributeName="opacity" values="0.4;0;0.4" dur="2s" repeatCount="indefinite" />
-                    </circle>
-                  )}
-                  <circle cx={x} cy={y} r={isSelected ? 10 : 7} fill={pinColor} stroke="hsl(var(--card))" strokeWidth="2" />
-                  <circle cx={x} cy={y} r="3" fill="hsl(var(--card))" />
-                  <text x={x} y={y - 14} textAnchor="middle" fontSize="9" fontWeight="600" fill="hsl(var(--foreground))">{a.nr}</text>
-                </g>
-              );
-            })}
-          </svg>
-          <div className="flex items-center gap-6 mt-4 text-xs text-muted-foreground">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-accent" /> {mp.online}</span>
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-destructive" /> {mp.offline}</span>
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-muted-foreground" /> {mp.maintenance}</span>
+          </MapContainer>
+          <div className="flex items-center gap-6 p-3 text-xs text-muted-foreground border-t border-border">
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-green-500" /> {mp.online}</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-red-500" /> {mp.offline}</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-gray-400" /> {mp.maintenance}</span>
           </div>
         </div>
 
