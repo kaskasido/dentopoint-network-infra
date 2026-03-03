@@ -5,7 +5,7 @@ import { getLocale } from "@/i18n/localeMap";
 
 const ManufacturerKPIs = () => {
   const { t, lang } = useLanguage();
-  const mp = (t as any).manufacturerPortal || ({} as any);
+  const mp = t.manufacturerPortal;
   const locale = getLocale(lang);
 
   const totalRev = mockAutomats.reduce((s, a) => s + a.revenue30d, 0);

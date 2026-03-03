@@ -6,7 +6,7 @@ import { getLocale } from "@/i18n/localeMap";
 
 const AdminLogs = () => {
   const { t, lang } = useLanguage();
-  const ap = (t as any).adminPortal || ({} as any);
+  const ap = t.adminPortal;
   const locale = getLocale(lang);
   const [levelFilter, setLevelFilter] = useState<string>("all");
 

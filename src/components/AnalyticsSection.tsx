@@ -24,9 +24,9 @@ const AnalyticsSection = () => {
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
             {t.analytics.title}
           </h2>
-          {(t.analytics as any).description && (
+          {t.analytics.description && (
             <p className="text-sm text-muted-foreground leading-relaxed mb-6 max-w-2xl">
-              {(t.analytics as any).description}
+              {t.analytics.description}
             </p>
           )}
           <div className="w-12 h-px bg-gradient-brand" />

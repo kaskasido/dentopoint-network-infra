@@ -5,7 +5,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 
 const InvestorOverview = () => {
   const { t } = useLanguage();
-  const ip = (t as any).investorPortal || {};
+  const ip = t.investorPortal;
 
   return (
     <div>

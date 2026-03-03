@@ -22,8 +22,8 @@ const maintenanceNoteMap: Record<string, string> = {
 
 const ManufacturerMaintenance = () => {
   const { t, lang } = useLanguage();
-  const mp = (t as any).manufacturerPortal || ({} as any);
-  const md = (t as any).mockData || ({} as any);
+  const mp = t.manufacturerPortal;
+  const md = t.mockData;
   const locale = getLocale(lang);
 
   const translateType = (type: string) => {

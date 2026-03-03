@@ -6,7 +6,7 @@ const metricIcons = [DollarSign, DollarSign, BarChart3, Users, Target, Percent, 
 
 const InvestorMetrics = () => {
   const { t } = useLanguage();
-  const ip = (t as any).investorPortal || {};
+  const ip = t.investorPortal;
 
   return (
     <div>

@@ -5,7 +5,7 @@ import { getLocale } from "@/i18n/localeMap";
 
 const PartnerTerritories = () => {
   const { t, lang } = useLanguage();
-  const pp = (t as any).partnerPortal || ({} as any);
+  const pp = t.partnerPortal;
   const locale = getLocale(lang);
 
   const totalLeads = mockTerritories.reduce((s, ter) => s + ter.leads, 0);

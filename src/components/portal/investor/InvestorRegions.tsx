@@ -5,7 +5,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 
 const InvestorRegions = () => {
   const { t } = useLanguage();
-  const ip = (t as any).investorPortal || {};
+  const ip = t.investorPortal;
 
   const totalAutomats = mockRegionData.reduce((s, r) => s + r.automats, 0);
   const totalRevenue = mockRegionData.reduce((s, r) => s + r.revenue, 0);

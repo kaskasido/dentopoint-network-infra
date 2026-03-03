@@ -5,7 +5,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 
 const InvestorGrowth = () => {
   const { t } = useLanguage();
-  const ip = (t as any).investorPortal || {};
+  const ip = t.investorPortal;
 
   const latestMonth = mockGrowthData[mockGrowthData.length - 1];
   const prevMonth = mockGrowthData[mockGrowthData.length - 2];

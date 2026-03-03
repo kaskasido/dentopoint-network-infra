@@ -28,28 +28,28 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [role, setRole] = useState<AppRole | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const fetchRole = async (userId: string) => {
-    const { data } = await supabase
-      .from("user_roles")
-      .select("role")
-      .eq("user_id", userId);
-    if (data && data.length > 0) {
-      // Prefer admin role if user has multiple roles
-      const adminRole = data.find((r) => r.role === "admin");
-      setRole((adminRole?.role ?? data[0].role) as AppRole);
-    } else {
-      setRole(null);
-    }
-  };
-
-  const tryAssignRole = async (userId: string) => {
-    // Try to assign initial role from user metadata (for new signups)
-    await supabase.rpc("assign_initial_role");
-    // Then fetch the role
-    await fetchRole(userId);
-  };
-
   useEffect(() => {
+    const fetchRole = async (userId: string) => {
+      const { data } = await supabase
+        .from("user_roles")
+        .select("role")
+        .eq("user_id", userId);
+      if (data && data.length > 0) {
+        // Prefer admin role if user has multiple roles
+        const adminRole = data.find((r) => r.role === "admin");
+        setRole((adminRole?.role ?? data[0].role) as AppRole);
+      } else {
+        setRole(null);
+      }
+    };
+
+    const tryAssignRole = async (userId: string) => {
+      // Try to assign initial role from user metadata (for new signups)
+      await supabase.rpc("assign_initial_role");
+      // Then fetch the role
+      await fetchRole(userId);
+    };
+
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (_event, session) => {
         setSession(session);

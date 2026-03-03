@@ -12,8 +12,8 @@ const statusTranslationMap: Record<string, string> = {
 
 const AdminUsers = () => {
   const { t, lang } = useLanguage();
-  const ap = (t as any).adminPortal || ({} as any);
-  const md = (t as any).mockData || ({} as any);
+  const ap = t.adminPortal;
+  const md = t.mockData;
   const locale = getLocale(lang);
   const [filter, setFilter] = useState("");
 
