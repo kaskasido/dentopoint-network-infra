@@ -1,0 +1,34 @@
+name: Network Health Check
+
+on:
+  schedule:
+    # Every day at 06:00 UTC — Agent 3 morning check
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+jobs:
+  health-check:
+    name: Automat Network Health (Agent 3)
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run network health analysis
+        run: node --experimental-vm-modules scripts/network-health-check.mjs 2>&1 | tee /tmp/health-output.txt || true
+
+      - name: Post summary as step output
+        run: cat /tmp/health-output.txt || echo "Health check script output unavailable"

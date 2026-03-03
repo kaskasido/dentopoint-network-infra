@@ -134,6 +134,66 @@ export const mockAutomats: Automat[] = [
       { name: "Therapeutic Rinse", stock: 15, maxStock: 25 },
     ],
   },
+  {
+    id: "9", nr: "DP-009", name: "AMC Amsterdam", address: "Meibergdreef 9", city: "Amsterdam", country: "NL",
+    lat: 52.2964, lng: 4.9601, status: "online", fillLevel: 83,
+    lastMaintenance: "2026-02-22", nextMaintenance: "2026-03-22",
+    revenue30d: 5480, installDate: "2026-01-10",
+    products: [
+      { name: "Implant Care Kit", stock: 33, maxStock: 40 },
+      { name: "Whitening Gel Pro", stock: 24, maxStock: 30 },
+      { name: "Hygiene Set Standard", stock: 40, maxStock: 50 },
+      { name: "Preventive Pack", stock: 17, maxStock: 20 },
+    ],
+  },
+  {
+    id: "10", nr: "DP-010", name: "Hôpital Pitié-Salpêtrière", address: "47-83 Bd de l'Hôpital", city: "Paris", country: "FR",
+    lat: 48.8432, lng: 2.3616, status: "online", fillLevel: 61,
+    lastMaintenance: "2026-02-19", nextMaintenance: "2026-03-19",
+    revenue30d: 4920, installDate: "2026-01-20",
+    products: [
+      { name: "Implant Care Kit", stock: 22, maxStock: 40 },
+      { name: "Whitening Gel Pro", stock: 16, maxStock: 30 },
+      { name: "Hygiene Set Standard", stock: 29, maxStock: 50 },
+      { name: "Therapeutic Rinse", stock: 11, maxStock: 25 },
+    ],
+  },
+  {
+    id: "11", nr: "DP-011", name: "Medipol Istanbul", address: "Bağcılar Mahallesi, Atatürk Cad.", city: "Istanbul", country: "TR",
+    lat: 41.0336, lng: 28.8598, status: "online", fillLevel: 74,
+    lastMaintenance: "2026-02-23", nextMaintenance: "2026-03-23",
+    revenue30d: 3740, installDate: "2026-02-01",
+    products: [
+      { name: "Implant Care Kit", stock: 27, maxStock: 40 },
+      { name: "Whitening Gel Pro", stock: 19, maxStock: 30 },
+      { name: "Hygiene Set Standard", stock: 33, maxStock: 50 },
+      { name: "Preventive Pack", stock: 14, maxStock: 20 },
+    ],
+  },
+  {
+    id: "12", nr: "DP-012", name: "NUH Singapore", address: "5 Lower Kent Ridge Rd", city: "Singapore", country: "SG",
+    lat: 1.2952, lng: 103.7831, status: "online", fillLevel: 91,
+    lastMaintenance: "2026-02-24", nextMaintenance: "2026-03-24",
+    revenue30d: 9200, installDate: "2025-12-01",
+    products: [
+      { name: "Implant Care Kit", stock: 37, maxStock: 40 },
+      { name: "Whitening Gel Pro", stock: 28, maxStock: 30 },
+      { name: "Hygiene Set Standard", stock: 46, maxStock: 50 },
+      { name: "Therapeutic Rinse", stock: 22, maxStock: 25 },
+    ],
+  },
+  {
+    id: "13", nr: "DP-013", name: "Tokyo Med University", address: "6-7-1 Nishishinjuku", city: "Tokyo", country: "JP",
+    lat: 35.6894, lng: 139.6917, status: "wartung", fillLevel: 55,
+    lastMaintenance: "2026-02-28", nextMaintenance: "2026-03-28",
+    revenue30d: 8650, installDate: "2025-11-15",
+    products: [
+      { name: "Implant Care Kit", stock: 20, maxStock: 40 },
+      { name: "Whitening Gel Pro", stock: 14, maxStock: 30 },
+      { name: "Hygiene Set Standard", stock: 28, maxStock: 50 },
+      { name: "Therapeutic Rinse", stock: 9, maxStock: 25 },
+    ],
+  },
 ];
 
 export const mockAlerts: Alert[] = [
@@ -154,4 +214,6 @@ export const mockMaintenance: MaintenanceRecord[] = [
   { id: "m6", automatNr: "DP-006", automatName: "Inselspital Bern", date: "2026-02-20", type: "Nachfüllung", technician: "P. Meier", notes: "Produkte aufgefüllt, Display-Kalibrierung", duration: "50min" },
   { id: "m7", automatNr: "DP-007", automatName: "AKH Wien", date: "2026-02-12", type: "Planmäßige Wartung", technician: "A. Huber", notes: "Software-Update v3.2, Sensorcheck", duration: "1h 45min" },
   { id: "m8", automatNr: "DP-008", automatName: "Tongji Shanghai", date: "2026-02-15", type: "Nachfüllung", technician: "L. Chen", notes: "Vollständig aufgefüllt, Netzwerk-Check", duration: "1h 00min" },
+  { id: "m9", automatNr: "DP-009", automatName: "AMC Amsterdam", date: "2026-02-22", type: "Planmäßige Wartung", technician: "J. de Vries", notes: "Software-Update v3.2, alle Sensoren grün", duration: "1h 30min" },
+  { id: "m10", automatNr: "DP-012", automatName: "NUH Singapore", date: "2026-02-24", type: "Planmäßige Wartung", technician: "T. Ng", notes: "Volle Inspektion, Kartenleser kalibriert", duration: "2h 00min" },
 ];

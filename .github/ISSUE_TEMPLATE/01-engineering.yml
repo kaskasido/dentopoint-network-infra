@@ -1,0 +1,51 @@
+name: "🛠️ Engineering Issue → Agent 1"
+description: "Bug reports, security issues, infrastructure tasks, or CI/CD problems."
+labels: ["agent-1-engineering"]
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options:
+        - "Bug – unexpected behaviour in the app"
+        - "Security – CVE or vulnerability"
+        - "Infrastructure – CI/CD, Supabase, hosting"
+        - "Refactor – code quality improvement"
+        - "Dependency update – beyond Dependabot"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - "🔴 Critical – production broken"
+        - "🟠 High – significant user impact"
+        - "🟡 Medium – degraded experience"
+        - "🟢 Low – cosmetic / nice-to-have"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What is the issue? Include steps to reproduce for bugs.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Browser, OS, relevant logs, related PRs.
+    validations:
+      required: false

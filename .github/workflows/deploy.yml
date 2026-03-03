@@ -1,14 +1,12 @@
-name: CI
+name: Build Check (Production)
 
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
 
 jobs:
-  lint-typecheck-test:
-    name: Lint · Typecheck · Test
+  build:
+    name: Production Build
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -26,11 +24,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint (ESLint)
-        run: npm run lint
-
-      - name: Typecheck (tsc)
-        run: npx tsc --noEmit
-
-      - name: Test (vitest)
-        run: npm test
+      - name: Build (production)
+        run: npm run build
+        env:
+          # Provide placeholder env vars so Vite doesn't abort on missing values
+          VITE_SUPABASE_URL: https://placeholder.supabase.co
+          VITE_SUPABASE_PUBLISHABLE_KEY: placeholder-key

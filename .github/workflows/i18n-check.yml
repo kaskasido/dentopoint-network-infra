@@ -1,14 +1,17 @@
-name: CI
+name: i18n Coverage Check
 
 on:
   push:
-    branches: [main]
+    paths:
+      - "src/i18n/**"
   pull_request:
-    branches: [main]
+    paths:
+      - "src/i18n/**"
+      - "src/test/i18n.test.ts"
 
 jobs:
-  lint-typecheck-test:
-    name: Lint · Typecheck · Test
+  i18n:
+    name: Translation Coverage (Agent 2)
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -26,11 +29,5 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint (ESLint)
-        run: npm run lint
-
-      - name: Typecheck (tsc)
-        run: npx tsc --noEmit
-
-      - name: Test (vitest)
-        run: npm test
+      - name: Run i18n coverage test
+        run: npx vitest run src/test/i18n.test.ts --reporter=verbose
