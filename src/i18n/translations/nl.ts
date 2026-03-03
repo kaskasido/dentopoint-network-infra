@@ -442,6 +442,7 @@ export const nl = {
       maintenance: "Onderhoud & Geschiedenis",
       kpis: "Prestatie KPI's",
       export: "Data Export",
+      slots: "Slot Management",
     },
     clinic: {
       title: "Kliniekportaal",
@@ -449,6 +450,8 @@ export const nl = {
       automats: "Automaten",
       orders: "Bestellingen",
       feedback: "Feedback",
+      leasing: "Leasing & Contract",
+      display: "Display Management",
     },
     investor: {
       title: "Investeerdersportaal",
@@ -470,13 +473,17 @@ export const nl = {
       users: "Gebruikers",
       roles: "Rollen",
       logs: "Systeemlogboeken",
+      slots: "Slot Management",
+      leasing: "Leasing & Contracts",
     },
+    studies: { title: "Studies Portal", dashboard: "Dashboard", studies: "Studies", enrollment: "Enrollment" },
     switcher: {
       manufacturer: "Fabrikant",
       clinic: "Kliniek",
       investor: "Investeerder",
       partner: "Partner",
       admin: "Admin",
+      studies: "Studies",
     },
   },
 

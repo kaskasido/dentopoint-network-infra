@@ -406,12 +406,19 @@ export const fr = {
   portal: {
     signOut: "Déconnexion",
     portals: "Portails",
-    manufacturer: { title: "Portail Fabricant", dashboard: "Tableau de bord", map: "Sites & Carte", alerts: "Alertes en temps réel", maintenance: "Maintenance & Historique", kpis: "KPIs de performance", export: "Export de données" },
-    clinic: { title: "Portail Clinique", dashboard: "Tableau de bord", automats: "Automates", orders: "Commandes", feedback: "Retours" },
+    manufacturer: { title: "Portail Fabricant", dashboard: "Tableau de bord", map: "Sites & Carte", alerts: "Alertes en temps réel", maintenance: "Maintenance & Historique", kpis: "KPIs de performance", export: "Export de données",
+      slots: "Slot Management"},
+    clinic: { title: "Portail Clinique", dashboard: "Tableau de bord", automats: "Automates", orders: "Commandes", feedback: "Retours",
+      leasing: "Leasing & Contract",
+      display: "Display Management"},
     investor: { title: "Portail Investisseur", dashboard: "Tableau de bord", growth: "Croissance", regions: "Régions", metrics: "Indicateurs" },
     partner: { title: "Portail Partenaire", dashboard: "Tableau de bord", deals: "Contrats", commissions: "Commissions", territories: "Territoires" },
-    admin: { title: "Portail Admin", dashboard: "Tableau de bord", users: "Utilisateurs", roles: "Rôles", logs: "Journaux système" },
-    switcher: { manufacturer: "Fabricant", clinic: "Clinique", investor: "Investisseur", partner: "Partenaire", admin: "Admin" },
+    admin: { title: "Portail Admin", dashboard: "Tableau de bord", users: "Utilisateurs", roles: "Rôles", logs: "Journaux système",
+      slots: "Slot Management",
+      leasing: "Leasing & Contracts"},
+    studies: { title: "Studies Portal", dashboard: "Dashboard", studies: "Studies", enrollment: "Enrollment" },
+    switcher: { manufacturer: "Fabricant", clinic: "Clinique", investor: "Investisseur", partner: "Partenaire", admin: "Admin",
+      studies: "Studies"},
   },
 
   investorPortal: {

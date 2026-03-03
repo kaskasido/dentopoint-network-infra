@@ -406,12 +406,19 @@ export const tr = {
   portal: {
     signOut: "Çıkış",
     portals: "Portallar",
-    manufacturer: { title: "Üretici Portalı", dashboard: "Gösterge Paneli", map: "Konumlar & Harita", alerts: "Gerçek Zamanlı Uyarılar", maintenance: "Bakım & Geçmiş", kpis: "Performans KPI'ları", export: "Veri Dışa Aktarma" },
-    clinic: { title: "Klinik Portalı", dashboard: "Gösterge Paneli", automats: "Otomatlar", orders: "Siparişler", feedback: "Geri Bildirim" },
+    manufacturer: { title: "Üretici Portalı", dashboard: "Gösterge Paneli", map: "Konumlar & Harita", alerts: "Gerçek Zamanlı Uyarılar", maintenance: "Bakım & Geçmiş", kpis: "Performans KPI'ları", export: "Veri Dışa Aktarma",
+      slots: "Slot Management"},
+    clinic: { title: "Klinik Portalı", dashboard: "Gösterge Paneli", automats: "Otomatlar", orders: "Siparişler", feedback: "Geri Bildirim",
+      leasing: "Leasing & Contract",
+      display: "Display Management"},
     investor: { title: "Yatırımcı Portalı", dashboard: "Gösterge Paneli", growth: "Büyüme", regions: "Bölgeler", metrics: "Göstergeler" },
     partner: { title: "Partner Portalı", dashboard: "Gösterge Paneli", deals: "Anlaşmalar", commissions: "Komisyonlar", territories: "Bölgeler" },
-    admin: { title: "Yönetici Portalı", dashboard: "Gösterge Paneli", users: "Kullanıcılar", roles: "Roller", logs: "Sistem Günlükleri" },
-    switcher: { manufacturer: "Üretici", clinic: "Klinik", investor: "Yatırımcı", partner: "Partner", admin: "Yönetici" },
+    admin: { title: "Yönetici Portalı", dashboard: "Gösterge Paneli", users: "Kullanıcılar", roles: "Roller", logs: "Sistem Günlükleri",
+      slots: "Slot Management",
+      leasing: "Leasing & Contracts"},
+    studies: { title: "Studies Portal", dashboard: "Dashboard", studies: "Studies", enrollment: "Enrollment" },
+    switcher: { manufacturer: "Üretici", clinic: "Klinik", investor: "Yatırımcı", partner: "Partner", admin: "Yönetici",
+      studies: "Studies"},
   },
 
   investorPortal: {

@@ -423,6 +423,7 @@ export const sr = {
       maintenance: "Održavanje i istorija",
       kpis: "KPI-jevi performansi",
       export: "Izvoz podataka",
+      slots: "Slot Management",
     },
     clinic: {
       title: "Portal klinike",
@@ -430,6 +431,8 @@ export const sr = {
       automats: "Automati",
       orders: "Narudžbine",
       feedback: "Povratne informacije",
+      leasing: "Leasing & Contract",
+      display: "Display Management",
     },
     investor: {
       title: "Portal investitora",
@@ -451,13 +454,17 @@ export const sr = {
       users: "Korisnici",
       roles: "Uloge",
       logs: "Sistemski zapisi",
+      slots: "Slot Management",
+      leasing: "Leasing & Contracts",
     },
+    studies: { title: "Studies Portal", dashboard: "Dashboard", studies: "Studies", enrollment: "Enrollment" },
     switcher: {
       manufacturer: "Proizvođač",
       clinic: "Klinika",
       investor: "Investitor",
       partner: "Partner",
       admin: "Admin",
+      studies: "Studies",
     },
   },
 
