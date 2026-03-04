@@ -606,6 +606,29 @@ export const cn = {
     user: "用户",
   },
 
+  systemPerformance: {
+    title: "系统性能",
+    desc: "浏览器报告的本地计算机硬件和性能指标。",
+    refresh: "刷新",
+    cpuCores: "CPU核心数（逻辑）",
+    deviceMemory: "设备内存",
+    network: "网络",
+    screen: "屏幕分辨率",
+    jsHeap: "JavaScript堆内存",
+    jsHeapUsed: "已使用",
+    jsHeapTotal: "总计",
+    jsHeapUsedOf: "占总堆已使用",
+    details: "系统详情",
+    platform: "平台",
+    browserLang: "浏览器语言",
+    pixelRatio: "设备像素比",
+    downlink: "下载速度",
+    userAgent: "用户代理",
+    online: "在线",
+    offline: "离线",
+    lastUpdated: "最后更新",
+  },
+
   loginExtended: {
     registrationSuccess: "注册成功",
     confirmEmail: "请通过发送的链接确认您的电子邮件地址：",
@@ -684,7 +707,7 @@ export const cn = {
     clinic: { title: "诊所门户", dashboard: "仪表板", automats: "自动售货机", orders: "订单", feedback: "反馈" },
     investor: { title: "投资者门户", dashboard: "仪表板", growth: "增长", regions: "区域", metrics: "指标" },
     partner: { title: "合作伙伴门户", dashboard: "仪表板", deals: "交易", commissions: "佣金", territories: "区域" },
-    admin: { title: "管理员门户", dashboard: "仪表板", users: "用户", roles: "角色", logs: "系统日志" },
+    admin: { title: "管理员门户", dashboard: "仪表板", users: "用户", roles: "角色", logs: "系统日志", system: "系统性能" },
     switcher: { manufacturer: "制造商", clinic: "诊所", investor: "投资者", partner: "合作伙伴", admin: "管理员" },
   },
 };

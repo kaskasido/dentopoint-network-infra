@@ -410,7 +410,7 @@ export const tr = {
     clinic: { title: "Klinik Portalı", dashboard: "Gösterge Paneli", automats: "Otomatlar", orders: "Siparişler", feedback: "Geri Bildirim" },
     investor: { title: "Yatırımcı Portalı", dashboard: "Gösterge Paneli", growth: "Büyüme", regions: "Bölgeler", metrics: "Göstergeler" },
     partner: { title: "Partner Portalı", dashboard: "Gösterge Paneli", deals: "Anlaşmalar", commissions: "Komisyonlar", territories: "Bölgeler" },
-    admin: { title: "Yönetici Portalı", dashboard: "Gösterge Paneli", users: "Kullanıcılar", roles: "Roller", logs: "Sistem Günlükleri" },
+    admin: { title: "Yönetici Portalı", dashboard: "Gösterge Paneli", users: "Kullanıcılar", roles: "Roller", logs: "Sistem Günlükleri", system: "Sistem Performansı" },
     switcher: { manufacturer: "Üretici", clinic: "Klinik", investor: "Yatırımcı", partner: "Partner", admin: "Yönetici" },
   },
 
@@ -615,6 +615,29 @@ export const tr = {
     logsDesc: "Sistemdeki aktiviteler ve olaylar.",
     all: "Tümü",
     user: "Kullanıcı",
+  },
+
+  systemPerformance: {
+    title: "Sistem Performansı",
+    desc: "Tarayıcı tarafından raporlanan yerel bilgisayarın donanım ve performans metrikleri.",
+    refresh: "Yenile",
+    cpuCores: "CPU Çekirdeği (mantıksal)",
+    deviceMemory: "Cihaz Belleği",
+    network: "Ağ",
+    screen: "Ekran Çözünürlüğü",
+    jsHeap: "JavaScript Yığın Belleği",
+    jsHeapUsed: "Kullanılan",
+    jsHeapTotal: "Toplam",
+    jsHeapUsedOf: "toplam yığının kullanılan kısmı",
+    details: "Sistem Ayrıntıları",
+    platform: "Platform",
+    browserLang: "Tarayıcı Dili",
+    pixelRatio: "Cihaz Piksel Oranı",
+    downlink: "İndirme Hızı",
+    userAgent: "Kullanıcı Aracısı",
+    online: "Çevrimiçi",
+    offline: "Çevrimdışı",
+    lastUpdated: "Son güncelleme",
   },
 
   loginExtended: {

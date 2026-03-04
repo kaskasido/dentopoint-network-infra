@@ -470,6 +470,7 @@ export const nl = {
       users: "Gebruikers",
       roles: "Rollen",
       logs: "Systeemlogboeken",
+      system: "Systeemprestaties",
     },
     switcher: {
       manufacturer: "Fabrikant",
@@ -682,6 +683,29 @@ export const nl = {
     logsDesc: "Activiteiten en gebeurtenissen in het systeem.",
     all: "Alle",
     user: "Gebruiker",
+  },
+
+  systemPerformance: {
+    title: "Systeemprestaties",
+    desc: "Hardware- en prestatiestatistieken van de lokale computer, zoals gerapporteerd door de browser.",
+    refresh: "Vernieuwen",
+    cpuCores: "CPU-kernen (logisch)",
+    deviceMemory: "Apparaatgeheugen",
+    network: "Netwerk",
+    screen: "Schermresolutie",
+    jsHeap: "JavaScript-heapgeheugen",
+    jsHeapUsed: "Gebruikt",
+    jsHeapTotal: "Totaal",
+    jsHeapUsedOf: "van totale heap gebruikt",
+    details: "Systeemdetails",
+    platform: "Platform",
+    browserLang: "Browsertaal",
+    pixelRatio: "Apparaatpixelverhouding",
+    downlink: "Downloadsnelheid",
+    userAgent: "Gebruikersagent",
+    online: "Online",
+    offline: "Offline",
+    lastUpdated: "Laatst bijgewerkt",
   },
 
   loginExtended: {

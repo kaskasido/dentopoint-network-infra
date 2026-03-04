@@ -606,6 +606,29 @@ export const es = {
     user: "Usuario",
   },
 
+  systemPerformance: {
+    title: "Rendimiento del sistema",
+    desc: "Métricas de hardware y rendimiento del ordenador local, según lo informado por el navegador.",
+    refresh: "Actualizar",
+    cpuCores: "Núcleos de CPU (lógicos)",
+    deviceMemory: "Memoria del dispositivo",
+    network: "Red",
+    screen: "Resolución de pantalla",
+    jsHeap: "Memoria heap JavaScript",
+    jsHeapUsed: "Utilizada",
+    jsHeapTotal: "Total",
+    jsHeapUsedOf: "del heap total utilizado",
+    details: "Detalles del sistema",
+    platform: "Plataforma",
+    browserLang: "Idioma del navegador",
+    pixelRatio: "Relación de píxeles",
+    downlink: "Velocidad de descarga",
+    userAgent: "Agente de usuario",
+    online: "En línea",
+    offline: "Sin conexión",
+    lastUpdated: "Última actualización",
+  },
+
   loginExtended: {
     registrationSuccess: "Registro exitoso",
     confirmEmail: "Por favor confirma tu correo electrónico a través del enlace enviado a",
@@ -684,7 +707,7 @@ export const es = {
     clinic: { title: "Portal Clínica", dashboard: "Panel", automats: "Dispensadores", orders: "Pedidos", feedback: "Comentarios" },
     investor: { title: "Portal Inversor", dashboard: "Panel", growth: "Crecimiento", regions: "Regiones", metrics: "Métricas" },
     partner: { title: "Portal Socio", dashboard: "Panel", deals: "Acuerdos", commissions: "Comisiones", territories: "Territorios" },
-    admin: { title: "Portal Admin", dashboard: "Panel", users: "Usuarios", roles: "Roles", logs: "Registros del sistema" },
+    admin: { title: "Portal Admin", dashboard: "Panel", users: "Usuarios", roles: "Roles", logs: "Registros del sistema", system: "Rendimiento del sistema" },
     switcher: { manufacturer: "Fabricante", clinic: "Clínica", investor: "Inversor", partner: "Socio", admin: "Admin" },
   },
 };

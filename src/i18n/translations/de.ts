@@ -461,6 +461,7 @@ export const de = {
       users: "Nutzer",
       roles: "Rollen",
       logs: "System-Logs",
+      system: "Computerleistung",
     },
     switcher: {
       manufacturer: "Hersteller",
@@ -673,6 +674,29 @@ export const de = {
     logsDesc: "Aktivitäten und Ereignisse im System.",
     all: "Alle",
     user: "Nutzer",
+  },
+
+  systemPerformance: {
+    title: "Computerleistung",
+    desc: "Hardware- und Leistungskennzahlen des lokalen Computers, wie vom Browser bereitgestellt.",
+    refresh: "Aktualisieren",
+    cpuCores: "CPU-Kerne (logisch)",
+    deviceMemory: "Gerätespeicher",
+    network: "Netzwerk",
+    screen: "Bildschirmauflösung",
+    jsHeap: "JavaScript-Heap-Speicher",
+    jsHeapUsed: "Verwendet",
+    jsHeapTotal: "Gesamt",
+    jsHeapUsedOf: "des Gesamtspeichers genutzt",
+    details: "Systemdetails",
+    platform: "Plattform",
+    browserLang: "Browsersprache",
+    pixelRatio: "Gerätepixelverhältnis",
+    downlink: "Download-Geschwindigkeit",
+    userAgent: "User Agent",
+    online: "Online",
+    offline: "Offline",
+    lastUpdated: "Zuletzt aktualisiert",
   },
 
   loginExtended: {
