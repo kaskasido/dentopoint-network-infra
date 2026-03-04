@@ -5,7 +5,7 @@ import { getLocale } from "@/i18n/localeMap";
 
 const ManufacturerOverview = () => {
   const { t, lang } = useLanguage();
-  const mp = (t as any).manufacturerPortal || ({} as any);
+  const mp = t.manufacturerPortal;
   const locale = getLocale(lang);
 
   const online = mockAutomats.filter((a) => a.status === "online").length;

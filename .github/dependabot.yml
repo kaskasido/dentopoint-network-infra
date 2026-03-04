@@ -1,0 +1,28 @@
+version: 2
+updates:
+  # npm dependencies — Agent 1 reviews and merges these PRs
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "07:00"
+    open-pull-requests-limit: 10
+    labels:
+      - agent-1-engineering
+      - dependencies
+    commit-message:
+      prefix: "chore(deps)"
+
+  # GitHub Actions — keep workflow actions up to date
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "07:00"
+    labels:
+      - agent-1-engineering
+      - dependencies
+    commit-message:
+      prefix: "chore(actions)"

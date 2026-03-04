@@ -37,15 +37,25 @@ export const mockGrowthData: GrowthData[] = [
   { month: "Dez 25", revenue: 175000, automats: 710, clinics: 98 },
   { month: "Jan 26", revenue: 185000, automats: 770, clinics: 110 },
   { month: "Feb 26", revenue: 198000, automats: 847, clinics: 124 },
+  { month: "Mär 26", revenue: 214000, automats: 920, clinics: 138 },
+  { month: "Apr 26", revenue: 231000, automats: 1010, clinics: 155 },
 ];
 
+// Regions split: DE home market + international expansion markets
 export const mockRegionData: RegionData[] = [
+  // Germany – home market
   { region: "Bayern", automats: 210, revenue: 520000, growth: 32 },
   { region: "NRW", automats: 185, revenue: 445000, growth: 28 },
   { region: "Baden-Württemberg", automats: 142, revenue: 380000, growth: 41 },
   { region: "Hessen", automats: 98, revenue: 245000, growth: 35 },
-  { region: "Niedersachsen", automats: 78, revenue: 190000, growth: 25 },
-  { region: "Sachsen", automats: 65, revenue: 158000, growth: 52 },
-  { region: "Berlin", automats: 42, revenue: 120000, growth: 60 },
-  { region: "Sonstige", automats: 27, revenue: 68000, growth: 18 },
+  { region: "Sonstige DE", automats: 212, revenue: 536000, growth: 22 },
+  // International – expansion markets
+  { region: "Österreich (AT)", automats: 45, revenue: 118000, growth: 88 },
+  { region: "Schweiz (CH)", automats: 38, revenue: 112000, growth: 74 },
+  { region: "Niederlande (NL)", automats: 22, revenue: 58000, growth: 210 },
+  { region: "Frankreich (FR)", automats: 18, revenue: 46000, growth: 195 },
+  { region: "Türkei (TR)", automats: 12, revenue: 28000, growth: 320 },
+  { region: "China (CN)", automats: 31, revenue: 98000, growth: 145 },
+  { region: "Singapur (SG)", automats: 8, revenue: 32000, growth: 480 },
+  { region: "Japan (JP)", automats: 6, revenue: 26000, growth: 390 },
 ];

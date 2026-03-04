@@ -14,8 +14,8 @@ const feedbackMap: Record<string, string> = {
 
 const ClinicFeedback = () => {
   const { t, lang } = useLanguage();
-  const cp = (t as any).clinicPortal || ({} as any);
-  const md = (t as any).mockData || ({} as any);
+  const cp = t.clinicPortal;
+  const md = t.mockData;
   const locale = getLocale(lang);
 
   const tr = (val: string) => {

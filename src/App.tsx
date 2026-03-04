@@ -20,6 +20,7 @@ import ClinicPortal from "./pages/portal/ClinicPortal";
 import InvestorPortal from "./pages/portal/InvestorPortal";
 import PartnerPortal from "./pages/portal/PartnerPortal";
 import AdminPortal from "./pages/portal/AdminPortal";
+import StudiesPortal from "./pages/portal/StudiesPortal";
 
 const queryClient = new QueryClient();
 
@@ -77,6 +78,14 @@ const App = () => (
                 element={
                   <ProtectedRoute requiredRole="admin">
                     <AdminPortal />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/portal/studies/*"
+                element={
+                  <ProtectedRoute requiredRole="admin">
+                    <StudiesPortal />
                   </ProtectedRoute>
                 }
               />

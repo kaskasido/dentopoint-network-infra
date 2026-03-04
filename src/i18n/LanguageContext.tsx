@@ -54,8 +54,8 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   // Deep merge with English fallback so missing keys never crash
   const t = new Proxy(raw, {
     get(target, prop: string) {
-      const val = (target as any)[prop];
-      const fallback = (en as any)[prop];
+      const val = (target as Record<string, unknown>)[prop];
+      const fallback = (en as Record<string, unknown>)[prop];
       if (val === undefined) return fallback;
       if (typeof val === "object" && val !== null && !Array.isArray(val) && typeof fallback === "object" && fallback !== null) {
         return { ...fallback, ...val };

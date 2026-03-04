@@ -14,6 +14,15 @@ export interface Automat {
   revenue30d: number;
   products: { name: string; stock: number; maxStock: number }[];
   installDate: string;
+  // Extended fields for full platform
+  totalSlots: number;           // always 29
+  occupiedSlots: number;        // booked manufacturer slots
+  googleMapsUrl?: string;       // Google Maps deep link with automat pin
+  googleMapsPlaceId?: string;   // Google Places API ID for the clinic location
+  displayEnabled: boolean;      // front-display active?
+  paymentTerminalId?: string;   // links to PaymentTerminal record
+  studyEligible: boolean;       // can host real-world studies
+  serviceLevel?: "basic" | "advanced" | "premium";
 }
 
 export interface Alert {
@@ -43,6 +52,10 @@ export const mockAutomats: Automat[] = [
     lat: 52.5256, lng: 13.3789, status: "online", fillLevel: 78,
     lastMaintenance: "2026-02-10", nextMaintenance: "2026-03-10",
     revenue30d: 4820, installDate: "2025-06-15",
+    totalSlots: 29, occupiedSlots: 18, displayEnabled: true, paymentTerminalId: "pt-001",
+    studyEligible: true, serviceLevel: "premium",
+    googleMapsUrl: "https://maps.google.com/?q=Charit%C3%A9platz+1,+Berlin",
+    googleMapsPlaceId: "ChIJ-Sa6VBFQB0cRnXGS3RlRbik",
     products: [
       { name: "Implant Care Kit", stock: 24, maxStock: 40 },
       { name: "Whitening Gel Pro", stock: 18, maxStock: 30 },
@@ -55,6 +68,9 @@ export const mockAutomats: Automat[] = [
     lat: 53.5891, lng: 9.9714, status: "online", fillLevel: 45,
     lastMaintenance: "2026-02-18", nextMaintenance: "2026-03-18",
     revenue30d: 3650, installDate: "2025-07-01",
+    totalSlots: 29, occupiedSlots: 12, displayEnabled: true, paymentTerminalId: "pt-002",
+    studyEligible: true, serviceLevel: "advanced",
+    googleMapsUrl: "https://maps.google.com/?q=Martinistra%C3%9Fe+52,+Hamburg",
     products: [
       { name: "Implant Care Kit", stock: 10, maxStock: 40 },
       { name: "Whitening Gel Pro", stock: 22, maxStock: 30 },
@@ -67,6 +83,9 @@ export const mockAutomats: Automat[] = [
     lat: 48.1102, lng: 11.4697, status: "wartung", fillLevel: 92,
     lastMaintenance: "2026-02-25", nextMaintenance: "2026-03-25",
     revenue30d: 5210, installDate: "2025-05-20",
+    totalSlots: 29, occupiedSlots: 21, displayEnabled: true, paymentTerminalId: undefined,
+    studyEligible: true, serviceLevel: "premium",
+    googleMapsUrl: "https://maps.google.com/?q=Marchioninistra%C3%9Fe+15,+M%C3%BCnchen",
     products: [
       { name: "Implant Care Kit", stock: 35, maxStock: 40 },
       { name: "Whitening Gel Pro", stock: 28, maxStock: 30 },
@@ -79,6 +98,9 @@ export const mockAutomats: Automat[] = [
     lat: 50.9244, lng: 6.9168, status: "online", fillLevel: 62,
     lastMaintenance: "2026-02-05", nextMaintenance: "2026-03-05",
     revenue30d: 3890, installDate: "2025-08-10",
+    totalSlots: 29, occupiedSlots: 14, displayEnabled: true, paymentTerminalId: undefined,
+    studyEligible: false, serviceLevel: "advanced",
+    googleMapsUrl: "https://maps.google.com/?q=Kerpener+Str.+62,+K%C3%B6ln",
     products: [
       { name: "Implant Care Kit", stock: 20, maxStock: 40 },
       { name: "Whitening Gel Pro", stock: 15, maxStock: 30 },
@@ -91,6 +113,9 @@ export const mockAutomats: Automat[] = [
     lat: 50.0937, lng: 8.6504, status: "offline", fillLevel: 15,
     lastMaintenance: "2026-01-20", nextMaintenance: "2026-02-20",
     revenue30d: 1240, installDate: "2025-09-01",
+    totalSlots: 29, occupiedSlots: 8, displayEnabled: false, paymentTerminalId: "pt-003",
+    studyEligible: false, serviceLevel: "basic",
+    googleMapsUrl: "https://maps.google.com/?q=Theodor-Stern-Kai+7,+Frankfurt",
     products: [
       { name: "Implant Care Kit", stock: 3, maxStock: 40 },
       { name: "Whitening Gel Pro", stock: 2, maxStock: 30 },
@@ -103,6 +128,9 @@ export const mockAutomats: Automat[] = [
     lat: 46.9470, lng: 7.4253, status: "online", fillLevel: 88,
     lastMaintenance: "2026-02-20", nextMaintenance: "2026-03-20",
     revenue30d: 6100, installDate: "2025-04-15",
+    totalSlots: 29, occupiedSlots: 22, displayEnabled: true, paymentTerminalId: "pt-004",
+    studyEligible: true, serviceLevel: "premium",
+    googleMapsUrl: "https://maps.google.com/?q=Freiburgstrasse+18,+Bern",
     products: [
       { name: "Implant Care Kit", stock: 36, maxStock: 40 },
       { name: "Whitening Gel Pro", stock: 25, maxStock: 30 },
@@ -115,6 +143,9 @@ export const mockAutomats: Automat[] = [
     lat: 48.2206, lng: 16.3452, status: "online", fillLevel: 55,
     lastMaintenance: "2026-02-12", nextMaintenance: "2026-03-12",
     revenue30d: 4150, installDate: "2025-07-20",
+    totalSlots: 29, occupiedSlots: 11, displayEnabled: true, paymentTerminalId: undefined,
+    studyEligible: false, serviceLevel: "advanced",
+    googleMapsUrl: "https://maps.google.com/?q=W%C3%A4hringer+G%C3%BCrtel+18,+Wien",
     products: [
       { name: "Implant Care Kit", stock: 18, maxStock: 40 },
       { name: "Whitening Gel Pro", stock: 14, maxStock: 30 },
@@ -127,11 +158,89 @@ export const mockAutomats: Automat[] = [
     lat: 31.2532, lng: 121.4498, status: "online", fillLevel: 70,
     lastMaintenance: "2026-02-15", nextMaintenance: "2026-03-15",
     revenue30d: 7800, installDate: "2025-10-01",
+    totalSlots: 29, occupiedSlots: 17, displayEnabled: true, paymentTerminalId: undefined,
+    studyEligible: true, serviceLevel: "premium",
+    googleMapsUrl: "https://maps.google.com/?q=Yanchang+Road+1239,+Shanghai",
     products: [
       { name: "Implant Care Kit", stock: 28, maxStock: 40 },
       { name: "Whitening Gel Pro", stock: 20, maxStock: 30 },
       { name: "Hygiene Set Standard", stock: 35, maxStock: 50 },
       { name: "Therapeutic Rinse", stock: 15, maxStock: 25 },
+    ],
+  },
+  {
+    id: "9", nr: "DP-009", name: "AMC Amsterdam", address: "Meibergdreef 9", city: "Amsterdam", country: "NL",
+    lat: 52.2964, lng: 4.9601, status: "online", fillLevel: 83,
+    lastMaintenance: "2026-02-22", nextMaintenance: "2026-03-22",
+    revenue30d: 5480, installDate: "2026-01-10",
+    totalSlots: 29, occupiedSlots: 13, displayEnabled: true, paymentTerminalId: undefined,
+    studyEligible: true, serviceLevel: "advanced",
+    googleMapsUrl: "https://maps.google.com/?q=Meibergdreef+9,+Amsterdam",
+    products: [
+      { name: "Implant Care Kit", stock: 33, maxStock: 40 },
+      { name: "Whitening Gel Pro", stock: 24, maxStock: 30 },
+      { name: "Hygiene Set Standard", stock: 40, maxStock: 50 },
+      { name: "Preventive Pack", stock: 17, maxStock: 20 },
+    ],
+  },
+  {
+    id: "10", nr: "DP-010", name: "Hôpital Pitié-Salpêtrière", address: "47-83 Bd de l'Hôpital", city: "Paris", country: "FR",
+    lat: 48.8432, lng: 2.3616, status: "online", fillLevel: 61,
+    lastMaintenance: "2026-02-19", nextMaintenance: "2026-03-19",
+    revenue30d: 4920, installDate: "2026-01-20",
+    totalSlots: 29, occupiedSlots: 9, displayEnabled: true, paymentTerminalId: undefined,
+    studyEligible: false, serviceLevel: "advanced",
+    googleMapsUrl: "https://maps.google.com/?q=47+Bd+de+l%27H%C3%B4pital,+Paris",
+    products: [
+      { name: "Implant Care Kit", stock: 22, maxStock: 40 },
+      { name: "Whitening Gel Pro", stock: 16, maxStock: 30 },
+      { name: "Hygiene Set Standard", stock: 29, maxStock: 50 },
+      { name: "Therapeutic Rinse", stock: 11, maxStock: 25 },
+    ],
+  },
+  {
+    id: "11", nr: "DP-011", name: "Medipol Istanbul", address: "Bağcılar Mahallesi, Atatürk Cad.", city: "Istanbul", country: "TR",
+    lat: 41.0336, lng: 28.8598, status: "online", fillLevel: 74,
+    lastMaintenance: "2026-02-23", nextMaintenance: "2026-03-23",
+    revenue30d: 3740, installDate: "2026-02-01",
+    totalSlots: 29, occupiedSlots: 7, displayEnabled: true, paymentTerminalId: undefined,
+    studyEligible: false, serviceLevel: "advanced",
+    googleMapsUrl: "https://maps.google.com/?q=Ba%C4%9Fc%C4%B1lar,+Istanbul",
+    products: [
+      { name: "Implant Care Kit", stock: 27, maxStock: 40 },
+      { name: "Whitening Gel Pro", stock: 19, maxStock: 30 },
+      { name: "Hygiene Set Standard", stock: 33, maxStock: 50 },
+      { name: "Preventive Pack", stock: 14, maxStock: 20 },
+    ],
+  },
+  {
+    id: "12", nr: "DP-012", name: "NUH Singapore", address: "5 Lower Kent Ridge Rd", city: "Singapore", country: "SG",
+    lat: 1.2952, lng: 103.7831, status: "online", fillLevel: 91,
+    lastMaintenance: "2026-02-24", nextMaintenance: "2026-03-24",
+    revenue30d: 9200, installDate: "2025-12-01",
+    totalSlots: 29, occupiedSlots: 23, displayEnabled: true, paymentTerminalId: "pt-005",
+    studyEligible: true, serviceLevel: "premium",
+    googleMapsUrl: "https://maps.google.com/?q=5+Lower+Kent+Ridge+Rd,+Singapore",
+    products: [
+      { name: "Implant Care Kit", stock: 37, maxStock: 40 },
+      { name: "Whitening Gel Pro", stock: 28, maxStock: 30 },
+      { name: "Hygiene Set Standard", stock: 46, maxStock: 50 },
+      { name: "Therapeutic Rinse", stock: 22, maxStock: 25 },
+    ],
+  },
+  {
+    id: "13", nr: "DP-013", name: "Tokyo Med University", address: "6-7-1 Nishishinjuku", city: "Tokyo", country: "JP",
+    lat: 35.6894, lng: 139.6917, status: "wartung", fillLevel: 55,
+    lastMaintenance: "2026-02-28", nextMaintenance: "2026-03-28",
+    revenue30d: 8650, installDate: "2025-11-15",
+    totalSlots: 29, occupiedSlots: 15, displayEnabled: true, paymentTerminalId: undefined,
+    studyEligible: true, serviceLevel: "premium",
+    googleMapsUrl: "https://maps.google.com/?q=6-7-1+Nishishinjuku,+Tokyo",
+    products: [
+      { name: "Implant Care Kit", stock: 20, maxStock: 40 },
+      { name: "Whitening Gel Pro", stock: 14, maxStock: 30 },
+      { name: "Hygiene Set Standard", stock: 28, maxStock: 50 },
+      { name: "Therapeutic Rinse", stock: 9, maxStock: 25 },
     ],
   },
 ];
@@ -154,4 +263,6 @@ export const mockMaintenance: MaintenanceRecord[] = [
   { id: "m6", automatNr: "DP-006", automatName: "Inselspital Bern", date: "2026-02-20", type: "Nachfüllung", technician: "P. Meier", notes: "Produkte aufgefüllt, Display-Kalibrierung", duration: "50min" },
   { id: "m7", automatNr: "DP-007", automatName: "AKH Wien", date: "2026-02-12", type: "Planmäßige Wartung", technician: "A. Huber", notes: "Software-Update v3.2, Sensorcheck", duration: "1h 45min" },
   { id: "m8", automatNr: "DP-008", automatName: "Tongji Shanghai", date: "2026-02-15", type: "Nachfüllung", technician: "L. Chen", notes: "Vollständig aufgefüllt, Netzwerk-Check", duration: "1h 00min" },
+  { id: "m9", automatNr: "DP-009", automatName: "AMC Amsterdam", date: "2026-02-22", type: "Planmäßige Wartung", technician: "J. de Vries", notes: "Software-Update v3.2, alle Sensoren grün", duration: "1h 30min" },
+  { id: "m10", automatNr: "DP-012", automatName: "NUH Singapore", date: "2026-02-24", type: "Planmäßige Wartung", technician: "T. Ng", notes: "Volle Inspektion, Kartenleser kalibriert", duration: "2h 00min" },
 ];

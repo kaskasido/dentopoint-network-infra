@@ -17,7 +17,7 @@ const FitBounds = () => {
 
 const ManufacturerMap = () => {
   const { t, lang } = useLanguage();
-  const mp = (t as any).manufacturerPortal || ({} as any);
+  const mp = t.manufacturerPortal;
   const locale = getLocale(lang);
   const [selected, setSelected] = useState<string | null>(null);
   const selectedAutomat = mockAutomats.find((a) => a.id === selected);

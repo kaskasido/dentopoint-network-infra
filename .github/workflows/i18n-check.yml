@@ -1,0 +1,33 @@
+name: i18n Coverage Check
+
+on:
+  push:
+    paths:
+      - "src/i18n/**"
+  pull_request:
+    paths:
+      - "src/i18n/**"
+      - "src/test/i18n.test.ts"
+
+jobs:
+  i18n:
+    name: Translation Coverage (Agent 2)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run i18n coverage test
+        run: npx vitest run src/test/i18n.test.ts --reporter=verbose

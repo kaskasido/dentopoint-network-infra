@@ -1,0 +1,51 @@
+name: "📈 Growth & Localisation → Agent 2"
+description: "New market entry, missing translations, analytics requests, or conversion improvements."
+labels: ["agent-2-growth"]
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options:
+        - "New market entry – country/language expansion"
+        - "Translation – missing or incorrect keys"
+        - "Analytics – new metric or dashboard"
+        - "Conversion – signup/onboarding improvement"
+        - "SEO / landing page"
+    validations:
+      required: true
+
+  - type: input
+    id: market
+    attributes:
+      label: Target market / language code
+      description: "e.g. Singapore (SG), Japanese (JA), etc."
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+    validations:
+      required: true
+
+  - type: textarea
+    id: success-metric
+    attributes:
+      label: Success metric
+      description: How will we measure success? (e.g. "+10 new clinic signups in NL within 30 days")
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: market-checklist
+    attributes:
+      label: New market checklist (if applicable)
+      options:
+        - label: Translation file added to `src/i18n/translations/`
+        - label: Language registered in `LanguageContext.tsx` and `localeMap.ts`
+        - label: Automat added to `mockAutomats.ts`
+        - label: Region added to `mockInvestorData.ts`
+        - label: i18n test passes (`npm test`)
+        - label: Legal/compliance check requested from Agent 5

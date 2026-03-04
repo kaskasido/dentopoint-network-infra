@@ -406,12 +406,19 @@ export const it = {
   portal: {
     signOut: "Disconnetti",
     portals: "Portali",
-    manufacturer: { title: "Portale Produttore", dashboard: "Dashboard", map: "Sedi & Mappa", alerts: "Avvisi in tempo reale", maintenance: "Manutenzione & Storico", kpis: "KPI di performance", export: "Esportazione dati" },
-    clinic: { title: "Portale Clinica", dashboard: "Dashboard", automats: "Distributori", orders: "Ordini", feedback: "Feedback" },
+    manufacturer: { title: "Portale Produttore", dashboard: "Dashboard", map: "Sedi & Mappa", alerts: "Avvisi in tempo reale", maintenance: "Manutenzione & Storico", kpis: "KPI di performance", export: "Esportazione dati",
+      slots: "Slot Management"},
+    clinic: { title: "Portale Clinica", dashboard: "Dashboard", automats: "Distributori", orders: "Ordini", feedback: "Feedback",
+      leasing: "Leasing & Contract",
+      display: "Display Management"},
     investor: { title: "Portale Investitore", dashboard: "Dashboard", growth: "Crescita", regions: "Regioni", metrics: "Metriche" },
     partner: { title: "Portale Partner", dashboard: "Dashboard", deals: "Accordi", commissions: "Commissioni", territories: "Territori" },
-    admin: { title: "Portale Admin", dashboard: "Dashboard", users: "Utenti", roles: "Ruoli", logs: "Log di sistema" },
-    switcher: { manufacturer: "Produttore", clinic: "Clinica", investor: "Investitore", partner: "Partner", admin: "Admin" },
+    admin: { title: "Portale Admin", dashboard: "Dashboard", users: "Utenti", roles: "Ruoli", logs: "Log di sistema",
+      slots: "Slot Management",
+      leasing: "Leasing & Contracts"},
+    studies: { title: "Studies Portal", dashboard: "Dashboard", studies: "Studies", enrollment: "Enrollment" },
+    switcher: { manufacturer: "Produttore", clinic: "Clinica", investor: "Investitore", partner: "Partner", admin: "Admin",
+      studies: "Studies"},
   },
 
   investorPortal: {

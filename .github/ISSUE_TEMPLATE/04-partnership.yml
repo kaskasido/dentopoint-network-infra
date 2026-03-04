@@ -1,0 +1,66 @@
+name: "🤝 Partnership / Onboarding → Agent 4"
+description: "New clinic lead, manufacturer onboarding, partner activation, or deal pipeline update."
+labels: ["agent-4-bizdev"]
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options:
+        - "New clinic – lead qualification"
+        - "New clinic – onboarding (deal closed)"
+        - "New manufacturer – supply agreement"
+        - "New distribution partner"
+        - "Existing deal – pipeline update"
+        - "Deal lost – post-mortem"
+    validations:
+      required: true
+
+  - type: input
+    id: organisation
+    attributes:
+      label: Organisation name
+    validations:
+      required: true
+
+  - type: input
+    id: country
+    attributes:
+      label: Country / Market
+      description: "e.g. Netherlands, Singapore"
+    validations:
+      required: true
+
+  - type: input
+    id: deal-value
+    attributes:
+      label: Estimated deal value (€)
+      description: "Annual contract value if known"
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description & background
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: onboarding-steps
+    attributes:
+      label: Onboarding checklist (clinic)
+      options:
+        - label: Contract signed
+        - label: Hardware deployment scheduled (Agent 3 notified)
+        - label: Portal account created & credentials sent
+        - label: Training call completed
+        - label: First automat online
+
+  - type: textarea
+    id: next-action
+    attributes:
+      label: Next action & owner
+      placeholder: "Send contract draft — Agent 4 — due 2026-03-10"
+    validations:
+      required: false

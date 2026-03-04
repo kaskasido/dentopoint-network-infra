@@ -1,0 +1,66 @@
+name: "⚖️ Finance & Legal / Compliance → Agent 5"
+description: "KPI reporting, investor updates, regulatory compliance, contract review, or commission issues."
+labels: ["agent-5-finance"]
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options:
+        - "KPI / investor report"
+        - "Commission calculation or payment"
+        - "Contract review (> €10K)"
+        - "Regulatory compliance – new market"
+        - "GDPR / data protection"
+        - "Tax / VAT registration"
+        - "Audit or due diligence request"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: market
+    attributes:
+      label: Relevant market(s)
+      multiple: true
+      options:
+        - "DE – Germany"
+        - "AT – Austria"
+        - "CH – Switzerland"
+        - "NL – Netherlands"
+        - "BE – Belgium"
+        - "FR – France"
+        - "TR – Turkey"
+        - "SG – Singapore"
+        - "AE – UAE"
+        - "JP – Japan"
+        - "KR – South Korea"
+        - "CN – China"
+        - "All markets"
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+    validations:
+      required: true
+
+  - type: input
+    id: deadline
+    attributes:
+      label: Deadline
+      placeholder: "2026-04-05 – Q1 investor report due"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: escalate
+    attributes:
+      label: Escalate to Agent 0?
+      options:
+        - "No – Agent 5 can handle independently"
+        - "Yes – needs Agent 0 decision or signature"
+        - "Yes – critical / regulatory block on new market"
+    validations:
+      required: true

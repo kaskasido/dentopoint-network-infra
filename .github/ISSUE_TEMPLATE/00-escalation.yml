@@ -1,0 +1,67 @@
+name: "🚨 Escalation → Agent 0"
+description: "Something needs the Founder / Agent 0 to decide. Use for cross-agent conflicts, strategic decisions, or crises."
+labels: ["agent-0-orchestrator", "escalation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Escalations go to Agent 0 (Orchestrator).** Fill in the sections below so Agent 0 has all context to decide fast.
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - "🔴 Critical – production down or SLA breach"
+        - "🟠 High – decision needed within 24h"
+        - "🟡 Medium – decision needed within 1 week"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: originating-agent
+    attributes:
+      label: Escalating Agent
+      options:
+        - "Agent 1 – Engineering"
+        - "Agent 2 – Growth"
+        - "Agent 3 – Operations"
+        - "Agent 4 – Business Development"
+        - "Agent 5 – Finance & Legal"
+    validations:
+      required: true
+
+  - type: textarea
+    id: situation
+    attributes:
+      label: Situation
+      description: What happened? What is the impact?
+      placeholder: "Automat network uptime dropped to 92% in Singapore cluster..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: options
+    attributes:
+      label: Options considered
+      description: What options did you evaluate? What are the trade-offs?
+      placeholder: "Option A: … (pro/con)\nOption B: … (pro/con)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: recommendation
+    attributes:
+      label: Your recommendation
+      description: What do you recommend Agent 0 decides?
+    validations:
+      required: true
+
+  - type: textarea
+    id: deadline
+    attributes:
+      label: Decision deadline
+      description: When does this need to be decided to avoid negative consequences?
+      placeholder: "2026-03-10 – contract renewal deadline"
+    validations:
+      required: true

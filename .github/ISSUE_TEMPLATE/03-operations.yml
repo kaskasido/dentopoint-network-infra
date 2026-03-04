@@ -1,0 +1,62 @@
+name: "⚙️ Operations Alert → Agent 3"
+description: "Automat offline, fill level critical, SLA breach, or maintenance overdue."
+labels: ["agent-3-operations"]
+body:
+  - type: dropdown
+    id: alert-type
+    attributes:
+      label: Alert type
+      options:
+        - "🔴 Automat offline > 4h"
+        - "🔴 SLA breach – network uptime below 98.5%"
+        - "🟠 Fill level critical (< 20%)"
+        - "🟠 Fill level warning (< 40%)"
+        - "🟡 Maintenance overdue"
+        - "🟡 Payment system error"
+        - "⚪ Other / informational"
+    validations:
+      required: true
+
+  - type: input
+    id: automat-id
+    attributes:
+      label: Automat ID
+      description: "e.g. DP-008"
+    validations:
+      required: false
+
+  - type: input
+    id: location
+    attributes:
+      label: Location (clinic, city, country)
+      description: "e.g. Tongji Hospital, Shanghai, CN"
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What is happening? When did it start? What is the patient / clinic impact?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: action-taken
+    attributes:
+      label: Action taken so far
+      options:
+        - "Remote reset attempted"
+        - "Technician dispatched"
+        - "Clinic notified"
+        - "Manufacturer contacted"
+        - "No action yet"
+    validations:
+      required: true
+
+  - type: textarea
+    id: next-steps
+    attributes:
+      label: Next steps / deadline
+    validations:
+      required: false

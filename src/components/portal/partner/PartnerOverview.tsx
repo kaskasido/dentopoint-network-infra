@@ -13,8 +13,8 @@ const monthMap: Record<string, string> = {
 
 const PartnerOverview = () => {
   const { t, lang } = useLanguage();
-  const pp = (t as any).partnerPortal || ({} as any);
-  const md = (t as any).mockData || ({} as any);
+  const pp = t.partnerPortal;
+  const md = t.mockData;
   const locale = getLocale(lang);
 
   const trMonth = (val: string) => {

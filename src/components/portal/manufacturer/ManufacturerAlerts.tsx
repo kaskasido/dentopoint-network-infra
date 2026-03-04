@@ -21,8 +21,8 @@ const alertMessageMap: Record<string, string> = {
 
 const ManufacturerAlerts = () => {
   const { t, lang } = useLanguage();
-  const mp = (t as any).manufacturerPortal || ({} as any);
-  const md = (t as any).mockData || ({} as any);
+  const mp = t.manufacturerPortal;
+  const md = t.mockData;
   const locale = getLocale(lang);
   const unresolved = mockAlerts.filter((a) => !a.resolved);
   const resolved = mockAlerts.filter((a) => a.resolved);

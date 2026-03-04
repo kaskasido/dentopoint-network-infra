@@ -5,7 +5,7 @@ import { getLocale } from "@/i18n/localeMap";
 
 const PartnerDeals = () => {
   const { t, lang } = useLanguage();
-  const pp = (t as any).partnerPortal || ({} as any);
+  const pp = t.partnerPortal;
   const locale = getLocale(lang);
 
   const statusConfig: Record<string, { label: string; icon: typeof Clock; className: string }> = {
