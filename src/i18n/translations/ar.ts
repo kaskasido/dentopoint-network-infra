@@ -46,6 +46,11 @@ export const ar = {
     },
   },
 
+  pwa: {
+    install: "تثبيت التطبيق",
+    installed: "تم تثبيت التطبيق",
+  },
+
   // Hero
   hero: {
     tagline: "البنية التحتية العلاجية الرقمية",

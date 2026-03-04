@@ -44,6 +44,12 @@ export const cn = {
       portal: "合作伙伴门户",
     },
   },
+
+  pwa: {
+    install: "安装应用",
+    installed: "应用已安装",
+  },
+
   hero: {
     tagline: "数字化治疗基础设施",
     subtitle: "治疗护理网络",

@@ -46,6 +46,12 @@ export const de = {
     },
   },
 
+  // PWA Install
+  pwa: {
+    install: "App installieren",
+    installed: "App installiert",
+  },
+
   // Hero
   hero: {
     tagline: "Digitale Therapeutische Infrastruktur",

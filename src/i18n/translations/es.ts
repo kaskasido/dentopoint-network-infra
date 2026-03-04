@@ -44,6 +44,12 @@ export const es = {
       portal: "Portal Socio",
     },
   },
+
+  pwa: {
+    install: "Instalar aplicación",
+    installed: "Aplicación instalada",
+  },
+
   hero: {
     tagline: "Infraestructura Terapéutica Digital",
     subtitle: "La Red de Cuidado Terapéutico",

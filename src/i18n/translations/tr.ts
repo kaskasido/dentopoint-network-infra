@@ -44,6 +44,12 @@ export const tr = {
       portal: "Ortak Portalı",
     },
   },
+
+  pwa: {
+    install: "Uygulamayı yükle",
+    installed: "Uygulama yüklendi",
+  },
+
   hero: {
     tagline: "Dijital Terapötik Altyapı",
     subtitle: "Terapötik Bakım Ağı",

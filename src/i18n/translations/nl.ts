@@ -46,6 +46,11 @@ export const nl = {
     },
   },
 
+  pwa: {
+    install: "App installeren",
+    installed: "App geïnstalleerd",
+  },
+
   // Hero
   hero: {
     tagline: "Digitale Therapeutische Infrastructuur",

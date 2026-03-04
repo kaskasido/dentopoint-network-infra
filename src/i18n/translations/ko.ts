@@ -44,6 +44,12 @@ export const ko = {
       portal: "파트너 포털",
     },
   },
+
+  pwa: {
+    install: "앱 설치",
+    installed: "앱 설치됨",
+  },
+
   hero: {
     tagline: "디지털 치료 인프라",
     subtitle: "치료 케어 네트워크",

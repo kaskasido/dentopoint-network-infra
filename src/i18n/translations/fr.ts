@@ -44,6 +44,12 @@ export const fr = {
       portal: "Portail Partenaire",
     },
   },
+
+  pwa: {
+    install: "Installer l'application",
+    installed: "Application installée",
+  },
+
   hero: {
     tagline: "Infrastructure Thérapeutique Numérique",
     subtitle: "Le Réseau de Soins Thérapeutiques",

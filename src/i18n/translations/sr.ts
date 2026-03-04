@@ -45,6 +45,11 @@ export const sr = {
     },
   },
 
+  pwa: {
+    install: "Instaliraj aplikaciju",
+    installed: "Aplikacija instalirana",
+  },
+
   hero: {
     tagline: "Digitalna terapeutska infrastruktura",
     subtitle: "Terapeutska mreža nege",

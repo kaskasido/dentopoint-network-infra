@@ -44,6 +44,12 @@ export const it = {
       portal: "Portale Partner",
     },
   },
+
+  pwa: {
+    install: "Installa l'app",
+    installed: "App installata",
+  },
+
   hero: {
     tagline: "Infrastruttura Terapeutica Digitale",
     subtitle: "La Rete di Cura Terapeutica",
