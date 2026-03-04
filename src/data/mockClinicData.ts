@@ -48,3 +48,67 @@ export const mockPatientFeedback: PatientFeedback[] = [
   { id: "f5", rating: 5, comment: "Meine Kinder lieben die Kinderzahnbürsten.", date: "2026-02-23", automatNr: "DP-K-004" },
   { id: "f6", rating: 4, comment: "Bezahlung per Karte funktioniert einwandfrei.", date: "2026-02-22", automatNr: "DP-K-002" },
 ];
+
+export interface NicoDetectDevice {
+  id: string;
+  deviceId: string;
+  room: string;
+  status: "online" | "offline" | "standby";
+  softwareVersion: string;
+  lastScan: string;
+  scansToday: number;
+  totalScans: number;
+  lastCalibration: string;
+  nextCalibration: string;
+}
+
+export const mockNicoDetectDevices: NicoDetectDevice[] = [
+  {
+    id: "nd1",
+    deviceId: "NICO-001",
+    room: "Behandlungszimmer 1",
+    status: "online",
+    softwareVersion: "v4.2.1",
+    lastScan: "2026-03-04T14:32:00Z",
+    scansToday: 12,
+    totalScans: 1847,
+    lastCalibration: "2026-02-15",
+    nextCalibration: "2026-05-15",
+  },
+  {
+    id: "nd2",
+    deviceId: "NICO-002",
+    room: "Behandlungszimmer 3",
+    status: "online",
+    softwareVersion: "v4.2.1",
+    lastScan: "2026-03-04T15:10:00Z",
+    scansToday: 8,
+    totalScans: 963,
+    lastCalibration: "2026-02-20",
+    nextCalibration: "2026-05-20",
+  },
+  {
+    id: "nd3",
+    deviceId: "NICO-003",
+    room: "Diagnostikraum",
+    status: "standby",
+    softwareVersion: "v4.1.0",
+    lastScan: "2026-03-03T17:45:00Z",
+    scansToday: 0,
+    totalScans: 2301,
+    lastCalibration: "2026-01-10",
+    nextCalibration: "2026-04-10",
+  },
+  {
+    id: "nd4",
+    deviceId: "NICO-004",
+    room: "Notaufnahme",
+    status: "offline",
+    softwareVersion: "v4.0.3",
+    lastScan: "2026-03-01T09:00:00Z",
+    scansToday: 0,
+    totalScans: 412,
+    lastCalibration: "2026-01-25",
+    nextCalibration: "2026-04-25",
+  },
+];
