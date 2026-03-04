@@ -17,6 +17,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import InstallPWA from "@/components/InstallPWA";
 
 const languages: { code: Language; label: string }[] = [
   { code: "EN", label: "English" },
@@ -165,6 +166,7 @@ const Navbar = () => {
               {t.nav.login}
             </Link>
           )}
+          <InstallPWA />
           <button
             onClick={() => setContactOpen(true)}
             className="bg-gradient-brand text-primary-foreground px-5 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-opacity"
@@ -236,6 +238,9 @@ const Navbar = () => {
           >
             {t.nav.contact}
           </button>
+          <div className="mt-3">
+            <InstallPWA />
+          </div>
           <div className="flex gap-2 mt-4">
             {languages.map((l) => (
               <button

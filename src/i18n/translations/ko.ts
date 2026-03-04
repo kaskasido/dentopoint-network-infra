@@ -44,6 +44,12 @@ export const ko = {
       portal: "파트너 포털",
     },
   },
+
+  pwa: {
+    install: "앱 설치",
+    installed: "앱 설치됨",
+  },
+
   hero: {
     tagline: "디지털 치료 인프라",
     subtitle: "치료 케어 네트워크",
@@ -606,6 +612,29 @@ export const ko = {
     user: "사용자",
   },
 
+  systemPerformance: {
+    title: "시스템 성능",
+    desc: "브라우저가 보고하는 로컬 컴퓨터의 하드웨어 및 성능 지표.",
+    refresh: "새로고침",
+    cpuCores: "CPU 코어 수 (논리적)",
+    deviceMemory: "장치 메모리",
+    network: "네트워크",
+    screen: "화면 해상도",
+    jsHeap: "JavaScript 힙 메모리",
+    jsHeapUsed: "사용 중",
+    jsHeapTotal: "전체",
+    jsHeapUsedOf: "전체 힙 중 사용됨",
+    details: "시스템 세부 정보",
+    platform: "플랫폼",
+    browserLang: "브라우저 언어",
+    pixelRatio: "장치 픽셀 비율",
+    downlink: "다운로드 속도",
+    userAgent: "사용자 에이전트",
+    online: "온라인",
+    offline: "오프라인",
+    lastUpdated: "마지막 업데이트",
+  },
+
   loginExtended: {
     registrationSuccess: "등록 완료",
     confirmEmail: "전송된 링크를 통해 이메일 주소를 확인해 주세요:",
@@ -684,7 +713,7 @@ export const ko = {
     clinic: { title: "클리닉 포털", dashboard: "대시보드", automats: "자동판매기", orders: "주문", feedback: "피드백" },
     investor: { title: "투자자 포털", dashboard: "대시보드", growth: "성장", regions: "지역", metrics: "지표" },
     partner: { title: "파트너 포털", dashboard: "대시보드", deals: "거래", commissions: "수수료", territories: "영역" },
-    admin: { title: "관리자 포털", dashboard: "대시보드", users: "사용자", roles: "역할", logs: "시스템 로그" },
+    admin: { title: "관리자 포털", dashboard: "대시보드", users: "사용자", roles: "역할", logs: "시스템 로그", system: "시스템 성능" },
     switcher: { manufacturer: "제조업체", clinic: "클리닉", investor: "투자자", partner: "파트너", admin: "관리자" },
   },
 };

@@ -46,6 +46,11 @@ export const ar = {
     },
   },
 
+  pwa: {
+    install: "تثبيت التطبيق",
+    installed: "تم تثبيت التطبيق",
+  },
+
   // Hero
   hero: {
     tagline: "البنية التحتية العلاجية الرقمية",
@@ -633,6 +638,29 @@ export const ar = {
     user: "المستخدم",
   },
 
+  systemPerformance: {
+    title: "أداء النظام",
+    desc: "مقاييس الأجهزة والأداء للحاسوب المحلي كما يُبلغ عنها المتصفح.",
+    refresh: "تحديث",
+    cpuCores: "أنوية المعالج (منطقية)",
+    deviceMemory: "ذاكرة الجهاز",
+    network: "الشبكة",
+    screen: "دقة الشاشة",
+    jsHeap: "ذاكرة كومة JavaScript",
+    jsHeapUsed: "المستخدم",
+    jsHeapTotal: "الإجمالي",
+    jsHeapUsedOf: "من إجمالي الكومة المستخدمة",
+    details: "تفاصيل النظام",
+    platform: "المنصة",
+    browserLang: "لغة المتصفح",
+    pixelRatio: "نسبة بكسل الجهاز",
+    downlink: "سرعة التنزيل",
+    userAgent: "عميل المستخدم",
+    online: "متصل",
+    offline: "غير متصل",
+    lastUpdated: "آخر تحديث",
+  },
+
   loginExtended: {
     registrationSuccess: "تم التسجيل بنجاح",
     confirmEmail: "يرجى تأكيد بريدك الإلكتروني عبر الرابط المرسل إلى",
@@ -711,7 +739,7 @@ export const ar = {
     clinic: { title: "بوابة العيادة", dashboard: "لوحة المعلومات", automats: "الأجهزة", orders: "الطلبات", feedback: "التقييمات" },
     investor: { title: "بوابة المستثمر", dashboard: "لوحة المعلومات", growth: "النمو", regions: "المناطق", metrics: "المقاييس" },
     partner: { title: "بوابة الشركاء", dashboard: "لوحة المعلومات", deals: "الصفقات", commissions: "العمولات", territories: "المناطق" },
-    admin: { title: "بوابة الإدارة", dashboard: "لوحة المعلومات", users: "المستخدمون", roles: "الأدوار", logs: "سجلات النظام" },
+    admin: { title: "بوابة الإدارة", dashboard: "لوحة المعلومات", users: "المستخدمون", roles: "الأدوار", logs: "سجلات النظام", system: "أداء النظام" },
     switcher: { manufacturer: "المصنّع", clinic: "العيادة", investor: "المستثمر", partner: "الشركاء", admin: "الإدارة" },
   },
 };

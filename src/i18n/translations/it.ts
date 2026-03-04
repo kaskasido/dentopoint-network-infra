@@ -44,6 +44,12 @@ export const it = {
       portal: "Portale Partner",
     },
   },
+
+  pwa: {
+    install: "Installa l'app",
+    installed: "App installata",
+  },
+
   hero: {
     tagline: "Infrastruttura Terapeutica Digitale",
     subtitle: "La Rete di Cura Terapeutica",
@@ -410,7 +416,7 @@ export const it = {
     clinic: { title: "Portale Clinica", dashboard: "Dashboard", automats: "Distributori", orders: "Ordini", feedback: "Feedback" },
     investor: { title: "Portale Investitore", dashboard: "Dashboard", growth: "Crescita", regions: "Regioni", metrics: "Metriche" },
     partner: { title: "Portale Partner", dashboard: "Dashboard", deals: "Accordi", commissions: "Commissioni", territories: "Territori" },
-    admin: { title: "Portale Admin", dashboard: "Dashboard", users: "Utenti", roles: "Ruoli", logs: "Log di sistema" },
+    admin: { title: "Portale Admin", dashboard: "Dashboard", users: "Utenti", roles: "Ruoli", logs: "Log di sistema", system: "Prestazioni di sistema" },
     switcher: { manufacturer: "Produttore", clinic: "Clinica", investor: "Investitore", partner: "Partner", admin: "Admin" },
   },
 
@@ -615,6 +621,29 @@ export const it = {
     logsDesc: "Attività ed eventi nel sistema.",
     all: "Tutti",
     user: "Utente",
+  },
+
+  systemPerformance: {
+    title: "Prestazioni di sistema",
+    desc: "Metriche hardware e di prestazione del computer locale, come riportate dal browser.",
+    refresh: "Aggiorna",
+    cpuCores: "Core CPU (logici)",
+    deviceMemory: "Memoria dispositivo",
+    network: "Rete",
+    screen: "Risoluzione schermo",
+    jsHeap: "Memoria heap JavaScript",
+    jsHeapUsed: "Utilizzata",
+    jsHeapTotal: "Totale",
+    jsHeapUsedOf: "dell'heap totale utilizzato",
+    details: "Dettagli di sistema",
+    platform: "Piattaforma",
+    browserLang: "Lingua del browser",
+    pixelRatio: "Rapporto pixel",
+    downlink: "Velocità di download",
+    userAgent: "User Agent",
+    online: "Online",
+    offline: "Offline",
+    lastUpdated: "Ultimo aggiornamento",
   },
 
   loginExtended: {

@@ -44,6 +44,12 @@ export const fr = {
       portal: "Portail Partenaire",
     },
   },
+
+  pwa: {
+    install: "Installer l'application",
+    installed: "Application installée",
+  },
+
   hero: {
     tagline: "Infrastructure Thérapeutique Numérique",
     subtitle: "Le Réseau de Soins Thérapeutiques",
@@ -410,7 +416,7 @@ export const fr = {
     clinic: { title: "Portail Clinique", dashboard: "Tableau de bord", automats: "Automates", orders: "Commandes", feedback: "Retours" },
     investor: { title: "Portail Investisseur", dashboard: "Tableau de bord", growth: "Croissance", regions: "Régions", metrics: "Indicateurs" },
     partner: { title: "Portail Partenaire", dashboard: "Tableau de bord", deals: "Contrats", commissions: "Commissions", territories: "Territoires" },
-    admin: { title: "Portail Admin", dashboard: "Tableau de bord", users: "Utilisateurs", roles: "Rôles", logs: "Journaux système" },
+    admin: { title: "Portail Admin", dashboard: "Tableau de bord", users: "Utilisateurs", roles: "Rôles", logs: "Journaux système", system: "Performances système" },
     switcher: { manufacturer: "Fabricant", clinic: "Clinique", investor: "Investisseur", partner: "Partenaire", admin: "Admin" },
   },
 
@@ -615,6 +621,29 @@ export const fr = {
     logsDesc: "Activités et événements dans le système.",
     all: "Tous",
     user: "Utilisateur",
+  },
+
+  systemPerformance: {
+    title: "Performances système",
+    desc: "Métriques matérielles et de performance de l'ordinateur local, telles que rapportées par le navigateur.",
+    refresh: "Actualiser",
+    cpuCores: "Cœurs CPU (logiques)",
+    deviceMemory: "Mémoire de l'appareil",
+    network: "Réseau",
+    screen: "Résolution d'écran",
+    jsHeap: "Mémoire tas JavaScript",
+    jsHeapUsed: "Utilisé",
+    jsHeapTotal: "Total",
+    jsHeapUsedOf: "du tas total utilisé",
+    details: "Détails système",
+    platform: "Plateforme",
+    browserLang: "Langue du navigateur",
+    pixelRatio: "Ratio de pixels",
+    downlink: "Vitesse de téléchargement",
+    userAgent: "Agent utilisateur",
+    online: "En ligne",
+    offline: "Hors ligne",
+    lastUpdated: "Dernière mise à jour",
   },
 
   loginExtended: {

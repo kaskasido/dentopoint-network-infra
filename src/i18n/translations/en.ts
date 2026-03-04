@@ -46,6 +46,12 @@ export const en = {
     },
   },
 
+  // PWA Install
+  pwa: {
+    install: "Install App",
+    installed: "App installed",
+  },
+
   // Hero
   hero: {
     tagline: "Digital Therapeutic Infrastructure",
@@ -470,6 +476,7 @@ export const en = {
       users: "Users",
       roles: "Roles",
       logs: "System Logs",
+      system: "System Performance",
     },
     switcher: {
       manufacturer: "Manufacturer",
@@ -700,6 +707,30 @@ export const en = {
     logsDesc: "Activities and events in the system.",
     all: "All",
     user: "User",
+  },
+
+  // System Performance
+  systemPerformance: {
+    title: "System Performance",
+    desc: "Hardware and performance metrics of the local computer as reported by the browser.",
+    refresh: "Refresh",
+    cpuCores: "CPU Cores (logical)",
+    deviceMemory: "Device Memory",
+    network: "Network",
+    screen: "Screen Resolution",
+    jsHeap: "JavaScript Heap Memory",
+    jsHeapUsed: "Used",
+    jsHeapTotal: "Total",
+    jsHeapUsedOf: "of total heap used",
+    details: "System Details",
+    platform: "Platform",
+    browserLang: "Browser Language",
+    pixelRatio: "Device Pixel Ratio",
+    downlink: "Download Speed",
+    userAgent: "User Agent",
+    online: "Online",
+    offline: "Offline",
+    lastUpdated: "Last updated",
   },
 
   // Login Page extended

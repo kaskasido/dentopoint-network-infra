@@ -45,6 +45,11 @@ export const sr = {
     },
   },
 
+  pwa: {
+    install: "Instaliraj aplikaciju",
+    installed: "Aplikacija instalirana",
+  },
+
   hero: {
     tagline: "Digitalna terapeutska infrastruktura",
     subtitle: "Terapeutska mreža nege",
@@ -451,6 +456,7 @@ export const sr = {
       users: "Korisnici",
       roles: "Uloge",
       logs: "Sistemski zapisi",
+      system: "Performanse sistema",
     },
     switcher: {
       manufacturer: "Proizvođač",
@@ -662,6 +668,29 @@ export const sr = {
     logsDesc: "Aktivnosti i događaji u sistemu.",
     all: "Sve",
     user: "Korisnik",
+  },
+
+  systemPerformance: {
+    title: "Performanse sistema",
+    desc: "Hardverske i performansne metrike lokalnog računara, kako ih prijavljuje pretraživač.",
+    refresh: "Osvježi",
+    cpuCores: "CPU jezgre (logičke)",
+    deviceMemory: "Memorija uređaja",
+    network: "Mreža",
+    screen: "Rezolucija ekrana",
+    jsHeap: "JavaScript heap memorija",
+    jsHeapUsed: "Korišteno",
+    jsHeapTotal: "Ukupno",
+    jsHeapUsedOf: "ukupnog heap-a korišteno",
+    details: "Detalji sistema",
+    platform: "Platforma",
+    browserLang: "Jezik pretraživača",
+    pixelRatio: "Omjer piksela uređaja",
+    downlink: "Brzina preuzimanja",
+    userAgent: "Korisnički agent",
+    online: "Online",
+    offline: "Offline",
+    lastUpdated: "Posljednje ažurirano",
   },
 
   loginExtended: {
