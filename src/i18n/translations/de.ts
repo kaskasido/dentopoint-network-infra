@@ -745,4 +745,21 @@ export const de = {
     groundFloor: "EG",
     firstFloor: "1. OG",
   },
+
+  nicoDetect: {
+    navLabel: "NICO Detect",
+    title: "NICO Detect Geräte",
+    desc: "Verbundene NICO Detect Diagnose-Workstations in Ihrer Klinik.",
+    totalDevices: "Geräte gesamt",
+    devicesOnline: "Online",
+    scansToday: "Scans heute",
+    totalScans: "Scans gesamt",
+    softwareVersion: "Softwareversion",
+    lastScan: "Letzter Scan",
+    lastCalibration: "Letzte Kalibrierung",
+    nextCalibration: "Nächste Kalibrierung",
+    statusOnline: "Online",
+    statusOffline: "Offline",
+    statusStandby: "Standby",
+  },
 };
