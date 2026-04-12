@@ -14,6 +14,302 @@ export type Database = {
   }
   public: {
     Tables: {
+      alerts: {
+        Row: {
+          acknowledged: boolean
+          acknowledged_at: string | null
+          acknowledged_by: string | null
+          automat_id: string | null
+          created_at: string
+          id: string
+          message: string | null
+          severity: string
+          title: string
+        }
+        Insert: {
+          acknowledged?: boolean
+          acknowledged_at?: string | null
+          acknowledged_by?: string | null
+          automat_id?: string | null
+          created_at?: string
+          id?: string
+          message?: string | null
+          severity?: string
+          title: string
+        }
+        Update: {
+          acknowledged?: boolean
+          acknowledged_at?: string | null
+          acknowledged_by?: string | null
+          automat_id?: string | null
+          created_at?: string
+          id?: string
+          message?: string | null
+          severity?: string
+          title?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "alerts_acknowledged_by_fkey"
+            columns: ["acknowledged_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "alerts_automat_id_fkey"
+            columns: ["automat_id"]
+            isOneToOne: false
+            referencedRelation: "automats"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      automats: {
+        Row: {
+          address: string | null
+          city: string | null
+          clinic_id: string | null
+          country: string | null
+          created_at: string
+          id: string
+          installed_at: string | null
+          latitude: number | null
+          longitude: number | null
+          manufacturer_id: string | null
+          name: string
+          serial_number: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          address?: string | null
+          city?: string | null
+          clinic_id?: string | null
+          country?: string | null
+          created_at?: string
+          id?: string
+          installed_at?: string | null
+          latitude?: number | null
+          longitude?: number | null
+          manufacturer_id?: string | null
+          name: string
+          serial_number: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          address?: string | null
+          city?: string | null
+          clinic_id?: string | null
+          country?: string | null
+          created_at?: string
+          id?: string
+          installed_at?: string | null
+          latitude?: number | null
+          longitude?: number | null
+          manufacturer_id?: string | null
+          name?: string
+          serial_number?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "automats_clinic_id_fkey"
+            columns: ["clinic_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "automats_manufacturer_id_fkey"
+            columns: ["manufacturer_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      commissions: {
+        Row: {
+          commission_amount: number
+          commission_rate: number
+          created_at: string
+          deal_name: string
+          deal_value: number
+          id: string
+          notes: string | null
+          paid_at: string | null
+          partner_id: string
+          status: string
+          territory: string | null
+          updated_at: string
+        }
+        Insert: {
+          commission_amount: number
+          commission_rate?: number
+          created_at?: string
+          deal_name: string
+          deal_value: number
+          id?: string
+          notes?: string | null
+          paid_at?: string | null
+          partner_id: string
+          status?: string
+          territory?: string | null
+          updated_at?: string
+        }
+        Update: {
+          commission_amount?: number
+          commission_rate?: number
+          created_at?: string
+          deal_name?: string
+          deal_value?: number
+          id?: string
+          notes?: string | null
+          paid_at?: string | null
+          partner_id?: string
+          status?: string
+          territory?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "commissions_partner_id_fkey"
+            columns: ["partner_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      maintenance_logs: {
+        Row: {
+          automat_id: string
+          completed_at: string | null
+          cost: number | null
+          created_at: string
+          description: string | null
+          id: string
+          maintenance_type: string
+          scheduled_at: string | null
+          status: string
+          technician_id: string | null
+          technician_name: string | null
+          updated_at: string
+        }
+        Insert: {
+          automat_id: string
+          completed_at?: string | null
+          cost?: number | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          maintenance_type: string
+          scheduled_at?: string | null
+          status?: string
+          technician_id?: string | null
+          technician_name?: string | null
+          updated_at?: string
+        }
+        Update: {
+          automat_id?: string
+          completed_at?: string | null
+          cost?: number | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          maintenance_type?: string
+          scheduled_at?: string | null
+          status?: string
+          technician_id?: string | null
+          technician_name?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "maintenance_logs_automat_id_fkey"
+            columns: ["automat_id"]
+            isOneToOne: false
+            referencedRelation: "automats"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "maintenance_logs_technician_id_fkey"
+            columns: ["technician_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      orders: {
+        Row: {
+          automat_id: string | null
+          clinic_id: string
+          created_at: string
+          currency: string
+          delivered_at: string | null
+          id: string
+          items: Json
+          notes: string | null
+          order_number: string
+          ordered_at: string
+          quantity: number
+          status: string
+          total_amount: number | null
+          updated_at: string
+        }
+        Insert: {
+          automat_id?: string | null
+          clinic_id: string
+          created_at?: string
+          currency?: string
+          delivered_at?: string | null
+          id?: string
+          items?: Json
+          notes?: string | null
+          order_number: string
+          ordered_at?: string
+          quantity?: number
+          status?: string
+          total_amount?: number | null
+          updated_at?: string
+        }
+        Update: {
+          automat_id?: string | null
+          clinic_id?: string
+          created_at?: string
+          currency?: string
+          delivered_at?: string | null
+          id?: string
+          items?: Json
+          notes?: string | null
+          order_number?: string
+          ordered_at?: string
+          quantity?: number
+          status?: string
+          total_amount?: number | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "orders_automat_id_fkey"
+            columns: ["automat_id"]
+            isOneToOne: false
+            referencedRelation: "automats"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "orders_clinic_id_fkey"
+            columns: ["clinic_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       organizations: {
         Row: {
           created_at: string
