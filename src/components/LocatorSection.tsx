@@ -135,28 +135,10 @@ const LocatorSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="lg:col-span-3 border border-border rounded-lg bg-secondary/30 min-h-[500px] flex items-center justify-center relative overflow-hidden"
+            className="lg:col-span-3 border border-border rounded-lg bg-card overflow-hidden"
+            style={{ minHeight: 500 }}
           >
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage: `radial-gradient(circle, hsl(var(--emerald-jade) / 0.08) 1px, transparent 1px)`,
-                backgroundSize: "24px 24px",
-              }}
-            />
-            <div className="text-center relative z-10 px-6">
-              <div className="w-16 h-16 rounded-xl overflow-hidden shadow-brand mx-auto mb-4">
-                <img src={logo} alt="DentoPoint" className="w-full h-full object-cover" />
-              </div>
-              <p className="font-display font-semibold text-foreground mb-2">{t.locator.interactiveMap}</p>
-              <p className="text-sm text-muted-foreground max-w-xs mx-auto">
-                {t.locator.mapDesc}
-              </p>
-              <div className="flex items-center justify-center gap-2 mt-4">
-                <Building2 size={14} className="text-accent" />
-                <span className="text-xs text-muted-foreground">{t.locator.locationsActive}</span>
-              </div>
-            </div>
+            <div ref={mapContainerRef} className="h-full w-full" style={{ minHeight: 500 }} />
           </motion.div>
         </div>
       </div>
