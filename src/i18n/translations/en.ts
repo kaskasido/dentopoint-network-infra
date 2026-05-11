@@ -187,7 +187,20 @@ export const en = {
     tagline: "Medical Infrastructure Ecosystem · EU & Asia",
   },
 
-  // Clinics Page
+  privacy: {
+    title: "Privacy Policy",
+    sections: [
+      { h: "1. Controller", p: "DentoPoint GbR, represented by its partners Olga Henriette Seifert, Michael Kasig and Peter Corovic. Clarenbachstraße 6, 50931 Cologne, Germany. Email: info@dentopoint.care" },
+      { h: "2. General information on data processing", p: "We process personal data of our users only insofar as this is necessary to provide a functional website as well as our content and services. The legal basis is Art. 6 (1) (b) and (f) GDPR." },
+      { h: "3. Server log files", p: "When you access our website, technically necessary connection data (IP address, date/time, browser type, operating system, referrer) is processed by our hosting provider. This data is not merged with other data sources." },
+      { h: "4. Contact", p: "If you contact us by email, the user's information will be stored to process the request and in case of follow-up questions. The data will not be passed on to third parties." },
+      { h: "5. User accounts and portals", p: "For registered users (clinics, manufacturers, investors, partners, administrators), we process the data provided during registration to operate the respective portal functions. Authentication is handled by a secure backend service hosted within the EU." },
+      { h: "6. Cookies", p: "We only use technically necessary cookies (e.g. for session and language settings). No tracking or marketing cookies are used." },
+      { h: "7. Your rights", p: "You have the right to information (Art. 15 GDPR), rectification (Art. 16), erasure (Art. 17), restriction of processing (Art. 18), data portability (Art. 20) and objection (Art. 21) at any time. Please send requests to info@dentopoint.care." },
+      { h: "8. Right to lodge a complaint", p: "You have the right to lodge a complaint with a data protection supervisory authority, typically the State Commissioner for Data Protection and Freedom of Information of North Rhine-Westphalia." },
+      { h: "9. Changes", p: "This privacy policy may be updated to reflect changes in the legal framework or in the functionality offered. The version published on this page applies." },
+    ],
+  },
   clinicsPage: {
     hero: { label: "For Clinics", title1: "Transform Your", title2: "Aftercare Revenue", desc: "Integrate DentoPoint into your clinic workflow. New revenue streams, better patient outcomes, and full regulatory compliance — out of the box." },
     revenue: {
