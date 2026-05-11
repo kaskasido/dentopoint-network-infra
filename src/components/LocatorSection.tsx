@@ -1,10 +1,66 @@
+import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Search, Filter, Building2 } from "lucide-react";
+import { MapPin, Search, Building2 } from "lucide-react";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
 import { useLanguage } from "@/i18n/LanguageContext";
-import logo from "@/assets/dentopoint-icon.png";
+import { supabase } from "@/integrations/supabase/client";
+
+type Automat = {
+  id: string;
+  name: string;
+  city: string | null;
+  country: string | null;
+  address: string | null;
+  status: string;
+  latitude: number | null;
+  longitude: number | null;
+};
+
+const squareIcon = (status: string) => {
+  const color = status === "active" ? "#10b981" : status === "offline" ? "#ef4444" : "#9ca3af";
+  return L.divIcon({
+    className: "dentopoint-pin",
+    iconSize: [16, 16],
+    iconAnchor: [8, 8],
+    html: `<div style="width:16px;height:16px;background:${color};border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.25);"></div>`,
+  });
+};
+
+const FitBounds = ({ rows }: { rows: Automat[] }) => {
+  const map = useMap();
+  useEffect(() => {
+    const pts = rows.filter((r) => r.latitude && r.longitude).map((r) => [r.latitude!, r.longitude!] as [number, number]);
+    if (pts.length === 1) map.setView(pts[0], 13);
+    else if (pts.length > 1) map.fitBounds(pts, { padding: [40, 40] });
+  }, [map, rows]);
+  return null;
+};
 
 const LocatorSection = () => {
   const { t } = useLanguage();
+  const [rows, setRows] = useState<Automat[]>([]);
+  const [query, setQuery] = useState("");
+  const [selected, setSelected] = useState<string | null>(null);
+
+  useEffect(() => {
+    supabase
+      .from("automats")
+      .select("id,name,city,country,address,status,latitude,longitude")
+      .eq("status", "active")
+      .then(({ data }) => setRows((data ?? []) as Automat[]));
+  }, []);
+
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return rows;
+    return rows.filter((r) =>
+      [r.name, r.city, r.country, r.address].filter(Boolean).join(" ").toLowerCase().includes(q),
+    );
+  }, [rows, query]);
+
+  const geoRows = filtered.filter((r) => r.latitude && r.longitude);
 
   return (
     <section id="locator" className="py-24 md:py-32 bg-background">
@@ -33,43 +89,49 @@ const LocatorSection = () => {
             transition={{ duration: 0.5 }}
             className="lg:col-span-2 space-y-4"
           >
-            <div className="border border-border rounded-lg p-4 bg-card">
-              <div className="flex items-center gap-3 text-muted-foreground">
-                <Search size={18} />
-                <span className="text-sm">{t.locator.searchPlaceholder}</span>
-              </div>
+            <div className="border border-border rounded-lg p-4 bg-card flex items-center gap-3">
+              <Search size={18} className="text-muted-foreground" />
+              <input
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder={t.locator.searchPlaceholder}
+                className="flex-1 bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground"
+              />
             </div>
 
-            {t.locator.filters.map((filter) => (
-              <div key={filter} className="border border-border rounded-lg p-4 bg-card flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <Filter size={16} className="text-accent" />
-                  <span className="text-sm font-medium text-foreground">{filter}</span>
+            <div className="space-y-3">
+              {filtered.length === 0 ? (
+                <div className="border border-border rounded-lg p-5 bg-card text-sm text-muted-foreground">
+                  {t.locator.mapDesc}
                 </div>
-                <span className="text-xs text-muted-foreground">All</span>
-              </div>
-            ))}
-
-            <div className="border border-border rounded-lg p-5 bg-card space-y-3 mt-6">
-              <div className="flex items-start gap-3">
-                <MapPin size={18} className="text-accent mt-0.5" />
-                <div>
-                  <p className="text-sm font-semibold text-foreground">{t.locator.clinicMunich}</p>
-                  <p className="text-xs text-muted-foreground mt-1">{t.locator.clinicMunichServices}</p>
-                  <p className="text-xs text-accent mt-1">{t.locator.clinicMunichModules}</p>
-                </div>
-              </div>
+              ) : (
+                filtered.map((a) => (
+                  <button
+                    key={a.id}
+                    onClick={() => setSelected(a.id)}
+                    className={`w-full text-left border rounded-lg p-5 bg-card transition ${
+                      selected === a.id ? "border-accent" : "border-border hover:border-accent/40"
+                    }`}
+                  >
+                    <div className="flex items-start gap-3">
+                      <MapPin size={18} className="text-accent mt-0.5" />
+                      <div>
+                        <p className="text-sm font-semibold text-foreground">{a.name}</p>
+                        <p className="text-xs text-muted-foreground mt-1">
+                          {[a.address, a.city].filter(Boolean).join(", ")}
+                        </p>
+                      </div>
+                    </div>
+                  </button>
+                ))
+              )}
             </div>
 
-            <div className="border border-border rounded-lg p-5 bg-card space-y-3">
-              <div className="flex items-start gap-3">
-                <MapPin size={18} className="text-accent mt-0.5" />
-                <div>
-                  <p className="text-sm font-semibold text-foreground">{t.locator.clinicShanghai}</p>
-                  <p className="text-xs text-muted-foreground mt-1">{t.locator.clinicShanghaiServices}</p>
-                  <p className="text-xs text-accent mt-1">{t.locator.clinicShanghaiModules}</p>
-                </div>
-              </div>
+            <div className="flex items-center gap-2 pt-2">
+              <Building2 size={14} className="text-accent" />
+              <span className="text-xs text-muted-foreground">
+                {filtered.length} {t.locator.locationsActive}
+              </span>
             </div>
           </motion.div>
 
@@ -78,28 +140,34 @@ const LocatorSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="lg:col-span-3 border border-border rounded-lg bg-secondary/30 min-h-[500px] flex items-center justify-center relative overflow-hidden"
+            className="lg:col-span-3 border border-border rounded-lg bg-secondary/30 min-h-[500px] overflow-hidden"
           >
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage: `radial-gradient(circle, hsl(var(--emerald-jade) / 0.08) 1px, transparent 1px)`,
-                backgroundSize: "24px 24px",
-              }}
-            />
-            <div className="text-center relative z-10 px-6">
-              <div className="w-16 h-16 rounded-xl overflow-hidden shadow-brand mx-auto mb-4">
-                <img src={logo} alt="DentoPoint" className="w-full h-full object-cover" />
-              </div>
-              <p className="font-display font-semibold text-foreground mb-2">{t.locator.interactiveMap}</p>
-              <p className="text-sm text-muted-foreground max-w-xs mx-auto">
-                {t.locator.mapDesc}
-              </p>
-              <div className="flex items-center justify-center gap-2 mt-4">
-                <Building2 size={14} className="text-accent" />
-                <span className="text-xs text-muted-foreground">{t.locator.locationsActive}</span>
-              </div>
-            </div>
+            <MapContainer
+              center={[51.1657, 10.4515]}
+              zoom={5}
+              style={{ height: 500, width: "100%" }}
+              scrollWheelZoom={false}
+            >
+              <TileLayer
+                attribution='&copy; OpenStreetMap'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <FitBounds rows={geoRows} />
+              {geoRows.map((a) => (
+                <Marker
+                  key={a.id}
+                  position={[a.latitude!, a.longitude!]}
+                  icon={squareIcon(a.status)}
+                  eventHandlers={{ click: () => setSelected(a.id) }}
+                >
+                  <Popup>
+                    <strong>{a.name}</strong>
+                    <br />
+                    {[a.address, a.city].filter(Boolean).join(", ")}
+                  </Popup>
+                </Marker>
+              ))}
+            </MapContainer>
           </motion.div>
         </div>
       </div>
