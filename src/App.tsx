@@ -12,6 +12,7 @@ import Clinics from "./pages/Clinics";
 import Partners from "./pages/Partners";
 import Login from "./pages/Login";
 import Impressum from "./pages/Impressum";
+import Datenschutz from "./pages/Datenschutz";
 import ResetPassword from "./pages/ResetPassword";
 import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./components/ProtectedRoute";
