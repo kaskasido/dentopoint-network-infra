@@ -40,6 +40,8 @@ const App = () => (
               <Route path="/partners" element={<Partners />} />
               <Route path="/login" element={<Login />} />
               <Route path="/impressum" element={<Impressum />} />
+              <Route path="/datenschutz" element={<Datenschutz />} />
+              <Route path="/datenschutzerklaerung" element={<Datenschutz />} />
               <Route path="/reset-password" element={<ResetPassword />} />
               <Route
                 path="/portal/manufacturer/*"
