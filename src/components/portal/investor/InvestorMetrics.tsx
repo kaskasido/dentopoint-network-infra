@@ -1,41 +1,53 @@
-import { mockFinancials } from "@/data/mockInvestorData";
-import { TrendingUp, TrendingDown, BarChart3, Target, DollarSign, Percent, Users, Repeat } from "lucide-react";
-import { useLanguage } from "@/i18n/LanguageContext";
-
-const metricIcons = [DollarSign, DollarSign, BarChart3, Users, Target, Percent, DollarSign, Repeat];
+import { useEffect, useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { BarChart3, Box, Coins, ShoppingCart } from "lucide-react";
+import EmptyState from "@/components/portal/shared/EmptyState";
 
 const InvestorMetrics = () => {
-  const { t } = useLanguage();
-  const ip = (t as any).investorPortal || {};
+  const [stats, setStats] = useState({ automats: 0, orders: 0, ordersValue: 0, commissionsValue: 0 });
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    (async () => {
+      const [a, ord, c] = await Promise.all([
+        supabase.from("automats").select("id", { count: "exact", head: true }),
+        supabase.from("orders").select("total_amount"),
+        supabase.from("commissions").select("deal_value"),
+      ]);
+      setStats({
+        automats: a.count ?? 0,
+        orders: (ord.data ?? []).length,
+        ordersValue: (ord.data ?? []).reduce((s: number, r: any) => s + Number(r.total_amount ?? 0), 0),
+        commissionsValue: (c.data ?? []).reduce((s: number, r: any) => s + Number(r.deal_value ?? 0), 0),
+      });
+      setLoading(false);
+    })();
+  }, []);
+
+  const metrics = [
+    { label: "Automaten gesamt", value: stats.automats, icon: Box },
+    { label: "Bestellungen gesamt", value: stats.orders, icon: ShoppingCart },
+    { label: "Bestellvolumen", value: `€${stats.ordersValue.toLocaleString()}`, icon: BarChart3 },
+    { label: "Deal-Volumen", value: `€${stats.commissionsValue.toLocaleString()}`, icon: Coins },
+  ];
 
   return (
     <div>
-      <h1 className="font-display text-2xl font-bold text-foreground mb-2">{ip.metricsTitle || "Key Metrics"}</h1>
-      <p className="text-muted-foreground text-sm mb-8">{ip.metricsDesc || "Detailed financial and business metrics."}</p>
+      <h1 className="font-display text-2xl font-bold text-foreground mb-2">Kennzahlen</h1>
+      <p className="text-muted-foreground text-sm mb-8">Live-Werte aus den Backenddaten.</p>
 
-      <div className="grid md:grid-cols-2 gap-6">
-        {mockFinancials.map((m, i) => {
-          const Icon = metricIcons[i];
-          return (
+      {loading ? <p className="text-sm text-muted-foreground">Lade…</p> : (
+        <div className="grid md:grid-cols-2 gap-6 mb-6">
+          {metrics.map((m) => (
             <div key={m.label} className="border border-border rounded-lg p-6 bg-card">
-              <div className="flex items-start justify-between mb-4">
-                <div className="p-2 rounded-lg bg-accent/10">
-                  <Icon size={20} className="text-accent" />
-                </div>
-                <div className="flex items-center gap-1">
-                  {m.change > 0 ? <TrendingUp size={16} className="text-accent" /> : <TrendingDown size={16} className="text-destructive" />}
-                  <span className={`text-sm font-semibold ${m.change > 0 ? "text-accent" : "text-destructive"}`}>
-                    {m.change > 0 ? "+" : ""}{m.change}%
-                  </span>
-                </div>
-              </div>
-              <p className="font-display text-3xl font-bold text-foreground mb-1">{m.value}</p>
+              <div className="p-2 inline-flex rounded-lg bg-accent/10 mb-4"><m.icon size={20} className="text-accent" /></div>
+              <p className="font-display text-3xl font-bold text-foreground">{m.value}</p>
               <p className="text-sm text-muted-foreground">{m.label}</p>
-              <p className="text-xs text-muted-foreground mt-1">{m.period}</p>
             </div>
-          );
-        })}
-      </div>
+          ))}
+        </div>
+      )}
+      {!loading && stats.automats === 0 && <EmptyState description="Noch keine Daten – Kennzahlen aktualisieren sich automatisch." />}
     </div>
   );
 };

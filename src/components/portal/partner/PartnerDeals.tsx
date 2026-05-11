@@ -1,62 +1,51 @@
-import { mockDeals } from "@/data/mockPartnerData";
-import { CheckCircle, Clock, TrendingUp, XCircle } from "lucide-react";
-import { useLanguage } from "@/i18n/LanguageContext";
-import { getLocale } from "@/i18n/localeMap";
+import { useEffect, useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { CheckCircle, Clock, Handshake } from "lucide-react";
+import EmptyState from "@/components/portal/shared/EmptyState";
 
 const PartnerDeals = () => {
-  const { t, lang } = useLanguage();
-  const pp = (t as any).partnerPortal || ({} as any);
-  const locale = getLocale(lang);
+  const [rows, setRows] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const statusConfig: Record<string, { label: string; icon: typeof Clock; className: string }> = {
-    lead: { label: pp.lead, icon: Clock, className: "bg-blue-500/10 text-blue-500" },
-    verhandlung: { label: pp.negotiation, icon: TrendingUp, className: "bg-yellow-500/10 text-yellow-500" },
-    abgeschlossen: { label: pp.closed, icon: CheckCircle, className: "bg-accent/10 text-accent" },
-    verloren: { label: pp.lost, icon: XCircle, className: "bg-destructive/10 text-destructive" },
-  };
+  useEffect(() => {
+    supabase.from("commissions").select("*").order("created_at", { ascending: false }).then(({ data }) => {
+      setRows(data ?? []);
+      setLoading(false);
+    });
+  }, []);
 
-  const stages = Object.entries(statusConfig).map(([key, cfg]) => ({
-    ...cfg, key,
-    count: mockDeals.filter((d) => d.status === key).length,
-    value: mockDeals.filter((d) => d.status === key).reduce((s, d) => s + d.value, 0),
-  }));
+  const paid = rows.filter((r) => r.status === "paid").length;
+  const pending = rows.filter((r) => r.status !== "paid").length;
 
   return (
     <div>
-      <h1 className="font-display text-2xl font-bold text-foreground mb-2">{pp.dealsTitle}</h1>
-      <p className="text-muted-foreground text-sm mb-8">{pp.dealsDesc}</p>
+      <h1 className="font-display text-2xl font-bold text-foreground mb-2">Deals</h1>
+      <p className="text-muted-foreground text-sm mb-8">Deine vermittelten Geschäfte.</p>
 
-      <div className="grid grid-cols-4 gap-4 mb-8">
-        {stages.map((s) => (
-          <div key={s.key} className="border border-border rounded-lg p-5 bg-card">
-            <s.icon size={20} className={s.className.split(" ")[1]} />
-            <p className="font-display text-2xl font-bold text-foreground mt-2">{s.count}</p>
-            <p className="text-xs text-muted-foreground">{s.label}</p>
-            <p className="text-xs text-muted-foreground mt-1">€{s.value.toLocaleString(locale)}</p>
-          </div>
-        ))}
+      <div className="grid grid-cols-3 gap-4 mb-8">
+        <div className="border border-border rounded-lg p-5 bg-card"><Handshake size={20} className="text-accent mb-2" /><p className="font-display text-2xl font-bold text-foreground">{rows.length}</p><p className="text-xs text-muted-foreground">Deals gesamt</p></div>
+        <div className="border border-border rounded-lg p-5 bg-card"><CheckCircle size={20} className="text-accent mb-2" /><p className="font-display text-2xl font-bold text-foreground">{paid}</p><p className="text-xs text-muted-foreground">Bezahlt</p></div>
+        <div className="border border-border rounded-lg p-5 bg-card"><Clock size={20} className="text-yellow-500 mb-2" /><p className="font-display text-2xl font-bold text-foreground">{pending}</p><p className="text-xs text-muted-foreground">Ausstehend</p></div>
       </div>
 
-      <div className="space-y-4">
-        {mockDeals.map((d) => {
-          const cfg = statusConfig[d.status];
-          return (
+      {loading ? <p className="text-sm text-muted-foreground">Lade…</p> : rows.length === 0 ? (
+        <EmptyState description="Noch keine Deals erfasst." />
+      ) : (
+        <div className="space-y-3">
+          {rows.map((d) => (
             <div key={d.id} className="border border-border rounded-lg p-5 bg-card flex items-center justify-between">
               <div>
-                <p className="font-medium text-foreground">{d.clinicName}</p>
-                <p className="text-xs text-muted-foreground mt-1">{d.automats} {pp.automats} • {new Date(d.date).toLocaleDateString(locale)}</p>
+                <p className="font-medium text-foreground">{d.deal_name}</p>
+                <p className="text-xs text-muted-foreground mt-1">{d.territory ?? "—"} • {new Date(d.created_at).toLocaleDateString()}</p>
               </div>
               <div className="flex items-center gap-4">
-                <p className="font-semibold text-foreground">€{d.value.toLocaleString(locale)}</p>
-                <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium ${cfg.className}`}>
-                  <cfg.icon size={12} />
-                  {cfg.label}
-                </span>
+                <p className="font-semibold text-foreground">€{Number(d.deal_value).toLocaleString()}</p>
+                <span className={`text-xs px-2.5 py-1 rounded-full ${d.status === "paid" ? "bg-accent/10 text-accent" : "bg-yellow-500/10 text-yellow-500"}`}>{d.status}</span>
               </div>
             </div>
-          );
-        })}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
