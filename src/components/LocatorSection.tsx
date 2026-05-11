@@ -45,13 +45,13 @@ const LocatorSection = () => {
 
     const markers = mockAutomats.map((a) => {
       const m = L.marker([a.lat, a.lng], { icon: dentopointIcon }).addTo(markerLayer);
-      m.bindPopup(`<strong>${a.name}</strong><br/>${a.city}, ${a.country}`);
+      m.bindPopup(`<strong>${a.name}</strong><br/>${a.address || `${a.city}, ${a.country}`}`);
       return m;
     });
 
     if (markers.length > 0) {
       const bounds = L.latLngBounds(markers.map((m) => m.getLatLng()));
-      map.fitBounds(bounds.pad(0.4), { maxZoom: 11 });
+      map.fitBounds(bounds.pad(0.25), { maxZoom: 11 });
     }
 
     return () => {
