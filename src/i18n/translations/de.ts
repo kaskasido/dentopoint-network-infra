@@ -187,6 +187,21 @@ export const de = {
     tagline: "Medizinische Infrastruktur · EU & Asien",
   },
 
+  privacy: {
+    title: "Datenschutzerklärung",
+    sections: [
+      { h: "1. Verantwortlicher", p: "DentoPoint GbR, vertreten durch die Gesellschafter Olga Henriette Seifert, Michael Kasig und Peter Corovic. Clarenbachstraße 6, 50931 Köln, Deutschland. E-Mail: info@dentopoint.care" },
+      { h: "2. Allgemeines zur Datenverarbeitung", p: "Wir verarbeiten personenbezogene Daten unserer Nutzer grundsätzlich nur, soweit dies zur Bereitstellung einer funktionsfähigen Website sowie unserer Inhalte und Leistungen erforderlich ist. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b und f DSGVO." },
+      { h: "3. Server-Logfiles", p: "Beim Aufruf unserer Website werden technisch notwendige Verbindungsdaten (IP-Adresse, Datum/Uhrzeit, Browser-Typ, Betriebssystem, Referrer) durch unseren Hosting-Anbieter verarbeitet. Eine Zusammenführung dieser Daten mit anderen Datenquellen erfolgt nicht." },
+      { h: "4. Kontaktaufnahme", p: "Bei Kontaktaufnahme per E-Mail werden die Angaben des Nutzers zur Bearbeitung der Anfrage und für den Fall von Anschlussfragen gespeichert. Eine Weitergabe an Dritte erfolgt nicht." },
+      { h: "5. Nutzerkonten und Portale", p: "Für registrierte Nutzer (Kliniken, Hersteller, Investoren, Partner, Administratoren) verarbeiten wir die im Registrierungsprozess angegebenen Daten zur Bereitstellung der jeweiligen Portalfunktionen. Die Authentifizierung erfolgt über einen sicheren Backend-Dienst innerhalb der EU." },
+      { h: "6. Cookies", p: "Wir setzen ausschließlich technisch notwendige Cookies ein (z. B. zur Sitzungs- und Spracheinstellung). Tracking- oder Marketing-Cookies werden nicht verwendet." },
+      { h: "7. Rechte der betroffenen Personen", p: "Sie haben jederzeit das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) sowie Widerspruch (Art. 21). Anfragen richten Sie bitte an info@dentopoint.care." },
+      { h: "8. Beschwerderecht", p: "Sie haben das Recht zur Beschwerde bei einer Datenschutz-Aufsichtsbehörde, in der Regel bei der Landesbeauftragten für Datenschutz und Informationsfreiheit Nordrhein-Westfalen." },
+      { h: "9. Änderungen", p: "Diese Datenschutzerklärung kann angepasst werden, um sie an geänderte Rechtslage oder Funktionen anzupassen. Es gilt jeweils die aktuell auf dieser Seite veröffentlichte Fassung." },
+    ],
+  },
+
   clinicsPage: {
     hero: { label: "Für Kliniken", title1: "Transformieren Sie Ihre", title2: "Nachsorge-Einnahmen", desc: "Integrieren Sie DentoPoint in Ihren Klinik-Workflow. Neue Einnahmequellen, bessere Patientenergebnisse und volle regulatorische Konformität — sofort einsatzbereit." },
     revenue: {
