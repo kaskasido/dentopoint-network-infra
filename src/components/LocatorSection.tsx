@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Search, Filter, Building2 } from "lucide-react";
-import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
@@ -152,20 +153,24 @@ const LocatorSection = () => {
               <MapContainer center={[51, 10]} zoom={5} style={{ height: 500, width: "100%" }} scrollWheelZoom>
                 <TileLayer attribution='&copy; OpenStreetMap' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                 <FitBounds rows={geoRows} />
-                {geoRows.map((a) => (
-                  <CircleMarker
-                    key={a.id}
-                    center={[a.latitude as number, a.longitude as number]}
-                    radius={9}
-                    pathOptions={{ color: "hsl(var(--emerald-jade))", fillColor: "hsl(var(--emerald-jade))", fillOpacity: 0.85, weight: 2 }}
-                  >
-                    <Popup>
-                      <strong>{a.name}</strong>
-                      <br />
-                      {[a.address, a.city].filter(Boolean).join(", ")}
-                    </Popup>
-                  </CircleMarker>
-                ))}
+                {geoRows.map((a) => {
+                  const icon = L.divIcon({
+                    className: "dentopoint-pin",
+                    html: `<div style="width:40px;height:40px;border-radius:10px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,0.25);border:2px solid #fff;background:#fff;"><img src="${logo}" alt="DentoPoint" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>`,
+                    iconSize: [40, 40],
+                    iconAnchor: [20, 20],
+                    popupAnchor: [0, -22],
+                  });
+                  return (
+                    <Marker key={a.id} position={[a.latitude as number, a.longitude as number]} icon={icon}>
+                      <Popup>
+                        <strong>{a.name}</strong>
+                        <br />
+                        {[a.address, a.city].filter(Boolean).join(", ")}
+                      </Popup>
+                    </Marker>
+                  );
+                })}
               </MapContainer>
             )}
           </motion.div>
