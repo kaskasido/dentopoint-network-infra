@@ -18,10 +18,9 @@ const LocatorSection = () => {
     () =>
       L.icon({
         iconUrl: logo,
-        iconSize: [36, 36],
-        iconAnchor: [18, 36],
-        popupAnchor: [0, -36],
-        className: "rounded-md shadow-brand",
+        iconSize: [40, 40],
+        iconAnchor: [20, 40],
+        popupAnchor: [0, -40],
       }),
     [],
   );
@@ -33,7 +32,7 @@ const LocatorSection = () => {
       center: [49, 11],
       zoom: 5,
       zoomControl: true,
-      scrollWheelZoom: false,
+      scrollWheelZoom: true,
     });
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
