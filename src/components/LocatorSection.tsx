@@ -157,10 +157,10 @@ const LocatorSection = () => {
                 {geoRows.map((a) => {
                   const icon = L.divIcon({
                     className: "dentopoint-pin",
-                    html: `<div style="width:40px;height:40px;border-radius:10px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,0.25);border:2px solid #fff;background:#fff;"><img src="${logo}" alt="DentoPoint" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>`,
-                    iconSize: [40, 40],
-                    iconAnchor: [20, 20],
-                    popupAnchor: [0, -22],
+                    html: `<div style="width:140px;height:48px;display:flex;align-items:center;justify-content:center;padding:6px 12px;border-radius:10px;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.18);border:1px solid rgba(0,0,0,0.06);"><img src="${headerLogo}" alt="DentoPoint" style="height:28px;width:auto;display:block;" /></div>`,
+                    iconSize: [140, 48],
+                    iconAnchor: [70, 48],
+                    popupAnchor: [0, -50],
                   });
                   return (
                     <Marker key={a.id} position={[a.latitude as number, a.longitude as number]} icon={icon}>
