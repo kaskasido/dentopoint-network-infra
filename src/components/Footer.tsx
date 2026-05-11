@@ -45,8 +45,8 @@ const Footer = () => {
             <h4 className="font-display font-semibold text-sm mb-4 opacity-80">{t.footer.legal}</h4>
             <ul className="space-y-2.5 text-sm opacity-60">
               <li><a href="/impressum" className="hover:opacity-100 transition-opacity">{t.footer.impressum}</a></li>
-              <li><a href="#" className="hover:opacity-100 transition-opacity">{t.footer.privacyPolicy}</a></li>
-              <li><a href="#" className="hover:opacity-100 transition-opacity">{t.footer.dataProtection}</a></li>
+              <li><a href="/datenschutz" className="hover:opacity-100 transition-opacity">{t.footer.privacyPolicy}</a></li>
+              <li><a href="/datenschutzerklaerung" className="hover:opacity-100 transition-opacity">{t.footer.dataProtection}</a></li>
               <li><a href="#" className="hover:opacity-100 transition-opacity">{t.footer.ipNotice}</a></li>
             </ul>
           </div>
