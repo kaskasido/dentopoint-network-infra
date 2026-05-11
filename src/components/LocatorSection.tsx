@@ -1,11 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Search, Building2 } from "lucide-react";
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
+import pinImg from "@/assets/dentopoint-pin.png";
 
 type Automat = {
   id: string;
@@ -18,13 +19,14 @@ type Automat = {
   longitude: number | null;
 };
 
-const squareIcon = (status: string) => {
-  const color = status === "active" ? "#10b981" : status === "offline" ? "#ef4444" : "#9ca3af";
-  return L.divIcon({
-    className: "dentopoint-pin",
-    iconSize: [16, 16],
-    iconAnchor: [8, 8],
-    html: `<div style="width:16px;height:16px;background:${color};border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.25);"></div>`,
+const makePinIcon = (zoom: number) => {
+  // Scale: ~28px at zoom 4, ~72px at zoom 15
+  const size = Math.round(Math.min(80, Math.max(28, zoom * 5 + 8)));
+  return L.icon({
+    iconUrl: pinImg,
+    iconSize: [size, size],
+    iconAnchor: [size / 2, size],
+    popupAnchor: [0, -size],
   });
 };
 
@@ -38,11 +40,22 @@ const FitBounds = ({ rows }: { rows: Automat[] }) => {
   return null;
 };
 
+const ZoomTracker = ({ onZoom }: { onZoom: (z: number) => void }) => {
+  const map = useMapEvents({
+    zoomend: () => onZoom(map.getZoom()),
+  });
+  useEffect(() => {
+    onZoom(map.getZoom());
+  }, [map, onZoom]);
+  return null;
+};
+
 const LocatorSection = () => {
   const { t } = useLanguage();
   const [rows, setRows] = useState<Automat[]>([]);
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<string | null>(null);
+  const [zoom, setZoom] = useState(5);
 
   useEffect(() => {
     supabase
@@ -61,6 +74,7 @@ const LocatorSection = () => {
   }, [rows, query]);
 
   const geoRows = filtered.filter((r) => r.latitude && r.longitude);
+  const icon = useMemo(() => makePinIcon(zoom), [zoom]);
 
   return (
     <section id="locator" className="py-24 md:py-32 bg-background">
@@ -153,11 +167,12 @@ const LocatorSection = () => {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
               <FitBounds rows={geoRows} />
+              <ZoomTracker onZoom={setZoom} />
               {geoRows.map((a) => (
                 <Marker
                   key={a.id}
                   position={[a.latitude!, a.longitude!]}
-                  icon={squareIcon(a.status)}
+                  icon={icon}
                   eventHandlers={{ click: () => setSelected(a.id) }}
                 >
                   <Popup>
