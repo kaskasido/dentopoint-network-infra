@@ -10,6 +10,59 @@ import { mockAutomats } from "@/data/mockAutomats";
 const LocatorSection = () => {
   const { t } = useLanguage();
 
+  const mapContainerRef = useRef<HTMLDivElement | null>(null);
+  const mapRef = useRef<L.Map | null>(null);
+  const markersLayerRef = useRef<L.LayerGroup | null>(null);
+
+  const dentopointIcon = useMemo(
+    () =>
+      L.icon({
+        iconUrl: logo,
+        iconSize: [36, 36],
+        iconAnchor: [18, 36],
+        popupAnchor: [0, -36],
+        className: "rounded-md shadow-brand",
+      }),
+    [],
+  );
+
+  useEffect(() => {
+    if (!mapContainerRef.current || mapRef.current) return;
+
+    const map = L.map(mapContainerRef.current, {
+      center: [49, 11],
+      zoom: 5,
+      zoomControl: true,
+      scrollWheelZoom: false,
+    });
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "&copy; OpenStreetMap contributors",
+    }).addTo(map);
+
+    const markerLayer = L.layerGroup().addTo(map);
+    mapRef.current = map;
+    markersLayerRef.current = markerLayer;
+
+    const markers = mockAutomats.map((a) => {
+      const m = L.marker([a.lat, a.lng], { icon: dentopointIcon }).addTo(markerLayer);
+      m.bindPopup(`<strong>${a.name}</strong><br/>${a.city}, ${a.country}`);
+      return m;
+    });
+
+    if (markers.length > 0) {
+      const bounds = L.latLngBounds(markers.map((m) => m.getLatLng()));
+      map.fitBounds(bounds.pad(0.4), { maxZoom: 11 });
+    }
+
+    return () => {
+      map.remove();
+      mapRef.current = null;
+      markersLayerRef.current = null;
+    };
+  }, [dentopointIcon]);
+
+
   return (
     <section id="locator" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-6">
