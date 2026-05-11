@@ -1,65 +1,49 @@
-import { mockGrowthData } from "@/data/mockInvestorData";
-import { AreaChart, Area, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
-import { TrendingUp } from "lucide-react";
-import { useLanguage } from "@/i18n/LanguageContext";
+import { useEffect, useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import EmptyState from "@/components/portal/shared/EmptyState";
 
 const InvestorGrowth = () => {
-  const { t } = useLanguage();
-  const ip = (t as any).investorPortal || {};
+  const [series, setSeries] = useState<{ month: string; automats: number }[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const latestMonth = mockGrowthData[mockGrowthData.length - 1];
-  const prevMonth = mockGrowthData[mockGrowthData.length - 2];
-  const revenueGrowth = Math.round(((latestMonth.revenue - prevMonth.revenue) / prevMonth.revenue) * 100);
-  const automatGrowth = Math.round(((latestMonth.automats - prevMonth.automats) / prevMonth.automats) * 100);
-  const clinicGrowth = Math.round(((latestMonth.clinics - prevMonth.clinics) / prevMonth.clinics) * 100);
+  useEffect(() => {
+    (async () => {
+      const { data } = await supabase.from("automats").select("created_at");
+      const grouped: Record<string, number> = {};
+      (data ?? []).forEach((r: any) => {
+        const d = new Date(r.created_at);
+        const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+        grouped[key] = (grouped[key] ?? 0) + 1;
+      });
+      const months = Object.keys(grouped).sort();
+      let cumul = 0;
+      setSeries(months.map((m) => { cumul += grouped[m]; return { month: m, automats: cumul }; }));
+      setLoading(false);
+    })();
+  }, []);
 
   return (
     <div>
-      <h1 className="font-display text-2xl font-bold text-foreground mb-2">{ip.growthTitle || "Growth Analysis"}</h1>
-      <p className="text-muted-foreground text-sm mb-8">{ip.growthDesc || "Monthly growth trends and forecasts."}</p>
+      <h1 className="font-display text-2xl font-bold text-foreground mb-2">Wachstum</h1>
+      <p className="text-muted-foreground text-sm mb-8">Kumulierter Aufbau des Automaten-Netzwerks.</p>
 
-      <div className="grid grid-cols-3 gap-4 mb-8">
-        {[
-          { label: ip.revenueGrowth || "Revenue Growth", value: `+${revenueGrowth}%`, sub: "MoM" },
-          { label: ip.automatGrowth || "Automat Growth", value: `+${automatGrowth}%`, sub: "MoM" },
-          { label: ip.clinicGrowth || "Clinic Growth", value: `+${clinicGrowth}%`, sub: "MoM" },
-        ].map((s) => (
-          <div key={s.label} className="border border-border rounded-lg p-5 bg-card">
-            <TrendingUp size={20} className="text-accent mb-2" />
-            <p className="font-display text-2xl font-bold text-accent">{s.value}</p>
-            <p className="text-xs text-muted-foreground">{s.label} ({s.sub})</p>
-          </div>
-        ))}
-      </div>
-
-      <div className="grid lg:grid-cols-2 gap-6">
+      {loading ? <p className="text-sm text-muted-foreground">Lade…</p> : series.length < 2 ? (
+        <EmptyState description="Wachstumstrends werden sichtbar, sobald Daten aus mehreren Monaten vorliegen." />
+      ) : (
         <div className="border border-border rounded-lg p-6 bg-card">
-          <h2 className="font-display text-lg font-semibold text-foreground mb-4">{ip.revenueTrend || "Revenue Trend"}</h2>
-          <ResponsiveContainer width="100%" height={280}>
-            <AreaChart data={mockGrowthData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-              <XAxis dataKey="month" tick={{ fontSize: 12 }} stroke="hsl(var(--muted-foreground))" />
-              <YAxis tick={{ fontSize: 12 }} stroke="hsl(var(--muted-foreground))" tickFormatter={(v) => `€${(v / 1000).toFixed(0)}K`} />
-              <Tooltip formatter={(v: number) => `€${v.toLocaleString("de-DE")}`} contentStyle={{ backgroundColor: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8 }} />
-              <Area type="monotone" dataKey="revenue" stroke="hsl(var(--accent))" fill="hsl(var(--accent) / 0.15)" strokeWidth={2} />
-            </AreaChart>
-          </ResponsiveContainer>
-        </div>
-
-        <div className="border border-border rounded-lg p-6 bg-card">
-          <h2 className="font-display text-lg font-semibold text-foreground mb-4">{ip.networkGrowth || "Network Growth"}</h2>
-          <ResponsiveContainer width="100%" height={280}>
-            <LineChart data={mockGrowthData}>
+          <h2 className="font-display text-lg font-semibold text-foreground mb-4">Automaten kumuliert</h2>
+          <ResponsiveContainer width="100%" height={320}>
+            <AreaChart data={series}>
               <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
               <XAxis dataKey="month" tick={{ fontSize: 12 }} stroke="hsl(var(--muted-foreground))" />
               <YAxis tick={{ fontSize: 12 }} stroke="hsl(var(--muted-foreground))" />
               <Tooltip contentStyle={{ backgroundColor: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8 }} />
-              <Line type="monotone" dataKey="automats" name={ip.automats || "Automats"} stroke="hsl(var(--accent))" strokeWidth={2} dot={{ r: 4 }} />
-              <Line type="monotone" dataKey="clinics" name={ip.clinics || "Clinics"} stroke="hsl(var(--accent) / 0.5)" strokeWidth={2} dot={{ r: 4 }} />
-            </LineChart>
+              <Area type="monotone" dataKey="automats" stroke="hsl(var(--accent))" fill="hsl(var(--accent) / 0.15)" strokeWidth={2} />
+            </AreaChart>
           </ResponsiveContainer>
         </div>
-      </div>
+      )}
     </div>
   );
 };
