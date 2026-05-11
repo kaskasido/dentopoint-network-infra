@@ -36,7 +36,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const { lang, setLang, t } = useLanguage();
-  const { user, signOut } = useAuth();
+  const { user, role, signOut } = useAuth();
   const navigate = useNavigate();
 
   const handleSignOut = async () => {
@@ -142,21 +142,31 @@ const Navbar = () => {
           </DropdownMenu>
 
           {user ? (
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors outline-none">
-                {user.user_metadata?.display_name || user.email?.split("@")[0] || "Account"}
-                <ChevronDown size={14} />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="bg-popover min-w-[160px]">
-                <DropdownMenuItem
-                  onClick={handleSignOut}
-                  className="cursor-pointer text-destructive focus:text-destructive"
+            <>
+              {role === "admin" && (
+                <Link
+                  to="/portal/admin"
+                  className="text-sm font-semibold px-3 py-1.5 rounded-md border border-primary/30 text-primary hover:bg-primary/10 transition-colors"
                 >
-                  <LogOut size={16} className="mr-2" />
-                  {t.nav.logout}
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+                  Admin Dashboard
+                </Link>
+              )}
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors outline-none">
+                  {user.user_metadata?.display_name || user.email?.split("@")[0] || "Account"}
+                  <ChevronDown size={14} />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="bg-popover min-w-[160px]">
+                  <DropdownMenuItem
+                    onClick={handleSignOut}
+                    className="cursor-pointer text-destructive focus:text-destructive"
+                  >
+                    <LogOut size={16} className="mr-2" />
+                    {t.nav.logout}
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </>
           ) : (
             <Link
               to="/login"
@@ -230,6 +240,15 @@ const Navbar = () => {
               ))}
             </div>
           ))}
+          {user && role === "admin" && (
+            <Link
+              to="/portal/admin"
+              onClick={() => setIsOpen(false)}
+              className="block w-full mt-3 text-center px-5 py-2.5 rounded-md border border-primary/30 text-primary text-sm font-semibold"
+            >
+              Admin Dashboard
+            </Link>
+          )}
           <button
             className="block w-full mt-4 bg-gradient-brand text-primary-foreground px-5 py-2.5 rounded-md text-sm font-medium text-center"
             onClick={() => { setIsOpen(false); setContactOpen(true); }}
