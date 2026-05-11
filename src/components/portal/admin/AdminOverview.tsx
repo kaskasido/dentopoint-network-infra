@@ -23,6 +23,20 @@ const AdminOverview = () => {
     return key && md[key] ? md[key] : status;
   };
 
+  const [automatStats, setAutomatStats] = useState({ total: 0, active: 0, maintenance: 0, offline: 0 });
+
+  useEffect(() => {
+    supabase.from("automats").select("status").then(({ data }) => {
+      const rows = data ?? [];
+      setAutomatStats({
+        total: rows.length,
+        active: rows.filter((r: any) => r.status === "active").length,
+        maintenance: rows.filter((r: any) => r.status === "maintenance").length,
+        offline: rows.filter((r: any) => r.status === "offline").length,
+      });
+    });
+  }, []);
+
   const activeUsers = mockAdminUsers.filter((u) => u.status === "aktiv").length;
 
   const stats = [
