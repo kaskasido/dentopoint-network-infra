@@ -32,7 +32,7 @@ const LocatorSection = () => {
       center: [49, 11],
       zoom: 5,
       zoomControl: true,
-      scrollWheelZoom: false,
+      scrollWheelZoom: true,
     });
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
