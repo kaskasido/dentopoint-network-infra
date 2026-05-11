@@ -1,5 +1,8 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
 import { mockAdminUsers, mockSystemLogs } from "@/data/mockAdminData";
-import { Users, Shield, Building, AlertTriangle, UserCheck, UserX } from "lucide-react";
+import { Users, Shield, Building, AlertTriangle, UserCheck, UserX, Cpu, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { getLocale } from "@/i18n/localeMap";
 
