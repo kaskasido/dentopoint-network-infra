@@ -240,6 +240,15 @@ const Navbar = () => {
               ))}
             </div>
           ))}
+          {user && role === "admin" && (
+            <Link
+              to="/portal/admin"
+              onClick={() => setIsOpen(false)}
+              className="block w-full mt-3 text-center px-5 py-2.5 rounded-md border border-primary/30 text-primary text-sm font-semibold"
+            >
+              Admin Dashboard
+            </Link>
+          )}
           <button
             className="block w-full mt-4 bg-gradient-brand text-primary-foreground px-5 py-2.5 rounded-md text-sm font-medium text-center"
             onClick={() => { setIsOpen(false); setContactOpen(true); }}
