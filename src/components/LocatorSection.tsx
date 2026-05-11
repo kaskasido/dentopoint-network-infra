@@ -2,6 +2,10 @@ import { motion } from "framer-motion";
 import { MapPin, Search, Filter, Building2 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import logo from "@/assets/dentopoint-icon.png";
+import { useEffect, useMemo, useRef } from "react";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+import { mockAutomats } from "@/data/mockAutomats";
 
 const LocatorSection = () => {
   const { t } = useLanguage();
