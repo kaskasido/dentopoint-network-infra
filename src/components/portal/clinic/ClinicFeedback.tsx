@@ -1,16 +1,84 @@
-import { Star } from "lucide-react";
-import EmptyState from "@/components/portal/shared/EmptyState";
+import { mockPatientFeedback } from "@/data/mockClinicData";
+import { Star, MessageSquare } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
+import { getLocale } from "@/i18n/localeMap";
 
-const ClinicFeedback = () => (
-  <div>
-    <h1 className="font-display text-2xl font-bold text-foreground mb-2">Patienten-Feedback</h1>
-    <p className="text-muted-foreground text-sm mb-8">Bewertungen und Kommentare zu deinen Modulen.</p>
-    <EmptyState
-      icon={<Star size={18} />}
-      title="Noch kein Feedback verfügbar"
-      description="Sobald Bewertungen über die Module erfasst werden, siehst du hier Durchschnittswert, Verteilung und Kommentare."
-    />
-  </div>
-);
+const feedbackMap: Record<string, string> = {
+  "Super Angebot, sehr praktisch!": "feedback1",
+  "Gute Auswahl, könnte günstiger sein.": "feedback2",
+  "Endlich Zahnpflegeprodukte in der Klinik!": "feedback3",
+  "Automat war kurzzeitig außer Betrieb.": "feedback4",
+  "Meine Kinder lieben die Kinderzahnbürsten.": "feedback5",
+  "Bezahlung per Karte funktioniert einwandfrei.": "feedback6",
+};
+
+const ClinicFeedback = () => {
+  const { t, lang } = useLanguage();
+  const cp = (t as any).clinicPortal || ({} as any);
+  const md = (t as any).mockData || ({} as any);
+  const locale = getLocale(lang);
+
+  const tr = (val: string) => {
+    const key = feedbackMap[val];
+    return key && md[key] ? md[key] : val;
+  };
+
+  const avgRating = (mockPatientFeedback.reduce((s, f) => s + f.rating, 0) / mockPatientFeedback.length).toFixed(1);
+  const ratingDist = [5, 4, 3, 2, 1].map((r) => ({
+    stars: r,
+    count: mockPatientFeedback.filter((f) => f.rating === r).length,
+    pct: Math.round((mockPatientFeedback.filter((f) => f.rating === r).length / mockPatientFeedback.length) * 100),
+  }));
+
+  return (
+    <div>
+      <h1 className="font-display text-2xl font-bold text-foreground mb-2">{cp.feedbackTitle}</h1>
+      <p className="text-muted-foreground text-sm mb-8">{cp.feedbackDesc}</p>
+
+      <div className="grid lg:grid-cols-3 gap-6 mb-8">
+        <div className="border border-border rounded-lg p-6 bg-card text-center">
+          <Star size={24} className="text-yellow-500 mx-auto mb-2" />
+          <p className="font-display text-4xl font-bold text-foreground">{avgRating}</p>
+          <p className="text-sm text-muted-foreground mt-1">{cp.averageRating}</p>
+          <p className="text-xs text-muted-foreground">{mockPatientFeedback.length} {cp.reviews}</p>
+        </div>
+
+        <div className="border border-border rounded-lg p-6 bg-card col-span-2">
+          <h3 className="text-sm font-medium text-foreground mb-4">{cp.distribution}</h3>
+          <div className="space-y-2">
+            {ratingDist.map((r) => (
+              <div key={r.stars} className="flex items-center gap-3">
+                <span className="text-xs text-muted-foreground w-12">{r.stars} ★</span>
+                <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
+                  <div className="h-full bg-yellow-500 rounded-full" style={{ width: `${r.pct}%` }} />
+                </div>
+                <span className="text-xs text-muted-foreground w-16 text-right">{r.count} ({r.pct}%)</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <h2 className="font-display text-lg font-semibold text-foreground mb-4">{cp.latestComments}</h2>
+      <div className="space-y-3">
+        {mockPatientFeedback.map((f) => (
+          <div key={f.id} className="border border-border rounded-lg p-4 bg-card">
+            <div className="flex items-center justify-between mb-2">
+              <div className="flex items-center gap-2">
+                <MessageSquare size={14} className="text-muted-foreground" />
+                <span className="text-xs font-mono text-muted-foreground">{f.automatNr}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-yellow-500">{"★".repeat(f.rating)}{"☆".repeat(5 - f.rating)}</span>
+                <span className="text-xs text-muted-foreground">{new Date(f.date).toLocaleDateString(locale)}</span>
+              </div>
+            </div>
+            <p className="text-sm text-foreground">{tr(f.comment)}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default ClinicFeedback;

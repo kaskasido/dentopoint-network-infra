@@ -1,54 +1,93 @@
-import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { mockClinicOrders } from "@/data/mockClinicData";
 import { Package, Truck, Clock, CheckCircle } from "lucide-react";
-import EmptyState from "@/components/portal/shared/EmptyState";
+import { useLanguage } from "@/i18n/LanguageContext";
+import { getLocale } from "@/i18n/localeMap";
+
+const productMap: Record<string, string> = {
+  "Zahnbürsten-Set Premium": "toothbrushSetPremium",
+  "Zahnpasta Fluor+": "toothpasteFluor",
+  "Mundspülung Sensitiv": "mouthwashSensitive",
+  "Zahnseide Mint": "flossMint",
+  "Interdentalbürsten": "interdentalBrushes",
+};
 
 const ClinicOrders = () => {
-  const [rows, setRows] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
+  const { t, lang } = useLanguage();
+  const cp = (t as any).clinicPortal || ({} as any);
+  const md = (t as any).mockData || ({} as any);
+  const locale = getLocale(lang);
 
-  useEffect(() => {
-    supabase.from("orders").select("*").order("ordered_at", { ascending: false }).then(({ data }) => {
-      setRows(data ?? []);
-      setLoading(false);
-    });
-  }, []);
+  const tr = (val: string) => {
+    const key = productMap[val];
+    return key && md[key] ? md[key] : val;
+  };
 
-  const delivered = rows.filter((o) => o.status === "delivered").length;
-  const ordered = rows.filter((o) => o.status === "ordered").length;
-  const pending = rows.filter((o) => o.status === "pending").length;
+  const delivered = mockClinicOrders.filter((o) => o.status === "geliefert").length;
+  const ordered = mockClinicOrders.filter((o) => o.status === "bestellt").length;
+  const pending = mockClinicOrders.filter((o) => o.status === "ausstehend").length;
+
+  const statusConfig: Record<string, { icon: typeof CheckCircle; className: string; label: string }> = {
+    geliefert: { icon: CheckCircle, className: "bg-accent/10 text-accent", label: cp.delivered },
+    bestellt: { icon: Truck, className: "bg-blue-500/10 text-blue-500", label: cp.ordered },
+    ausstehend: { icon: Clock, className: "bg-yellow-500/10 text-yellow-500", label: cp.pending },
+  };
 
   return (
     <div>
-      <h1 className="font-display text-2xl font-bold text-foreground mb-2">Bestellungen</h1>
-      <p className="text-muted-foreground text-sm mb-8">Bestellverlauf deiner Klinik.</p>
+      <h1 className="font-display text-2xl font-bold text-foreground mb-2">{cp.ordersTitle}</h1>
+      <p className="text-muted-foreground text-sm mb-8">{cp.ordersDesc}</p>
 
       <div className="grid grid-cols-3 gap-4 mb-8">
-        <div className="border border-border rounded-lg p-5 bg-card"><CheckCircle size={20} className="text-accent mb-2" /><p className="font-display text-2xl font-bold text-foreground">{delivered}</p><p className="text-xs text-muted-foreground">Geliefert</p></div>
-        <div className="border border-border rounded-lg p-5 bg-card"><Truck size={20} className="text-blue-500 mb-2" /><p className="font-display text-2xl font-bold text-foreground">{ordered}</p><p className="text-xs text-muted-foreground">Bestellt</p></div>
-        <div className="border border-border rounded-lg p-5 bg-card"><Clock size={20} className="text-yellow-500 mb-2" /><p className="font-display text-2xl font-bold text-foreground">{pending}</p><p className="text-xs text-muted-foreground">Ausstehend</p></div>
+        <div className="border border-border rounded-lg p-5 bg-card">
+          <CheckCircle size={20} className="text-accent mb-2" />
+          <p className="font-display text-2xl font-bold text-foreground">{delivered}</p>
+          <p className="text-xs text-muted-foreground">{cp.delivered}</p>
+        </div>
+        <div className="border border-border rounded-lg p-5 bg-card">
+          <Truck size={20} className="text-blue-500 mb-2" />
+          <p className="font-display text-2xl font-bold text-foreground">{ordered}</p>
+          <p className="text-xs text-muted-foreground">{cp.ordered}</p>
+        </div>
+        <div className="border border-border rounded-lg p-5 bg-card">
+          <Clock size={20} className="text-yellow-500 mb-2" />
+          <p className="font-display text-2xl font-bold text-foreground">{pending}</p>
+          <p className="text-xs text-muted-foreground">{cp.pending}</p>
+        </div>
       </div>
 
-      {loading ? <p className="text-sm text-muted-foreground">Lade…</p> : rows.length === 0 ? (
-        <EmptyState description="Noch keine Bestellungen erfasst." />
-      ) : (
-        <div className="border border-border rounded-lg overflow-hidden">
-          <table className="w-full text-sm">
-            <thead><tr className="bg-muted/50"><th className="text-left px-4 py-3 font-medium text-muted-foreground">Bestellnr.</th><th className="text-left px-4 py-3 font-medium text-muted-foreground">Menge</th><th className="text-left px-4 py-3 font-medium text-muted-foreground">Status</th><th className="text-left px-4 py-3 font-medium text-muted-foreground">Betrag</th><th className="text-left px-4 py-3 font-medium text-muted-foreground">Datum</th></tr></thead>
-            <tbody>
-              {rows.map((o) => (
-                <tr key={o.id} className="border-t border-border">
-                  <td className="px-4 py-3 font-mono text-xs flex items-center gap-2"><Package size={14} className="text-muted-foreground" />{o.order_number}</td>
-                  <td className="px-4 py-3 text-muted-foreground">{o.quantity}</td>
-                  <td className="px-4 py-3"><span className="text-xs px-2 py-0.5 rounded-full bg-muted">{o.status}</span></td>
-                  <td className="px-4 py-3 text-foreground">{o.total_amount ? `${Number(o.total_amount).toFixed(2)} ${o.currency}` : "—"}</td>
-                  <td className="px-4 py-3 text-muted-foreground">{new Date(o.ordered_at).toLocaleDateString()}</td>
+      <div className="border border-border rounded-lg overflow-hidden">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="bg-muted/50">
+              <th className="text-left px-4 py-3 font-medium text-muted-foreground">{cp.product}</th>
+              <th className="text-left px-4 py-3 font-medium text-muted-foreground">{cp.quantity}</th>
+              <th className="text-left px-4 py-3 font-medium text-muted-foreground">{cp.status}</th>
+              <th className="text-left px-4 py-3 font-medium text-muted-foreground">{cp.date}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {mockClinicOrders.map((o) => {
+              const cfg = statusConfig[o.status];
+              return (
+                <tr key={o.id} className="border-t border-border hover:bg-muted/30 transition-colors">
+                  <td className="px-4 py-3 font-medium text-foreground flex items-center gap-2">
+                    <Package size={14} className="text-muted-foreground" />
+                    {tr(o.product)}
+                  </td>
+                  <td className="px-4 py-3 text-muted-foreground">{o.quantity} {cp.pcs}</td>
+                  <td className="px-4 py-3">
+                    <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium ${cfg.className}`}>
+                      <cfg.icon size={12} />
+                      {cfg.label}
+                    </span>
+                  </td>
+                  <td className="px-4 py-3 text-muted-foreground">{new Date(o.date).toLocaleDateString(locale)}</td>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

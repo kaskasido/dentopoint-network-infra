@@ -1,81 +1,85 @@
-import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { mockAlerts } from "@/data/mockAutomats";
 import { AlertTriangle, AlertCircle, Info, CheckCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
-import EmptyState from "@/components/portal/shared/EmptyState";
+import { useLanguage } from "@/i18n/LanguageContext";
+import { getLocale } from "@/i18n/localeMap";
 
-const iconMap: Record<string, any> = { critical: AlertTriangle, error: AlertTriangle, warning: AlertCircle, info: Info };
-const colorMap: Record<string, string> = {
+const iconMap = { critical: AlertTriangle, warning: AlertCircle, info: Info };
+const colorMap = {
   critical: "text-destructive bg-destructive/10 border-destructive/20",
-  error: "text-destructive bg-destructive/10 border-destructive/20",
-  warning: "text-yellow-600 bg-yellow-500/10 border-yellow-500/20",
+  warning: "text-yellow-600 bg-yellow-50 border-yellow-200",
   info: "text-accent bg-accent/10 border-accent/20",
 };
 
+const alertMessageMap: Record<string, string> = {
+  "Automat offline – keine Verbindung seit 48h": "alertOffline48h",
+  "Füllstand unter 50% – Nachfüllung empfohlen": "alertFillBelow50",
+  "Planmäßige Wartung läuft": "alertScheduledMaint",
+  "Niedriger Produktbestand: Implant Care Kit (3/40)": "alertLowStock",
+  "Wartung erfolgreich abgeschlossen": "alertMaintComplete",
+  "Nächste Wartung überfällig (05.03.2026)": "alertMaintOverdue",
+};
+
 const ManufacturerAlerts = () => {
-  const [rows, setRows] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
+  const { t, lang } = useLanguage();
+  const mp = (t as any).manufacturerPortal || ({} as any);
+  const md = (t as any).mockData || ({} as any);
+  const locale = getLocale(lang);
+  const unresolved = mockAlerts.filter((a) => !a.resolved);
+  const resolved = mockAlerts.filter((a) => a.resolved);
 
-  const load = async () => {
-    const { data } = await supabase.from("alerts").select("*").order("created_at", { ascending: false });
-    setRows(data ?? []);
-    setLoading(false);
+  const translateAlert = (msg: string) => {
+    const key = alertMessageMap[msg] || alertMessageMap[msg.replace(/ \(.*\)$/, "")];
+    return key && md[key] ? md[key] : msg;
   };
-  useEffect(() => { load(); }, []);
-
-  const ack = async (id: string) => {
-    const { error } = await supabase.from("alerts").update({ acknowledged: true, acknowledged_at: new Date().toISOString() }).eq("id", id);
-    if (error) toast.error(error.message); else { toast.success("Bestätigt"); load(); }
-  };
-
-  const open = rows.filter((a) => !a.acknowledged);
-  const closed = rows.filter((a) => a.acknowledged);
 
   return (
     <div>
-      <h1 className="font-display text-2xl font-bold text-foreground mb-2">Alerts</h1>
-      <p className="text-muted-foreground text-sm mb-8">Systembenachrichtigungen aus dem Netzwerk.</p>
+      <h1 className="font-display text-2xl font-bold text-foreground mb-2">{mp.alertsTitle}</h1>
+      <p className="text-muted-foreground text-sm mb-8">{mp.alertsDesc}</p>
 
-      {loading ? <p className="text-sm text-muted-foreground">Lade…</p> : rows.length === 0 ? (
-        <EmptyState description="Keine Alerts vorhanden." />
-      ) : (
-        <>
-          <h2 className="font-display text-lg font-semibold text-foreground mb-4">Offen ({open.length})</h2>
-          <div className="space-y-3 mb-10">
-            {open.map((a) => {
-              const Icon = iconMap[a.severity] ?? Info;
-              return (
-                <div key={a.id} className={`border rounded-lg p-4 flex items-start gap-4 ${colorMap[a.severity] ?? colorMap.info}`}>
-                  <Icon size={20} className="shrink-0 mt-0.5" />
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium">{a.title}</p>
-                    {a.message && <p className="text-xs opacity-80 mt-1">{a.message}</p>}
-                    <p className="text-xs opacity-60 mt-1">{new Date(a.created_at).toLocaleString()}</p>
-                  </div>
-                  <Button size="sm" variant="outline" onClick={() => ack(a.id)}>Bestätigen</Button>
+      <h2 className="font-display text-lg font-semibold text-foreground mb-4">{mp.openAlertsCount} ({unresolved.length})</h2>
+      <div className="space-y-3 mb-10">
+        {unresolved.map((alert) => {
+          const Icon = iconMap[alert.type];
+          return (
+            <div key={alert.id} className={`border rounded-lg p-4 flex items-start gap-4 ${colorMap[alert.type]}`}>
+              <Icon size={20} className="shrink-0 mt-0.5" />
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="font-mono text-xs font-semibold">{alert.automatNr}</span>
+                  <span className="text-xs opacity-70">{alert.automatName}</span>
                 </div>
-              );
-            })}
-            {open.length === 0 && <p className="text-sm text-muted-foreground">Keine offenen Alerts.</p>}
-          </div>
-
-          {closed.length > 0 && (
-            <>
-              <h2 className="font-display text-lg font-semibold text-foreground mb-4">Bestätigt ({closed.length})</h2>
-              <div className="space-y-3">
-                {closed.map((a) => (
-                  <div key={a.id} className="border border-border rounded-lg p-4 flex items-start gap-4 bg-muted/30 opacity-70">
-                    <CheckCircle size={20} className="text-accent shrink-0 mt-0.5" />
-                    <div className="flex-1">
-                      <p className="text-sm text-foreground">{a.title}</p>
-                      <p className="text-xs text-muted-foreground mt-1">{new Date(a.created_at).toLocaleString()}</p>
-                    </div>
-                  </div>
-                ))}
+                <p className="text-sm font-medium">{translateAlert(alert.message)}</p>
+                <p className="text-xs opacity-60 mt-1">{new Date(alert.timestamp).toLocaleString(locale)}</p>
               </div>
-            </>
-          )}
+              <span className={`px-2 py-0.5 rounded text-xs font-medium uppercase ${
+                alert.type === "critical" ? "bg-destructive text-destructive-foreground" :
+                alert.type === "warning" ? "bg-yellow-500 text-white" : "bg-accent text-accent-foreground"
+              }`}>{alert.type}</span>
+            </div>
+          );
+        })}
+      </div>
+
+      {resolved.length > 0 && (
+        <>
+          <h2 className="font-display text-lg font-semibold text-foreground mb-4">{mp.resolvedAlerts} ({resolved.length})</h2>
+          <div className="space-y-3">
+            {resolved.map((alert) => (
+              <div key={alert.id} className="border border-border rounded-lg p-4 flex items-start gap-4 bg-muted/30 opacity-60">
+                <CheckCircle size={20} className="text-accent shrink-0 mt-0.5" />
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="font-mono text-xs font-semibold">{alert.automatNr}</span>
+                    <span className="text-xs text-muted-foreground">{alert.automatName}</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">{translateAlert(alert.message)}</p>
+                  <p className="text-xs text-muted-foreground mt-1">{new Date(alert.timestamp).toLocaleString(locale)}</p>
+                </div>
+                <span className="px-2 py-0.5 rounded text-xs font-medium bg-accent/10 text-accent">{mp.resolved}</span>
+              </div>
+            ))}
+          </div>
         </>
       )}
     </div>

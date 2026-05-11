@@ -1,55 +1,90 @@
-import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
-import { Box, Building, ShoppingCart, Coins } from "lucide-react";
-import EmptyState from "@/components/portal/shared/EmptyState";
+import { mockFinancials, mockGrowthData, mockRegionData } from "@/data/mockInvestorData";
+import { TrendingUp, TrendingDown } from "lucide-react";
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from "recharts";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const InvestorOverview = () => {
-  const [stats, setStats] = useState({ automats: 0, orgs: 0, orders: 0, commissionsValue: 0 });
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    (async () => {
-      const [a, o, ord, c] = await Promise.all([
-        supabase.from("automats").select("id", { count: "exact", head: true }),
-        supabase.from("organizations").select("id", { count: "exact", head: true }),
-        supabase.from("orders").select("total_amount"),
-        supabase.from("commissions").select("deal_value"),
-      ]);
-      const orderSum = (ord.data ?? []).reduce((s: number, r: any) => s + Number(r.total_amount ?? 0), 0);
-      const dealSum = (c.data ?? []).reduce((s: number, r: any) => s + Number(r.deal_value ?? 0), 0);
-      setStats({
-        automats: a.count ?? 0,
-        orgs: o.count ?? 0,
-        orders: orderSum,
-        commissionsValue: dealSum,
-      });
-      setLoading(false);
-    })();
-  }, []);
-
-  const cards = [
-    { label: "Automaten im Netzwerk", value: stats.automats, icon: Box },
-    { label: "Organisationen", value: stats.orgs, icon: Building },
-    { label: "Bestellvolumen (€)", value: stats.orders.toLocaleString(), icon: ShoppingCart },
-    { label: "Deal-Volumen (€)", value: stats.commissionsValue.toLocaleString(), icon: Coins },
-  ];
+  const { t } = useLanguage();
+  const ip = (t as any).investorPortal || {};
 
   return (
     <div>
-      <h1 className="font-display text-2xl font-bold text-foreground mb-2">Investor Dashboard</h1>
-      <p className="text-muted-foreground text-sm mb-8">Echtzeit-Kennzahlen aus dem Netzwerk.</p>
+      <h1 className="font-display text-2xl font-bold text-foreground mb-2">{ip.overviewTitle || "Investor Dashboard"}</h1>
+      <p className="text-muted-foreground text-sm mb-8">{ip.overviewDesc || "Financial metrics, growth and network expansion."}</p>
 
+      {/* KPI Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        {cards.map((c) => (
-          <div key={c.label} className="border border-border rounded-lg p-5 bg-card">
-            <c.icon size={20} className="text-accent mb-3" />
-            <p className="font-display text-2xl font-bold text-foreground">{loading ? "…" : c.value}</p>
-            <p className="text-xs text-muted-foreground mt-1">{c.label}</p>
+        {mockFinancials.map((m) => (
+          <div key={m.label} className="border border-border rounded-lg p-5 bg-card">
+            <p className="text-xs text-muted-foreground mb-2">{m.label}</p>
+            <p className="font-display text-2xl font-bold text-foreground">{m.value}</p>
+            <div className="flex items-center gap-1 mt-2">
+              {m.change > 0 ? <TrendingUp size={14} className="text-accent" /> : <TrendingDown size={14} className="text-destructive" />}
+              <span className={`text-xs font-medium ${m.change > 0 ? "text-accent" : "text-destructive"}`}>
+                {m.change > 0 ? "+" : ""}{m.change}%
+              </span>
+              <span className="text-xs text-muted-foreground">{m.period}</span>
+            </div>
           </div>
         ))}
       </div>
 
-      <EmptyState title="Detaillierte Analytik in Vorbereitung" description="Zeitreihen für Umsatz, Wachstum und regionale Verteilung erscheinen hier, sobald entsprechende historische Daten erfasst werden." />
+      {/* Revenue Growth Chart */}
+      <div className="grid lg:grid-cols-2 gap-6 mb-8">
+        <div className="border border-border rounded-lg p-6 bg-card">
+          <h2 className="font-display text-lg font-semibold text-foreground mb-4">{ip.revenueGrowthMRR || "Revenue Growth (MRR)"}</h2>
+          <ResponsiveContainer width="100%" height={250}>
+            <AreaChart data={mockGrowthData}>
+              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+              <XAxis dataKey="month" tick={{ fontSize: 12 }} stroke="hsl(var(--muted-foreground))" />
+              <YAxis tick={{ fontSize: 12 }} stroke="hsl(var(--muted-foreground))" tickFormatter={(v) => `€${(v / 1000).toFixed(0)}K`} />
+              <Tooltip formatter={(v: number) => `€${v.toLocaleString("de-DE")}`} contentStyle={{ backgroundColor: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8 }} />
+              <Area type="monotone" dataKey="revenue" stroke="hsl(var(--accent))" fill="hsl(var(--accent) / 0.15)" strokeWidth={2} />
+            </AreaChart>
+          </ResponsiveContainer>
+        </div>
+
+        <div className="border border-border rounded-lg p-6 bg-card">
+          <h2 className="font-display text-lg font-semibold text-foreground mb-4">{ip.networkExpansion || "Network Expansion"}</h2>
+          <ResponsiveContainer width="100%" height={250}>
+            <BarChart data={mockGrowthData}>
+              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+              <XAxis dataKey="month" tick={{ fontSize: 12 }} stroke="hsl(var(--muted-foreground))" />
+              <YAxis tick={{ fontSize: 12 }} stroke="hsl(var(--muted-foreground))" />
+              <Tooltip contentStyle={{ backgroundColor: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8 }} />
+              <Bar dataKey="automats" name={ip.automats || "Automats"} fill="hsl(var(--accent))" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="clinics" name={ip.clinics || "Clinics"} fill="hsl(var(--accent) / 0.4)" radius={[4, 4, 0, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+
+      {/* Regions Table */}
+      <h2 className="font-display text-lg font-semibold text-foreground mb-4">{ip.regionalPerformance || "Regional Performance"}</h2>
+      <div className="border border-border rounded-lg overflow-hidden">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="bg-muted/50">
+              <th className="text-left px-4 py-3 font-medium text-muted-foreground">{ip.region || "Region"}</th>
+              <th className="text-left px-4 py-3 font-medium text-muted-foreground">{ip.automats || "Automats"}</th>
+              <th className="text-left px-4 py-3 font-medium text-muted-foreground">{ip.revenue || "Revenue"}</th>
+              <th className="text-left px-4 py-3 font-medium text-muted-foreground">{ip.growth || "Growth"}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {mockRegionData.map((r) => (
+              <tr key={r.region} className="border-t border-border">
+                <td className="px-4 py-3 font-medium text-foreground">{r.region}</td>
+                <td className="px-4 py-3 text-muted-foreground">{r.automats}</td>
+                <td className="px-4 py-3 text-foreground">€{r.revenue.toLocaleString("de-DE")}</td>
+                <td className="px-4 py-3">
+                  <span className="text-accent text-sm font-medium">+{r.growth}%</span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
