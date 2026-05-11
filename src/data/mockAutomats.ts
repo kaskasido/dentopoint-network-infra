@@ -39,10 +39,20 @@ export interface MaintenanceRecord {
 
 export const mockAutomats: Automat[] = [
   {
-    id: "1", nr: "DP_01", name: "Zahnarztpraxis Olga Henriette Seifert", address: "", city: "Köln", country: "DE",
-    lat: 50.9375, lng: 6.9603, status: "online", fillLevel: 100,
-    lastMaintenance: "", nextMaintenance: "",
-    revenue30d: 0, installDate: "",
+    id: "e74ffd22-bc99-49fd-a9a3-6ef227c7f399",
+    nr: "DP_01",
+    name: "Zahnarztpraxis Olga Henriette Seifert",
+    address: "Clarenbachstraße 2, 50931 Köln",
+    city: "Köln",
+    country: "DE",
+    lat: 50.9356343,
+    lng: 6.9235989,
+    status: "online",
+    fillLevel: 100,
+    lastMaintenance: "",
+    nextMaintenance: "",
+    revenue30d: 0,
+    installDate: "",
     products: [],
   },
 ];
