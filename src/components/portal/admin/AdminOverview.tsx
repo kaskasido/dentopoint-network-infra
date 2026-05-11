@@ -81,6 +81,42 @@ const AdminOverview = () => {
         ))}
       </div>
 
+      <div className="border border-border rounded-lg p-5 bg-card mb-8">
+        <div className="flex items-start justify-between mb-4">
+          <div className="flex items-center gap-3">
+            <Cpu size={20} className="text-accent" />
+            <div>
+              <h2 className="font-display text-lg font-semibold text-foreground">Automaten</h2>
+              <p className="text-xs text-muted-foreground">Hinzufügen, bearbeiten und löschen</p>
+            </div>
+          </div>
+          <Link
+            to="/portal/admin/automats"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+          >
+            Verwalten <ArrowRight size={14} />
+          </Link>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="rounded-md bg-muted/40 p-3">
+            <p className="text-xs text-muted-foreground">Gesamt</p>
+            <p className="font-display text-xl font-bold text-foreground">{automatStats.total}</p>
+          </div>
+          <div className="rounded-md bg-accent/10 p-3">
+            <p className="text-xs text-muted-foreground">Aktiv</p>
+            <p className="font-display text-xl font-bold text-accent">{automatStats.active}</p>
+          </div>
+          <div className="rounded-md bg-yellow-500/10 p-3">
+            <p className="text-xs text-muted-foreground">Wartung</p>
+            <p className="font-display text-xl font-bold text-yellow-500">{automatStats.maintenance}</p>
+          </div>
+          <div className="rounded-md bg-destructive/10 p-3">
+            <p className="text-xs text-muted-foreground">Offline</p>
+            <p className="font-display text-xl font-bold text-destructive">{automatStats.offline}</p>
+          </div>
+        </div>
+      </div>
+
       <h2 className="font-display text-lg font-semibold text-foreground mb-4">{ap.allUsers}</h2>
       <div className="border border-border rounded-lg overflow-hidden mb-8">
         <div className="overflow-x-auto">
