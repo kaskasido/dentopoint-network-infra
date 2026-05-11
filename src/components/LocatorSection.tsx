@@ -18,9 +18,9 @@ const LocatorSection = () => {
     () =>
       L.icon({
         iconUrl: logo,
-        iconSize: [40, 40],
-        iconAnchor: [20, 40],
-        popupAnchor: [0, -40],
+        iconSize: [33, 46],
+        iconAnchor: [16, 46],
+        popupAnchor: [0, -46],
       }),
     [],
   );
