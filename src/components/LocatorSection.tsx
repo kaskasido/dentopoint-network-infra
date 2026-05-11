@@ -7,6 +7,7 @@ import "leaflet/dist/leaflet.css";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
 import logo from "@/assets/dentopoint-icon.png";
+import headerLogo from "@/assets/dentopoint-logo.png";
 
 type Automat = {
   id: string;
