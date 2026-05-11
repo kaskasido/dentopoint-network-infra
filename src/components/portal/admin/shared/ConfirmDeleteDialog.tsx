@@ -14,7 +14,7 @@ import { Trash2 } from "lucide-react";
 import { ReactNode } from "react";
 
 interface Props {
-  onConfirm: () => void | Promise<void>;
+  onConfirm: () => unknown | Promise<unknown>;
   title?: string;
   description?: string;
   trigger?: ReactNode;
