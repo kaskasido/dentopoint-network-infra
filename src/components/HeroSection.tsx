@@ -66,6 +66,7 @@ const HeroSection = () => {
     },
     {
       label: t.hero.strategicPartners,
+      href: "/partners",
       icon: Star,
       className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
       items: [
