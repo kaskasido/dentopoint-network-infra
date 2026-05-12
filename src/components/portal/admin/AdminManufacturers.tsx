@@ -207,7 +207,18 @@ const AdminManufacturers = () => {
             <tbody>
               {sortedRows.map((m) => (
                 <tr key={m.id} className="border-t border-border hover:bg-muted/30">
-                  <td className="px-4 py-3 font-medium text-foreground">{m.name}</td>
+                  <td className="px-4 py-3 font-medium text-foreground">
+                    <div className="flex items-center gap-3">
+                      {m.logo_url ? (
+                        <img src={m.logo_url} alt={m.name} className="h-8 w-8 rounded object-contain bg-muted" />
+                      ) : (
+                        <div className="h-8 w-8 rounded bg-muted flex items-center justify-center">
+                          <ImageIcon size={14} className="text-muted-foreground/50" />
+                        </div>
+                      )}
+                      <span>{m.name}</span>
+                    </div>
+                  </td>
                   <td className="px-4 py-3 text-muted-foreground">{m.contact_email || "—"}</td>
                   <td className="px-4 py-3 text-muted-foreground text-xs">{m.country || "—"}</td>
                   <td className="px-4 py-3">
