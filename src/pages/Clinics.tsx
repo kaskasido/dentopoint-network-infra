@@ -14,6 +14,7 @@ const Clinics = () => {
   useScrollToHash();
   const { t } = useLanguage();
   const p = t.clinicsPage;
+  const [contactOpen, setContactOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
