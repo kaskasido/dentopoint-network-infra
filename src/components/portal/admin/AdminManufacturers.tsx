@@ -99,6 +99,7 @@ const AdminManufacturers = () => {
       website: m.website ?? "",
       notes: m.notes ?? "",
       status: m.status,
+      logo_url: m.logo_url ?? "",
     });
     setErrors({});
     setOpen(true);
