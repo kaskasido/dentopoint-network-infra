@@ -10,7 +10,8 @@ type TableName =
   | "commissions"
   | "profiles"
   | "user_roles"
-  | "organizations";
+  | "organizations"
+  | "manufacturers";
 
 interface Options {
   orderBy?: { column: string; ascending?: boolean };
