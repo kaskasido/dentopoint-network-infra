@@ -1,18 +1,34 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Box, CheckCircle, Database, Package } from "lucide-react";
+import { Box, CheckCircle, Globe, MapPin } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { supabase } from "@/integrations/supabase/client";
 
-const manufacturers = [
-  { name: "OralTech GmbH", level: "Full Integration", categories: "Implant Care · Hygiene", data: "Real-time" },
-  { name: "DentaCare AG", level: "API Connected", categories: "Whitening · Therapeutic", data: "Batch Sync" },
-  { name: "SmilePro Inc.", level: "Full Integration", categories: "Preventive · Hygiene", data: "Real-time" },
-  { name: "MedDent China", level: "Partner Level", categories: "Therapeutic Care", data: "Batch Sync" },
-  { name: "EuroDent Solutions", level: "Full Integration", categories: "Implant Care · Whitening", data: "Real-time" },
-  { name: "PrecisionDent", level: "API Connected", categories: "Preventive Programs", data: "Real-time" },
-];
+type Manufacturer = {
+  id: string;
+  name: string;
+  country: string | null;
+  website: string | null;
+  notes: string | null;
+  logo_url: string | null;
+};
 
 const ManufacturersSection = () => {
   const { t } = useLanguage();
+  const [manufacturers, setManufacturers] = useState<Manufacturer[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    (async () => {
+      const { data, error } = await supabase
+        .from("manufacturers")
+        .select("id, name, country, website, notes, logo_url")
+        .eq("status", "active")
+        .order("name", { ascending: true });
+      if (!error) setManufacturers((data ?? []) as Manufacturer[]);
+      setLoading(false);
+    })();
+  }, []);
 
   return (
     <section id="manufacturers" className="py-24 md:py-32 bg-gradient-subtle">
@@ -33,37 +49,60 @@ const ManufacturersSection = () => {
           <div className="w-12 h-px bg-gradient-brand" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {manufacturers.map((m, i) => (
-            <motion.div
-              key={m.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="border border-border rounded-lg p-6 bg-card hover:shadow-brand transition-all duration-300"
-            >
-              <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center mb-5">
-                <Box size={20} className="text-primary" />
-              </div>
-              <h3 className="font-display font-semibold text-foreground mb-4">{m.name}</h3>
-              <div className="space-y-2.5 text-sm">
-                <div className="flex items-center gap-2">
-                  <CheckCircle size={14} className="text-accent" />
-                  <span className="text-muted-foreground">{m.level}</span>
+        {loading ? (
+          <p className="text-sm text-muted-foreground">…</p>
+        ) : manufacturers.length === 0 ? (
+          <p className="text-sm text-muted-foreground">—</p>
+        ) : (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {manufacturers.map((m, i) => (
+              <motion.div
+                key={m.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+                className="border border-border rounded-lg p-6 bg-card hover:shadow-brand transition-all duration-300"
+              >
+                <div className="w-14 h-14 rounded-lg bg-secondary flex items-center justify-center mb-5 overflow-hidden">
+                  {m.logo_url ? (
+                    <img src={m.logo_url} alt={m.name} className="w-full h-full object-contain p-1.5" />
+                  ) : (
+                    <Box size={20} className="text-primary" />
+                  )}
                 </div>
-                <div className="flex items-center gap-2">
-                  <Package size={14} className="text-accent" />
-                  <span className="text-muted-foreground">{m.categories}</span>
+                <h3 className="font-display font-semibold text-foreground mb-4">{m.name}</h3>
+                <div className="space-y-2.5 text-sm">
+                  {m.notes && (
+                    <div className="flex items-start gap-2">
+                      <CheckCircle size={14} className="text-accent mt-0.5 shrink-0" />
+                      <span className="text-muted-foreground">{m.notes}</span>
+                    </div>
+                  )}
+                  {m.country && (
+                    <div className="flex items-center gap-2">
+                      <MapPin size={14} className="text-accent shrink-0" />
+                      <span className="text-muted-foreground">{m.country}</span>
+                    </div>
+                  )}
+                  {m.website && (
+                    <div className="flex items-center gap-2">
+                      <Globe size={14} className="text-accent shrink-0" />
+                      <a
+                        href={m.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-accent transition-colors truncate"
+                      >
+                        {m.website.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+                      </a>
+                    </div>
+                  )}
                 </div>
-                <div className="flex items-center gap-2">
-                  <Database size={14} className="text-accent" />
-                  <span className="text-muted-foreground">{t.manufacturersSection.dataLabel}: {m.data}</span>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
