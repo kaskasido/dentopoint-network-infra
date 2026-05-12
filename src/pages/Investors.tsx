@@ -1,5 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactDialog from "@/components/ContactDialog";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { TrendingUp, Globe, BarChart, Target, Users, DollarSign, ArrowRight, Activity } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -11,6 +13,7 @@ const Investors = () => {
   useScrollToHash();
   const { t } = useLanguage();
   const p = t.investorsPage;
+  const [contactOpen, setContactOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
@@ -124,13 +127,14 @@ const Investors = () => {
             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }} className="mt-10 text-center">
-            <a href="/#contact" className="inline-flex items-center gap-2 bg-gradient-brand text-primary-foreground px-8 py-3.5 rounded-md text-sm font-medium hover:opacity-90 transition-opacity">
+            <button onClick={() => setContactOpen(true)} className="inline-flex items-center gap-2 bg-gradient-brand text-primary-foreground px-8 py-3.5 rounded-md text-sm font-medium hover:opacity-90 transition-opacity">
               {p.expansion.cta} <ArrowRight size={16} />
-            </a>
+            </button>
           </motion.div>
         </div>
       </section>
 
+      <ContactDialog open={contactOpen} onOpenChange={setContactOpen} subject="Investoren-Deck anfordern" title="Investoren-Deck anfordern" description="Hinterlassen Sie uns Ihre Daten – wir senden Ihnen das Investoren-Deck und melden uns innerhalb von 1–2 Werktagen." defaultRole="Investor" />
       <Footer />
     </div>
   );
