@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useAdminTable } from "@/hooks/useAdminTable";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -21,8 +21,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import ConfirmDeleteDialog from "./shared/ConfirmDeleteDialog";
-import { Plus, Pencil } from "lucide-react";
+import { Plus, Pencil, ArrowUp, ArrowDown, ArrowUpDown } from "lucide-react";
 import { z } from "zod";
+
+type SortKey = "name" | "serial_number" | "status" | "location";
 
 type Automat = {
   id: string;
@@ -59,6 +61,31 @@ const AdminAutomats = () => {
   const [editing, setEditing] = useState<Automat | null>(null);
   const [form, setForm] = useState(empty);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [sortKey, setSortKey] = useState<SortKey>("name");
+  const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
+
+  const toggleSort = (key: SortKey) => {
+    if (sortKey === key) setSortDir(sortDir === "asc" ? "desc" : "asc");
+    else { setSortKey(key); setSortDir("asc"); }
+  };
+
+  const sortedRows = useMemo(() => {
+    const getVal = (a: Automat) => {
+      if (sortKey === "location") return [a.city, a.country].filter(Boolean).join(", ");
+      return (a as any)[sortKey] ?? "";
+    };
+    return [...rows].sort((a, b) => {
+      const va = String(getVal(a)).toLowerCase();
+      const vb = String(getVal(b)).toLowerCase();
+      if (va < vb) return sortDir === "asc" ? -1 : 1;
+      if (va > vb) return sortDir === "asc" ? 1 : -1;
+      return 0;
+    });
+  }, [rows, sortKey, sortDir]);
+
+  const SortIcon = ({ k }: { k: SortKey }) =>
+    sortKey !== k ? <ArrowUpDown size={12} className="opacity-40" /> :
+    sortDir === "asc" ? <ArrowUp size={12} /> : <ArrowDown size={12} />;
 
   const startCreate = () => {
     setEditing(null);
@@ -130,15 +157,28 @@ const AdminAutomats = () => {
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-muted/50 text-left">
-                <th className="px-4 py-3 font-medium text-muted-foreground">Name</th>
-                <th className="px-4 py-3 font-medium text-muted-foreground">Seriennr.</th>
-                <th className="px-4 py-3 font-medium text-muted-foreground">Status</th>
-                <th className="px-4 py-3 font-medium text-muted-foreground">Standort</th>
+                {([
+                  ["name", "Name"],
+                  ["serial_number", "Seriennr."],
+                  ["status", "Status"],
+                  ["location", "Standort"],
+                ] as [SortKey, string][]).map(([k, label]) => (
+                  <th key={k} className="px-4 py-3 font-medium text-muted-foreground">
+                    <button
+                      type="button"
+                      onClick={() => toggleSort(k)}
+                      className="inline-flex items-center gap-1.5 hover:text-foreground transition-colors"
+                    >
+                      {label}
+                      <SortIcon k={k} />
+                    </button>
+                  </th>
+                ))}
                 <th className="px-4 py-3 font-medium text-muted-foreground text-right">Aktionen</th>
               </tr>
             </thead>
             <tbody>
-              {rows.map((a) => (
+              {sortedRows.map((a) => (
                 <tr key={a.id} className="border-t border-border hover:bg-muted/30">
                   <td className="px-4 py-3 font-medium text-foreground">{a.name}</td>
                   <td className="px-4 py-3 font-mono text-xs text-muted-foreground">{a.serial_number}</td>
