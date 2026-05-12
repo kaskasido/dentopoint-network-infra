@@ -17,6 +17,7 @@ const AdminPortal = () => {
     { label: t.portal.admin.dashboard, href: "/portal/admin", icon: LayoutDashboard },
     { label: t.portal.admin.users, href: "/portal/admin/users", icon: Users },
     { label: "Automaten", href: "/portal/admin/automats", icon: Cpu },
+    { label: "Hersteller", href: "/portal/admin/manufacturers", icon: Factory },
     { label: "Bestellungen", href: "/portal/admin/orders", icon: ShoppingCart },
     { label: "Wartungen", href: "/portal/admin/maintenance", icon: Wrench },
     { label: "Provisionen", href: "/portal/admin/commissions", icon: Coins },
