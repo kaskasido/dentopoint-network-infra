@@ -121,6 +121,7 @@ const AdminManufacturers = () => {
       website: parsed.data.website || null,
       notes: parsed.data.notes || null,
       status: parsed.data.status,
+      logo_url: form.logo_url || null,
     };
     const ok = editing ? await update(editing.id, payload) : await insert(payload);
     if (ok) setOpen(false);
