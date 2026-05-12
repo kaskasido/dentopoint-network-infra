@@ -248,6 +248,43 @@ const AdminManufacturers = () => {
             <DialogDescription>Pflichtfeld: Name.</DialogDescription>
           </DialogHeader>
           <div className="grid grid-cols-2 gap-3">
+            <div className="col-span-2 space-y-2">
+              <Label>Logo</Label>
+              <div className="flex items-center gap-4">
+                <div className="h-20 w-20 rounded-lg border border-border bg-muted/30 flex items-center justify-center overflow-hidden shrink-0">
+                  {form.logo_url ? (
+                    <img src={form.logo_url} alt="Logo" className="h-full w-full object-contain" />
+                  ) : (
+                    <ImageIcon size={24} className="text-muted-foreground/40" />
+                  )}
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label className="inline-flex items-center gap-2 cursor-pointer">
+                    <span className="inline-flex items-center gap-2 px-3 h-9 rounded-md border border-input bg-background text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors">
+                      {uploading ? <Loader2 size={14} className="animate-spin" /> : <Upload size={14} />}
+                      {form.logo_url ? "Logo ersetzen" : "Logo hochladen"}
+                    </span>
+                    <input
+                      type="file"
+                      accept="image/png,image/jpeg,image/webp,image/svg+xml"
+                      className="hidden"
+                      onChange={handleLogoUpload}
+                      disabled={uploading}
+                    />
+                  </label>
+                  {form.logo_url && (
+                    <button
+                      type="button"
+                      onClick={() => setForm({ ...form, logo_url: "" })}
+                      className="inline-flex items-center gap-1 text-xs text-destructive hover:underline self-start"
+                    >
+                      <X size={12} /> Entfernen
+                    </button>
+                  )}
+                  <p className="text-xs text-muted-foreground">PNG, JPG, WebP oder SVG · max. 2 MB</p>
+                </div>
+              </div>
+            </div>
             <div className="col-span-2 space-y-1">
               <Label>Name</Label>
               <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
