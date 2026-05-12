@@ -63,6 +63,13 @@ export type Database = {
             referencedRelation: "automats"
             referencedColumns: ["id"]
           },
+          {
+            foreignKeyName: "alerts_automat_id_fkey"
+            columns: ["automat_id"]
+            isOneToOne: false
+            referencedRelation: "public_automat_locations"
+            referencedColumns: ["id"]
+          },
         ]
       }
       automats: {
@@ -236,6 +243,13 @@ export type Database = {
             referencedColumns: ["id"]
           },
           {
+            foreignKeyName: "maintenance_logs_automat_id_fkey"
+            columns: ["automat_id"]
+            isOneToOne: false
+            referencedRelation: "public_automat_locations"
+            referencedColumns: ["id"]
+          },
+          {
             foreignKeyName: "maintenance_logs_technician_id_fkey"
             columns: ["technician_id"]
             isOneToOne: false
@@ -299,6 +313,13 @@ export type Database = {
             columns: ["automat_id"]
             isOneToOne: false
             referencedRelation: "automats"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "orders_automat_id_fkey"
+            columns: ["automat_id"]
+            isOneToOne: false
+            referencedRelation: "public_automat_locations"
             referencedColumns: ["id"]
           },
           {
@@ -386,7 +407,39 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      public_automat_locations: {
+        Row: {
+          address: string | null
+          city: string | null
+          country: string | null
+          id: string | null
+          latitude: number | null
+          longitude: number | null
+          name: string | null
+          status: string | null
+        }
+        Insert: {
+          address?: string | null
+          city?: string | null
+          country?: string | null
+          id?: string | null
+          latitude?: number | null
+          longitude?: number | null
+          name?: string | null
+          status?: string | null
+        }
+        Update: {
+          address?: string | null
+          city?: string | null
+          country?: string | null
+          id?: string | null
+          latitude?: number | null
+          longitude?: number | null
+          name?: string | null
+          status?: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       assign_initial_role: { Args: never; Returns: undefined }

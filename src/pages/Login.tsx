@@ -38,7 +38,7 @@ const Login = () => {
     if (mode === "password-signup") {
       const { error } = await supabase.auth.signUp({
         email, password,
-        options: { emailRedirectTo: window.location.origin, data: { intended_role: "manufacturer" } },
+        options: { emailRedirectTo: window.location.origin },
       });
       setLoading(false);
       if (error) setError(error.message);

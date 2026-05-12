@@ -26,7 +26,7 @@ const HeroSignupDialog = ({ open, onOpenChange, portalLabel, portalIcon: Icon, i
     e.preventDefault();
     if (!confirmed) { setError(p.confirmError); return; }
     setLoading(true); setError("");
-    const { error } = await supabase.auth.signInWithOtp({ email, options: { emailRedirectTo: window.location.origin, data: { intended_role: intendedRole } } });
+    const { error } = await supabase.auth.signInWithOtp({ email, options: { emailRedirectTo: window.location.origin } });
     setLoading(false);
     if (error) { setError(error.message); } else { setSent(true); }
   };
