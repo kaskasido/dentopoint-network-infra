@@ -55,6 +55,23 @@ export const mockAutomats: Automat[] = [
     installDate: "",
     products: [],
   },
+  {
+    id: "830850ae-b2e7-4d66-a1f9-1314bce3a3b6",
+    nr: "DP_02",
+    name: "DensArt",
+    address: "Neusser Straße 222, 50733 Köln",
+    city: "Köln",
+    country: "DE",
+    lat: 50.9620649,
+    lng: 6.9545895,
+    status: "online",
+    fillLevel: 100,
+    lastMaintenance: "",
+    nextMaintenance: "",
+    revenue30d: 0,
+    installDate: "",
+    products: [],
+  },
 ];
 
 export const mockAlerts: Alert[] = [];
