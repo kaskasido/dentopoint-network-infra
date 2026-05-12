@@ -9,6 +9,7 @@ interface AuthContextType {
   session: Session | null;
   role: AppRole | null;
   loading: boolean;
+  roleLoading: boolean;
   signOut: () => Promise<void>;
 }
 
@@ -17,6 +18,7 @@ const AuthContext = createContext<AuthContextType>({
   session: null,
   role: null,
   loading: true,
+  roleLoading: true,
   signOut: async () => {},
 });
 
@@ -27,36 +29,34 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [session, setSession] = useState<Session | null>(null);
   const [role, setRole] = useState<AppRole | null>(null);
   const [loading, setLoading] = useState(true);
+  const [roleLoading, setRoleLoading] = useState(true);
 
   const fetchRole = async (userId: string) => {
+    setRoleLoading(true);
     const { data } = await supabase
       .from("user_roles")
       .select("role")
       .eq("user_id", userId);
     if (data && data.length > 0) {
-      // Prefer admin role if user has multiple roles
       const adminRole = data.find((r) => r.role === "admin");
       setRole((adminRole?.role ?? data[0].role) as AppRole);
     } else {
       setRole(null);
     }
-  };
-
-  const tryAssignRole = async (userId: string) => {
-    // Roles are assigned exclusively by admins via the Admin → Rollen panel.
-    // New users start with no role until promoted.
-    await fetchRole(userId);
+    setRoleLoading(false);
   };
 
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (_event, session) => {
+      (_event, session) => {
         setSession(session);
         setUser(session?.user ?? null);
         if (session?.user) {
-          setTimeout(() => tryAssignRole(session.user.id), 0);
+          setRoleLoading(true);
+          setTimeout(() => fetchRole(session.user.id), 0);
         } else {
           setRole(null);
+          setRoleLoading(false);
         }
         setLoading(false);
       }
@@ -66,7 +66,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       setSession(session);
       setUser(session?.user ?? null);
       if (session?.user) {
-        tryAssignRole(session.user.id);
+        fetchRole(session.user.id);
+      } else {
+        setRoleLoading(false);
       }
       setLoading(false);
     });
@@ -80,7 +82,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, session, role, loading, signOut }}>
+    <AuthContext.Provider value={{ user, session, role, loading, roleLoading, signOut }}>
       {children}
     </AuthContext.Provider>
   );
