@@ -1,5 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactDialog from "@/components/ContactDialog";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Cpu, HeartPulse, GraduationCap, Building2, Globe, ArrowRight, CheckCircle, Shield, Zap, Handshake } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -11,6 +13,7 @@ const Partners = () => {
   useScrollToHash();
   const { t } = useLanguage();
   const p = t.partnersPage;
+  const [contactOpen, setContactOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
@@ -108,9 +111,9 @@ const Partners = () => {
               <Handshake size={32} className="text-accent mb-6" />
               <h3 className="font-display text-xl font-bold text-foreground mb-3">{p.industry.cardTitle}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-6">{p.industry.cardDesc}</p>
-              <a href="/#contact" className="inline-flex items-center gap-2 bg-gradient-brand text-primary-foreground px-6 py-3 rounded-md text-sm font-medium hover:opacity-90 transition-opacity">
+              <button onClick={() => setContactOpen(true)} className="inline-flex items-center gap-2 bg-gradient-brand text-primary-foreground px-6 py-3 rounded-md text-sm font-medium hover:opacity-90 transition-opacity">
                 {p.industry.cardCta} <ArrowRight size={16} />
-              </a>
+              </button>
             </motion.div>
           </div>
         </div>
@@ -152,6 +155,7 @@ const Partners = () => {
         </div>
       </section>
 
+      <ContactDialog open={contactOpen} onOpenChange={setContactOpen} subject="Partner werden" title="Partner werden" description="Erzählen Sie uns kurz von Ihrem Unternehmen – wir melden uns innerhalb von 1–2 Werktagen." defaultRole="Partner" />
       <Footer />
     </div>
   );
