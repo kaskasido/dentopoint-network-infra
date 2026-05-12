@@ -30,6 +30,7 @@ const AdminPortal = () => {
         <Route index element={<AdminOverview />} />
         <Route path="users" element={<AdminUsers />} />
         <Route path="automats" element={<AdminAutomats />} />
+        <Route path="manufacturers" element={<AdminManufacturers />} />
         <Route path="orders" element={<AdminOrders />} />
         <Route path="maintenance" element={<AdminMaintenance />} />
         <Route path="commissions" element={<AdminCommissions />} />
