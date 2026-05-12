@@ -1,5 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactDialog from "@/components/ContactDialog";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { DollarSign, Settings, Workflow, ShieldCheck, CheckCircle, ArrowRight, TrendingUp, Clock, Users, FileCheck } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
