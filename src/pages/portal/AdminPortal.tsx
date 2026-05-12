@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import PortalLayout from "@/components/PortalLayout";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { LayoutDashboard, Users, ScrollText, Cpu, ShoppingCart, Wrench, Coins } from "lucide-react";
+import { LayoutDashboard, Users, ScrollText, Cpu, ShoppingCart, Wrench, Coins, Factory } from "lucide-react";
 import AdminOverview from "@/components/portal/admin/AdminOverview";
 import AdminUsers from "@/components/portal/admin/AdminUsers";
 import AdminLogs from "@/components/portal/admin/AdminLogs";
@@ -9,6 +9,7 @@ import AdminAutomats from "@/components/portal/admin/AdminAutomats";
 import AdminOrders from "@/components/portal/admin/AdminOrders";
 import AdminMaintenance from "@/components/portal/admin/AdminMaintenance";
 import AdminCommissions from "@/components/portal/admin/AdminCommissions";
+import AdminManufacturers from "@/components/portal/admin/AdminManufacturers";
 
 const AdminPortal = () => {
   const { t } = useLanguage();
@@ -16,6 +17,7 @@ const AdminPortal = () => {
     { label: t.portal.admin.dashboard, href: "/portal/admin", icon: LayoutDashboard },
     { label: t.portal.admin.users, href: "/portal/admin/users", icon: Users },
     { label: "Automaten", href: "/portal/admin/automats", icon: Cpu },
+    { label: "Hersteller", href: "/portal/admin/manufacturers", icon: Factory },
     { label: "Bestellungen", href: "/portal/admin/orders", icon: ShoppingCart },
     { label: "Wartungen", href: "/portal/admin/maintenance", icon: Wrench },
     { label: "Provisionen", href: "/portal/admin/commissions", icon: Coins },
@@ -28,6 +30,7 @@ const AdminPortal = () => {
         <Route index element={<AdminOverview />} />
         <Route path="users" element={<AdminUsers />} />
         <Route path="automats" element={<AdminAutomats />} />
+        <Route path="manufacturers" element={<AdminManufacturers />} />
         <Route path="orders" element={<AdminOrders />} />
         <Route path="maintenance" element={<AdminMaintenance />} />
         <Route path="commissions" element={<AdminCommissions />} />
