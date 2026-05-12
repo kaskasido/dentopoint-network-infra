@@ -15,6 +15,7 @@ import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
 import ResetPassword from "./pages/ResetPassword";
 import NotFound from "./pages/NotFound";
+import Unsubscribe from "./pages/Unsubscribe";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ManufacturerDashboard from "./pages/portal/ManufacturerDashboard";
 import ClinicPortal from "./pages/portal/ClinicPortal";
@@ -43,6 +44,7 @@ const App = () => (
               <Route path="/datenschutz" element={<Datenschutz />} />
               <Route path="/datenschutzerklaerung" element={<Datenschutz />} />
               <Route path="/reset-password" element={<ResetPassword />} />
+              <Route path="/unsubscribe" element={<Unsubscribe />} />
               <Route
                 path="/portal/manufacturer/*"
                 element={
