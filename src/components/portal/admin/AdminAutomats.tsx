@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useAdminTable } from "@/hooks/useAdminTable";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -21,8 +21,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import ConfirmDeleteDialog from "./shared/ConfirmDeleteDialog";
-import { Plus, Pencil } from "lucide-react";
+import { Plus, Pencil, ArrowUp, ArrowDown, ArrowUpDown } from "lucide-react";
 import { z } from "zod";
+
+type SortKey = "name" | "serial_number" | "status" | "location";
 
 type Automat = {
   id: string;
