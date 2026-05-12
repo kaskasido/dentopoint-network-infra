@@ -44,6 +44,7 @@ const App = () => (
               <Route path="/datenschutz" element={<Datenschutz />} />
               <Route path="/datenschutzerklaerung" element={<Datenschutz />} />
               <Route path="/reset-password" element={<ResetPassword />} />
+              <Route path="/unsubscribe" element={<Unsubscribe />} />
               <Route
                 path="/portal/manufacturer/*"
                 element={
