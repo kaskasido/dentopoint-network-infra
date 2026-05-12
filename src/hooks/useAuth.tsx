@@ -43,9 +43,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const tryAssignRole = async (userId: string) => {
-    // Try to assign initial role from user metadata (for new signups)
-    await supabase.rpc("assign_initial_role");
-    // Then fetch the role
+    // Roles are assigned exclusively by admins via the Admin → Rollen panel.
+    // New users start with no role until promoted.
     await fetchRole(userId);
   };
 
