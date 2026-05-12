@@ -30,6 +30,7 @@ const HeroSection = () => {
   const heroButtons = [
     {
       label: t.hero.forClinics,
+      href: "/clinics",
       icon: Handshake,
       className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
       items: [
@@ -41,6 +42,7 @@ const HeroSection = () => {
     },
     {
       label: t.hero.forManufacturers,
+      href: "/manufacturers",
       icon: Factory,
       className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
       items: [
@@ -52,6 +54,7 @@ const HeroSection = () => {
     },
     {
       label: t.hero.forInvestors,
+      href: "/investors",
       icon: TrendingUp,
       className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
       items: [
@@ -63,6 +66,7 @@ const HeroSection = () => {
     },
     {
       label: t.hero.strategicPartners,
+      href: "/partners",
       icon: Star,
       className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
       items: [
@@ -122,17 +126,28 @@ const HeroSection = () => {
         >
           {heroButtons.map((btn, idx) => (
             <div key={idx} className="relative">
-              <button
-                onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                className={`inline-flex items-center gap-2 px-8 py-3.5 rounded-md font-medium text-sm transition-all ${btn.className}`}
+              <div
+                className={`inline-flex items-stretch rounded-md font-medium text-sm transition-all overflow-hidden ${btn.className}`}
               >
-                <btn.icon size={18} />
-                {btn.label}
-                <ChevronDown
-                  size={14}
-                  className={`transition-transform duration-200 ${openIndex === idx ? "rotate-180" : ""}`}
-                />
-              </button>
+                <Link
+                  to={btn.href}
+                  className="inline-flex items-center gap-2 pl-8 pr-4 py-3.5 hover:bg-black/5"
+                >
+                  <btn.icon size={18} />
+                  {btn.label}
+                </Link>
+                <button
+                  type="button"
+                  aria-label="Untermenü öffnen"
+                  onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+                  className="inline-flex items-center px-3 border-l border-white/20 hover:bg-black/10"
+                >
+                  <ChevronDown
+                    size={14}
+                    className={`transition-transform duration-200 ${openIndex === idx ? "rotate-180" : ""}`}
+                  />
+                </button>
+              </div>
 
               {openIndex === idx && (
                 <motion.div
