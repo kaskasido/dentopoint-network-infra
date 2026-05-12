@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import PortalLayout from "@/components/PortalLayout";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { LayoutDashboard, Users, ScrollText, Cpu, ShoppingCart, Wrench, Coins } from "lucide-react";
+import { LayoutDashboard, Users, ScrollText, Cpu, ShoppingCart, Wrench, Coins, Factory } from "lucide-react";
 import AdminOverview from "@/components/portal/admin/AdminOverview";
 import AdminUsers from "@/components/portal/admin/AdminUsers";
 import AdminLogs from "@/components/portal/admin/AdminLogs";
@@ -9,6 +9,7 @@ import AdminAutomats from "@/components/portal/admin/AdminAutomats";
 import AdminOrders from "@/components/portal/admin/AdminOrders";
 import AdminMaintenance from "@/components/portal/admin/AdminMaintenance";
 import AdminCommissions from "@/components/portal/admin/AdminCommissions";
+import AdminManufacturers from "@/components/portal/admin/AdminManufacturers";
 
 const AdminPortal = () => {
   const { t } = useLanguage();
