@@ -281,10 +281,10 @@ export const sr = {
     scaling: {
       label: "Skaliranje", title: "Plan skaliranja",
       items: [
-        { phase: "Faza 1", title: "DACH region", desc: "Nemačka, Austrija, Švajcarska — početno tržište sa 120+ partnerskih klinika.", status: "Aktivno" },
-        { phase: "Faza 2", title: "Ekspanzija EU", desc: "Uvođenje u Zapadnu Evropu sa lokalizovanom usklađenošću i jezičkom podrškom.", status: "2025" },
-        { phase: "Faza 3", title: "Ulazak u Aziju", desc: "Ulazak na azijsko tržište kroz strateška partnerstva i lokalnu infrastrukturu.", status: "2026" },
-        { phase: "Faza 4", title: "Globalni obim", desc: "Severna Amerika, Bliski istok — potpuno međunarodno raspoređivanje infrastrukture.", status: "2027+" },
+        { phase: "Faza 1", title: "DACH region", desc: "Nemačka, Austrija, Švajcarska — početno tržište sa 120+ partnerskih klinika.", status: "Pilot 2026" },
+        { phase: "Faza 2", title: "Ekspanzija EU", desc: "Uvođenje u Zapadnu Evropu sa lokalizovanom usklađenošću i jezičkom podrškom.", status: "2027" },
+        { phase: "Faza 3", title: "Ulazak u Aziju", desc: "Ulazak na azijsko tržište kroz strateška partnerstva i lokalnu infrastrukturu.", status: "2028" },
+        { phase: "Faza 4", title: "Globalni obim", desc: "Severna Amerika, Bliski istok — potpuno međunarodno raspoređivanje infrastrukture.", status: "2029+" },
       ],
     },
     kpis: {

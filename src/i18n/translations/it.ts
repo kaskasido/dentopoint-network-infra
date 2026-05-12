@@ -272,10 +272,10 @@ export const it = {
     scaling: {
       label: "Scalabilità", title: "Roadmap di Scalabilità",
       items: [
-        { phase: "Fase 1", title: "Regione DACH", desc: "Germania, Austria, Svizzera — mercato iniziale con 120+ cliniche partner.", status: "Attivo" },
-        { phase: "Fase 2", title: "Espansione UE", desc: "Rollout Europa occidentale con conformità e supporto linguistico localizzati.", status: "2025" },
-        { phase: "Fase 3", title: "Ingresso Asia", desc: "Ingresso nel mercato asiatico tramite partnership strategiche e infrastruttura locale.", status: "2026" },
-        { phase: "Fase 4", title: "Scala Globale", desc: "Nord America, Medio Oriente — dispiegamento completo dell'infrastruttura internazionale.", status: "2027+" },
+        { phase: "Fase 1", title: "Regione DACH", desc: "Germania, Austria, Svizzera — mercato iniziale con 120+ cliniche partner.", status: "Pilota 2026" },
+        { phase: "Fase 2", title: "Espansione UE", desc: "Rollout Europa occidentale con conformità e supporto linguistico localizzati.", status: "2027" },
+        { phase: "Fase 3", title: "Ingresso Asia", desc: "Ingresso nel mercato asiatico tramite partnership strategiche e infrastruttura locale.", status: "2028" },
+        { phase: "Fase 4", title: "Scala Globale", desc: "Nord America, Medio Oriente — dispiegamento completo dell'infrastruttura internazionale.", status: "2029+" },
       ],
     },
     kpis: {

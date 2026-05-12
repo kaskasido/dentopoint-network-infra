@@ -307,10 +307,10 @@ export const en = {
     scaling: {
       label: "Scaling", title: "Scaling Roadmap",
       items: [
-        { phase: "Phase 1", title: "DACH Region", desc: "Germany, Austria, Switzerland — initial market with 120+ partner clinics.", status: "Active" },
-        { phase: "Phase 2", title: "EU Expansion", desc: "Western Europe rollout with localised compliance and language support.", status: "2025" },
-        { phase: "Phase 3", title: "Asia Entry", desc: "Asia market entry through strategic partnerships and local infrastructure.", status: "2026" },
-        { phase: "Phase 4", title: "Global Scale", desc: "North America, Middle East — full international infrastructure deployment.", status: "2027+" },
+        { phase: "Phase 1", title: "DACH Region", desc: "Germany, Austria, Switzerland — pilot launch with first partner clinics.", status: "Pilot 2026" },
+        { phase: "Phase 2", title: "EU Expansion", desc: "Western Europe rollout with localised compliance and language support.", status: "2027" },
+        { phase: "Phase 3", title: "Asia Entry", desc: "Asia market entry through strategic partnerships and local infrastructure.", status: "2028" },
+        { phase: "Phase 4", title: "Global Scale", desc: "North America, Middle East — full international infrastructure deployment.", status: "2029+" },
       ],
     },
     kpis: {

@@ -272,10 +272,10 @@ export const tr = {
     scaling: {
       label: "Ölçeklendirme", title: "Ölçeklendirme Yol Haritası",
       items: [
-        { phase: "Faz 1", title: "DACH Bölgesi", desc: "Almanya, Avusturya, İsviçre — 120+ partner klinikle başlangıç pazarı.", status: "Aktif" },
-        { phase: "Faz 2", title: "AB Genişlemesi", desc: "Yerelleştirilmiş uyumluluk ve dil desteğiyle Batı Avrupa dağıtımı.", status: "2025" },
-        { phase: "Faz 3", title: "Asya Girişi", desc: "Stratejik ortaklıklar ve yerel altyapı ile Asya pazarına giriş.", status: "2026" },
-        { phase: "Faz 4", title: "Küresel Ölçek", desc: "Kuzey Amerika, Orta Doğu — tam uluslararası altyapı dağıtımı.", status: "2027+" },
+        { phase: "Faz 1", title: "DACH Bölgesi", desc: "Almanya, Avusturya, İsviçre — 120+ partner klinikle başlangıç pazarı.", status: "Pilot 2026" },
+        { phase: "Faz 2", title: "AB Genişlemesi", desc: "Yerelleştirilmiş uyumluluk ve dil desteğiyle Batı Avrupa dağıtımı.", status: "2027" },
+        { phase: "Faz 3", title: "Asya Girişi", desc: "Stratejik ortaklıklar ve yerel altyapı ile Asya pazarına giriş.", status: "2028" },
+        { phase: "Faz 4", title: "Küresel Ölçek", desc: "Kuzey Amerika, Orta Doğu — tam uluslararası altyapı dağıtımı.", status: "2029+" },
       ],
     },
     kpis: {

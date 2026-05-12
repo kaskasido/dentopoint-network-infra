@@ -272,10 +272,10 @@ export const es = {
     scaling: {
       label: "Escalado", title: "Hoja de Ruta de Escalado",
       items: [
-        { phase: "Fase 1", title: "Región DACH", desc: "Alemania, Austria, Suiza — mercado inicial con 120+ clínicas partner.", status: "Activo" },
-        { phase: "Fase 2", title: "Expansión UE", desc: "Despliegue Europa Occidental con cumplimiento y soporte lingüístico localizados.", status: "2025" },
-        { phase: "Fase 3", title: "Entrada Asia", desc: "Entrada al mercado asiático mediante alianzas estratégicas e infraestructura local.", status: "2026" },
-        { phase: "Fase 4", title: "Escala Global", desc: "Norteamérica, Oriente Medio — despliegue completo de infraestructura internacional.", status: "2027+" },
+        { phase: "Fase 1", title: "Región DACH", desc: "Alemania, Austria, Suiza — mercado inicial con 120+ clínicas partner.", status: "Piloto 2026" },
+        { phase: "Fase 2", title: "Expansión UE", desc: "Despliegue Europa Occidental con cumplimiento y soporte lingüístico localizados.", status: "2027" },
+        { phase: "Fase 3", title: "Entrada Asia", desc: "Entrada al mercado asiático mediante alianzas estratégicas e infraestructura local.", status: "2028" },
+        { phase: "Fase 4", title: "Escala Global", desc: "Norteamérica, Oriente Medio — despliegue completo de infraestructura internacional.", status: "2029+" },
       ],
     },
     kpis: {

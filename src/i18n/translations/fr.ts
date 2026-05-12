@@ -272,10 +272,10 @@ export const fr = {
     scaling: {
       label: "Mise à l'Échelle", title: "Feuille de Route de Croissance",
       items: [
-        { phase: "Phase 1", title: "Région DACH", desc: "Allemagne, Autriche, Suisse — marché initial avec 120+ cliniques partenaires.", status: "Actif" },
-        { phase: "Phase 2", title: "Expansion UE", desc: "Déploiement Europe de l'Ouest avec conformité et support linguistique localisés.", status: "2025" },
-        { phase: "Phase 3", title: "Entrée Asie", desc: "Entrée sur le marché asiatique via des partenariats stratégiques et infrastructure locale.", status: "2026" },
-        { phase: "Phase 4", title: "Échelle Mondiale", desc: "Amérique du Nord, Moyen-Orient — déploiement complet de l'infrastructure internationale.", status: "2027+" },
+        { phase: "Phase 1", title: "Région DACH", desc: "Allemagne, Autriche, Suisse — marché initial avec 120+ cliniques partenaires.", status: "Pilote 2026" },
+        { phase: "Phase 2", title: "Expansion UE", desc: "Déploiement Europe de l'Ouest avec conformité et support linguistique localisés.", status: "2027" },
+        { phase: "Phase 3", title: "Entrée Asie", desc: "Entrée sur le marché asiatique via des partenariats stratégiques et infrastructure locale.", status: "2028" },
+        { phase: "Phase 4", title: "Échelle Mondiale", desc: "Amérique du Nord, Moyen-Orient — déploiement complet de l'infrastructure internationale.", status: "2029+" },
       ],
     },
     kpis: {

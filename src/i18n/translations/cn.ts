@@ -272,10 +272,10 @@ export const cn = {
     scaling: {
       label: "扩展", title: "扩展路线图",
       items: [
-        { phase: "第一阶段", title: "DACH地区", desc: "德国、奥地利、瑞士——拥有120+合作诊所的初始市场。", status: "活跃" },
-        { phase: "第二阶段", title: "欧盟扩展", desc: "西欧推广，本地化合规和语言支持。", status: "2025" },
-        { phase: "第三阶段", title: "亚洲进入", desc: "通过战略合作伙伴关系和本地基础设施进入亚洲市场。", status: "2026" },
-        { phase: "第四阶段", title: "全球规模", desc: "北美、中东——完整的国际基础设施部署。", status: "2027+" },
+        { phase: "第一阶段", title: "DACH地区", desc: "德国、奥地利、瑞士——拥有120+合作诊所的初始市场。", status: "试点 2026" },
+        { phase: "第二阶段", title: "欧盟扩展", desc: "西欧推广，本地化合规和语言支持。", status: "2027" },
+        { phase: "第三阶段", title: "亚洲进入", desc: "通过战略合作伙伴关系和本地基础设施进入亚洲市场。", status: "2028" },
+        { phase: "第四阶段", title: "全球规模", desc: "北美、中东——完整的国际基础设施部署。", status: "2029+" },
       ],
     },
     kpis: {
