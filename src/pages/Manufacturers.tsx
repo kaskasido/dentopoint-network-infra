@@ -120,6 +120,7 @@ const Manufacturers = () => {
         </div>
       </section>
 
+      <ContactDialog open={contactOpen} onOpenChange={setContactOpen} subject="Partner werden" title="Partner werden" description="Schreiben Sie uns direkt eine E-Mail oder kopieren Sie unsere Adresse." />
       <Footer />
     </div>
   );
