@@ -30,6 +30,7 @@ const HeroSection = () => {
   const heroButtons = [
     {
       label: t.hero.forClinics,
+      href: "/clinics",
       icon: Handshake,
       className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
       items: [
