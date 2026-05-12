@@ -20,8 +20,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import ConfirmDeleteDialog from "./shared/ConfirmDeleteDialog";
-import { Plus, Pencil, ArrowUp, ArrowDown, ArrowUpDown } from "lucide-react";
+import { Plus, Pencil, ArrowUp, ArrowDown, ArrowUpDown, Upload, X, ImageIcon, Loader2 } from "lucide-react";
 import { z } from "zod";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 type SortKey = "name" | "country" | "status" | "contact_email";
 
@@ -34,6 +36,7 @@ type Manufacturer = {
   website: string | null;
   notes: string | null;
   status: string;
+  logo_url: string | null;
   created_at: string;
 };
 
@@ -47,7 +50,7 @@ const schema = z.object({
   status: z.enum(["active", "inactive"]),
 });
 
-const empty = { name: "", contact_email: "", phone: "", country: "DE", website: "", notes: "", status: "active" };
+const empty = { name: "", contact_email: "", phone: "", country: "DE", website: "", notes: "", status: "active", logo_url: "" };
 
 const AdminManufacturers = () => {
   const { rows, loading, insert, update, remove } = useAdminTable<Manufacturer>("manufacturers", {
@@ -59,6 +62,39 @@ const AdminManufacturers = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [sortKey, setSortKey] = useState<SortKey>("name");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
+  const [uploading, setUploading] = useState(false);
+
+  const handleLogoUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file) return;
+    if (!file.type.startsWith("image/")) {
+      toast.error("Bitte eine Bilddatei auswählen.");
+      return;
+    }
+    if (file.size > 2 * 1024 * 1024) {
+      toast.error("Datei zu groß (max. 2 MB).");
+      return;
+    }
+    setUploading(true);
+    const ext = file.name.split(".").pop()?.toLowerCase() || "png";
+    const path = `${crypto.randomUUID()}.${ext}`;
+    const { error } = await supabase.storage.from("manufacturer-logos").upload(path, file, {
+      cacheControl: "3600",
+      upsert: false,
+      contentType: file.type,
+    });
+    if (error) {
+      console.error(error);
+      toast.error("Upload fehlgeschlagen.");
+      setUploading(false);
+      return;
+    }
+    const { data } = supabase.storage.from("manufacturer-logos").getPublicUrl(path);
+    setForm((f) => ({ ...f, logo_url: data.publicUrl }));
+    setUploading(false);
+    toast.success("Logo hochgeladen");
+  };
 
   const toggleSort = (key: SortKey) => {
     if (sortKey === key) setSortDir(sortDir === "asc" ? "desc" : "asc");
@@ -96,6 +132,7 @@ const AdminManufacturers = () => {
       website: m.website ?? "",
       notes: m.notes ?? "",
       status: m.status,
+      logo_url: m.logo_url ?? "",
     });
     setErrors({});
     setOpen(true);
@@ -117,6 +154,7 @@ const AdminManufacturers = () => {
       website: parsed.data.website || null,
       notes: parsed.data.notes || null,
       status: parsed.data.status,
+      logo_url: form.logo_url || null,
     };
     const ok = editing ? await update(editing.id, payload) : await insert(payload);
     if (ok) setOpen(false);
@@ -169,7 +207,18 @@ const AdminManufacturers = () => {
             <tbody>
               {sortedRows.map((m) => (
                 <tr key={m.id} className="border-t border-border hover:bg-muted/30">
-                  <td className="px-4 py-3 font-medium text-foreground">{m.name}</td>
+                  <td className="px-4 py-3 font-medium text-foreground">
+                    <div className="flex items-center gap-3">
+                      {m.logo_url ? (
+                        <img src={m.logo_url} alt={m.name} className="h-8 w-8 rounded object-contain bg-muted" />
+                      ) : (
+                        <div className="h-8 w-8 rounded bg-muted flex items-center justify-center">
+                          <ImageIcon size={14} className="text-muted-foreground/50" />
+                        </div>
+                      )}
+                      <span>{m.name}</span>
+                    </div>
+                  </td>
                   <td className="px-4 py-3 text-muted-foreground">{m.contact_email || "—"}</td>
                   <td className="px-4 py-3 text-muted-foreground text-xs">{m.country || "—"}</td>
                   <td className="px-4 py-3">
@@ -199,6 +248,43 @@ const AdminManufacturers = () => {
             <DialogDescription>Pflichtfeld: Name.</DialogDescription>
           </DialogHeader>
           <div className="grid grid-cols-2 gap-3">
+            <div className="col-span-2 space-y-2">
+              <Label>Logo</Label>
+              <div className="flex items-center gap-4">
+                <div className="h-20 w-20 rounded-lg border border-border bg-muted/30 flex items-center justify-center overflow-hidden shrink-0">
+                  {form.logo_url ? (
+                    <img src={form.logo_url} alt="Logo" className="h-full w-full object-contain" />
+                  ) : (
+                    <ImageIcon size={24} className="text-muted-foreground/40" />
+                  )}
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label className="inline-flex items-center gap-2 cursor-pointer">
+                    <span className="inline-flex items-center gap-2 px-3 h-9 rounded-md border border-input bg-background text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors">
+                      {uploading ? <Loader2 size={14} className="animate-spin" /> : <Upload size={14} />}
+                      {form.logo_url ? "Logo ersetzen" : "Logo hochladen"}
+                    </span>
+                    <input
+                      type="file"
+                      accept="image/png,image/jpeg,image/webp,image/svg+xml"
+                      className="hidden"
+                      onChange={handleLogoUpload}
+                      disabled={uploading}
+                    />
+                  </label>
+                  {form.logo_url && (
+                    <button
+                      type="button"
+                      onClick={() => setForm({ ...form, logo_url: "" })}
+                      className="inline-flex items-center gap-1 text-xs text-destructive hover:underline self-start"
+                    >
+                      <X size={12} /> Entfernen
+                    </button>
+                  )}
+                  <p className="text-xs text-muted-foreground">PNG, JPG, WebP oder SVG · max. 2 MB</p>
+                </div>
+              </div>
+            </div>
             <div className="col-span-2 space-y-1">
               <Label>Name</Label>
               <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
