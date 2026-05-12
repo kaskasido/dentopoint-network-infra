@@ -109,7 +109,7 @@ const Manufacturers = () => {
               <Truck size={32} className="text-accent mb-6" />
               <h3 className="font-display text-xl font-bold text-foreground mb-3">{p.distribution.cardTitle}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-6">{p.distribution.cardDesc}</p>
-              <a href="/#contact" className="inline-flex items-center gap-2 bg-gradient-brand text-primary-foreground px-6 py-3 rounded-md text-sm font-medium hover:opacity-90 transition-opacity">
+              <a href="mailto:info@dentopoint.care?subject=Partner%20werden" className="inline-flex items-center gap-2 bg-gradient-brand text-primary-foreground px-6 py-3 rounded-md text-sm font-medium hover:opacity-90 transition-opacity">
                 {p.distribution.cardCta} <ArrowRight size={16} />
               </a>
             </motion.div>
