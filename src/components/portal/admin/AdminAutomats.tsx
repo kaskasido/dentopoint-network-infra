@@ -157,15 +157,28 @@ const AdminAutomats = () => {
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-muted/50 text-left">
-                <th className="px-4 py-3 font-medium text-muted-foreground">Name</th>
-                <th className="px-4 py-3 font-medium text-muted-foreground">Seriennr.</th>
-                <th className="px-4 py-3 font-medium text-muted-foreground">Status</th>
-                <th className="px-4 py-3 font-medium text-muted-foreground">Standort</th>
+                {([
+                  ["name", "Name"],
+                  ["serial_number", "Seriennr."],
+                  ["status", "Status"],
+                  ["location", "Standort"],
+                ] as [SortKey, string][]).map(([k, label]) => (
+                  <th key={k} className="px-4 py-3 font-medium text-muted-foreground">
+                    <button
+                      type="button"
+                      onClick={() => toggleSort(k)}
+                      className="inline-flex items-center gap-1.5 hover:text-foreground transition-colors"
+                    >
+                      {label}
+                      <SortIcon k={k} />
+                    </button>
+                  </th>
+                ))}
                 <th className="px-4 py-3 font-medium text-muted-foreground text-right">Aktionen</th>
               </tr>
             </thead>
             <tbody>
-              {rows.map((a) => (
+              {sortedRows.map((a) => (
                 <tr key={a.id} className="border-t border-border hover:bg-muted/30">
                   <td className="px-4 py-3 font-medium text-foreground">{a.name}</td>
                   <td className="px-4 py-3 font-mono text-xs text-muted-foreground">{a.serial_number}</td>
