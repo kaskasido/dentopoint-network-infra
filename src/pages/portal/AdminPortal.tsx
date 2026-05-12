@@ -1,10 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 import PortalLayout from "@/components/PortalLayout";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { LayoutDashboard, Users, Shield, ScrollText, Cpu, ShoppingCart, Wrench, Coins } from "lucide-react";
+import { LayoutDashboard, Users, ScrollText, Cpu, ShoppingCart, Wrench, Coins } from "lucide-react";
 import AdminOverview from "@/components/portal/admin/AdminOverview";
 import AdminUsers from "@/components/portal/admin/AdminUsers";
-import AdminRoles from "@/components/portal/admin/AdminRoles";
 import AdminLogs from "@/components/portal/admin/AdminLogs";
 import AdminAutomats from "@/components/portal/admin/AdminAutomats";
 import AdminOrders from "@/components/portal/admin/AdminOrders";
@@ -16,7 +15,6 @@ const AdminPortal = () => {
   const navItems = [
     { label: t.portal.admin.dashboard, href: "/portal/admin", icon: LayoutDashboard },
     { label: t.portal.admin.users, href: "/portal/admin/users", icon: Users },
-    { label: t.portal.admin.roles, href: "/portal/admin/roles", icon: Shield },
     { label: "Automaten", href: "/portal/admin/automats", icon: Cpu },
     { label: "Bestellungen", href: "/portal/admin/orders", icon: ShoppingCart },
     { label: "Wartungen", href: "/portal/admin/maintenance", icon: Wrench },
@@ -29,7 +27,6 @@ const AdminPortal = () => {
       <Routes>
         <Route index element={<AdminOverview />} />
         <Route path="users" element={<AdminUsers />} />
-        <Route path="roles" element={<AdminRoles />} />
         <Route path="automats" element={<AdminAutomats />} />
         <Route path="orders" element={<AdminOrders />} />
         <Route path="maintenance" element={<AdminMaintenance />} />
