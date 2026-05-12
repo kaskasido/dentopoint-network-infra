@@ -1,5 +1,7 @@
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactDialog from "@/components/ContactDialog";
 import { motion } from "framer-motion";
 import { Plug, Database, BarChart3, Truck, CheckCircle, ArrowRight, Box, Zap, Shield, Globe } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -11,6 +13,7 @@ const Manufacturers = () => {
   useScrollToHash();
   const { t } = useLanguage();
   const p = t.manufacturersPage;
+  const [contactOpen, setContactOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
