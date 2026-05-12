@@ -124,6 +124,7 @@ const Clinics = () => {
         </div>
       </section>
 
+      <ContactDialog open={contactOpen} onOpenChange={setContactOpen} subject="Demo vereinbaren" title="Demo vereinbaren" description="Erzählen Sie uns kurz von Ihrer Praxis – wir melden uns innerhalb von 1–2 Werktagen für einen Demo-Termin." defaultRole="Klinik" />
       <Footer />
     </div>
   );
