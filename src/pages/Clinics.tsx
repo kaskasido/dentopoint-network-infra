@@ -1,5 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactDialog from "@/components/ContactDialog";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { DollarSign, Settings, Workflow, ShieldCheck, CheckCircle, ArrowRight, TrendingUp, Clock, Users, FileCheck } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -12,6 +14,7 @@ const Clinics = () => {
   useScrollToHash();
   const { t } = useLanguage();
   const p = t.clinicsPage;
+  const [contactOpen, setContactOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
@@ -91,9 +94,9 @@ const Clinics = () => {
               <Workflow size={32} className="text-accent mb-6" />
               <h3 className="font-display text-xl font-bold text-foreground mb-3">{p.workflow.cardTitle}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-6">{p.workflow.cardDesc}</p>
-              <a href="/#contact" className="inline-flex items-center gap-2 bg-gradient-brand text-primary-foreground px-6 py-3 rounded-md text-sm font-medium hover:opacity-90 transition-opacity">
+              <button onClick={() => setContactOpen(true)} className="inline-flex items-center gap-2 bg-gradient-brand text-primary-foreground px-6 py-3 rounded-md text-sm font-medium hover:opacity-90 transition-opacity">
                 {p.workflow.cardCta} <ArrowRight size={16} />
-              </a>
+              </button>
             </motion.div>
           </div>
         </div>
@@ -121,6 +124,7 @@ const Clinics = () => {
         </div>
       </section>
 
+      <ContactDialog open={contactOpen} onOpenChange={setContactOpen} subject="Demo vereinbaren" title="Demo vereinbaren" description="Erzählen Sie uns kurz von Ihrer Praxis – wir melden uns innerhalb von 1–2 Werktagen für einen Demo-Termin." defaultRole="Klinik" />
       <Footer />
     </div>
   );
