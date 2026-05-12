@@ -20,8 +20,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import ConfirmDeleteDialog from "./shared/ConfirmDeleteDialog";
-import { Plus, Pencil, ArrowUp, ArrowDown, ArrowUpDown } from "lucide-react";
+import { Plus, Pencil, ArrowUp, ArrowDown, ArrowUpDown, Upload, X, ImageIcon, Loader2 } from "lucide-react";
 import { z } from "zod";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 type SortKey = "name" | "country" | "status" | "contact_email";
 
