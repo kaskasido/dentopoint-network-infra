@@ -54,6 +54,7 @@ const HeroSection = () => {
     },
     {
       label: t.hero.forInvestors,
+      href: "/investors",
       icon: TrendingUp,
       className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
       items: [
