@@ -560,6 +560,24 @@ export type Database = {
       }
     }
     Views: {
+      manufacturers_public: {
+        Row: {
+          id: string | null
+          logo_url: string | null
+          name: string | null
+        }
+        Insert: {
+          id?: string | null
+          logo_url?: string | null
+          name?: string | null
+        }
+        Update: {
+          id?: string | null
+          logo_url?: string | null
+          name?: string | null
+        }
+        Relationships: []
+      }
       public_automat_locations: {
         Row: {
           address: string | null
