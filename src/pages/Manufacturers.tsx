@@ -1,5 +1,7 @@
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactDialog from "@/components/ContactDialog";
 import { motion } from "framer-motion";
 import { Plug, Database, BarChart3, Truck, CheckCircle, ArrowRight, Box, Zap, Shield, Globe } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -11,6 +13,7 @@ const Manufacturers = () => {
   useScrollToHash();
   const { t } = useLanguage();
   const p = t.manufacturersPage;
+  const [contactOpen, setContactOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
@@ -109,14 +112,15 @@ const Manufacturers = () => {
               <Truck size={32} className="text-accent mb-6" />
               <h3 className="font-display text-xl font-bold text-foreground mb-3">{p.distribution.cardTitle}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-6">{p.distribution.cardDesc}</p>
-              <a href="mailto:info@dentopoint.care?subject=Partner%20werden" className="inline-flex items-center gap-2 bg-gradient-brand text-primary-foreground px-6 py-3 rounded-md text-sm font-medium hover:opacity-90 transition-opacity">
+              <button onClick={() => setContactOpen(true)} className="inline-flex items-center gap-2 bg-gradient-brand text-primary-foreground px-6 py-3 rounded-md text-sm font-medium hover:opacity-90 transition-opacity">
                 {p.distribution.cardCta} <ArrowRight size={16} />
-              </a>
+              </button>
             </motion.div>
           </div>
         </div>
       </section>
 
+      <ContactDialog open={contactOpen} onOpenChange={setContactOpen} subject="Partner werden" title="Partner werden" description="Schreiben Sie uns direkt eine E-Mail oder kopieren Sie unsere Adresse." />
       <Footer />
     </div>
   );
