@@ -158,8 +158,8 @@ const AdminAutomats = () => {
             <thead>
               <tr className="bg-muted/50 text-left">
                 {([
-                  ["name", "Name"],
                   ["serial_number", "Seriennr."],
+                  ["name", "Name"],
                   ["status", "Status"],
                   ["location", "Standort"],
                 ] as [SortKey, string][]).map(([k, label]) => (
@@ -180,8 +180,8 @@ const AdminAutomats = () => {
             <tbody>
               {sortedRows.map((a) => (
                 <tr key={a.id} className="border-t border-border hover:bg-muted/30">
-                  <td className="px-4 py-3 font-medium text-foreground">{a.name}</td>
                   <td className="px-4 py-3 font-mono text-xs text-muted-foreground">{a.serial_number}</td>
+                  <td className="px-4 py-3 font-medium text-foreground">{a.name}</td>
                   <td className="px-4 py-3">
                     <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${statusBadge[a.status] ?? "bg-muted"}`}>
                       {a.status}
