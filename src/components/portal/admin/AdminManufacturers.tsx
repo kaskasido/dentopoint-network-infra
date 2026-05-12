@@ -36,6 +36,7 @@ type Manufacturer = {
   website: string | null;
   notes: string | null;
   status: string;
+  logo_url: string | null;
   created_at: string;
 };
 
