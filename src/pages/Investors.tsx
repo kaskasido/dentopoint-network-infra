@@ -134,6 +134,7 @@ const Investors = () => {
         </div>
       </section>
 
+      <ContactDialog open={contactOpen} onOpenChange={setContactOpen} subject="Investoren-Deck anfordern" title="Investoren-Deck anfordern" description="Hinterlassen Sie uns Ihre Daten – wir senden Ihnen das Investoren-Deck und melden uns innerhalb von 1–2 Werktagen." defaultRole="Investor" />
       <Footer />
     </div>
   );
