@@ -1,5 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactDialog from "@/components/ContactDialog";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Cpu, HeartPulse, GraduationCap, Building2, Globe, ArrowRight, CheckCircle, Shield, Zap, Handshake } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -11,6 +13,7 @@ const Partners = () => {
   useScrollToHash();
   const { t } = useLanguage();
   const p = t.partnersPage;
+  const [contactOpen, setContactOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
