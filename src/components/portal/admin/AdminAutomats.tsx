@@ -158,8 +158,8 @@ const AdminAutomats = () => {
             <thead>
               <tr className="bg-muted/50 text-left">
                 {([
-                  ["name", "Name"],
                   ["serial_number", "Seriennr."],
+                  ["name", "Name"],
                   ["status", "Status"],
                   ["location", "Standort"],
                 ] as [SortKey, string][]).map(([k, label]) => (
