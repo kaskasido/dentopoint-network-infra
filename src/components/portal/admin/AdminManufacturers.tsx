@@ -62,6 +62,39 @@ const AdminManufacturers = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [sortKey, setSortKey] = useState<SortKey>("name");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
+  const [uploading, setUploading] = useState(false);
+
+  const handleLogoUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file) return;
+    if (!file.type.startsWith("image/")) {
+      toast.error("Bitte eine Bilddatei auswählen.");
+      return;
+    }
+    if (file.size > 2 * 1024 * 1024) {
+      toast.error("Datei zu groß (max. 2 MB).");
+      return;
+    }
+    setUploading(true);
+    const ext = file.name.split(".").pop()?.toLowerCase() || "png";
+    const path = `${crypto.randomUUID()}.${ext}`;
+    const { error } = await supabase.storage.from("manufacturer-logos").upload(path, file, {
+      cacheControl: "3600",
+      upsert: false,
+      contentType: file.type,
+    });
+    if (error) {
+      console.error(error);
+      toast.error("Upload fehlgeschlagen.");
+      setUploading(false);
+      return;
+    }
+    const { data } = supabase.storage.from("manufacturer-logos").getPublicUrl(path);
+    setForm((f) => ({ ...f, logo_url: data.publicUrl }));
+    setUploading(false);
+    toast.success("Logo hochgeladen");
+  };
 
   const toggleSort = (key: SortKey) => {
     if (sortKey === key) setSortDir(sortDir === "asc" ? "desc" : "asc");
