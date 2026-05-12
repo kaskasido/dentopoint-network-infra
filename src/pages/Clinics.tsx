@@ -94,9 +94,9 @@ const Clinics = () => {
               <Workflow size={32} className="text-accent mb-6" />
               <h3 className="font-display text-xl font-bold text-foreground mb-3">{p.workflow.cardTitle}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-6">{p.workflow.cardDesc}</p>
-              <a href="/#contact" className="inline-flex items-center gap-2 bg-gradient-brand text-primary-foreground px-6 py-3 rounded-md text-sm font-medium hover:opacity-90 transition-opacity">
+              <button onClick={() => setContactOpen(true)} className="inline-flex items-center gap-2 bg-gradient-brand text-primary-foreground px-6 py-3 rounded-md text-sm font-medium hover:opacity-90 transition-opacity">
                 {p.workflow.cardCta} <ArrowRight size={16} />
-              </a>
+              </button>
             </motion.div>
           </div>
         </div>
