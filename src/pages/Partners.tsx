@@ -155,6 +155,7 @@ const Partners = () => {
         </div>
       </section>
 
+      <ContactDialog open={contactOpen} onOpenChange={setContactOpen} subject="Partner werden" title="Partner werden" description="Erzählen Sie uns kurz von Ihrem Unternehmen – wir melden uns innerhalb von 1–2 Werktagen." defaultRole="Partner" />
       <Footer />
     </div>
   );
