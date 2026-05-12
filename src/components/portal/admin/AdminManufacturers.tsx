@@ -50,7 +50,7 @@ const schema = z.object({
   status: z.enum(["active", "inactive"]),
 });
 
-const empty = { name: "", contact_email: "", phone: "", country: "DE", website: "", notes: "", status: "active" };
+const empty = { name: "", contact_email: "", phone: "", country: "DE", website: "", notes: "", status: "active", logo_url: "" };
 
 const AdminManufacturers = () => {
   const { rows, loading, insert, update, remove } = useAdminTable<Manufacturer>("manufacturers", {
