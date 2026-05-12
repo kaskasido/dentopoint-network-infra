@@ -42,6 +42,7 @@ const HeroSection = () => {
     },
     {
       label: t.hero.forManufacturers,
+      href: "/manufacturers",
       icon: Factory,
       className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
       items: [
