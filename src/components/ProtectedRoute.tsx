@@ -11,7 +11,8 @@ interface ProtectedRouteProps {
 const ProtectedRoute = ({ children, requiredRole }: ProtectedRouteProps) => {
   const { user, role, loading } = useAuth();
 
-  if (loading) {
+  // Wait for auth AND role lookup to settle before deciding.
+  if (loading || (user && requiredRole && role === null)) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
         <div className="w-8 h-8 border-2 border-accent border-t-transparent rounded-full animate-spin" />
