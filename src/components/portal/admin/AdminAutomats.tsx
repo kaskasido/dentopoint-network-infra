@@ -61,6 +61,31 @@ const AdminAutomats = () => {
   const [editing, setEditing] = useState<Automat | null>(null);
   const [form, setForm] = useState(empty);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [sortKey, setSortKey] = useState<SortKey>("name");
+  const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
+
+  const toggleSort = (key: SortKey) => {
+    if (sortKey === key) setSortDir(sortDir === "asc" ? "desc" : "asc");
+    else { setSortKey(key); setSortDir("asc"); }
+  };
+
+  const sortedRows = useMemo(() => {
+    const getVal = (a: Automat) => {
+      if (sortKey === "location") return [a.city, a.country].filter(Boolean).join(", ");
+      return (a as any)[sortKey] ?? "";
+    };
+    return [...rows].sort((a, b) => {
+      const va = String(getVal(a)).toLowerCase();
+      const vb = String(getVal(b)).toLowerCase();
+      if (va < vb) return sortDir === "asc" ? -1 : 1;
+      if (va > vb) return sortDir === "asc" ? 1 : -1;
+      return 0;
+    });
+  }, [rows, sortKey, sortDir]);
+
+  const SortIcon = ({ k }: { k: SortKey }) =>
+    sortKey !== k ? <ArrowUpDown size={12} className="opacity-40" /> :
+    sortDir === "asc" ? <ArrowUp size={12} /> : <ArrowDown size={12} />;
 
   const startCreate = () => {
     setEditing(null);
