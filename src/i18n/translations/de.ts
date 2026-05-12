@@ -306,10 +306,10 @@ export const de = {
     scaling: {
       label: "Skalierung", title: "Skalierungs-Roadmap",
       items: [
-        { phase: "Phase 1", title: "DACH-Region", desc: "Deutschland, Österreich, Schweiz — Erstmarkt mit 120+ Partnerkliniken.", status: "Aktiv" },
-        { phase: "Phase 2", title: "EU-Expansion", desc: "Westeuropa-Rollout mit lokalisierter Compliance und Sprachunterstützung.", status: "2025" },
-        { phase: "Phase 3", title: "Asien-Eintritt", desc: "Asien-Markteintritt durch strategische Partnerschaften und lokale Infrastruktur.", status: "2026" },
-        { phase: "Phase 4", title: "Globale Skalierung", desc: "Nordamerika, Naher Osten — vollständige internationale Infrastrukturbereitstellung.", status: "2027+" },
+        { phase: "Phase 1", title: "DACH-Region", desc: "Deutschland, Österreich, Schweiz — Erstmarkt mit 120+ Partnerkliniken.", status: "Pilot 2026" },
+        { phase: "Phase 2", title: "EU-Expansion", desc: "Westeuropa-Rollout mit lokalisierter Compliance und Sprachunterstützung.", status: "2027" },
+        { phase: "Phase 3", title: "Asien-Eintritt", desc: "Asien-Markteintritt durch strategische Partnerschaften und lokale Infrastruktur.", status: "2028" },
+        { phase: "Phase 4", title: "Globale Skalierung", desc: "Nordamerika, Naher Osten — vollständige internationale Infrastrukturbereitstellung.", status: "2029+" },
       ],
     },
     kpis: {

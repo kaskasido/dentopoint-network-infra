@@ -272,10 +272,10 @@ export const ko = {
     scaling: {
       label: "확장", title: "확장 로드맵",
       items: [
-        { phase: "1단계", title: "DACH 지역", desc: "독일, 오스트리아, 스위스 — 120+ 파트너 클리닉의 초기 시장.", status: "활성" },
-        { phase: "2단계", title: "EU 확장", desc: "로컬라이즈된 규정 준수 및 언어 지원으로 서유럽 롤아웃.", status: "2025" },
-        { phase: "3단계", title: "아시아 진출", desc: "전략적 파트너십과 현지 인프라를 통한 아시아 시장 진출.", status: "2026" },
-        { phase: "4단계", title: "글로벌 스케일", desc: "북미, 중동 — 완전한 국제 인프라 배포.", status: "2027+" },
+        { phase: "1단계", title: "DACH 지역", desc: "독일, 오스트리아, 스위스 — 120+ 파트너 클리닉의 초기 시장.", status: "파일럿 2026" },
+        { phase: "2단계", title: "EU 확장", desc: "로컬라이즈된 규정 준수 및 언어 지원으로 서유럽 롤아웃.", status: "2027" },
+        { phase: "3단계", title: "아시아 진출", desc: "전략적 파트너십과 현지 인프라를 통한 아시아 시장 진출.", status: "2028" },
+        { phase: "4단계", title: "글로벌 스케일", desc: "북미, 중동 — 완전한 국제 인프라 배포.", status: "2029+" },
       ],
     },
     kpis: {

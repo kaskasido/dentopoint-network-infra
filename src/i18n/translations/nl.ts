@@ -294,10 +294,10 @@ export const nl = {
     scaling: {
       label: "Schaling", title: "Schaalroutekaart",
       items: [
-        { phase: "Fase 1", title: "DACH-Regio", desc: "Duitsland, Oostenrijk, Zwitserland — startmarkt met 120+ partnerklinieken.", status: "Actief" },
-        { phase: "Fase 2", title: "EU-Uitbreiding", desc: "West-Europa uitrol met gelokaliseerde compliance en taalondersteuning.", status: "2025" },
-        { phase: "Fase 3", title: "Azië Entree", desc: "Aziatische markttoetreding via strategische partnerschappen en lokale infrastructuur.", status: "2026" },
-        { phase: "Fase 4", title: "Wereldwijde Schaal", desc: "Noord-Amerika, Midden-Oosten — volledige internationale infrastructuuruitrol.", status: "2027+" },
+        { phase: "Fase 1", title: "DACH-Regio", desc: "Duitsland, Oostenrijk, Zwitserland — startmarkt met 120+ partnerklinieken.", status: "Pilot 2026" },
+        { phase: "Fase 2", title: "EU-Uitbreiding", desc: "West-Europa uitrol met gelokaliseerde compliance en taalondersteuning.", status: "2027" },
+        { phase: "Fase 3", title: "Azië Entree", desc: "Aziatische markttoetreding via strategische partnerschappen en lokale infrastructuur.", status: "2028" },
+        { phase: "Fase 4", title: "Wereldwijde Schaal", desc: "Noord-Amerika, Midden-Oosten — volledige internationale infrastructuuruitrol.", status: "2029+" },
       ],
     },
     kpis: {
