@@ -15,6 +15,7 @@ import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
 import ResetPassword from "./pages/ResetPassword";
 import NotFound from "./pages/NotFound";
+import Unsubscribe from "./pages/Unsubscribe";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ManufacturerDashboard from "./pages/portal/ManufacturerDashboard";
 import ClinicPortal from "./pages/portal/ClinicPortal";
