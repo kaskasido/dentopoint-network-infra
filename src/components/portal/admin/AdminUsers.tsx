@@ -55,6 +55,38 @@ const AdminUsers = () => {
   const [filter, setFilter] = useState("");
   const [editing, setEditing] = useState<Profile | null>(null);
   const [editName, setEditName] = useState("");
+  const [adding, setAdding] = useState(false);
+  const [newEmail, setNewEmail] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [newName, setNewName] = useState("");
+  const [newRole, setNewRole] = useState<UserRole["role"] | "">("");
+  const [creating, setCreating] = useState(false);
+
+  const handleCreateUser = async () => {
+    if (!newEmail || !newPassword) {
+      toast.error("E-Mail und Passwort erforderlich");
+      return;
+    }
+    setCreating(true);
+    const { data, error } = await supabase.functions.invoke("admin-create-user", {
+      body: {
+        email: newEmail.trim(),
+        password: newPassword,
+        display_name: newName.trim() || undefined,
+        role: newRole || undefined,
+      },
+    });
+    setCreating(false);
+    if (error || (data as any)?.error) {
+      toast.error((data as any)?.error ?? error?.message ?? "Erstellung fehlgeschlagen");
+      return;
+    }
+    toast.success("Benutzer erstellt");
+    setAdding(false);
+    setNewEmail(""); setNewPassword(""); setNewName(""); setNewRole("");
+    await reload();
+    await reloadRoles();
+  };
 
   const rolesByUser = (userId: string) => roles.filter((r) => r.user_id === userId);
 
@@ -93,9 +125,12 @@ const AdminUsers = () => {
     <div>
       <div className="flex items-center justify-between mb-2">
         <h1 className="font-display text-2xl font-bold text-foreground">Benutzer & Rollen</h1>
+        <Button onClick={() => setAdding(true)} size="sm">
+          <Plus size={16} /> Benutzer hinzufügen
+        </Button>
       </div>
       <p className="text-muted-foreground text-sm mb-6">
-        Verwalte Profile und weise Rollen zu. Neue Benutzer registrieren sich über die Login-Seite.
+        Verwalte Profile, lege neue Benutzer an und weise Rollen zu.
       </p>
 
       <div className="relative mb-4">
@@ -211,6 +246,42 @@ const AdminUsers = () => {
               Abbrechen
             </Button>
             <Button onClick={handleEditSave}>Speichern</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={adding} onOpenChange={setAdding}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Benutzer hinzufügen</DialogTitle>
+            <DialogDescription>Neuen Benutzer mit E-Mail, Passwort und optionaler Rolle anlegen.</DialogDescription>
+          </DialogHeader>
+          <div className="space-y-3">
+            <div className="space-y-2">
+              <Label htmlFor="new_email">E-Mail</Label>
+              <Input id="new_email" type="email" value={newEmail} onChange={(e) => setNewEmail(e.target.value)} />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="new_password">Passwort</Label>
+              <Input id="new_password" type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="new_name">Anzeigename (optional)</Label>
+              <Input id="new_name" value={newName} onChange={(e) => setNewName(e.target.value)} />
+            </div>
+            <div className="space-y-2">
+              <Label>Rolle (optional)</Label>
+              <Select value={newRole} onValueChange={(v) => setNewRole(v as UserRole["role"])}>
+                <SelectTrigger><SelectValue placeholder="Rolle wählen…" /></SelectTrigger>
+                <SelectContent>
+                  {ROLES.map((r) => (<SelectItem key={r} value={r}>{r}</SelectItem>))}
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setAdding(false)} disabled={creating}>Abbrechen</Button>
+            <Button onClick={handleCreateUser} disabled={creating}>{creating ? "Erstelle…" : "Erstellen"}</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
