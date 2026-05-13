@@ -128,7 +128,7 @@ const Clinics = () => {
         </div>
       </section>
 
-      <ContactDialog open={contactOpen} onOpenChange={setContactOpen} subject="Demo vereinbaren" title="Demo vereinbaren" description="Kontaktieren Sie uns" defaultRole="Klinik" />
+      <ContactDialog open={contactOpen} onOpenChange={setContactOpen} subject={t.contactDialog.demoTitle} title={t.contactDialog.demoTitle} description={t.contactDialog.defaultDescription} defaultRole="Klinik" />
       <Footer />
     </div>
   );
