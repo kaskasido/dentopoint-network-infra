@@ -280,7 +280,7 @@ export const de = {
         "Direkt-an-Klinik-Lieferinfrastruktur",
         "Nachfragegesteuerte Bestandsverwaltung",
         "Regionale Lagerpartnerschaften",
-        "Grenzüberschreitende Logistik (EU ↔ Asien)",
+        "Grenzüberschreitende Logistik",
         "White-Label-Verpackungsoptionen",
         "Compliance-bereite Dokumentation",
       ],
