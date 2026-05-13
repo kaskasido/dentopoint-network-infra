@@ -216,7 +216,7 @@ export const de = {
       items: [
         { title: "Integrationseinrichtung", desc: "Verbinden Sie Ihr Praxisverwaltungssystem — wir unterstützen alle gängigen PVS-Plattformen.", duration: "1-2 Tage" },
         { title: "Smart Care Modul", desc: "Physische Modulinstallation in Ihrer Praxis mit Produktkonfiguration.", duration: "1 Tag" },
-        { title: "Team-Schulung", desc: "Einführungssitzung für Ihr Team zur Plattformnutzung und Patientenkommunikation.", duration: "Halber Tag" },
+        { title: "Einweisung - Team-Schulung", desc: "Einführungssitzung für Ihr Team zur Plattformnutzung und Patientenkommunikation.", duration: "Halber Tag" },
         { title: "Go Live", desc: "Start mit ersten Patienten und laufender Support vom DentoPoint-Partnermanagement.", duration: "Laufend" },
       ],
     },
