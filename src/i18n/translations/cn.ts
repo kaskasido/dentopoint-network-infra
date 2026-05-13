@@ -7,6 +7,7 @@ export const cn = {
     login: "登录",
     logout: "退出",
     contact: "联系我们",
+    backToHome: "返回首页",
     contactTitle: "联系我们",
     contactDesc: "与DentoPoint取得联系",
     email: "电子邮件",

@@ -25,7 +25,7 @@ const Clinics = () => {
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-3xl">
             <Link to="/" className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-6">
-              <ArrowLeft size={16} /> Zur Startseite
+              <ArrowLeft size={16} /> {t.nav.backToHome}
             </Link>
             <p className="text-sm font-medium tracking-[0.2em] uppercase text-accent mb-4">{p.hero.label}</p>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">

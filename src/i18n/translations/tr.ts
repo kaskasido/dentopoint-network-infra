@@ -7,6 +7,7 @@ export const tr = {
     login: "Giriş",
     logout: "Çıkış",
     contact: "İletişim",
+    backToHome: "Ana sayfaya dön",
     contactTitle: "İletişim",
     contactDesc: "DentoPoint ile iletişime geçin",
     email: "E-Posta",

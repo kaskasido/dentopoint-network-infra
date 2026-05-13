@@ -7,6 +7,7 @@ export const fr = {
     login: "Connexion",
     logout: "Déconnexion",
     contact: "Contact",
+    backToHome: "Retour à l'accueil",
     contactTitle: "Contact",
     contactDesc: "Contactez DentoPoint",
     email: "E-Mail",

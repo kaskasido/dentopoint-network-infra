@@ -8,6 +8,7 @@ export const en = {
     login: "Login",
     logout: "Sign out",
     contact: "Contact",
+    backToHome: "Back to Home",
     contactTitle: "Contact",
     contactDesc: "Get in touch with DentoPoint",
     email: "E-Mail",
