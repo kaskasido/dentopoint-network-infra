@@ -10,13 +10,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
+import ContactDialog from "@/components/ContactDialog";
 
 const languages: { code: Language; label: string }[] = [
   { code: "EN", label: "English" },
@@ -172,35 +166,12 @@ const Navbar = () => {
           </button>
         </div>
 
-        <Dialog open={contactOpen} onOpenChange={setContactOpen}>
-          <DialogContent className="sm:max-w-md">
-            <DialogHeader>
-              <DialogTitle className="font-display text-xl">{t.nav.contactTitle}</DialogTitle>
-              <DialogDescription>{t.nav.contactDesc}</DialogDescription>
-            </DialogHeader>
-            <div className="space-y-4 pt-2">
-              <div className="flex items-start gap-3">
-                <Mail className="h-5 w-5 text-primary mt-0.5" />
-                <div>
-                  <p className="text-sm font-medium text-foreground">{t.nav.email}</p>
-                  <a href="mailto:info@dentopoint.care" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                    info@dentopoint.care
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-primary mt-0.5" />
-                <div>
-                  <p className="text-sm font-medium text-foreground">{t.nav.address}</p>
-                  <p className="text-sm text-muted-foreground">
-                    DentoPoint GmbH<br />
-                    Germany
-                  </p>
-                </div>
-              </div>
-            </div>
-          </DialogContent>
-        </Dialog>
+        <ContactDialog
+          open={contactOpen}
+          onOpenChange={setContactOpen}
+          title={t.nav.contactTitle}
+          description={t.nav.contactDesc}
+        />
 
         {/* Mobile toggle */}
         <button
