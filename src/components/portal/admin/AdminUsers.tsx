@@ -125,9 +125,12 @@ const AdminUsers = () => {
     <div>
       <div className="flex items-center justify-between mb-2">
         <h1 className="font-display text-2xl font-bold text-foreground">Benutzer & Rollen</h1>
+        <Button onClick={() => setAdding(true)} size="sm">
+          <Plus size={16} /> Benutzer hinzufügen
+        </Button>
       </div>
       <p className="text-muted-foreground text-sm mb-6">
-        Verwalte Profile und weise Rollen zu. Neue Benutzer registrieren sich über die Login-Seite.
+        Verwalte Profile, lege neue Benutzer an und weise Rollen zu.
       </p>
 
       <div className="relative mb-4">
