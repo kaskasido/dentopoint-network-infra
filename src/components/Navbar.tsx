@@ -13,8 +13,8 @@ import {
 import ContactDialog from "@/components/ContactDialog";
 
 const languages: { code: Language; label: string }[] = [
-  { code: "EN", label: "English" },
   { code: "DE", label: "Deutsch" },
+  { code: "EN", label: "English" },
   { code: "NL", label: "Nederlands" },
   { code: "FR", label: "Français" },
   { code: "IT", label: "Italiano" },
