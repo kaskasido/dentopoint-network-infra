@@ -63,19 +63,6 @@ const HeroSection = () => {
         { label: t.hero.items.expansionPipeline, href: "/investors#expansion", icon: Rocket },
       ],
     },
-    {
-      label: t.hero.strategicPartners,
-      href: "/partners",
-      icon: Star,
-      className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
-      items: [
-        { label: t.hero.items.technologyPartners, href: "/partners#technology", icon: Cpu },
-        { label: t.hero.items.healthcareNetworks, href: "/partners#healthcare", icon: HeartPulse },
-        { label: t.hero.items.academicPartners, href: "/partners#academic", icon: GraduationCap },
-        { label: t.hero.items.industryAlliances, href: "/partners#industry", icon: Building2 },
-        { label: t.hero.items.globalExpansion, href: "/partners#global", icon: Globe },
-      ],
-    },
   ];
 
   return (
