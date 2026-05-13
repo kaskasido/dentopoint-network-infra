@@ -335,7 +335,7 @@ export const de = {
   },
 
   partnersPage: {
-    hero: { label: "Strategische Partner", title1: "Die Zukunft der", title2: "Zahnmedizin gemeinsam gestalten", desc: "Treten Sie dem DentoPoint-System als strategischer Partner bei.\nTechnologie-, Gesundheits-, akademische und Branchenallianzen treiben Innovation in der therapeutischen Nachsorge an." },
+    hero: { label: "Strategische Partner", title1: "Die Zukunft der", title2: "Zahnmedizin gemeinsam gestalten", desc: "Treten Sie dem DentoPoint-System als strategischer Partner bei.\nTechnologie-, Gesundheits-, akademische und Branchenallianzen treiben Innovation in der therapeutischen Nachsorge voran." },
     technology: {
       label: "Technologie", title: "Technologiepartner",
       items: [
