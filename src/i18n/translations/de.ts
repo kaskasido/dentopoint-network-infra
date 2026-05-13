@@ -348,7 +348,7 @@ export const de = {
     healthcare: {
       label: "Gesundheit", title: "Gesundheitsnetzwerke",
       items: [
-        { title: "Klinikketten", desc: "Partnerschaften mit führenden Zahnklinikketten in der DACH-Region und Europa." },
+        { title: "Kliniken", desc: "Partnerschaften mit führenden Zahnkliniken in der DACH-Region und Europa." },
         { title: "Versicherungsanbieter", desc: "Integration von Nachsorgeprogrammen in Versicherungsleistungen und Bonussysteme." },
         { title: "Berufsverbände", desc: "Zusammenarbeit mit zahnärztlichen Fachgesellschaften für Qualitätsstandards." },
         { title: "Telemedizin", desc: "Telemedizinische Nachsorgemodule für Fernpatienten und ländliche Regionen." },
