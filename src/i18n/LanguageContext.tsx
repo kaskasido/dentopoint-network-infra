@@ -36,15 +36,15 @@ interface LanguageContextType {
 }
 
 const LanguageContext = createContext<LanguageContextType>({
-  lang: "EN",
+  lang: "DE",
   setLang: () => {},
-  t: en,
+  t: de,
 });
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [lang, setLangState] = useState<Language>(() => {
     const saved = localStorage.getItem("dentopoint-lang");
-    return (saved as Language) || "EN";
+    return (saved as Language) || "DE";
   });
   const setLang = (l: Language) => {
     localStorage.setItem("dentopoint-lang", l);
