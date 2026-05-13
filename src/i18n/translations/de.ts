@@ -133,7 +133,7 @@ export const de = {
 
   // Categories
   categories: {
-    label: "Produkt-Ökosystem",
+    label: "Produkt-Sortiment",
     title: "Strukturierte Versorgungskategorien",
     items: [
       { name: "Hygiene", desc: "Professionelle Mundhygieneprodukte für den täglichen und klinischen Gebrauch." },
