@@ -53,18 +53,6 @@ const HeroSection = () => {
       ],
     },
     {
-      label: t.hero.forInvestors,
-      href: "/investors",
-      icon: TrendingUp,
-      className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
-      items: [
-        { label: t.hero.items.marketOpportunity, href: "/investors#markt", icon: BarChart3 },
-        { label: t.hero.items.scalingRoadmap, href: "/investors#skalierung", icon: LineChart },
-        { label: t.hero.items.kpisMetrics, href: "/investors#kpis", icon: PieChart },
-        { label: t.hero.items.expansionPipeline, href: "/investors#expansion", icon: Rocket },
-      ],
-    },
-    {
       label: t.hero.strategicPartners,
       href: "/partners",
       icon: Star,

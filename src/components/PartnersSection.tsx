@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { Building, Network, TrendingUp, Globe } from "lucide-react";
+import { Building, Network, Globe } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-const icons = [Building, Network, TrendingUp, Globe];
+const icons = [Building, Network, Globe];
 
 const PartnersSection = () => {
   const { t } = useLanguage();
@@ -27,7 +27,7 @@ const PartnersSection = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6 mb-16">
-          {t.partnersSection.types.map((partner, i) => {
+          {t.partnersSection.types.filter((_, i) => i !== 2).map((partner, i) => {
             const Icon = icons[i];
             return (
               <motion.div

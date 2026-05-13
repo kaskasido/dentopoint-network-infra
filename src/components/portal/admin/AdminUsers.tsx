@@ -36,10 +36,10 @@ type Profile = {
 type UserRole = {
   id: string;
   user_id: string;
-  role: "admin" | "manufacturer" | "clinic" | "investor" | "partner";
+  role: "admin" | "manufacturer" | "clinic" | "partner";
 };
 
-const ROLES: UserRole["role"][] = ["admin", "manufacturer", "clinic", "investor", "partner"];
+const ROLES: UserRole["role"][] = ["admin", "manufacturer", "clinic", "partner"];
 
 const profileSchema = z.object({
   display_name: z.string().trim().min(1, "Name erforderlich").max(120),
@@ -86,7 +86,6 @@ const AdminUsers = () => {
     admin: "bg-purple-500/10 text-purple-500",
     manufacturer: "bg-accent/10 text-accent",
     clinic: "bg-blue-500/10 text-blue-500",
-    investor: "bg-yellow-500/10 text-yellow-500",
     partner: "bg-orange-500/10 text-orange-500",
   };
 

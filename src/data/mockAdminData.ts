@@ -2,7 +2,7 @@ export interface AdminUser {
   id: string;
   email: string;
   displayName: string;
-  role: "clinic" | "manufacturer" | "investor" | "partner" | "admin";
+  role: "clinic" | "manufacturer" | "partner" | "admin";
   organization: string;
   status: "aktiv" | "inaktiv" | "gesperrt";
   lastLogin: string;
