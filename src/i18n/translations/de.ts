@@ -208,10 +208,8 @@ export const de = {
       label: "Einnahmen", title: "Neue Einnahmequellen",
       items: [
         { title: "Nachsorge-Einnahmen", desc: "Generieren Sie wiederkehrende Einnahmen durch strukturierte therapeutische Versorgungsprogramme für Ihre Patienten." },
-        { title: "Produktprovisionen", desc: "Verdienen Sie Provisionen für empfohlene Pflegeprodukte, die über die DentoPoint-Plattform bestellt werden." },
         { title: "Patientenbindung", desc: "Steigern Sie den Patientenlebenszeitwert durch kontinuierliches Engagement über das Versorgungsnetzwerk." },
-        { title: "Zeitersparnis", desc: "Automatisierte Nachsorgeplanung und Follow-ups reduzieren den Verwaltungsaufwand um 60%." },
-      ],
+        { title: "Zeitersparnis", desc: "Automatisierte Nachsorgeplanung und Follow-ups reduzieren den Verwaltungsaufwand um 60%." },],
     },
     implementation: {
       label: "Implementierung", title: "Schnelle & einfache Einrichtung",

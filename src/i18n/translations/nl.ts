@@ -194,10 +194,8 @@ export const nl = {
       label: "Omzet", title: "Nieuwe Inkomstenstromen",
       items: [
         { title: "Nazorgomzet", desc: "Genereer terugkerende inkomsten via gestructureerde therapeutische zorgprogramma's voor uw patiënten." },
-        { title: "Productcommissies", desc: "Verdien commissies op aanbevolen zorgproducten besteld via het DentoPoint platform." },
         { title: "Patiëntretentie", desc: "Verhoog de levenslange waarde van patiënten met continue betrokkenheid via het zorgnetwerk." },
-        { title: "Tijdsbesparing", desc: "Geautomatiseerde nazorgplanning en follow-ups verminderen administratieve overhead met 60%." },
-      ],
+        { title: "Tijdsbesparing", desc: "Geautomatiseerde nazorgplanning en follow-ups verminderen administratieve overhead met 60%." },],
     },
     implementation: {
       label: "Implementatie", title: "Snelle & Eenvoudige Setup",

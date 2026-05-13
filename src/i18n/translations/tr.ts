@@ -174,10 +174,8 @@ export const tr = {
       label: "Gelir", title: "Yeni Gelir Kaynakları",
       items: [
         { title: "Bakım Sonrası Geliri", desc: "Hastalarınız için yapılandırılmış terapötik bakım programları ile yinelenen gelir elde edin." },
-        { title: "Ürün Komisyonları", desc: "DentoPoint platformu üzerinden sipariş edilen önerilen bakım ürünlerinden komisyon kazanın." },
         { title: "Hasta Sadakati", desc: "Bakım ağı üzerinden sürekli etkileşimle hasta yaşam boyu değerini artırın." },
-        { title: "Zaman Tasarrufu", desc: "Otomatik bakım sonrası planlaması yönetim yükünü %60 azaltır." },
-      ],
+        { title: "Zaman Tasarrufu", desc: "Otomatik bakım sonrası planlaması yönetim yükünü %60 azaltır." },],
     },
     implementation: {
       label: "Uygulama", title: "Hızlı & Kolay Kurulum",

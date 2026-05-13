@@ -174,10 +174,8 @@ export const it = {
       label: "Entrate", title: "Nuove Fonti di Entrate",
       items: [
         { title: "Ricavi Aftercare", desc: "Genera entrate ricorrenti attraverso programmi di cura terapeutica strutturati per i tuoi pazienti." },
-        { title: "Commissioni Prodotti", desc: "Guadagna commissioni sui prodotti di cura raccomandati ordinati tramite la piattaforma DentoPoint." },
         { title: "Fidelizzazione Pazienti", desc: "Aumenta il valore a vita del paziente con un coinvolgimento continuo attraverso la rete di cura." },
-        { title: "Risparmio di Tempo", desc: "La pianificazione automatizzata dell'aftercare riduce il carico amministrativo del 60%." },
-      ],
+        { title: "Risparmio di Tempo", desc: "La pianificazione automatizzata dell'aftercare riduce il carico amministrativo del 60%." },],
     },
     implementation: {
       label: "Implementazione", title: "Configurazione Rapida e Facile",

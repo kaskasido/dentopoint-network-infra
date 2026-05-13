@@ -174,10 +174,8 @@ export const fr = {
       label: "Revenus", title: "Nouvelles Sources de Revenus",
       items: [
         { title: "Revenus de Suivi", desc: "Générez des revenus récurrents grâce à des programmes de soins thérapeutiques structurés pour vos patients." },
-        { title: "Commissions Produits", desc: "Gagnez des commissions sur les produits de soins recommandés commandés via la plateforme DentoPoint." },
         { title: "Fidélisation Patients", desc: "Augmentez la valeur vie patient grâce à un engagement continu via le réseau de soins." },
-        { title: "Gain de Temps", desc: "La planification automatisée du suivi réduit la charge administrative de 60%." },
-      ],
+        { title: "Gain de Temps", desc: "La planification automatisée du suivi réduit la charge administrative de 60%." },],
     },
     implementation: {
       label: "Mise en Œuvre", title: "Installation Rapide & Facile",

@@ -174,10 +174,8 @@ export const es = {
       label: "Ingresos", title: "Nuevas Fuentes de Ingresos",
       items: [
         { title: "Ingresos de Seguimiento", desc: "Genera ingresos recurrentes a través de programas de cuidado terapéutico estructurados para tus pacientes." },
-        { title: "Comisiones de Productos", desc: "Gana comisiones por productos de cuidado recomendados pedidos a través de la plataforma DentoPoint." },
         { title: "Retención de Pacientes", desc: "Aumenta el valor de vida del paciente con compromiso continuo a través de la red de cuidado." },
-        { title: "Ahorro de Tiempo", desc: "La programación automatizada de seguimiento reduce la carga administrativa en un 60%." },
-      ],
+        { title: "Ahorro de Tiempo", desc: "La programación automatizada de seguimiento reduce la carga administrativa en un 60%." },],
     },
     implementation: {
       label: "Implementación", title: "Configuración Rápida y Fácil",
