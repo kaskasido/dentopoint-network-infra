@@ -253,7 +253,7 @@ export const de = {
         { title: "API-First-Architektur", desc: "RESTful- und Echtzeit-APIs für nahtlose Produktkatalog- und Bestandsintegration." },
         { title: "Zertifiziertes Onboarding", desc: "Strukturiertes Partner-Onboarding mit Compliance-Prüfungen und Qualitätsvalidierung." },
         { title: "Plug & Play Module", desc: "Vorgefertigte Integrationsmodule für ERP-, PIM- und Logistiksysteme." },
-        { title: "Multi-Markt-fähig", desc: "Gleichzeitige Bereitstellung in EU- und asiatischen Märkten mit lokalisierten Konfigurationen." },
+        { title: "Multi-Markt-fähig", desc: "Gleichzeitige Bereitstellung mit lokalisierten Konfigurationen." },
       ],
     },
     data: {
