@@ -55,6 +55,38 @@ const AdminUsers = () => {
   const [filter, setFilter] = useState("");
   const [editing, setEditing] = useState<Profile | null>(null);
   const [editName, setEditName] = useState("");
+  const [adding, setAdding] = useState(false);
+  const [newEmail, setNewEmail] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [newName, setNewName] = useState("");
+  const [newRole, setNewRole] = useState<UserRole["role"] | "">("");
+  const [creating, setCreating] = useState(false);
+
+  const handleCreateUser = async () => {
+    if (!newEmail || !newPassword) {
+      toast.error("E-Mail und Passwort erforderlich");
+      return;
+    }
+    setCreating(true);
+    const { data, error } = await supabase.functions.invoke("admin-create-user", {
+      body: {
+        email: newEmail.trim(),
+        password: newPassword,
+        display_name: newName.trim() || undefined,
+        role: newRole || undefined,
+      },
+    });
+    setCreating(false);
+    if (error || (data as any)?.error) {
+      toast.error((data as any)?.error ?? error?.message ?? "Erstellung fehlgeschlagen");
+      return;
+    }
+    toast.success("Benutzer erstellt");
+    setAdding(false);
+    setNewEmail(""); setNewPassword(""); setNewName(""); setNewRole("");
+    await reload();
+    await reloadRoles();
+  };
 
   const rolesByUser = (userId: string) => roles.filter((r) => r.user_id === userId);
 
