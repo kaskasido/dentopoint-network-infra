@@ -34,7 +34,7 @@ const ContactDialog = ({
   open, onOpenChange,
   subject = "Anfrage über die Website",
   title = "Kontakt aufnehmen",
-  description = "Schreiben Sie uns kurz – wir melden uns innerhalb von 1–2 Werktagen.",
+  description = "Kontaktieren Sie uns",
   defaultRole = "",
 }: ContactDialogProps) => {
   const [form, setForm] = useState({ name: "", email: "", company: "", role: defaultRole, phone: "", message: "" });
