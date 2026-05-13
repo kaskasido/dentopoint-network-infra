@@ -9,7 +9,7 @@ import Index from "./pages/Index";
 import Manufacturers from "./pages/Manufacturers";
 import Investors from "./pages/Investors";
 import Clinics from "./pages/Clinics";
-import Partners from "./pages/Partners";
+
 import Login from "./pages/Login";
 import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
