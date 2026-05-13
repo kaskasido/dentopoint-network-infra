@@ -68,17 +68,6 @@ const Navbar = () => {
       ],
     },
     {
-      label: t.nav.investors,
-      items: [
-        { label: t.nav.investorsItems.overview, href: "/investors" },
-        { label: t.nav.investorsItems.market, href: "/investors#markt" },
-        { label: t.nav.investorsItems.scaling, href: "/investors#skalierung" },
-        { label: t.nav.investorsItems.kpis, href: "/investors#kpis" },
-        { label: t.nav.investorsItems.expansion, href: "/investors#expansion" },
-        { label: t.nav.investorsItems.portal, href: "/login" },
-      ],
-    },
-    {
       label: t.nav.strategicPartners,
       items: [
         { label: t.nav.partnersItems.tech, href: "/partners#technology" },

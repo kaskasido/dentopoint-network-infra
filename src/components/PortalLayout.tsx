@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { LogOut, type LucideIcon, LayoutGrid, Factory, Building2, TrendingUp, Handshake, Shield } from "lucide-react";
+import { LogOut, type LucideIcon, LayoutGrid, Factory, Building2, Handshake, Shield } from "lucide-react";
 import logo from "@/assets/dentopoint-logo.png";
 
 interface NavItem {
@@ -28,7 +28,6 @@ const PortalLayout = ({ title, navItems, children }: PortalLayoutProps) => {
   const portalLinks = [
     { label: t.portal.switcher.manufacturer, href: "/portal/manufacturer", icon: Factory },
     { label: t.portal.switcher.clinic, href: "/portal/clinic", icon: Building2 },
-    { label: t.portal.switcher.investor, href: "/portal/investor", icon: TrendingUp },
     { label: t.portal.switcher.partner, href: "/portal/partner", icon: Handshake },
     { label: t.portal.switcher.admin, href: "/portal/admin", icon: Shield },
   ];

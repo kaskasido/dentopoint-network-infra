@@ -2,10 +2,9 @@ import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
 import {
-  Handshake, Factory, TrendingUp, Star, ChevronDown,
+  Handshake, Factory, Star, ChevronDown,
   Users, ClipboardList, Stethoscope, ShieldCheck,
   Package, Globe, Wrench, Award,
-  BarChart3, LineChart, PieChart, Rocket,
   Cpu, HeartPulse, GraduationCap, Building2,
 } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -50,18 +49,6 @@ const HeroSection = () => {
         { label: t.hero.items.dataStandards, href: "/manufacturers#data", icon: Globe },
         { label: t.hero.items.performanceMetrics, href: "/manufacturers#performance", icon: Wrench },
         { label: t.hero.items.distribution, href: "/manufacturers#distribution", icon: Award },
-      ],
-    },
-    {
-      label: t.hero.forInvestors,
-      href: "/investors",
-      icon: TrendingUp,
-      className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
-      items: [
-        { label: t.hero.items.marketOpportunity, href: "/investors#markt", icon: BarChart3 },
-        { label: t.hero.items.scalingRoadmap, href: "/investors#skalierung", icon: LineChart },
-        { label: t.hero.items.kpisMetrics, href: "/investors#kpis", icon: PieChart },
-        { label: t.hero.items.expansionPipeline, href: "/investors#expansion", icon: Rocket },
       ],
     },
     {

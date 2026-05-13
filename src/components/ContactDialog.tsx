@@ -145,7 +145,6 @@ const ContactDialog = ({
                     <SelectContent>
                       <SelectItem value="Klinik">Klinik</SelectItem>
                       <SelectItem value="Hersteller">Hersteller</SelectItem>
-                      <SelectItem value="Investor">Investor</SelectItem>
                       <SelectItem value="Partner">Partner</SelectItem>
                       <SelectItem value="Sonstiges">Sonstiges</SelectItem>
                     </SelectContent>

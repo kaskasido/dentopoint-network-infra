@@ -7,7 +7,6 @@ import { AuthProvider } from "@/hooks/useAuth";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 import Index from "./pages/Index";
 import Manufacturers from "./pages/Manufacturers";
-import Investors from "./pages/Investors";
 import Clinics from "./pages/Clinics";
 import Partners from "./pages/Partners";
 import Login from "./pages/Login";
@@ -19,7 +18,6 @@ import Unsubscribe from "./pages/Unsubscribe";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ManufacturerDashboard from "./pages/portal/ManufacturerDashboard";
 import ClinicPortal from "./pages/portal/ClinicPortal";
-import InvestorPortal from "./pages/portal/InvestorPortal";
 import PartnerPortal from "./pages/portal/PartnerPortal";
 import AdminPortal from "./pages/portal/AdminPortal";
 
@@ -36,7 +34,6 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/manufacturers" element={<Manufacturers />} />
-              <Route path="/investors" element={<Investors />} />
               <Route path="/clinics" element={<Clinics />} />
               <Route path="/partners" element={<Partners />} />
               <Route path="/login" element={<Login />} />
@@ -58,14 +55,6 @@ const App = () => (
                 element={
                   <ProtectedRoute requiredRole="clinic">
                     <ClinicPortal />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/portal/investor/*"
-                element={
-                  <ProtectedRoute requiredRole="investor">
-                    <InvestorPortal />
                   </ProtectedRoute>
                 }
               />
