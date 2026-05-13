@@ -8,6 +8,7 @@ export const ar = {
     login: "تسجيل الدخول",
     logout: "تسجيل الخروج",
     contact: "اتصل بنا",
+    backToHome: "العودة إلى الرئيسية",
     contactTitle: "اتصل بنا",
     contactDesc: "تواصل مع DentoPoint",
     email: "البريد الإلكتروني",

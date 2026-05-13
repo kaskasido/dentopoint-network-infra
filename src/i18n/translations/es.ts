@@ -7,6 +7,7 @@ export const es = {
     login: "Iniciar Sesión",
     logout: "Cerrar Sesión",
     contact: "Contacto",
+    backToHome: "Volver al inicio",
     contactTitle: "Contacto",
     contactDesc: "Contacta con DentoPoint",
     email: "E-Mail",

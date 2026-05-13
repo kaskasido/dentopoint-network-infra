@@ -7,6 +7,7 @@ export const ko = {
     login: "로그인",
     logout: "로그아웃",
     contact: "연락처",
+    backToHome: "홈으로 돌아가기",
     contactTitle: "연락처",
     contactDesc: "DentoPoint에 문의하세요",
     email: "이메일",

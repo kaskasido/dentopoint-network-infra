@@ -7,6 +7,7 @@ export const it = {
     login: "Accesso",
     logout: "Disconnetti",
     contact: "Contatto",
+    backToHome: "Torna alla home",
     contactTitle: "Contatto",
     contactDesc: "Contatta DentoPoint",
     email: "E-Mail",

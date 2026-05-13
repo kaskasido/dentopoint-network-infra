@@ -7,6 +7,7 @@ export const sr = {
     login: "Prijava",
     logout: "Odjava",
     contact: "Kontakt",
+    backToHome: "Nazad na početnu",
     contactTitle: "Kontakt",
     contactDesc: "Stupite u kontakt sa DentoPoint-om",
     email: "E-pošta",
