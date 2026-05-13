@@ -3,7 +3,8 @@ import Footer from "@/components/Footer";
 import ContactDialog from "@/components/ContactDialog";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { DollarSign, Settings, Workflow, ShieldCheck, CheckCircle, ArrowRight, TrendingUp, Clock, Users, FileCheck } from "lucide-react";
+import { DollarSign, Settings, Workflow, ShieldCheck, CheckCircle, ArrowRight, ArrowLeft, TrendingUp, Clock, Users, FileCheck } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useScrollToHash } from "@/hooks/useScrollToHash";
 
@@ -23,6 +24,9 @@ const Clinics = () => {
       <section className="pt-32 pb-20 bg-gradient-subtle">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-3xl">
+            <Link to="/" className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-6">
+              <ArrowLeft size={16} /> {t.nav.clinicsItems.overview ? "Zur Startseite" : "Zur Startseite"}
+            </Link>
             <p className="text-sm font-medium tracking-[0.2em] uppercase text-accent mb-4">{p.hero.label}</p>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
               {p.hero.title1}<br />{p.hero.title2}
