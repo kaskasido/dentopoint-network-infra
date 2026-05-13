@@ -246,7 +246,7 @@ export const de = {
   },
 
   manufacturersPage: {
-    hero: { label: "Für Hersteller", title1: "Integriert in das", title2: "Versorgungsnetzwerk", desc: "Verbinden Sie Ihre Produkte direkt mit dem therapeutischen Versorgungsökosystem. Von der Integration bis zum Vertrieb — alles über eine Plattform." },
+    hero: { label: "Für Hersteller", title1: "Integriert in das", title2: "Versorgungsnetzwerk", desc: "Verbinden Sie Ihre Produkte direkt mit dem direkten therapeutischen Versorgungssystem. Von der Integration bis zum Vertrieb — alles über eine Plattform." },
     integration: {
       label: "Integration", title: "Nahtlose Systemintegration",
       items: [
