@@ -341,7 +341,7 @@ export const de = {
       items: [
         { title: "PVS-Integration", desc: "Nahtlose Anbindung an alle führenden Praxisverwaltungssysteme über standardisierte APIs." },
         { title: "Cloud & Sicherheit", desc: "ISO 27001-zertifizierte Cloud-Infrastruktur mit Ende-zu-Ende-Verschlüsselung." },
-        { title: "IoT-Plattform", desc: "Smart Care Modul Hardware-Ökosystem mit Echtzeit-Datenverarbeitung." },
+        { title: "IoT-Plattform", desc: "Smart Care Modul Hardware-System mit Echtzeit-Datenverarbeitung." },
         { title: "Interoperabilität", desc: "HL7 FHIR- und GS1-konforme Datenstandards für maximale Kompatibilität." },
       ],
     },
