@@ -17,7 +17,7 @@ const Impressum = () => {
               DentoPoint GbR<br />
               vertreten durch die Gesellschafter:<br />
               Olga Henriette Seifert<br />
-              Michael Kasig<br />
+              Michael Kassig<br />
               Peter Corovic
             </p>
           </div>
