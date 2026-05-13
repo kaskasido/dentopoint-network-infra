@@ -2,11 +2,10 @@ import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
 import {
-  Handshake, Factory, TrendingUp, Star, ChevronDown,
+  Handshake, Factory, TrendingUp, ChevronDown,
   Users, ClipboardList, Stethoscope, ShieldCheck,
   Package, Globe, Wrench, Award,
   BarChart3, LineChart, PieChart, Rocket,
-  Cpu, HeartPulse, GraduationCap, Building2,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import NetworkAnimation from "./NetworkAnimation";
