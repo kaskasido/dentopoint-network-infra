@@ -29,6 +29,41 @@ const translationMap: Record<string, Translations> = {
   SR: sr as unknown as Translations,
 };
 
+// Map browser language / region codes to supported app languages
+const langMap: Record<string, Language> = {
+  de: "DE", en: "EN", nl: "NL", fr: "FR", it: "IT", es: "ES",
+  tr: "TR", sr: "SR", hr: "SR", bs: "SR", zh: "CN", ko: "KO", ar: "AR",
+};
+// Country (region) → language fallback when browser language isn't supported
+const countryMap: Record<string, Language> = {
+  DE: "DE", AT: "DE", CH: "DE", LI: "DE",
+  NL: "NL", BE: "NL",
+  FR: "FR", LU: "FR", MC: "FR",
+  IT: "IT", SM: "IT", VA: "IT",
+  ES: "ES", MX: "ES", AR: "ES", CO: "ES", CL: "ES", PE: "ES", VE: "ES",
+  TR: "TR", CY: "TR",
+  RS: "SR", ME: "SR", BA: "SR", HR: "SR",
+  CN: "CN", HK: "CN", TW: "CN", SG: "CN",
+  KR: "KO", KP: "KO",
+  SA: "AR", AE: "AR", EG: "AR", QA: "AR", KW: "AR", BH: "AR", OM: "AR", JO: "AR", LB: "AR", MA: "AR", TN: "AR", DZ: "AR", IQ: "AR", SY: "AR", YE: "AR", LY: "AR",
+};
+
+const detectBrowserLanguage = (): Language => {
+  if (typeof navigator === "undefined") return "DE";
+  const candidates = navigator.languages?.length ? navigator.languages : [navigator.language];
+  for (const raw of candidates) {
+    if (!raw) continue;
+    const [primary, region] = raw.toLowerCase().split("-");
+    const byLang = langMap[primary];
+    if (byLang) return byLang;
+    if (region) {
+      const byRegion = countryMap[region.toUpperCase()];
+      if (byRegion) return byRegion;
+    }
+  }
+  return "DE";
+};
+
 interface LanguageContextType {
   lang: Language;
   setLang: (lang: Language) => void;
