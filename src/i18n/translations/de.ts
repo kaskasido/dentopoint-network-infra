@@ -84,7 +84,7 @@ export const de = {
     smartCareDesc: "Präzisionsgefertigte In-Klinik-Einheiten, die Patienten mit kuratierten Nachsorgeprodukten verbinden — angetrieben durch digitale Mitgliedschaft, QR-Integration und kontaktloses Bezahlen. Im Einsatz in EU- und asiatischen Märkten.",
     whiteEdition: "White Edition",
     blackEdition: "Black Edition",
-    tags: ["Kontaktloses Bezahlen", "QR-Mitgliedschaft", "Klinik-Branding", "Echtzeit-Analytik", "Multi-Region"],
+    tags: ["Kontaktloses Bezahlen", "Klinik-Branding", "Echtzeit-Analytik", "Multi-Region"],
     features: [
       { title: "Smart Care Module", description: "Intelligente In-Klinik-Ausgabesysteme mit Echtzeitüberwachung und automatischer Nachbestellung." },
       { title: "Digitale Zahlungsintegration", description: "Nahtlose bargeldlose Transaktionen mit Multi-Währungs-Unterstützung in europäischen und asiatischen Märkten." },
