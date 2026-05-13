@@ -9,7 +9,7 @@ import Index from "./pages/Index";
 import Manufacturers from "./pages/Manufacturers";
 import Investors from "./pages/Investors";
 import Clinics from "./pages/Clinics";
-import Partners from "./pages/Partners";
+
 import Login from "./pages/Login";
 import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
@@ -38,7 +38,7 @@ const App = () => (
               <Route path="/manufacturers" element={<Manufacturers />} />
               <Route path="/investors" element={<Investors />} />
               <Route path="/clinics" element={<Clinics />} />
-              <Route path="/partners" element={<Partners />} />
+              
               <Route path="/login" element={<Login />} />
               <Route path="/impressum" element={<Impressum />} />
               <Route path="/datenschutz" element={<Datenschutz />} />
