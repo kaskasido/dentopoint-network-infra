@@ -7,7 +7,7 @@ import { DollarSign, Settings, Workflow, ShieldCheck, CheckCircle, ArrowRight, T
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useScrollToHash } from "@/hooks/useScrollToHash";
 
-const revenueIcons = [DollarSign, TrendingUp, Users, Clock];
+const revenueIcons = [DollarSign, Users, Clock];
 const complianceIcons = [ShieldCheck, FileCheck, ShieldCheck, FileCheck];
 
 const Clinics = () => {

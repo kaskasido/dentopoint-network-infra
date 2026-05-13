@@ -174,10 +174,8 @@ export const cn = {
       label: "收入", title: "新收入来源",
       items: [
         { title: "术后护理收入", desc: "通过为患者提供结构化的治疗护理计划产生经常性收入。" },
-        { title: "产品佣金", desc: "通过DentoPoint平台订购的推荐护理产品赚取佣金。" },
         { title: "患者留存", desc: "通过护理网络的持续互动提升患者终身价值。" },
-        { title: "节省时间", desc: "自动化术后护理调度和跟进将管理开销减少60%。" },
-      ],
+        { title: "节省时间", desc: "自动化术后护理调度和跟进将管理开销减少60%。" },],
     },
     implementation: {
       label: "实施", title: "快速简便设置",

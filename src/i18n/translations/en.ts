@@ -207,10 +207,8 @@ export const en = {
       label: "Revenue", title: "New Revenue Streams",
       items: [
         { title: "Aftercare Revenue", desc: "Generate recurring income through structured therapeutic care programs for your patients." },
-        { title: "Product Commissions", desc: "Earn commissions on recommended care products ordered through the DentoPoint platform." },
         { title: "Patient Retention", desc: "Increase patient lifetime value with continuous engagement through the care network." },
-        { title: "Time Savings", desc: "Automated aftercare scheduling and follow-ups reduce administrative overhead by 60%." },
-      ],
+        { title: "Time Savings", desc: "Automated aftercare scheduling and follow-ups reduce administrative overhead by 60%." },],
     },
     implementation: {
       label: "Implementation", title: "Quick & Easy Setup",

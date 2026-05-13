@@ -183,10 +183,8 @@ export const sr = {
       label: "Prihodi", title: "Novi tokovi prihoda",
       items: [
         { title: "Prihodi od nege", desc: "Generišite ponavljajuće prihode kroz strukturisane terapeutske programe nege." },
-        { title: "Provizije za proizvode", desc: "Zarađujte provizije na preporučene proizvode naručene preko DentoPoint platforme." },
         { title: "Zadržavanje pacijenata", desc: "Povećajte doživotnu vrednost pacijenata kroz kontinuirano angažovanje." },
-        { title: "Ušteda vremena", desc: "Automatizovano zakazivanje i praćenje smanjuje administrativne troškove za 60%." },
-      ],
+        { title: "Ušteda vremena", desc: "Automatizovano zakazivanje i praćenje smanjuje administrativne troškove za 60%." },],
     },
     implementation: {
       label: "Implementacija", title: "Brza i jednostavna instalacija",
