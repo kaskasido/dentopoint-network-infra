@@ -85,7 +85,6 @@ export const sr = {
     features: [
       { title: "Smart Care moduli", description: "Inteligentni klinički sistemi za izdavanje sa nadzorom u realnom vremenu i automatskim dopunjavanjem." },
       { title: "Integracija digitalnog plaćanja", description: "Bezgotovinsko plaćanje sa podrškom za više valuta na evropskim i azijskim tržištima." },
-      { title: "Ekosistem proizvođača", description: "Direktna integracija između sertifikovanih dentalnih proizvođača i infrastrukture mreže nege." },
       { title: "Podaci i analitika", description: "Uvidi u realnom vremenu o angažovanju u nezi, performansama proizvoda i korišćenju mreže." },
       { title: "Skalabilni model mreže", description: "Modularna arhitektura dizajnirana za brzo raspoređivanje po klinikama, regionima i međunarodnim tržištima." },
     ],

@@ -83,7 +83,6 @@ export const cn = {
     features: [
       { title: "Smart Care模块", description: "具有实时监控和自动补货的智能诊所内分配系统。" },
       { title: "数字支付集成", description: "在欧洲和亚洲市场支持多币种的无缝无现金交易。" },
-      { title: "制造商生态系统", description: "认证牙科制造商与护理网络基础设施之间的直接集成。" },
       { title: "数据与分析", description: "关于术后护理参与度、产品性能和网络利用率的实时洞察。" },
       { title: "可扩展网络模型", description: "为跨诊所、区域和国际市场快速部署而设计的模块化架构。" },
     ],
