@@ -249,6 +249,42 @@ const AdminUsers = () => {
           </DialogFooter>
         </DialogContent>
       </Dialog>
+
+      <Dialog open={adding} onOpenChange={setAdding}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Benutzer hinzufügen</DialogTitle>
+            <DialogDescription>Neuen Benutzer mit E-Mail, Passwort und optionaler Rolle anlegen.</DialogDescription>
+          </DialogHeader>
+          <div className="space-y-3">
+            <div className="space-y-2">
+              <Label htmlFor="new_email">E-Mail</Label>
+              <Input id="new_email" type="email" value={newEmail} onChange={(e) => setNewEmail(e.target.value)} />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="new_password">Passwort</Label>
+              <Input id="new_password" type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="new_name">Anzeigename (optional)</Label>
+              <Input id="new_name" value={newName} onChange={(e) => setNewName(e.target.value)} />
+            </div>
+            <div className="space-y-2">
+              <Label>Rolle (optional)</Label>
+              <Select value={newRole} onValueChange={(v) => setNewRole(v as UserRole["role"])}>
+                <SelectTrigger><SelectValue placeholder="Rolle wählen…" /></SelectTrigger>
+                <SelectContent>
+                  {ROLES.map((r) => (<SelectItem key={r} value={r}>{r}</SelectItem>))}
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setAdding(false)} disabled={creating}>Abbrechen</Button>
+            <Button onClick={handleCreateUser} disabled={creating}>{creating ? "Erstelle…" : "Erstellen"}</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
