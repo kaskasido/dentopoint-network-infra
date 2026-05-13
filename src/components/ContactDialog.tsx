@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Loader2, CheckCircle2, Mail, Copy } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface ContactDialogProps {
   open: boolean;
@@ -21,22 +22,25 @@ interface ContactDialogProps {
 
 const EMAIL = "info@dentopoint.care";
 
-const schema = z.object({
-  name: z.string().trim().min(2, "Bitte Namen angeben").max(120),
-  email: z.string().trim().email("Bitte gültige E-Mail angeben").max(255),
-  company: z.string().trim().max(200).optional().or(z.literal("")),
-  role: z.string().max(60).optional().or(z.literal("")),
-  phone: z.string().trim().max(60).optional().or(z.literal("")),
-  message: z.string().trim().min(10, "Bitte kurze Nachricht angeben (min. 10 Zeichen)").max(2000),
-});
-
 const ContactDialog = ({
   open, onOpenChange,
   subject = "Anfrage über die Website",
-  title = "Kontakt aufnehmen",
-  description = "Kontaktieren Sie uns",
+  title,
+  description,
   defaultRole = "",
 }: ContactDialogProps) => {
+  const { t } = useLanguage();
+  const c = t.contactDialog;
+
+  const schema = z.object({
+    name: z.string().trim().min(2, c.errName).max(120),
+    email: z.string().trim().email(c.errEmail).max(255),
+    company: z.string().trim().max(200).optional().or(z.literal("")),
+    role: z.string().max(60).optional().or(z.literal("")),
+    phone: z.string().trim().max(60).optional().or(z.literal("")),
+    message: z.string().trim().min(10, c.errMessage).max(2000),
+  });
+
   const [form, setForm] = useState({ name: "", email: "", company: "", role: defaultRole, phone: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
@@ -67,7 +71,6 @@ const ContactDialog = ({
     setSubmitting(true);
     try {
       const idempotencyKey = `contact-${crypto.randomUUID()}`;
-      // 1) Notify admin
       const adminRes = await supabase.functions.invoke("send-transactional-email", {
         body: {
           templateName: "contact-inquiry-admin",
@@ -76,7 +79,6 @@ const ContactDialog = ({
         },
       });
       if (adminRes.error) throw adminRes.error;
-      // 2) Confirm to sender
       await supabase.functions.invoke("send-transactional-email", {
         body: {
           templateName: "contact-inquiry-confirmation",
@@ -89,8 +91,8 @@ const ContactDialog = ({
     } catch (err) {
       console.error("Contact send failed", err);
       toast({
-        title: "Versand fehlgeschlagen",
-        description: "Bitte versuchen Sie es erneut oder schreiben Sie direkt an info@dentopoint.care.",
+        title: c.sendFailed,
+        description: c.sendFailedDesc,
         variant: "destructive",
       });
     } finally {
@@ -101,9 +103,9 @@ const ContactDialog = ({
   const copyEmail = async () => {
     try {
       await navigator.clipboard.writeText(EMAIL);
-      toast({ title: "E-Mail-Adresse kopiert", description: EMAIL });
+      toast({ title: c.copied, description: EMAIL });
     } catch {
-      toast({ title: "Kopieren fehlgeschlagen", variant: "destructive" });
+      toast({ title: c.copyFailed, variant: "destructive" });
     }
   };
 
@@ -113,58 +115,56 @@ const ContactDialog = ({
         {success ? (
           <div className="text-center py-6">
             <CheckCircle2 className="mx-auto mb-4 text-accent" size={48} />
-            <DialogTitle className="font-display text-xl mb-2">Vielen Dank!</DialogTitle>
-            <p className="text-sm text-muted-foreground mb-6">
-              Ihre Anfrage wurde an unser Team gesendet. Eine Bestätigung erhalten Sie in Kürze per E-Mail.
-            </p>
-            <Button onClick={() => handleClose(false)} className="bg-gradient-brand text-primary-foreground">Schließen</Button>
+            <DialogTitle className="font-display text-xl mb-2">{c.thanks}</DialogTitle>
+            <p className="text-sm text-muted-foreground mb-6">{c.thanksDesc}</p>
+            <Button onClick={() => handleClose(false)} className="bg-gradient-brand text-primary-foreground">{c.close}</Button>
           </div>
         ) : (
           <>
             <DialogHeader>
-              <DialogTitle className="font-display">{title}</DialogTitle>
-              <DialogDescription>{description}</DialogDescription>
+              <DialogTitle className="font-display">{title ?? c.defaultTitle}</DialogTitle>
+              <DialogDescription>{description ?? c.defaultDescription}</DialogDescription>
             </DialogHeader>
 
             <div className="grid gap-4 mt-2">
               <div className="grid sm:grid-cols-2 gap-4">
-                <Field label="Name *" error={errors.name}>
+                <Field label={c.name} error={errors.name}>
                   <Input value={form.name} onChange={(e) => update("name", e.target.value)} maxLength={120} />
                 </Field>
-                <Field label="E-Mail *" error={errors.email}>
+                <Field label={c.email} error={errors.email}>
                   <Input type="email" value={form.email} onChange={(e) => update("email", e.target.value)} maxLength={255} />
                 </Field>
               </div>
               <div className="grid sm:grid-cols-2 gap-4">
-                <Field label="Firma / Klinik" error={errors.company}>
+                <Field label={c.company} error={errors.company}>
                   <Input value={form.company} onChange={(e) => update("company", e.target.value)} maxLength={200} />
                 </Field>
-                <Field label="Rolle" error={errors.role}>
+                <Field label={c.role} error={errors.role}>
                   <Select value={form.role} onValueChange={(v) => update("role", v)}>
-                    <SelectTrigger><SelectValue placeholder="Bitte wählen" /></SelectTrigger>
+                    <SelectTrigger><SelectValue placeholder={c.rolePlaceholder} /></SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="Klinik">Klinik</SelectItem>
-                      <SelectItem value="Hersteller">Hersteller</SelectItem>
-                      <SelectItem value="Partner">Partner</SelectItem>
-                      <SelectItem value="Sonstiges">Sonstiges</SelectItem>
+                      <SelectItem value="Klinik">{c.roleClinic}</SelectItem>
+                      <SelectItem value="Hersteller">{c.roleManufacturer}</SelectItem>
+                      <SelectItem value="Partner">{c.rolePartner}</SelectItem>
+                      <SelectItem value="Sonstiges">{c.roleOther}</SelectItem>
                     </SelectContent>
                   </Select>
                 </Field>
               </div>
-              <Field label="Telefon (optional)" error={errors.phone}>
+              <Field label={c.phone} error={errors.phone}>
                 <Input value={form.phone} onChange={(e) => update("phone", e.target.value)} maxLength={60} />
               </Field>
-              <Field label="Nachricht *" error={errors.message}>
+              <Field label={c.message} error={errors.message}>
                 <Textarea rows={5} value={form.message} onChange={(e) => update("message", e.target.value)} maxLength={2000} />
               </Field>
 
               <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-3 pt-2">
                 <button type="button" onClick={copyEmail}
                   className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors">
-                  <Copy size={12} /> {EMAIL} kopieren
+                  <Copy size={12} /> {c.copyEmail.replace("{email}", EMAIL)}
                 </button>
                 <Button onClick={submit} disabled={submitting} className="bg-gradient-brand text-primary-foreground hover:opacity-90">
-                  {submitting ? <><Loader2 size={16} className="mr-2 animate-spin" /> Wird gesendet …</> : <><Mail size={16} className="mr-2" /> Anfrage senden</>}
+                  {submitting ? <><Loader2 size={16} className="mr-2 animate-spin" /> {c.sending}</> : <><Mail size={16} className="mr-2" /> {c.send}</>}
                 </Button>
               </div>
             </div>

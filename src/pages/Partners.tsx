@@ -159,7 +159,7 @@ const Partners = () => {
         </div>
       </section>
 
-      <ContactDialog open={contactOpen} onOpenChange={setContactOpen} subject="Partner werden" title="Partner werden" description="Kontaktieren Sie uns" defaultRole="Partner" />
+      <ContactDialog open={contactOpen} onOpenChange={setContactOpen} subject={t.contactDialog.partnerTitle} title={t.contactDialog.partnerTitle} description={t.contactDialog.defaultDescription} defaultRole="Partner" />
       <Footer />
     </div>
   );
