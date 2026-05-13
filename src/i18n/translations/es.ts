@@ -83,7 +83,6 @@ export const es = {
     features: [
       { title: "Módulos Smart Care", description: "Sistemas inteligentes de distribución en clínica con monitoreo en tiempo real y reabastecimiento automatizado." },
       { title: "Integración de Pago Digital", description: "Transacciones sin efectivo con soporte multi-divisa en mercados europeos y asiáticos." },
-      { title: "Ecosistema Fabricante", description: "Integración directa entre fabricantes dentales certificados y la infraestructura de la red de cuidado." },
       { title: "Datos & Analítica", description: "Información en tiempo real sobre el compromiso de cuidado, rendimiento de productos y utilización de la red." },
       { title: "Modelo de Red Escalable", description: "Arquitectura modular diseñada para un despliegue rápido a través de clínicas, regiones y mercados internacionales." },
     ],

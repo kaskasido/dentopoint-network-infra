@@ -83,7 +83,6 @@ export const fr = {
     features: [
       { title: "Modules Smart Care", description: "Systèmes intelligents de distribution en clinique avec surveillance en temps réel et réapprovisionnement automatisé." },
       { title: "Intégration Paiement Numérique", description: "Transactions sans espèces avec support multi-devises sur les marchés européens et asiatiques." },
-      { title: "Écosystème Fabricant", description: "Intégration directe entre fabricants dentaires certifiés et l'infrastructure du réseau de soins." },
       { title: "Données & Analytique", description: "Informations en temps réel sur l'engagement des soins, la performance des produits et l'utilisation du réseau." },
       { title: "Modèle Réseau Évolutif", description: "Architecture modulaire conçue pour un déploiement rapide à travers les cliniques, régions et marchés internationaux." },
     ],

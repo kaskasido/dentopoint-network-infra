@@ -88,7 +88,6 @@ export const de = {
     features: [
       { title: "Smart Care Module", description: "Intelligente In-Klinik-Ausgabesysteme mit Echtzeitüberwachung und automatischer Nachbestellung." },
       { title: "Digitale Zahlungsintegration", description: "Nahtlose bargeldlose Transaktionen mit Multi-Währungs-Unterstützung in europäischen und asiatischen Märkten." },
-      { title: "Hersteller-Ökosystem", description: "Direkte Integration zwischen zertifizierten Dentalherstellern und der Versorgungsnetzwerk-Infrastruktur." },
       { title: "Daten & Analytik", description: "Echtzeit-Einblicke in Nachsorge-Engagement, Produktleistung und Netzwerkauslastung." },
       { title: "Skalierbares Netzwerkmodell", description: "Modulare Architektur für schnelle Bereitstellung über Kliniken, Regionen und internationale Märkte." },
     ],

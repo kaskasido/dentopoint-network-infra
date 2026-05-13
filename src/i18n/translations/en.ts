@@ -88,7 +88,6 @@ export const en = {
     features: [
       { title: "Smart Care Modules", description: "Intelligent in-clinic dispensing systems with real-time monitoring and automated replenishment." },
       { title: "Digital Payment Integration", description: "Seamless cashless transactions with multi-currency support across European and Asian markets." },
-      { title: "Manufacturer Ecosystem", description: "Direct integration between certified dental manufacturers and the care network infrastructure." },
       { title: "Data & Analytics", description: "Real-time insights on aftercare engagement, product performance and network utilisation." },
       { title: "Scalable Network Model", description: "Modular architecture designed for rapid deployment across clinics, regions and international markets." },
     ],

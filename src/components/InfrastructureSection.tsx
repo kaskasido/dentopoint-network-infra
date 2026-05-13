@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { Cpu, CreditCard, Factory, BarChart3, Network } from "lucide-react";
+import { Cpu, CreditCard, BarChart3, Network } from "lucide-react";
 import smartCareModule from "@/assets/smart-care-module.png";
 import smartCareModuleChina from "@/assets/smart-care-module-china.png";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-const icons = [Cpu, CreditCard, Factory, BarChart3, Network];
+const icons = [Cpu, CreditCard, BarChart3, Network];
 
 const InfrastructureSection = () => {
   const { t } = useLanguage();

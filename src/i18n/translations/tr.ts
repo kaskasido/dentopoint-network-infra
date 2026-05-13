@@ -83,7 +83,6 @@ export const tr = {
     features: [
       { title: "Smart Care Modülleri", description: "Gerçek zamanlı izleme ve otomatik yenileme ile akıllı klinik içi dağıtım sistemleri." },
       { title: "Dijital Ödeme Entegrasyonu", description: "Avrupa ve Asya pazarlarında çoklu para birimi desteği ile sorunsuz nakitsiz işlemler." },
-      { title: "Üretici Ekosistemi", description: "Sertifikalı dental üreticiler ile bakım ağı altyapısı arasında doğrudan entegrasyon." },
       { title: "Veri ve Analitik", description: "Bakım sonrası katılım, ürün performansı ve ağ kullanımı hakkında gerçek zamanlı içgörüler." },
       { title: "Ölçeklenebilir Ağ Modeli", description: "Klinikler, bölgeler ve uluslararası pazarlarda hızlı dağıtım için modüler mimari." },
     ],

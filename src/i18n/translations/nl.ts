@@ -88,7 +88,6 @@ export const nl = {
     features: [
       { title: "Smart Care Modules", description: "Intelligente uitgiftesystemen in de kliniek met realtime monitoring en automatische aanvulling." },
       { title: "Digitale Betalingsintegratie", description: "Naadloze cashless transacties met multi-valuta ondersteuning in Europese en Aziatische markten." },
-      { title: "Fabrikanten Ecosysteem", description: "Directe integratie tussen gecertificeerde tandfabrikanten en de zorgnetwerkinfrastructuur." },
       { title: "Data & Analytics", description: "Realtime inzichten in nazorgbetrokkenheid, productprestaties en netwerkgebruik." },
       { title: "Schaalbaar Netwerkmodel", description: "Modulaire architectuur ontworpen voor snelle uitrol over klinieken, regio's en internationale markten." },
     ],
