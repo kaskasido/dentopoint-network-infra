@@ -27,7 +27,31 @@ function generateToken(): string {
 
 // Auth note: this function uses verify_jwt = true in config.toml, so Supabase's
 // gateway validates the caller's JWT (anon or service_role) before the request
-// reaches this code. No in-function auth check is needed.
+// reaches this code. We additionally enforce in-code restrictions for anon
+// callers to prevent abuse of the public contact form endpoint.
+
+// Templates that anonymous (public, unauthenticated) callers are allowed to
+// invoke. Any other template requires an authenticated user or service_role.
+const ANON_ALLOWED_TEMPLATES = new Set<string>([
+  'contact-inquiry-admin',
+  'contact-inquiry-confirmation',
+])
+
+// Max sends per recipient email per hour for anon callers (prevents inbox spam).
+const ANON_RECIPIENT_HOURLY_LIMIT = 3
+// Max total sends per template per hour for anon callers (global flood guard).
+const ANON_TEMPLATE_HOURLY_LIMIT = 60
+
+function decodeJwtRole(authHeader: string | null): string | null {
+  if (!authHeader?.startsWith('Bearer ')) return null
+  try {
+    const token = authHeader.slice(7)
+    const payload = JSON.parse(atob(token.split('.')[1]))
+    return typeof payload.role === 'string' ? payload.role : null
+  } catch {
+    return null
+  }
+}
 
 Deno.serve(async (req) => {
   // Handle CORS preflight
