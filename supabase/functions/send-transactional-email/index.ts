@@ -27,7 +27,31 @@ function generateToken(): string {
 
 // Auth note: this function uses verify_jwt = true in config.toml, so Supabase's
 // gateway validates the caller's JWT (anon or service_role) before the request
-// reaches this code. No in-function auth check is needed.
+// reaches this code. We additionally enforce in-code restrictions for anon
+// callers to prevent abuse of the public contact form endpoint.
+
+// Templates that anonymous (public, unauthenticated) callers are allowed to
+// invoke. Any other template requires an authenticated user or service_role.
+const ANON_ALLOWED_TEMPLATES = new Set<string>([
+  'contact-inquiry-admin',
+  'contact-inquiry-confirmation',
+])
+
+// Max sends per recipient email per hour for anon callers (prevents inbox spam).
+const ANON_RECIPIENT_HOURLY_LIMIT = 3
+// Max total sends per template per hour for anon callers (global flood guard).
+const ANON_TEMPLATE_HOURLY_LIMIT = 60
+
+function decodeJwtRole(authHeader: string | null): string | null {
+  if (!authHeader?.startsWith('Bearer ')) return null
+  try {
+    const token = authHeader.slice(7)
+    const payload = JSON.parse(atob(token.split('.')[1]))
+    return typeof payload.role === 'string' ? payload.role : null
+  } catch {
+    return null
+  }
+}
 
 Deno.serve(async (req) => {
   // Handle CORS preflight
@@ -119,6 +143,53 @@ Deno.serve(async (req) => {
 
   // Create Supabase client with service role (bypasses RLS)
   const supabase = createClient(supabaseUrl, supabaseServiceKey)
+
+  // 1b. Enforce anon-caller restrictions (abuse prevention).
+  // Anonymous (anon JWT) callers may only invoke an allow-listed set of
+  // templates and are rate-limited per recipient and per template to prevent
+  // attackers from flooding arbitrary inboxes with branded mail.
+  const callerRole = decodeJwtRole(req.headers.get('Authorization'))
+  const isAnon = callerRole === 'anon' || callerRole === null
+  if (isAnon) {
+    if (!ANON_ALLOWED_TEMPLATES.has(templateName)) {
+      console.warn('Anon caller blocked: template not allow-listed', { templateName })
+      return new Response(
+        JSON.stringify({ error: 'Forbidden' }),
+        { status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    const sinceIso = new Date(Date.now() - 60 * 60 * 1000).toISOString()
+
+    const { count: recipientCount } = await supabase
+      .from('email_send_log')
+      .select('id', { count: 'exact', head: true })
+      .eq('recipient_email', effectiveRecipient)
+      .gte('created_at', sinceIso)
+
+    if ((recipientCount ?? 0) >= ANON_RECIPIENT_HOURLY_LIMIT) {
+      console.warn('Anon recipient rate limit exceeded', { effectiveRecipient, recipientCount })
+      return new Response(
+        JSON.stringify({ error: 'Rate limit exceeded. Please try again later.' }),
+        { status: 429, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    const { count: templateCount } = await supabase
+      .from('email_send_log')
+      .select('id', { count: 'exact', head: true })
+      .eq('template_name', templateName)
+      .gte('created_at', sinceIso)
+
+    if ((templateCount ?? 0) >= ANON_TEMPLATE_HOURLY_LIMIT) {
+      console.warn('Anon template rate limit exceeded', { templateName, templateCount })
+      return new Response(
+        JSON.stringify({ error: 'Service temporarily unavailable. Please try again later.' }),
+        { status: 429, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+  }
+
 
   // 2. Check suppression list (fail-closed: if we can't verify, don't send)
   const { data: suppressed, error: suppressionError } = await supabase
