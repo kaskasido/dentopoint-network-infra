@@ -144,6 +144,53 @@ Deno.serve(async (req) => {
   // Create Supabase client with service role (bypasses RLS)
   const supabase = createClient(supabaseUrl, supabaseServiceKey)
 
+  // 1b. Enforce anon-caller restrictions (abuse prevention).
+  // Anonymous (anon JWT) callers may only invoke an allow-listed set of
+  // templates and are rate-limited per recipient and per template to prevent
+  // attackers from flooding arbitrary inboxes with branded mail.
+  const callerRole = decodeJwtRole(req.headers.get('Authorization'))
+  const isAnon = callerRole === 'anon' || callerRole === null
+  if (isAnon) {
+    if (!ANON_ALLOWED_TEMPLATES.has(templateName)) {
+      console.warn('Anon caller blocked: template not allow-listed', { templateName })
+      return new Response(
+        JSON.stringify({ error: 'Forbidden' }),
+        { status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    const sinceIso = new Date(Date.now() - 60 * 60 * 1000).toISOString()
+
+    const { count: recipientCount } = await supabase
+      .from('email_send_log')
+      .select('id', { count: 'exact', head: true })
+      .eq('recipient_email', effectiveRecipient)
+      .gte('created_at', sinceIso)
+
+    if ((recipientCount ?? 0) >= ANON_RECIPIENT_HOURLY_LIMIT) {
+      console.warn('Anon recipient rate limit exceeded', { effectiveRecipient, recipientCount })
+      return new Response(
+        JSON.stringify({ error: 'Rate limit exceeded. Please try again later.' }),
+        { status: 429, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    const { count: templateCount } = await supabase
+      .from('email_send_log')
+      .select('id', { count: 'exact', head: true })
+      .eq('template_name', templateName)
+      .gte('created_at', sinceIso)
+
+    if ((templateCount ?? 0) >= ANON_TEMPLATE_HOURLY_LIMIT) {
+      console.warn('Anon template rate limit exceeded', { templateName, templateCount })
+      return new Response(
+        JSON.stringify({ error: 'Service temporarily unavailable. Please try again later.' }),
+        { status: 429, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+  }
+
+
   // 2. Check suppression list (fail-closed: if we can't verify, don't send)
   const { data: suppressed, error: suppressionError } = await supabase
     .from('suppressed_emails')
