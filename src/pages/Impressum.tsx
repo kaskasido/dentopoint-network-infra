@@ -32,7 +32,7 @@ const Impressum = () => {
 
           <div>
             <p>
-              Telefon: +49 (0) XXX XXXXX<br />
+              Telefon: +49 173 5108172<br />
               E-Mail:{" "}
               <a
                 href="mailto:info@dentopoint.care"
@@ -51,13 +51,6 @@ const Impressum = () => {
               Olga Henriette Seifert<br />
               Anschrift wie oben
             </p>
-          </div>
-
-          <div>
-            <h2 className="font-display font-semibold text-foreground text-base mb-2">
-              Umsatzsteuer-ID
-            </h2>
-            <p>Wird nachgetragen.</p>
           </div>
         </section>
       </main>
