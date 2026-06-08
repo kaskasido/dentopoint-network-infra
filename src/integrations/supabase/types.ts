@@ -354,6 +354,7 @@ export type Database = {
           logo_url: string | null
           name: string
           notes: string | null
+          owner_user_id: string | null
           phone: string | null
           status: string
           updated_at: string
@@ -367,6 +368,7 @@ export type Database = {
           logo_url?: string | null
           name: string
           notes?: string | null
+          owner_user_id?: string | null
           phone?: string | null
           status?: string
           updated_at?: string
@@ -380,6 +382,7 @@ export type Database = {
           logo_url?: string | null
           name?: string
           notes?: string | null
+          owner_user_id?: string | null
           phone?: string | null
           status?: string
           updated_at?: string
