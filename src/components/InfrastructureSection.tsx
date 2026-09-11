@@ -1,16 +1,15 @@
 import { motion } from "framer-motion";
-import { Cpu, CreditCard, BarChart3, Network } from "lucide-react";
+import { Building2, CreditCard, PackageCheck, Stethoscope } from "lucide-react";
 import smartCareModule from "@/assets/smart-care-module.png";
-import smartCareModuleChina from "@/assets/smart-care-module-china.png";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-const icons = [Cpu, CreditCard, BarChart3, Network];
+const icons = [Building2, CreditCard, PackageCheck, Stethoscope];
 
 const InfrastructureSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="infrastructure" className="py-24 md:py-32 bg-gradient-subtle">
+    <section id="automat" className="py-24 md:py-32 bg-gradient-subtle">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -38,42 +37,40 @@ const InfrastructureSection = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
             <div className="flex justify-center">
               <div className="relative max-w-xs">
-                <img src={smartCareModule} alt="DentoPoint Smart Care Module – EU Edition" className="rounded-xl shadow-brand-lg" loading="lazy" />
+                <img
+                  src={smartCareModule}
+                  alt="DentoPoint Dental-Care-Automat"
+                  width={640}
+                  height={640}
+                  className="rounded-xl shadow-brand-lg"
+                  loading="lazy"
+                />
                 <div className="absolute -bottom-3 -right-3 bg-gradient-brand text-primary-foreground text-xs font-medium px-4 py-2 rounded-md">
-                  {t.infrastructure.whiteEdition}
+                  {t.infrastructure.whiteEdition} · {t.infrastructure.blackEdition}
                 </div>
               </div>
             </div>
-            <div className="flex justify-center">
-              <div className="relative max-w-xs">
-                <img src={smartCareModuleChina} alt="DentoPoint Smart Care Module – Black Edition" className="rounded-xl shadow-brand-lg" loading="lazy" />
-                <div className="absolute -bottom-3 -right-3 bg-gradient-brand text-primary-foreground text-xs font-medium px-4 py-2 rounded-md">
-                  {t.infrastructure.blackEdition}
-                </div>
+            <div className="max-w-xl">
+              <h3 className="font-display text-2xl font-bold text-foreground mb-4">
+                {t.infrastructure.smartCareTitle}
+              </h3>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                {t.infrastructure.smartCareDesc}
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {t.infrastructure.tags.map((tag) => (
+                  <span key={tag} className="px-4 py-2 rounded-md bg-secondary text-secondary-foreground text-xs font-medium border border-border">
+                    {tag}
+                  </span>
+                ))}
               </div>
-            </div>
-          </div>
-
-          <div className="text-center max-w-2xl mx-auto">
-            <h3 className="font-display text-2xl font-bold text-foreground mb-4">
-              {t.infrastructure.smartCareTitle}
-            </h3>
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              {t.infrastructure.smartCareDesc}
-            </p>
-            <div className="flex flex-wrap gap-3 justify-center">
-              {t.infrastructure.tags.map((tag) => (
-                <span key={tag} className="px-4 py-2 rounded-md bg-secondary text-secondary-foreground text-xs font-medium border border-border">
-                  {tag}
-                </span>
-              ))}
             </div>
           </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {t.infrastructure.features.map((feature, i) => {
-            const Icon = icons[i];
+            const Icon = icons[i] ?? Building2;
             return (
               <motion.div
                 key={i}
@@ -83,7 +80,7 @@ const InfrastructureSection = () => {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="group bg-card border border-border rounded-lg p-8 hover:shadow-brand transition-all duration-300"
               >
-                <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center mb-6 group-hover:bg-gradient-brand group-hover:text-primary-foreground transition-all duration-300">
+                <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center mb-6 group-hover:bg-gradient-brand transition-all duration-300">
                   <Icon size={22} className="text-primary group-hover:text-primary-foreground transition-colors" />
                 </div>
                 <h3 className="font-display font-semibold text-lg text-foreground mb-3">

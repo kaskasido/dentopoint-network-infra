@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Die Basis-URL ist ein Platzhalter. Vor dem Einreichen in der Search Console durch die endgueltige Domain ersetzen. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://DOMAIN-EINTRAGEN/</loc></url>
+  <url><loc>https://DOMAIN-EINTRAGEN/clinics</loc></url>
+  <url><loc>https://DOMAIN-EINTRAGEN/manufacturers</loc></url>
+  <url><loc>https://DOMAIN-EINTRAGEN/partners</loc></url>
+  <url><loc>https://DOMAIN-EINTRAGEN/impressum</loc></url>
+  <url><loc>https://DOMAIN-EINTRAGEN/datenschutz</loc></url>
+</urlset>

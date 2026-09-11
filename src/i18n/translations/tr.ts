@@ -194,7 +194,7 @@ export const tr = {
     ipNotice: "Fikri Mülkiyet Bildirimi",
     contactLabel: "İletişim",
     language: "Dil",
-    copyright: "© {year} DentoPoint® — Terapötik Bakım Ağı. Tüm hakları saklıdır.",
+    copyright: "© {year} DentoPoint — Terapötik Bakım Ağı. Tüm hakları saklıdır.",
     tagline: "Tıbbi Altyapı Ekosistemi · AB & Asya",
   },
 
