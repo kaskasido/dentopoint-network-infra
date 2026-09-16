@@ -16,7 +16,7 @@ Die Patientenseite „DentoPoint Connect" hat eine eigene Aufgabenliste im Lovab
 - [x] Datenschutz: Kontaktformular, Kartendarstellung (OpenStreetMap), Supabase-Backend ergänzt; „Investoren" entfernt
 - [x] ® aus allen Übersetzungsdateien entfernt (Markeneintragung abgelehnt)
 - [x] robots.txt mit Portal-Ausschlüssen, sitemap.xml angelegt
-- [ ] Lovable-Badge „Edit with Lovable" in den Veröffentlichungs-Einstellungen des Lovable-Projekts abschalten (geht nicht per Code)
+- [x] Lovable-Badge in den Projekteinstellungen abgeschaltet
 - [ ] Endgültige Domain dieser Seite festlegen und in sitemap.xml, robots.txt (Sitemap-Zeile) und als Canonical eintragen
 - [x] Geschäftsanschrift bestätigt: Clarenbachstraße 6 (laut Bescheid des Bundeszentralamts für Steuern und Bundesbank-Schreiben); Praxis mit dem Automaten ist Clarenbachstraße 2
 - [x] Schreibweise des Gesellschafters bestätigt: Kassig
