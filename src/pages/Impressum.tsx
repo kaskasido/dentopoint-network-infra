@@ -60,7 +60,7 @@ const Impressum = () => {
               Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
             </h2>
             <p>
-              Olga Henriette Seifert<br />
+              Olga Henriette Seifert, Michael Kassig, Peter Corovic<br />
               Anschrift wie oben
             </p>
           </div>
