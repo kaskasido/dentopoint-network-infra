@@ -1,0 +1,9 @@
+# Liefert die gebaute Webseite aus; alle Pfade (/clinics, /impressum, /portal/…) landen bei index.html, die App übernimmt die Navigation.
+:80 {
+    root * /srv
+    encode gzip
+    @assets path /assets/*
+    header @assets Cache-Control "public, max-age=31536000, immutable"
+    try_files {path} /index.html
+    file_server
+}
