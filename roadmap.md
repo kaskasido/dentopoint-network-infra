@@ -5,7 +5,7 @@
 - [ ] Falls noch nicht verbunden: GitHub-Verbindung durch den Nutzer erforderlich.
 
 ## Sofort
-- [ ] "PILOT PARTNER" -> "UNSERE PARTNER" (Stelle noch identifizieren)
+- [x] "PILOT PARTNER" -> "UNSERE PARTNER": nicht auf der Website vorhanden (wahrscheinlich Automaten-Display, zhongdacloud-Inhalt)
 - [ ] App-Erwähnungen entfernen/als "geplant" kennzeichnen, bis App verfügbar
 - [ ] Deutschland als aktueller Markt klarstellen
 - [ ] "Asien"/EU↔Asia-Inhalte entfernen (Texte, Roadmap-Phase, Karten-Hinweise)
