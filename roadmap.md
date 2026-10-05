@@ -1,5 +1,9 @@
 # Roadmap – Website-Überarbeitung (Markus-Feedback)
 
+## GitHub
+- [x] Automatische Synchronisierung erklärt; externe GitHub-Verbindung hier nicht bestätigt.
+- [ ] Falls noch nicht verbunden: GitHub-Verbindung durch den Nutzer erforderlich.
+
 ## Sofort
 - [ ] "PILOT PARTNER" -> "UNSERE PARTNER" (Stelle noch identifizieren)
 - [ ] App-Erwähnungen entfernen/als "geplant" kennzeichnen, bis App verfügbar
