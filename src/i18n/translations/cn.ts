@@ -194,7 +194,7 @@ export const cn = {
     ipNotice: "知识产权声明",
     contactLabel: "联系我们",
     language: "语言",
-    copyright: "© {year} DentoPoint — 治疗护理网络。保留所有权利。",
+    copyright: "© {year} DentoPoint® — 治疗护理网络。保留所有权利。",
     tagline: "医疗基础设施生态系统 · 欧盟与亚洲",
   },
 

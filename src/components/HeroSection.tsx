@@ -1,17 +1,73 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Factory, Handshake, MessageSquare } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import {
+  Handshake, Factory, Star, ChevronDown,
+  Users, ClipboardList, Stethoscope, ShieldCheck,
+  Package, Globe, Wrench, Award,
+  Cpu, HeartPulse, GraduationCap, Building2,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import NetworkAnimation from "./NetworkAnimation";
-import ContactDialog from "./ContactDialog";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const HeroSection = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
-  const [contactOpen, setContactOpen] = useState(false);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setOpenIndex(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const heroButtons = [
+    {
+      label: t.hero.forClinics,
+      href: "/clinics",
+      icon: Handshake,
+      className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
+      items: [
+        { label: t.hero.items.revenueStreams, href: "/clinics#revenue", icon: Users },
+        { label: t.hero.items.implementation, href: "/clinics#implementation", icon: ClipboardList },
+        { label: t.hero.items.clinicWorkflow, href: "/clinics#workflow", icon: Stethoscope },
+        { label: t.hero.items.compliance, href: "/clinics#compliance", icon: ShieldCheck },
+      ],
+    },
+    {
+      label: t.hero.forManufacturers,
+      href: "/manufacturers",
+      icon: Factory,
+      className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
+      items: [
+        { label: t.hero.items.systemIntegration, href: "/manufacturers#integration", icon: Package },
+        { label: t.hero.items.dataStandards, href: "/manufacturers#data", icon: Globe },
+        { label: t.hero.items.performanceMetrics, href: "/manufacturers#performance", icon: Wrench },
+        { label: t.hero.items.distribution, href: "/manufacturers#distribution", icon: Award },
+      ],
+    },
+    {
+      label: t.hero.strategicPartners,
+      href: "/partners",
+      icon: Star,
+      className: "bg-gradient-brand text-primary-foreground hover:opacity-90",
+      items: [
+        { label: t.hero.items.technologyPartners, href: "/partners#technology", icon: Cpu },
+        { label: t.hero.items.healthcareNetworks, href: "/partners#healthcare", icon: HeartPulse },
+        { label: t.hero.items.academicPartners, href: "/partners#academic", icon: GraduationCap },
+        { label: t.hero.items.industryAlliances, href: "/partners#industry", icon: Building2 },
+        { label: t.hero.items.globalExpansion, href: "/partners#global", icon: Globe },
+      ],
+    },
+  ];
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center bg-background pt-16">
+    <section className="relative min-h-screen flex items-center justify-center bg-background pt-16">
       <NetworkAnimation />
 
       <div
@@ -23,72 +79,87 @@ const HeroSection = () => {
         }}
       />
 
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-6 py-16">
+      <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <p className="text-sm font-medium tracking-[0.3em] uppercase text-accent mb-6">
-            {t.hero.kicker}
+            {t.hero.tagline}
           </p>
 
-          <p className="font-display font-bold text-4xl md:text-6xl tracking-tight text-foreground mb-4">
+          <h1 className="font-display font-bold text-5xl md:text-7xl lg:text-8xl tracking-tight text-foreground mb-4">
             Dento<span className="text-gradient-brand">Point</span>
-          </p>
-
-          <h1 className="font-display text-2xl md:text-4xl font-bold text-foreground mb-6 leading-tight">
-            {t.hero.title}
           </h1>
+
+          <p className="font-display text-lg md:text-xl font-medium text-muted-foreground mb-4">
+            {t.hero.subtitle}
+          </p>
 
           <div className="w-16 h-px bg-gradient-brand mx-auto my-8" />
 
-          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed">
-            {t.hero.subtitle}
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
+            {t.hero.description}
           </p>
-          <p className="text-sm text-muted-foreground mb-12">{t.hero.marketNote}</p>
         </motion.div>
 
         <motion.div
+          ref={containerRef}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap"
+          className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap"
         >
-          <Link
-            to="/clinics"
-            className="inline-flex items-center gap-2 bg-gradient-brand text-primary-foreground px-8 py-3.5 rounded-md text-sm font-medium hover:opacity-90 transition-opacity"
-          >
-            <Handshake size={18} />
-            {t.hero.ctaClinics}
-            <ArrowRight size={16} />
-          </Link>
-          <button
-            type="button"
-            onClick={() => setContactOpen(true)}
-            className="inline-flex items-center gap-2 border border-primary/40 text-primary px-8 py-3.5 rounded-md text-sm font-medium hover:bg-primary/10 transition-colors"
-          >
-            <MessageSquare size={18} />
-            {t.hero.ctaConsult}
-          </button>
-          <Link
-            to="/manufacturers"
-            className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors px-4 py-3.5"
-          >
-            <Factory size={16} />
-            {t.hero.ctaManufacturers}
-          </Link>
+          {heroButtons.map((btn, idx) => (
+            <div key={idx} className="relative">
+              <div
+                className={`inline-flex items-stretch rounded-md font-medium text-sm transition-all overflow-hidden ${btn.className}`}
+              >
+                <Link
+                  to={btn.href}
+                  className="inline-flex items-center gap-2 pl-8 pr-4 py-3.5 hover:bg-black/5"
+                >
+                  <btn.icon size={18} />
+                  {btn.label}
+                </Link>
+                <button
+                  type="button"
+                  aria-label="Untermenü öffnen"
+                  onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+                  className="inline-flex items-center px-3 border-l border-white/20 hover:bg-black/10"
+                >
+                  <ChevronDown
+                    size={14}
+                    className={`transition-transform duration-200 ${openIndex === idx ? "rotate-180" : ""}`}
+                  />
+                </button>
+              </div>
+
+              {openIndex === idx && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute left-1/2 -translate-x-1/2 mt-2 w-56 rounded-lg border border-border bg-card shadow-lg overflow-hidden z-50"
+                >
+                  {btn.items.map((item) => (
+                    <Link
+                      key={item.href}
+                      to={item.href}
+                      onClick={() => setOpenIndex(null)}
+                      className="flex items-center gap-3 px-4 py-3 text-sm text-muted-foreground hover:bg-accent/10 hover:text-accent transition-colors"
+                    >
+                      <item.icon size={16} />
+                      {item.label}
+                    </Link>
+                  ))}
+                </motion.div>
+              )}
+            </div>
+          ))}
         </motion.div>
       </div>
-
-      <ContactDialog
-        open={contactOpen}
-        onOpenChange={setContactOpen}
-        subject={t.contactDialog.demoTitle}
-        title={t.hero.ctaConsult}
-        description={t.nav.contactDesc}
-        defaultRole="Klinik"
-      />
 
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </section>

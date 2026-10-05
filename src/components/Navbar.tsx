@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Menu, X, Globe, ChevronDown, LogOut } from "lucide-react";
+import { Menu, X, Globe, ChevronDown, Mail, MapPin, LogOut } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import logo from "@/assets/dentopoint-logo.png";
-import { useLanguage, SUPPORTED_LANGUAGES } from "@/i18n/LanguageContext";
+import { useLanguage, Language } from "@/i18n/LanguageContext";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,6 +11,20 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import ContactDialog from "@/components/ContactDialog";
+
+const languages: { code: Language; label: string }[] = [
+  { code: "DE", label: "Deutsch" },
+  { code: "EN", label: "English" },
+  { code: "NL", label: "Nederlands" },
+  { code: "FR", label: "Français" },
+  { code: "IT", label: "Italiano" },
+  { code: "ES", label: "Español" },
+  { code: "TR", label: "Türkçe" },
+  { code: "SR", label: "Srpski" },
+  { code: "CN", label: "中文" },
+  { code: "KO", label: "한국어" },
+  { code: "AR", label: "العربية" },
+];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +47,7 @@ const Navbar = () => {
         { label: t.nav.clinicsItems.implementation, href: "/clinics#implementation" },
         { label: t.nav.clinicsItems.workflow, href: "/clinics#workflow" },
         { label: t.nav.clinicsItems.compliance, href: "/clinics#compliance" },
-        { label: t.faq.label, href: "/#faq" },
+        { label: t.nav.clinicsItems.portal, href: "/login" },
       ],
     },
     {
@@ -44,6 +58,7 @@ const Navbar = () => {
         { label: t.nav.manufacturersItems.data, href: "/manufacturers#data" },
         { label: t.nav.manufacturersItems.performance, href: "/manufacturers#performance" },
         { label: t.nav.manufacturersItems.distribution, href: "/manufacturers#distribution" },
+        { label: t.nav.manufacturersItems.portal, href: "/login" },
       ],
     },
     {
@@ -54,6 +69,7 @@ const Navbar = () => {
         { label: t.nav.partnersItems.academic, href: "/partners#academic" },
         { label: t.nav.partnersItems.industry, href: "/partners#industry" },
         { label: t.nav.partnersItems.global, href: "/partners#global" },
+        { label: t.nav.partnersItems.portal, href: "/login" },
       ],
     },
   ];
@@ -62,7 +78,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex items-center justify-between h-16 px-6">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="DentoPoint" width={44} height={44} className="h-11 w-11" />
+          <img src={logo} alt="DentoPoint" className="h-11 w-11" />
           <div className="leading-none">
             <span className="font-display font-bold text-lg tracking-tight text-foreground">
               Dento<span className="text-accent">Point</span>
@@ -95,7 +111,7 @@ const Navbar = () => {
               {lang}
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="bg-popover">
-              {SUPPORTED_LANGUAGES.map((l) => (
+              {languages.map((l) => (
                 <DropdownMenuItem
                   key={l.code}
                   onClick={() => setLang(l.code)}
@@ -160,7 +176,6 @@ const Navbar = () => {
         {/* Mobile toggle */}
         <button
           className="lg:hidden text-foreground"
-          aria-label="Menü"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -194,15 +209,6 @@ const Navbar = () => {
               Admin Dashboard
             </Link>
           )}
-          {!user && (
-            <Link
-              to="/login"
-              onClick={() => setIsOpen(false)}
-              className="block w-full mt-3 text-center px-5 py-2.5 rounded-md border border-border text-sm font-medium text-muted-foreground"
-            >
-              {t.nav.login}
-            </Link>
-          )}
           <button
             className="block w-full mt-4 bg-gradient-brand text-primary-foreground px-5 py-2.5 rounded-md text-sm font-medium text-center"
             onClick={() => { setIsOpen(false); setContactOpen(true); }}
@@ -210,7 +216,7 @@ const Navbar = () => {
             {t.nav.contact}
           </button>
           <div className="flex gap-2 mt-4">
-            {SUPPORTED_LANGUAGES.map((l) => (
+            {languages.map((l) => (
               <button
                 key={l.code}
                 onClick={() => setLang(l.code)}

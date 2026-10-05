@@ -1,16 +1,14 @@
 import { motion } from "framer-motion";
-import { Building, Factory } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Building, Network, Globe } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-const icons = [Building, Factory];
-const links = ["/clinics", "/manufacturers"];
+const icons = [Building, Network, Globe];
 
 const PartnersSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="partner" className="py-24 md:py-32 bg-background">
+    <section id="clinics" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -29,8 +27,8 @@ const PartnersSection = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6 mb-16">
-          {t.partnersSection.types.map((partner, i) => {
-            const Icon = icons[i] ?? Building;
+          {t.partnersSection.types.filter((_, i) => i !== 2).map((partner, i) => {
+            const Icon = icons[i];
             return (
               <motion.div
                 key={i}
@@ -38,15 +36,11 @@ const PartnersSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
+                className="border border-border rounded-lg p-8 bg-card hover:shadow-brand transition-all duration-300"
               >
-                <Link
-                  to={links[i] ?? "/"}
-                  className="block h-full border border-border rounded-lg p-8 bg-card hover:shadow-brand transition-all duration-300"
-                >
-                  <Icon size={24} className="text-accent mb-4" />
-                  <h3 className="font-display font-semibold text-lg text-foreground mb-3">{partner.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{partner.desc}</p>
-                </Link>
+                <Icon size={24} className="text-accent mb-4" />
+                <h3 className="font-display font-semibold text-lg text-foreground mb-3">{partner.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{partner.desc}</p>
               </motion.div>
             );
           })}

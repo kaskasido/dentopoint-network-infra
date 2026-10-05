@@ -213,7 +213,7 @@ export const nl = {
     ipNotice: "IP-Kennisgeving",
     contactLabel: "Contact",
     language: "Taal",
-    copyright: "© {year} DentoPoint — Therapeutisch Zorgnetwerk. Alle rechten voorbehouden.",
+    copyright: "© {year} DentoPoint® — Therapeutisch Zorgnetwerk. Alle rechten voorbehouden.",
     tagline: "Medische Infrastructuur Ecosysteem · EU & Azië",
   },
 

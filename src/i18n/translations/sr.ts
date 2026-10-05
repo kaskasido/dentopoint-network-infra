@@ -203,7 +203,7 @@ export const sr = {
     ipNotice: "Obaveštenje o intelektualnoj svojini",
     contactLabel: "Kontakt",
     language: "Jezik",
-    copyright: "© {year} DentoPoint — Terapeutska mreža nege. Sva prava zadržana.",
+    copyright: "© {year} DentoPoint® — Terapeutska mreža nege. Sva prava zadržana.",
     tagline: "Ekosistem medicinske infrastrukture · EU i Azija",
   },
 
