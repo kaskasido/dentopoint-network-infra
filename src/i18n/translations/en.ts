@@ -753,4 +753,14 @@ export const en = {
       { title: "More locations", desc: "Further partner practices in Germany.", state: "planned" },
     ],
   },
+  seo: {
+    home: { title: "DentoPoint – The dental care vending machine for dental practices", desc: "DentoPoint places dental care vending machines in dental practices. Patients buy the oral care products their dentist recommends, with no sales effort for the practice team. Starting with first partner practices in Germany." },
+    clinics: { title: "Dental care vending machine for your practice | DentoPoint", desc: "Recommended oral care products right in the practice: no selling, no billing, no extra work for the team. Process, benefits and data protection for dental practices." },
+    manufacturers: { title: "For manufacturers: your products in the dental practice | DentoPoint", desc: "Oral care products and supplements that dentists recommend, sold in the dental care vending machines of our partner practices. How your products get into the range." },
+    partners: { title: "Become a partner | DentoPoint from Cologne", desc: "DentoPoint is a young company from Cologne. We are looking for dental practices, manufacturers, technology and training partners for the dental care vending machine." },
+    impressum: { title: "Legal notice | DentoPoint GbR", desc: "Legal notice of DentoPoint GbR, Clarenbachstraße 6, 50931 Cologne, Germany." },
+    privacy: { title: "Privacy policy | DentoPoint", desc: "How DentoPoint GbR processes personal data on this website." },
+    login: { title: "Sign in | DentoPoint" },
+    notFound: { title: "Page not found | DentoPoint" },
+  },
 };

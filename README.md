@@ -17,6 +17,8 @@ Danach in Cloudflare Zero Trust beim Tunnel `dentopoint-server` eine Route ergä
 
 Aktualisieren: `sh server/update-netzwerk.sh` (holt den neuesten Stand und baut nur bei Änderungen neu). Das nächtliche Update der Anzeige um 04:15 ruft dieses Skript mit auf.
 
+Suchmaschinen: Beim Bauen rendert `scripts/prerender.mjs` jede öffentliche Seite (Liste `ROUTES`, dieselbe wie in `public/sitemap.xml`) in einem Chromium vor und legt sie als fertige HTML-Datei ab (`/clinics/index.html` usw.). Alle anderen Pfade bekommen die App-Hülle `spa.html`. Der erste Bau lädt dafür das Playwright-Abbild (rund 2 GB). Titel und Beschreibung je Seite stehen in den Übersetzungen unter `seo`, gesetzt über `usePageSeo` aus `src/lib/seo.ts`. Neue öffentliche Seite: dort einen Eintrag ergänzen, `usePageSeo` aufrufen und den Pfad in `ROUTES` und `sitemap.xml` eintragen.
+
 Stand der Datenbank: Die Seite nutzt noch die Lovable-Datenbank (`.env`). Der Wechsel auf die eigene Supabase unter db.dentopoint.com ist Lektion 7c.
 
 ## Lovable

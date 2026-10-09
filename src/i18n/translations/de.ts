@@ -718,4 +718,14 @@ export const de = {
       { title: "Weitere Standorte", desc: "Weitere Partnerpraxen in Deutschland.", state: "planned" },
     ],
   },
+  seo: {
+    home: { title: "DentoPoint – Der Dental-Care-Automat für Zahnarztpraxen", desc: "DentoPoint stellt Dental-Care-Automaten in Zahnarztpraxen auf. Patienten kaufen dort die Mundpflegeprodukte, die ihr Zahnarzt empfiehlt. Ohne Verkaufsaufwand für das Praxisteam. Start mit ersten Partnerpraxen in Deutschland." },
+    clinics: { title: "Dental-Care-Automat für Ihre Zahnarztpraxis | DentoPoint", desc: "Empfohlene Mundpflegeprodukte direkt in der Praxis: kein Verkauf, keine Abrechnung, kein Mehraufwand für das Team. Ablauf, Vorteile und Datenschutz für Zahnarztpraxen." },
+    manufacturers: { title: "Für Hersteller: Produkte direkt in der Zahnarztpraxis | DentoPoint", desc: "Mundpflegeprodukte und Nahrungsergänzungsmittel, die Zahnärzte empfehlen, im Dental-Care-Automaten der Partnerpraxen. So kommen Ihre Produkte ins Sortiment." },
+    partners: { title: "Partner werden | DentoPoint aus Köln", desc: "DentoPoint ist ein junges Unternehmen aus Köln. Wir suchen Zahnarztpraxen, Hersteller, Technik- und Fortbildungspartner für den Dental-Care-Automaten." },
+    impressum: { title: "Impressum | DentoPoint GbR", desc: "Impressum der DentoPoint GbR, Clarenbachstraße 6, 50931 Köln." },
+    privacy: { title: "Datenschutzerklärung | DentoPoint", desc: "Wie die DentoPoint GbR personenbezogene Daten auf dieser Website verarbeitet." },
+    login: { title: "Anmelden | DentoPoint" },
+    notFound: { title: "Seite nicht gefunden | DentoPoint" },
+  },
 };

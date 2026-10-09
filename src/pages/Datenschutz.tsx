@@ -1,8 +1,10 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { usePageSeo } from "@/lib/seo";
 
 const Datenschutz = () => {
+  usePageSeo("privacy", "/datenschutz");
   const { t } = useLanguage();
   const p = (t as any).privacy;
 

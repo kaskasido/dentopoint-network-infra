@@ -5,5 +5,4 @@ Disallow: /login
 Disallow: /reset-password
 Disallow: /unsubscribe
 
-# Sitemap: https://<produktive-domain>/sitemap.xml
-# Die Sitemap-Zeile mit der endgueltigen Domain aktivieren, sobald die Domain feststeht.
+Sitemap: https://dentopoint.care/sitemap.xml

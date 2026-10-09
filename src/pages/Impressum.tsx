@@ -1,7 +1,9 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { usePageSeo } from "@/lib/seo";
 
 const Impressum = () => {
+  usePageSeo("impressum", "/impressum");
   return (
     <div className="min-h-screen bg-background">
       <Navbar />

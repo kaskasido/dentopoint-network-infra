@@ -1,6 +1,6 @@
 # Roadmap – Website-Überarbeitung (Markus-Feedback)
 
-Stand: 11.09.2026. Diese Datei betrifft die B2B-Website „DentoPoint Network" (dieses Repository).
+Stand: 09.10.2026. Diese Datei betrifft die B2B-Website „DentoPoint Network" (dieses Repository).
 Die Patientenseite „DentoPoint Connect" hat eine eigene Aufgabenliste im Lovable-Projekt.
 
 ## Sofort
@@ -17,7 +17,7 @@ Die Patientenseite „DentoPoint Connect" hat eine eigene Aufgabenliste im Lovab
 - [x] ® aus allen Übersetzungsdateien entfernt (Markeneintragung abgelehnt)
 - [x] robots.txt mit Portal-Ausschlüssen, sitemap.xml angelegt
 - [x] Lovable-Badge in den Projekteinstellungen abgeschaltet
-- [ ] Endgültige Domain dieser Seite festlegen und in sitemap.xml, robots.txt (Sitemap-Zeile) und als Canonical eintragen
+- [x] Domain dentopoint.care in sitemap.xml, robots.txt (Sitemap-Zeile) und als Canonical je Seite eingetragen (09.10.2026)
 - [x] Geschäftsanschrift bestätigt: Clarenbachstraße 6 (laut Bescheid des Bundeszentralamts für Steuern und Bundesbank-Schreiben); Praxis mit dem Automaten ist Clarenbachstraße 2
 - [x] Schreibweise des Gesellschafters bestätigt: Kassig
 - [x] USt-IdNr. DE459232045 im Impressum eingetragen (gültig ab 03.08.2026)
@@ -28,7 +28,7 @@ Die Patientenseite „DentoPoint Connect" hat eine eigene Aufgabenliste im Lovab
 - [ ] Eigene Seiten mit deutschen URLs: /dental-care-automat, /fuer-zahnarztpraxen, /fuer-hersteller, /so-funktionierts, /produkte, /pilotprojekte, /ueber-dentopoint, /faq, /kontakt (aktuell: /clinics, /manufacturers, /partners)
 - [ ] Pilotprojekt Köln ausführlich darstellen (Ablauf, Erfahrungen, Zitat der Praxis)
 - [ ] Search Console einrichten, Sitemap einreichen
-- [ ] Statisches Pre-Rendering oder SSR prüfen (Seite ist eine JavaScript-Einzelseite)
+- [x] Vorrendern beim Bauen auf dem eigenen Server (scripts/prerender.mjs), eigener Titel und Beschreibung je Seite, FAQ als strukturierte Daten (09.10.2026); wirkt für dentopoint.care, sobald die Domain auf den eigenen Server zeigt (Lektion 7e)
 - [ ] Ratgeberbereich (später)
 
 ## Automat (Kiosk-App)

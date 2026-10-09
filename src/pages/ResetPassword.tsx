@@ -3,8 +3,10 @@ import { supabase } from "@/integrations/supabase/client";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "@/assets/dentopoint-logo.png";
 import { Lock, Eye, EyeOff, CheckCircle } from "lucide-react";
+import { usePageSeo } from "@/lib/seo";
 
 const ResetPassword = () => {
+  usePageSeo("login", undefined, { noindex: true });
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);

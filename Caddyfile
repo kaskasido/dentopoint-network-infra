@@ -1,4 +1,4 @@
-# Liefert die gebaute Webseite aus; alle Pfade (/clinics, /impressum, /portal/…) landen bei index.html, die App übernimmt die Navigation.
+# Liefert die gebaute Webseite aus; die App übernimmt die Navigation.
 :80 {
     root * /srv
     encode gzip
@@ -13,6 +13,7 @@
     }
     @assets path /assets/*
     header @assets Cache-Control "public, max-age=31536000, immutable"
-    try_files {path} /index.html
+    # Vorgerenderte Seiten liegen als /clinics/index.html usw.; alles andere (Portal, Login) bekommt die App-Hülle spa.html
+    try_files {path} {path}/index.html /spa.html
     file_server
 }

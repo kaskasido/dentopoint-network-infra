@@ -26,6 +26,8 @@ const isSupported = (value: string | null): value is Language =>
 
 const detectBrowserLanguage = (): Language => {
   if (typeof navigator === "undefined") return "DE";
+  // Suchmaschinen melden sich meist mit englischer Browsersprache; sie sollen die deutsche Fassung aufnehmen
+  if (/bot|crawl|spider|slurp|lighthouse|headless/i.test(navigator.userAgent)) return "DE";
   const candidates = navigator.languages?.length ? navigator.languages : [navigator.language];
   for (const raw of candidates) {
     if (!raw) continue;

@@ -7,11 +7,13 @@ import { DollarSign, Settings, Workflow, ShieldCheck, CheckCircle, ArrowRight, A
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useScrollToHash } from "@/hooks/useScrollToHash";
+import { usePageSeo } from "@/lib/seo";
 
 const revenueIcons = [DollarSign, Users, Clock];
 const complianceIcons = [ShieldCheck, FileCheck, ShieldCheck, FileCheck];
 
 const Clinics = () => {
+  usePageSeo("clinics", "/clinics");
   useScrollToHash();
   const { t } = useLanguage();
   const p = t.clinicsPage;

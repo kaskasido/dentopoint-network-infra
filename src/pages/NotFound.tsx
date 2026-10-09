@@ -1,8 +1,10 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { usePageSeo } from "@/lib/seo";
 
 const NotFound = () => {
+  usePageSeo("notFound", undefined, { noindex: true });
   const location = useLocation();
   const { t } = useLanguage();
   const p = t.notFoundPage;

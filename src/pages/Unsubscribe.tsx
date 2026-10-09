@@ -4,10 +4,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Loader2, CheckCircle2, XCircle } from "lucide-react";
+import { usePageSeo } from "@/lib/seo";
 
 type State = "validating" | "valid" | "already" | "invalid" | "submitting" | "success" | "error";
 
 const Unsubscribe = () => {
+  usePageSeo("login", undefined, { noindex: true });
   const [params] = useSearchParams();
   const token = params.get("token");
   const [state, setState] = useState<State>("validating");
