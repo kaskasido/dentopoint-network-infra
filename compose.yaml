@@ -1,0 +1,13 @@
+# Lernpfad Lektion 7: docker compose up -d --build  →  Webseite im Container "netzwerk".
+# Kein eigener Port nach außen: Der Cloudflare-Tunnel aus dentopoint_app erreicht den Container über das gemeinsame
+# Docker-Netz (Route netzwerk.dentopoint.com → http://netzwerk:80, später dentopoint.care). Voraussetzung: dentopoint_app läuft.
+services:
+  netzwerk:
+    build: .
+    restart: unless-stopped
+    networks:
+      - automat
+networks:
+  automat:
+    external: true
+    name: dentopoint_app_default

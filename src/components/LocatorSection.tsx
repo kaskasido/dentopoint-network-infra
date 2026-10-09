@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MapPin, Search, Filter, Building2 } from "lucide-react";
+import { ArrowUpRight, MapPin } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import logo from "@/assets/map-pin.png";
 import { useEffect, useMemo, useRef } from "react";
@@ -7,12 +7,14 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { mockAutomats } from "@/data/mockAutomats";
 
+// Public product page of the first machine on the patient website.
+const FIRST_LOCATION_PRODUCTS_URL = "https://dentopoint.com/a/1";
+
 const LocatorSection = () => {
   const { t } = useLanguage();
 
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<L.Map | null>(null);
-  const markersLayerRef = useRef<L.LayerGroup | null>(null);
 
   const dentopointIcon = useMemo(
     () =>
@@ -29,10 +31,10 @@ const LocatorSection = () => {
     if (!mapContainerRef.current || mapRef.current) return;
 
     const map = L.map(mapContainerRef.current, {
-      center: [49, 11],
-      zoom: 5,
+      center: [50.9356, 6.9236],
+      zoom: 13,
       zoomControl: true,
-      scrollWheelZoom: true,
+      scrollWheelZoom: false,
     });
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -41,7 +43,6 @@ const LocatorSection = () => {
 
     const markerLayer = L.layerGroup().addTo(map);
     mapRef.current = map;
-    markersLayerRef.current = markerLayer;
 
     const markers = mockAutomats.map((a) => {
       const m = L.marker([a.lat, a.lng], { icon: dentopointIcon }).addTo(markerLayer);
@@ -49,7 +50,7 @@ const LocatorSection = () => {
       return m;
     });
 
-    if (markers.length > 0) {
+    if (markers.length > 1) {
       const bounds = L.latLngBounds(markers.map((m) => m.getLatLng()));
       map.fitBounds(bounds.pad(0.25), { maxZoom: 11 });
     }
@@ -57,13 +58,11 @@ const LocatorSection = () => {
     return () => {
       map.remove();
       mapRef.current = null;
-      markersLayerRef.current = null;
     };
   }, [dentopointIcon]);
 
-
   return (
-    <section id="locator" className="py-24 md:py-32 bg-background">
+    <section id="standort" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -89,44 +88,26 @@ const LocatorSection = () => {
             transition={{ duration: 0.5 }}
             className="lg:col-span-2 space-y-4"
           >
-            <div className="border border-border rounded-lg p-4 bg-card">
-              <div className="flex items-center gap-3 text-muted-foreground">
-                <Search size={18} />
-                <span className="text-sm">{t.locator.searchPlaceholder}</span>
-              </div>
-            </div>
-
-            {t.locator.filters.map((filter) => (
-              <div key={filter} className="border border-border rounded-lg p-4 bg-card flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <Filter size={16} className="text-accent" />
-                  <span className="text-sm font-medium text-foreground">{filter}</span>
-                </div>
-                <span className="text-xs text-muted-foreground">All</span>
-              </div>
-            ))}
-
-            <div className="border border-border rounded-lg p-5 bg-card space-y-3 mt-6">
+            <div className="border border-border rounded-lg p-6 bg-card space-y-4 shadow-brand">
               <div className="flex items-start gap-3">
-                <MapPin size={18} className="text-accent mt-0.5" />
+                <MapPin size={20} className="text-accent mt-0.5 shrink-0" />
                 <div>
-                  <p className="text-sm font-semibold text-foreground">{t.locator.clinicMunich}</p>
-                  <p className="text-xs text-muted-foreground mt-1">{t.locator.clinicMunichServices}</p>
-                  <p className="text-xs text-accent mt-1">{t.locator.clinicMunichModules}</p>
+                  <p className="font-display font-semibold text-foreground">{t.locator.locationName}</p>
+                  <p className="text-sm text-muted-foreground mt-1">{t.locator.locationAddress}</p>
+                  <p className="text-xs text-accent mt-2">{t.locator.locationNote}</p>
                 </div>
               </div>
+              <a
+                href={FIRST_LOCATION_PRODUCTS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+              >
+                {t.locator.viewProducts}
+                <ArrowUpRight size={16} />
+              </a>
             </div>
-
-            <div className="border border-border rounded-lg p-5 bg-card space-y-3">
-              <div className="flex items-start gap-3">
-                <MapPin size={18} className="text-accent mt-0.5" />
-                <div>
-                  <p className="text-sm font-semibold text-foreground">{t.locator.clinicShanghai}</p>
-                  <p className="text-xs text-muted-foreground mt-1">{t.locator.clinicShanghaiServices}</p>
-                  <p className="text-xs text-accent mt-1">{t.locator.clinicShanghaiModules}</p>
-                </div>
-              </div>
-            </div>
+            <p className="text-sm text-muted-foreground px-1">{t.locator.moreSoon}</p>
           </motion.div>
 
           <motion.div
@@ -135,9 +116,9 @@ const LocatorSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="lg:col-span-3 border border-border rounded-lg bg-card overflow-hidden"
-            style={{ minHeight: 500 }}
+            style={{ minHeight: 420 }}
           >
-            <div ref={mapContainerRef} className="h-full w-full" style={{ minHeight: 500 }} />
+            <div ref={mapContainerRef} className="h-full w-full" style={{ minHeight: 420 }} />
           </motion.div>
         </div>
       </div>

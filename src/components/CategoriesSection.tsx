@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
-import { Droplets, CircleDot, Sparkles, HeartPulse, Shield } from "lucide-react";
+import { Droplets, SprayCan, Brush, Pill, Heart, Shield } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-const icons = [Droplets, CircleDot, Sparkles, HeartPulse, Shield];
+const icons = [Droplets, SprayCan, Brush, Pill, Heart, Shield];
 
 const CategoriesSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="categories" className="py-24 md:py-32 bg-background">
+    <section id="sortiment" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -26,24 +26,24 @@ const CategoriesSection = () => {
           <div className="w-12 h-px bg-gradient-brand" />
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {t.categories.items.map((cat, i) => {
-            const Icon = icons[i];
+            const Icon = icons[i] ?? Droplets;
             return (
-              <motion.button
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="group border border-border rounded-lg p-6 bg-card hover:shadow-brand hover:border-accent/30 transition-all duration-300 text-left"
+                className="group border border-border rounded-lg p-6 bg-card hover:shadow-brand hover:border-accent/30 transition-all duration-300"
               >
                 <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center mb-4 group-hover:bg-gradient-brand transition-all duration-300">
                   <Icon size={18} className="text-primary group-hover:text-primary-foreground transition-colors" />
                 </div>
                 <h3 className="font-display font-semibold text-sm text-foreground mb-2">{cat.name}</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed">{cat.desc}</p>
-              </motion.button>
+              </motion.div>
             );
           })}
         </div>

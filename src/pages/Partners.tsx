@@ -7,10 +7,12 @@ import { Cpu, HeartPulse, GraduationCap, Building2, Globe, ArrowRight, ArrowLeft
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useScrollToHash } from "@/hooks/useScrollToHash";
+import { usePageSeo } from "@/lib/seo";
 
 const techIcons = [Cpu, Shield, Zap, Globe];
 
 const Partners = () => {
+  usePageSeo("partners", "/partners");
   useScrollToHash();
   const { t } = useLanguage();
   const p = t.partnersPage;

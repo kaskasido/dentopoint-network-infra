@@ -1,7 +1,9 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { usePageSeo } from "@/lib/seo";
 
 const Impressum = () => {
+  usePageSeo("impressum", "/impressum");
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -11,7 +13,7 @@ const Impressum = () => {
         <section className="space-y-6 text-muted-foreground leading-relaxed text-sm">
           <div>
             <h2 className="font-display font-semibold text-foreground text-base mb-2">
-              Angaben gemäß § 5 TMG
+              Angaben gemäß § 5 DDG
             </h2>
             <p>
               DentoPoint GbR<br />
@@ -31,8 +33,10 @@ const Impressum = () => {
           </div>
 
           <div>
+            <h2 className="font-display font-semibold text-foreground text-base mb-2">Kontakt</h2>
             <p>
-              Telefon: +49 173 5108172<br />
+              Telefon:{" "}
+              <a href="tel:+491735108172" className="text-primary hover:underline">+49 173 5108172</a><br />
               E-Mail:{" "}
               <a
                 href="mailto:info@dentopoint.care"
@@ -45,11 +49,31 @@ const Impressum = () => {
 
           <div>
             <h2 className="font-display font-semibold text-foreground text-base mb-2">
+              Umsatzsteuer-Identifikationsnummer
+            </h2>
+            <p>
+              Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:<br />
+              DE459232045
+            </p>
+          </div>
+
+          <div>
+            <h2 className="font-display font-semibold text-foreground text-base mb-2">
               Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
             </h2>
             <p>
-              Olga Henriette Seifert<br />
+              Olga Henriette Seifert, Michael Kassig, Peter Corovic<br />
               Anschrift wie oben
+            </p>
+          </div>
+
+          <div>
+            <h2 className="font-display font-semibold text-foreground text-base mb-2">
+              Streitbeilegung
+            </h2>
+            <p>
+              Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer
+              Verbraucherschlichtungsstelle teilzunehmen.
             </p>
           </div>
         </section>

@@ -7,10 +7,12 @@ import { Plug, Database, BarChart3, Truck, CheckCircle, ArrowRight, ArrowLeft, B
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useScrollToHash } from "@/hooks/useScrollToHash";
+import { usePageSeo } from "@/lib/seo";
 
 const integrationIcons = [Plug, Shield, Zap, Globe];
 
 const Manufacturers = () => {
+  usePageSeo("manufacturers", "/manufacturers");
   useScrollToHash();
   const { t } = useLanguage();
   const p = t.manufacturersPage;
