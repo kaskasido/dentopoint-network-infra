@@ -70,6 +70,8 @@ export const en = {
     smartCareDesc: "A free-standing vending machine with a 32-inch display for the waiting area or reception of a dental practice. It holds oral care products and food supplements from our partner manufacturers. Patients pay by card directly at the machine. Available in a white or black edition.",
     whiteEdition: "White Edition",
     blackEdition: "Black Edition",
+    aiImageAlt: "AI-generated illustration of a dental care vending machine",
+    aiImageNote: "AI-generated illustration. The actual machine and its display look different.",
     tags: ["Card payment at the machine", "Products recommended by the dentist", "Fill level and telemetry via the operator software", "Product info, videos and QR codes on the display"],
     features: [
       { title: "Fits into the practice", description: "A free-standing unit that needs a power socket and an internet connection. The practice provides the space, DentoPoint takes care of the rest." },

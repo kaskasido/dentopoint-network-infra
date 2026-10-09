@@ -70,6 +70,8 @@ export const de = {
     smartCareDesc: "Ein Standgerät mit 32-Zoll-Display für Wartebereich oder Empfang einer Zahnarztpraxis. Darin: Mundpflegeprodukte und Nahrungsergänzungsmittel unserer Partnerhersteller. Patienten bezahlen per Karte direkt am Gerät. Erhältlich als weiße oder schwarze Ausführung.",
     whiteEdition: "White Edition",
     blackEdition: "Black Edition",
+    aiImageAlt: "KI-generierte Illustration eines Dental-Care-Automaten",
+    aiImageNote: "KI-generierte Illustration. Das echte Gerät und seine Anzeige sehen anders aus.",
     tags: ["Kartenzahlung am Gerät", "Produkte nach Empfehlung des Zahnarztes", "Füllstand und Telemetrie über die Betreiber-Software", "Produktinfos, Videos und QR-Codes auf dem Display"],
     features: [
       { title: "Passt in die Praxis", description: "Ein Standgerät, das eine Steckdose und einen Internetanschluss braucht. Die Praxis stellt den Platz, um den Rest kümmert sich DentoPoint." },
