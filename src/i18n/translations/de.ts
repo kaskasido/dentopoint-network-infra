@@ -70,7 +70,7 @@ export const de = {
     smartCareDesc: "Ein Standgerät mit 32-Zoll-Display für Wartebereich oder Empfang einer Zahnarztpraxis. Darin: Mundpflegeprodukte und Nahrungsergänzungsmittel unserer Partnerhersteller. Patienten bezahlen per Karte direkt am Gerät. Erhältlich als weiße oder schwarze Ausführung.",
     whiteEdition: "White Edition",
     blackEdition: "Black Edition",
-    tags: ["Kartenzahlung am Gerät", "Produkte nach Empfehlung des Zahnarztes", "Füllstand und Telemetrie über die Betreiber-Software", "Produktvideos auf dem Display (in Vorbereitung)"],
+    tags: ["Kartenzahlung am Gerät", "Produkte nach Empfehlung des Zahnarztes", "Füllstand und Telemetrie über die Betreiber-Software", "Produktinfos, Videos und QR-Codes auf dem Display"],
     features: [
       { title: "Passt in die Praxis", description: "Ein Standgerät, das eine Steckdose und einen Internetanschluss braucht. Die Praxis stellt den Platz, um den Rest kümmert sich DentoPoint." },
       { title: "Kartenzahlung am Gerät", description: "Patienten bezahlen direkt am Automaten. Die Praxis hat weder mit Bargeld noch mit Rechnungen oder Buchhaltung zu tun." },
@@ -205,11 +205,11 @@ export const de = {
       label: "Ablauf", title: "Ablauf in der Praxis",
       benefits: [
         "Der Zahnarzt empfiehlt im Behandlungsgespräch ein Produkt",
-        "Der Patient kauft es am Automaten in der Praxis und bezahlt per Karte",
+        "Der Patient kauft es am Automaten in der Praxis, bezahlt per Karte und kann den Beleg per QR-Code aufs Handy laden",
         "Kein Bargeld und keine Abrechnung in der Praxis",
         "Befüllung wird von DentoPoint anhand der Füllstände geplant",
         "Störungen werden per Telefon oder E-Mail gemeldet, DentoPoint übernimmt den Rest",
-        "Produktvideos auf dem Display sind in Vorbereitung",
+        "Auf dem Display: Produktvideos, Patienteninformationen und Behandlungsthemen der Praxis",
       ],
       cardTitle: "Persönliche Beratung",
       cardDesc: "Wir beantworten Ihre Fragen zu Standort, Sortiment, Konditionen und Ablauf. Persönlich und unverbindlich.",
@@ -240,7 +240,7 @@ export const de = {
     data: {
       label: "Daten", title: "Verkaufszahlen und Telemetrie",
       items: [
-        { label: "Verkäufe je Automat", value: "Betreiber-Software" },
+        { label: "Verkäufe je Automat", value: "DentoPoint-Verwaltung" },
         { label: "Füllstand und Befüllung", value: "Telemetrie" },
         { label: "Berichte für Hersteller", value: "Geplant" },
         { label: "Datenexport", value: "Geplant" },
@@ -260,8 +260,8 @@ export const de = {
       benefits: [
         "Lieferung der Produkte an DentoPoint oder direkt in die Praxis",
         "Befüllung durch DentoPoint anhand der Füllstände",
-        "Verkaufszahlen je Automat aus der Betreiber-Software",
-        "Produktinformationen und Videos auf dem Display (in Vorbereitung)",
+        "Verkaufszahlen je Automat in der DentoPoint-Verwaltung",
+        "Produktinformationen und Videos auf dem 32-Zoll-Display",
         "Produktseiten mit QR-Codes für Patienten",
         "Persönlicher Ansprechpartner bei DentoPoint",
       ],
@@ -278,9 +278,9 @@ export const de = {
       label: "Technik", title: "Technik",
       items: [
         { title: "Automat und Betreiber-Software", desc: "Der Automat wird mit der Betreiber-Software des Herstellers betrieben: Telemetrie, Füllstände und Verkaufszahlen." },
-        { title: "Display und Produktvideos", desc: "Eine Willkommensseite mit Produktinformationen und QR-Codes für das 32-Zoll-Display ist in Vorbereitung." },
+        { title: "Display und Produktvideos", desc: "Die DentoPoint-Anzeige auf dem 32-Zoll-Display zeigt Produktinformationen, Videos und QR-Codes auf Deutsch, Englisch und Niederländisch. Die Praxis kann dort auch eigene Behandlungsthemen vorstellen." },
         { title: "Website und Produktseiten", desc: "Produktseiten mit Informationen und Videos, die Patienten per QR-Code öffnen können." },
-        { title: "Eigene Auswertungen", desc: "Einfache Berichte je Standort für Praxen und Hersteller sind geplant." },
+        { title: "Eigene Verwaltung", desc: "Verkäufe, Bestand und Nachbestellbedarf je Automat in der DentoPoint-Verwaltung. Berichte für Praxen und Hersteller sind geplant." },
       ],
     },
     healthcare: {
@@ -691,7 +691,7 @@ export const de = {
       { q: "Wer befüllt den Automaten?", a: "DentoPoint organisiert die Befüllung gemeinsam mit der Praxis. Die Füllstände werden aus der Ferne überwacht, sodass nachgefüllt wird, bevor Produkte ausgehen." },
       { q: "Wer wählt die Produkte aus?", a: "Das Sortiment wird gemeinsam mit der Praxis aus den Produkten unserer Partnerhersteller zusammengestellt. Der Zahnarzt entscheidet, was den Patienten empfohlen wird." },
       { q: "Muss die Praxis den Automaten kaufen oder mieten?", a: "Die Konditionen besprechen wir persönlich mit jeder Praxis. Für die Pilotpraxen gibt es keine Kaufverpflichtung." },
-      { q: "Wie bezahlen die Patienten?", a: "Per Karte direkt am Automaten. Die Praxis wickelt keine Zahlungen ab." },
+      { q: "Wie bezahlen die Patienten?", a: "Per Karte direkt am Automaten. Die Praxis wickelt keine Zahlungen ab. Nach dem Kauf zeigt das Display einen QR-Code, mit dem der Patient den Beleg auf dem Handy öffnen kann, zum Beispiel für die Versicherung." },
       { q: "Hat die Praxis Arbeit damit?", a: "Kein Verkauf, keine Abrechnung, keine Buchhaltung. Das Praxisteam empfiehlt im Behandlungsgespräch ein Produkt und verweist auf den Automaten." },
       { q: "Was passiert bei einer Störung?", a: "Die Praxis meldet die Störung per Telefon oder E-Mail an DentoPoint. Wir kümmern uns um die Behebung. Der Automat wird zusätzlich aus der Ferne überwacht." },
       { q: "Welche Produkte sind erhältlich?", a: "Therapeutische Zahnpasten, Mundspülungen, Zahnbürsten, Nahrungsergänzungsmittel, Sensitive Care und Alignerpflege von Partnerherstellern wie APOrtha, SDS Swiss Biohealth und bluem." },
@@ -712,8 +712,10 @@ export const de = {
     items: [
       { title: "Automat in Köln in Betrieb", desc: "Der erste DentoPoint-Automat läuft in der Zahnarztpraxis Olga Henriette Seifert.", state: "available" },
       { title: "Kartenzahlung", desc: "Patienten bezahlen per Karte direkt am Gerät.", state: "available" },
-      { title: "Füllstand und Verkäufe über Betreiber-Software", desc: "Füllstände und Verkäufe je Automat werden über die Betreiber-Software des Geräts erfasst.", state: "available" },
-      { title: "Produktvideos und QR-Codes auf dem Display", desc: "Eine Willkommensseite mit Produktinformationen und QR-Codes auf dem 32-Zoll-Display.", state: "inProgress" },
+      { title: "Anzeige mit Produktinfos, Videos und QR-Codes", desc: "Auf dem 32-Zoll-Display: Produktinformationen, Videos, Patienteninformationen und QR-Codes, auf Deutsch, Englisch und Niederländisch.", state: "available" },
+      { title: "Beleg per QR-Code", desc: "Nach dem Kauf erscheint ein QR-Code. Damit öffnet der Patient den Beleg auf dem Handy, zum Beispiel für die Versicherung.", state: "available" },
+      { title: "Behandlungsthemen der Praxis", desc: "Die Praxis stellt auf dem Display eigene Leistungen vor, zum Beispiel Ozontherapie (OzoneDTA), Keramikimplantate von SDS Swiss Dental Solutions und den Vitamin-D-Schnelltest mit dem AFIAS-Gerät.", state: "available" },
+      { title: "Verkäufe und Bestand in der DentoPoint-Verwaltung", desc: "Jeder Kauf wird erfasst. Die Verwaltung zeigt Verkäufe, Bestand und Nachbestellbedarf je Automat. Füllstände meldet zusätzlich die Betreiber-Software des Geräts.", state: "available" },
       { title: "Auswertungen für Praxen und Hersteller", desc: "Einfache Berichte je Standort, zum Beispiel Verkäufe je Produkt.", state: "planned" },
       { title: "Weitere Standorte", desc: "Weitere Partnerpraxen in Deutschland.", state: "planned" },
     ],

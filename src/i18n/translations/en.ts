@@ -70,7 +70,7 @@ export const en = {
     smartCareDesc: "A free-standing vending machine with a 32-inch display for the waiting area or reception of a dental practice. It holds oral care products and food supplements from our partner manufacturers. Patients pay by card directly at the machine. Available in a white or black edition.",
     whiteEdition: "White Edition",
     blackEdition: "Black Edition",
-    tags: ["Card payment at the machine", "Products recommended by the dentist", "Fill level and telemetry via the operator software", "Product videos on the display (in preparation)"],
+    tags: ["Card payment at the machine", "Products recommended by the dentist", "Fill level and telemetry via the operator software", "Product info, videos and QR codes on the display"],
     features: [
       { title: "Fits into the practice", description: "A free-standing unit that needs a power socket and an internet connection. The practice provides the space, DentoPoint takes care of the rest." },
       { title: "Card payment at the machine", description: "Patients pay directly at the machine. The practice does not handle cash, invoices or bookkeeping." },
@@ -204,11 +204,11 @@ export const en = {
       label: "Day to day", title: "Day to day in the practice",
       benefits: [
         "The dentist recommends a product in the treatment conversation",
-        "The patient buys it at the machine in the practice and pays by card",
+        "The patient buys it at the machine in the practice, pays by card and can load the receipt to their phone via QR code",
         "No cash handling and no invoicing in the practice",
         "Refills are scheduled by DentoPoint based on fill levels",
         "Faults are reported by phone or email, DentoPoint takes care of the rest",
-        "Product videos on the display are in preparation",
+        "On the display: product videos, patient information and the practice's treatment topics",
       ],
       cardTitle: "Personal consultation",
       cardDesc: "We answer your questions about placement, range, terms and the day-to-day process. Personally, without obligation.",
@@ -240,7 +240,7 @@ export const en = {
     data: {
       label: "Data", title: "Sales figures and telemetry",
       items: [
-        { label: "Sales per machine", value: "Operator software" },
+        { label: "Sales per machine", value: "DentoPoint admin" },
         { label: "Fill level and refills", value: "Telemetry" },
         { label: "Reports for manufacturers", value: "Planned" },
         { label: "Data export", value: "Planned" },
@@ -260,8 +260,8 @@ export const en = {
       benefits: [
         "Delivery of the products to DentoPoint or directly to the practice",
         "Refills organised by DentoPoint based on fill levels",
-        "Sales figures per machine from the operator software",
-        "Product information and videos on the display (in preparation)",
+        "Sales figures per machine in the DentoPoint admin",
+        "Product information and videos on the 32-inch display",
         "Product pages with QR codes for patients",
         "Personal contact person at DentoPoint",
       ],
@@ -279,9 +279,9 @@ export const en = {
       label: "Technology", title: "Technology",
       items: [
         { title: "Vending machine and operator software", desc: "The machine is operated with the manufacturer's operator software for telemetry, fill levels and sales figures." },
-        { title: "Display and product videos", desc: "A welcome screen with product information and QR codes for the 32-inch display is in preparation." },
+        { title: "Display and product videos", desc: "The DentoPoint display app on the 32-inch screen shows product information, videos and QR codes in German, English and Dutch. The practice can also present its own treatment topics there." },
         { title: "Website and product pages", desc: "Product pages with information and videos that patients can open via QR code." },
-        { title: "Own evaluations", desc: "Simple reports per location for practices and manufacturers are planned." },
+        { title: "Own admin system", desc: "Sales, stock and reorder needs per machine in the DentoPoint admin. Reports for practices and manufacturers are planned." },
       ],
     },
     healthcare: {
@@ -726,7 +726,7 @@ export const en = {
       { q: "Who fills the machine?", a: "DentoPoint organises refills together with the practice. Fill levels are monitored remotely, so refills are scheduled before products run out." },
       { q: "Who selects the products?", a: "The range is put together with the practice from the products of our partner manufacturers. The dentist decides what is recommended to patients." },
       { q: "Does the practice have to buy or rent the machine?", a: "We discuss the terms personally with each practice. There is no obligation to buy for the pilot practices." },
-      { q: "How do patients pay?", a: "By card directly at the machine. The practice does not handle any payments." },
+      { q: "How do patients pay?", a: "By card directly at the machine. The practice does not handle any payments. After the purchase, the display shows a QR code that opens the receipt on the patient's phone, for example for their insurance." },
       { q: "Does the practice have work with it?", a: "No sales, no invoicing, no bookkeeping. The practice team recommends products in the treatment conversation and points to the machine." },
       { q: "What happens if the machine breaks down?", a: "The practice reports the fault by phone or email to DentoPoint. We take care of the repair. The machine is also monitored remotely." },
       { q: "Which products are available?", a: "Therapeutic toothpastes, mouthwashes, toothbrushes, food supplements, sensitive care and aligner care from partner manufacturers such as APOrtha, SDS Swiss Biohealth and bluem." },
@@ -747,8 +747,10 @@ export const en = {
     items: [
       { title: "Machine in operation in Cologne", desc: "The first DentoPoint machine is running at Zahnarztpraxis Olga Henriette Seifert.", state: "available" },
       { title: "Card payment", desc: "Patients pay by card directly at the machine.", state: "available" },
-      { title: "Fill level and sales via operator software", desc: "Fill levels and sales per machine are recorded by the operator software of the machine.", state: "available" },
-      { title: "Product videos and QR codes on the display", desc: "A welcome screen with product information and QR codes on the 32-inch display.", state: "inProgress" },
+      { title: "Display with product info, videos and QR codes", desc: "On the 32-inch display: product information, videos, patient information and QR codes, in German, English and Dutch.", state: "available" },
+      { title: "Receipt via QR code", desc: "After the purchase a QR code appears. The patient uses it to open the receipt on their phone, for example for their insurance.", state: "available" },
+      { title: "Treatment topics of the practice", desc: "The practice presents its own services on the display, for example ozone therapy (OzoneDTA), ceramic implants by SDS Swiss Dental Solutions and the vitamin D rapid test with the AFIAS analyser.", state: "available" },
+      { title: "Sales and stock in the DentoPoint admin", desc: "Every purchase is recorded. The admin shows sales, stock and reorder needs per machine. Fill levels are also reported by the machine's operator software.", state: "available" },
       { title: "Evaluations for practices and manufacturers", desc: "Simple reports per location, for example sales per product.", state: "planned" },
       { title: "More locations", desc: "Further partner practices in Germany.", state: "planned" },
     ],
