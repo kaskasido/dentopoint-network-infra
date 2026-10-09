@@ -213,7 +213,7 @@ export const ar = {
     ipNotice: "إشعار الملكية الفكرية",
     contactLabel: "اتصل بنا",
     language: "اللغة",
-    copyright: "© {year} DentoPoint® — شبكة الرعاية العلاجية. جميع الحقوق محفوظة.",
+    copyright: "© {year} DentoPoint — شبكة الرعاية العلاجية. جميع الحقوق محفوظة.",
     tagline: "منظومة البنية التحتية الطبية · الاتحاد الأوروبي وآسيا",
   },
 

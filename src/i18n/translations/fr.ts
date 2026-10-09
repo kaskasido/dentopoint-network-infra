@@ -194,7 +194,7 @@ export const fr = {
     ipNotice: "Avis PI",
     contactLabel: "Contact",
     language: "Langue",
-    copyright: "© {year} DentoPoint® — Réseau de Soins Thérapeutiques. Tous droits réservés.",
+    copyright: "© {year} DentoPoint — Réseau de Soins Thérapeutiques. Tous droits réservés.",
     tagline: "Écosystème d'Infrastructure Médicale · UE & Asie",
   },
 

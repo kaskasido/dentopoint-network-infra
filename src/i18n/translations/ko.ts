@@ -194,7 +194,7 @@ export const ko = {
     ipNotice: "지적재산 고지",
     contactLabel: "연락처",
     language: "언어",
-    copyright: "© {year} DentoPoint® — 치료 케어 네트워크. 모든 권리 보유.",
+    copyright: "© {year} DentoPoint — 치료 케어 네트워크. 모든 권리 보유.",
     tagline: "의료 인프라 생태계 · EU & 아시아",
   },
 

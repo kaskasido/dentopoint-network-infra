@@ -1,65 +1,37 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 import { en } from "./translations/en";
 import { de } from "./translations/de";
-import { tr } from "./translations/tr";
-import { cn } from "./translations/cn";
-import { fr } from "./translations/fr";
-import { it } from "./translations/it";
-import { es } from "./translations/es";
-import { ko } from "./translations/ko";
-import { ar } from "./translations/ar";
-import { nl } from "./translations/nl";
-import { sr } from "./translations/sr";
+// Weitere Übersetzungen (TR, CN, FR, IT, ES, KO, AR, NL, SR) liegen weiterhin unter
+// ./translations, sind aber bewusst nicht registriert: Die Website richtet sich derzeit
+// nur an den deutschen Markt. Reaktivierbar, sobald es Partner und Ansprechpartner in
+// dem jeweiligen Land gibt. Dazu den Import ergänzen und den Code in SUPPORTED_LANGUAGES
+// aufnehmen; die Texte dort müssen vorher inhaltlich auf den aktuellen Stand gebracht werden.
 
-export type Language = "EN" | "DE" | "TR" | "CN" | "FR" | "IT" | "ES" | "KO" | "AR" | "NL" | "SR";
+export type Language = "DE" | "EN";
 
 type Translations = typeof en;
 
-const translationMap: Record<string, Translations> = {
-  EN: en,
+export const SUPPORTED_LANGUAGES: { code: Language; label: string }[] = [
+  { code: "DE", label: "Deutsch" },
+  { code: "EN", label: "English" },
+];
+
+const translationMap: Record<Language, Translations> = {
   DE: de,
-  TR: tr as unknown as Translations,
-  CN: cn as unknown as Translations,
-  FR: fr as unknown as Translations,
-  IT: it as unknown as Translations,
-  ES: es as unknown as Translations,
-  KO: ko as unknown as Translations,
-  AR: ar as unknown as Translations,
-  NL: nl as unknown as Translations,
-  SR: sr as unknown as Translations,
+  EN: en,
 };
 
-// Map browser language / region codes to supported app languages
-const langMap: Record<string, Language> = {
-  de: "DE", en: "EN", nl: "NL", fr: "FR", it: "IT", es: "ES",
-  tr: "TR", sr: "SR", hr: "SR", bs: "SR", zh: "CN", ko: "KO", ar: "AR",
-};
-// Country (region) → language fallback when browser language isn't supported
-const countryMap: Record<string, Language> = {
-  DE: "DE", AT: "DE", CH: "DE", LI: "DE",
-  NL: "NL", BE: "NL",
-  FR: "FR", LU: "FR", MC: "FR",
-  IT: "IT", SM: "IT", VA: "IT",
-  ES: "ES", MX: "ES", AR: "ES", CO: "ES", CL: "ES", PE: "ES", VE: "ES",
-  TR: "TR", CY: "TR",
-  RS: "SR", ME: "SR", BA: "SR", HR: "SR",
-  CN: "CN", HK: "CN", TW: "CN", SG: "CN",
-  KR: "KO", KP: "KO",
-  SA: "AR", AE: "AR", EG: "AR", QA: "AR", KW: "AR", BH: "AR", OM: "AR", JO: "AR", LB: "AR", MA: "AR", TN: "AR", DZ: "AR", IQ: "AR", SY: "AR", YE: "AR", LY: "AR",
-};
+const isSupported = (value: string | null): value is Language =>
+  !!value && SUPPORTED_LANGUAGES.some((l) => l.code === value);
 
 const detectBrowserLanguage = (): Language => {
   if (typeof navigator === "undefined") return "DE";
   const candidates = navigator.languages?.length ? navigator.languages : [navigator.language];
   for (const raw of candidates) {
     if (!raw) continue;
-    const [primary, region] = raw.toLowerCase().split("-");
-    const byLang = langMap[primary];
-    if (byLang) return byLang;
-    if (region) {
-      const byRegion = countryMap[region.toUpperCase()];
-      if (byRegion) return byRegion;
-    }
+    const primary = raw.toLowerCase().split("-")[0];
+    if (primary === "de") return "DE";
+    if (primary === "en") return "EN";
   }
   return "DE";
 };
@@ -78,20 +50,34 @@ const LanguageContext = createContext<LanguageContextType>({
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [lang, setLangState] = useState<Language>(() => {
-    const saved = localStorage.getItem("dentopoint-lang");
-    if (saved && saved in translationMap) return saved as Language;
+    try {
+      const saved = localStorage.getItem("dentopoint-lang");
+      if (isSupported(saved)) return saved;
+    } catch {
+      // localStorage may be unavailable (privacy mode); fall back to detection
+    }
     return detectBrowserLanguage();
   });
+
   const setLang = (l: Language) => {
-    localStorage.setItem("dentopoint-lang", l);
+    try {
+      localStorage.setItem("dentopoint-lang", l);
+    } catch {
+      // ignore
+    }
     setLangState(l);
   };
-  const raw = translationMap[lang] || en;
-  // Deep merge with English fallback so missing keys never crash
+
+  useEffect(() => {
+    document.documentElement.lang = lang.toLowerCase();
+  }, [lang]);
+
+  const raw = translationMap[lang] ?? de;
+  // Shallow merge with English fallback so a missing key never crashes the UI
   const t = new Proxy(raw, {
     get(target, prop: string) {
-      const val = (target as any)[prop];
-      const fallback = (en as any)[prop];
+      const val = (target as Record<string, unknown>)[prop];
+      const fallback = (en as Record<string, unknown>)[prop];
       if (val === undefined) return fallback;
       if (typeof val === "object" && val !== null && !Array.isArray(val) && typeof fallback === "object" && fallback !== null) {
         return { ...fallback, ...val };
