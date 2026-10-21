@@ -1,12 +1,18 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { useLanguage } from "@/i18n/LanguageContext";
+import { useLanguage, type Language } from "@/i18n/LanguageContext";
 import { usePageSeo } from "@/lib/seo";
+
+// Hinweis vor übersetzten Fassungen: Rechtsverbindlich ist die deutsche Datenschutzerklärung
+const BINDING_NOTE: Partial<Record<Language, string>> = {
+  NL: "Deze vertaling is bedoeld ter informatie; de Duitse versie is juridisch bindend.",
+};
 
 const Datenschutz = () => {
   usePageSeo("privacy", "/datenschutz");
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const p = (t as any).privacy;
+  const note = BINDING_NOTE[lang];
 
   return (
     <div className="min-h-screen bg-background">
@@ -17,6 +23,7 @@ const Datenschutz = () => {
         </h1>
 
         <section className="space-y-6 text-muted-foreground leading-relaxed text-sm">
+          {note && <p className="italic">{note}</p>}
           {p.sections.map((s: { h: string; p: string }) => (
             <div key={s.h}>
               <h2 className="font-display font-semibold text-foreground text-base mb-2">

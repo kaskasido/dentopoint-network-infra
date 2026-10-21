@@ -1,24 +1,30 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 import { en } from "./translations/en";
 import { de } from "./translations/de";
-// Weitere Übersetzungen (TR, CN, FR, IT, ES, KO, AR, NL, SR) liegen weiterhin unter
+import { nl } from "./translations/nl";
+// Niederländisch (NL) ist registriert, weil der Partnerhersteller bluem aus den Niederlanden kommt
+// und die Niederlande als Markt geplant sind. Die Portal-Abschnitte fehlen in nl.ts und fallen auf Englisch zurück.
+// Weitere Übersetzungen (TR, CN, FR, IT, ES, KO, AR, SR) liegen weiterhin unter
 // ./translations, sind aber bewusst nicht registriert: Die Website richtet sich derzeit
 // nur an den deutschen Markt. Reaktivierbar, sobald es Partner und Ansprechpartner in
 // dem jeweiligen Land gibt. Dazu den Import ergänzen und den Code in SUPPORTED_LANGUAGES
 // aufnehmen; die Texte dort müssen vorher inhaltlich auf den aktuellen Stand gebracht werden.
 
-export type Language = "DE" | "EN";
+export type Language = "DE" | "EN" | "NL";
 
 type Translations = typeof en;
 
 export const SUPPORTED_LANGUAGES: { code: Language; label: string }[] = [
   { code: "DE", label: "Deutsch" },
   { code: "EN", label: "English" },
+  { code: "NL", label: "Nederlands" },
 ];
 
-const translationMap: Record<Language, Translations> = {
+// Partial: eine Sprache darf ganze oberste Abschnitte weglassen (Rückfall auf Englisch, siehe unten)
+const translationMap: Record<Language, Partial<Translations>> = {
   DE: de,
   EN: en,
+  NL: nl,
 };
 
 const isSupported = (value: string | null): value is Language =>
@@ -31,8 +37,11 @@ const detectBrowserLanguage = (): Language => {
   const candidates = navigator.languages?.length ? navigator.languages : [navigator.language];
   for (const raw of candidates) {
     if (!raw) continue;
-    const primary = raw.toLowerCase().split("-")[0];
+    const [primary, region] = raw.toLowerCase().split("-");
     if (primary === "de") return "DE";
+    if (primary === "nl") return "NL";
+    // Browser in den Niederlanden (z. B. en-NL) bekommen die niederländische Fassung; nl-BE greift schon oben
+    if (region === "nl") return "NL";
     if (primary === "en") return "EN";
   }
   return "DE";
