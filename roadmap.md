@@ -39,3 +39,7 @@ Die Patientenseite „DentoPoint Connect" hat eine eigene Aufgabenliste im Lovab
 - [ ] Kiosk-App für das 32-Zoll-Display: Willkommensseite mit Video und QR-Code, Partnerlogos, Produktkarten mit QR-Codes (eigenes Repository dentopoint_app)
 - [ ] Werbefläche 40 × 45 cm (15,75 × 17,72 Zoll) im oberen Drittel-Bereich berücksichtigen
 - [ ] Videos einpflegen, sobald sie vorliegen
+
+## Design
+- [x] Network-Seite: Farben und Schrift wie die Automatenoberfläche (Grün #0e7c6b, Text #12211f, Inter auch für Überschriften, rundere Ecken), 21.10.2026
+- [ ] Patientenseite (Lovable-Projekt DentoPoint Connect) ebenso angleichen

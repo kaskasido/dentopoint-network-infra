@@ -3,13 +3,13 @@ import Footer from "@/components/Footer";
 import ContactDialog from "@/components/ContactDialog";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { DollarSign, Settings, Workflow, ShieldCheck, CheckCircle, ArrowRight, ArrowLeft, TrendingUp, Clock, Users, FileCheck } from "lucide-react";
+import { Euro, HeartHandshake, Settings, Workflow, ShieldCheck, CheckCircle, ArrowRight, ArrowLeft, TrendingUp, Clock, Users, FileCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useScrollToHash } from "@/hooks/useScrollToHash";
 import { usePageSeo } from "@/lib/seo";
 
-const revenueIcons = [DollarSign, Users, Clock];
+const revenueIcons = [HeartHandshake, Users, Euro];
 const complianceIcons = [ShieldCheck, FileCheck, ShieldCheck, FileCheck];
 
 const Clinics = () => {
@@ -45,7 +45,7 @@ const Clinics = () => {
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">{p.revenue.title}</h2>
             <div className="w-12 h-px bg-gradient-brand" />
           </motion.div>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             {p.revenue.items.map((r, i) => {
               const Icon = revenueIcons[i];
               return (

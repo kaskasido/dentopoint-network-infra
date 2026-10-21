@@ -5,55 +5,56 @@
 @tailwind utilities;
 
 @layer base {
+  /* Farben wie die Automatenoberfläche (dentopoint_app/src/styles.css: brand #0e7c6b, ink #12211f, Hintergrund #f4f8f7) */
   :root {
     --background: 0 0% 100%;
-    --foreground: 200 10% 12%;
+    --foreground: 172 29% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 200 10% 12%;
+    --card-foreground: 172 29% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 200 10% 12%;
+    --popover-foreground: 172 29% 10%;
 
-    --primary: 170 100% 18%;
+    --primary: 171 80% 27%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 173 30% 94%;
-    --secondary-foreground: 170 100% 18%;
+    --secondary: 165 25% 93%;
+    --secondary-foreground: 171 80% 20%;
 
-    --muted: 170 10% 96%;
-    --muted-foreground: 200 8% 46%;
+    --muted: 165 22% 96%;
+    --muted-foreground: 169 8% 40%;
 
-    --accent: 175 100% 31%;
+    --accent: 171 80% 27%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 170 15% 90%;
-    --input: 170 15% 90%;
-    --ring: 170 100% 18%;
+    --border: 164 17% 87%;
+    --input: 164 17% 87%;
+    --ring: 171 80% 27%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     /* DentoPoint brand tokens */
-    --emerald-deep: 170 100% 18%;
-    --emerald-jade: 175 100% 31%;
+    --emerald-deep: 171 80% 20%;
+    --emerald-jade: 171 80% 27%;
     --emerald-sage: 170 32% 46%;
     --turquoise: 181 55% 59%;
-    --mint: 173 30% 94%;
+    --mint: 165 25% 93%;
     --grey-warm: 200 8% 46%;
     --grey-light: 200 10% 96%;
     --grey-border: 200 10% 90%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 170 100% 18%;
+    --sidebar-primary: 171 80% 27%;
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 173 30% 94%;
-    --sidebar-accent-foreground: 170 100% 18%;
+    --sidebar-accent-foreground: 171 80% 20%;
     --sidebar-border: 170 15% 90%;
-    --sidebar-ring: 175 100% 31%;
+    --sidebar-ring: 171 80% 27%;
   }
 
   .dark {
@@ -115,7 +116,8 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.01em;
   }
 }
 
