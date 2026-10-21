@@ -327,6 +327,7 @@ export const de = {
       items: [
         { region: "Deutschland", status: "Live", desc: "Erste Partnerpraxis in Köln, weitere Praxen geplant" },
         { region: "Österreich, Schweiz", status: "Später", desc: "Erst wenn es Partner und Ansprechpartner vor Ort gibt" },
+        { region: "Niederlande", status: "In Vorbereitung", desc: "Partnerhersteller bluem kommt aus den Niederlanden; Automat und Website gibt es schon auf Niederländisch, rechtliche und steuerliche Fragen klären wir gerade" },
         { region: "Weitere EU-Länder", status: "Später", desc: "Derzeit keine konkreten Planungen" },
       ],
     },

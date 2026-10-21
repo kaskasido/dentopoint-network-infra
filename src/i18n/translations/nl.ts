@@ -343,6 +343,7 @@ export const nl = {
       items: [
         { region: "Duitsland", status: "Live", desc: "Eerste partnerpraktijk in Köln, meer praktijken gepland" },
         { region: "Oostenrijk, Zwitserland", status: "Later", desc: "Pas als er partners en aanspreekpunten ter plaatse zijn" },
+        { region: "Nederland", status: "In voorbereiding", desc: "Partnerfabrikant bluem komt uit Nederland; de automaat en de website zijn al in het Nederlands beschikbaar, juridische en fiscale vragen zijn we nu aan het uitzoeken" },
         { region: "Overige EU-landen", status: "Later", desc: "Momenteel geen concrete plannen" },
       ],
     },

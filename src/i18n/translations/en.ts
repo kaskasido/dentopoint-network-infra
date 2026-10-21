@@ -328,6 +328,7 @@ export const en = {
       items: [
         { region: "Germany", status: "Live", desc: "First partner practice in Cologne, further practices planned" },
         { region: "Austria, Switzerland", status: "Later", desc: "Only when there are partners and contacts on site" },
+        { region: "Netherlands", status: "In preparation", desc: "Partner manufacturer bluem is based in the Netherlands; the machine and the website are already available in Dutch, and we are currently clarifying legal and tax questions" },
         { region: "Other EU countries", status: "Later", desc: "No concrete plans at the moment" },
       ],
     },
