@@ -21,7 +21,11 @@ Die Patientenseite „DentoPoint Connect" hat eine eigene Aufgabenliste im Lovab
 - [x] Geschäftsanschrift bestätigt: Clarenbachstraße 6 (laut Bescheid des Bundeszentralamts für Steuern und Bundesbank-Schreiben); Praxis mit dem Automaten ist Clarenbachstraße 2
 - [x] Schreibweise des Gesellschafters bestätigt: Kassig
 - [x] USt-IdNr. DE459232045 im Impressum eingetragen (gültig ab 03.08.2026)
-- [ ] FAQ-Antworten fachlich bestätigen: Befüllung durch DentoPoint, Konditionen „keine Kaufverpflichtung für Pilotpraxen", Störungsablauf, Stellfläche ca. 1 m²
+- [ ] FAQ-Antworten fachlich bestätigen: Konditionen „keine Kaufverpflichtung für Pilotpraxen", Störungsablauf, Stellfläche ca. 1 m²
+- [x] Befüllung durch das Praxisteam, die Praxis verdient am Verkauf mit (Peter, 21.10.2026); Texte DE/EN angepasst
+- [x] Kartenzahlung als „In Vorbereitung“ markiert, solange das Terminal nicht angeschlossen ist (21.10.2026)
+- [ ] Zwei Verkaufsmodelle ausarbeiten; auf der Seite steht bisher nur „zwei Modelle, im Beratungsgespräch“
+- [ ] Nach der Analyse von RA Bresch: Abschnitt Rechtliches ergänzen (Kanzleiname nur mit Erlaubnis, Steuern nur, wenn geprüft)
 
 ## Danach
 - [ ] Reale Fotos des Automaten in der Praxis Köln und der Personen hinter DentoPoint

@@ -51,7 +51,7 @@ export const de = {
   hero: {
     kicker: "Der Dental-Care-Automat für Zahnarztpraxen",
     title: "Empfohlene Mundpflegeprodukte direkt in der Praxis verfügbar",
-    subtitle: "DentoPoint stellt einen Dental-Care-Automaten in Ihrer Zahnarztpraxis auf. Patienten kaufen dort die Produkte, die ihr Zahnarzt empfiehlt. Ohne zusätzlichen Verkaufs- und Verwaltungsaufwand für das Praxisteam.",
+    subtitle: "DentoPoint stellt einen Dental-Care-Automaten in Ihrer Zahnarztpraxis auf. Patienten kaufen dort die Produkte, die ihr Zahnarzt empfiehlt. Ihr Team befüllt den Automaten, Ihre Praxis verdient am Verkauf mit.",
     marketNote: "DentoPoint startet derzeit mit ersten Partnerpraxen in Deutschland.",
     ctaClinics: "Informationen für Zahnarztpraxen",
     ctaConsult: "Beratung anfragen",
@@ -76,7 +76,7 @@ export const de = {
     features: [
       { title: "Passt in die Praxis", description: "Ein Standgerät, das eine Steckdose und einen Internetanschluss braucht. Die Praxis stellt den Platz, um den Rest kümmert sich DentoPoint." },
       { title: "Kartenzahlung am Gerät", description: "Patienten bezahlen direkt am Automaten. Die Praxis hat weder mit Bargeld noch mit Rechnungen oder Buchhaltung zu tun." },
-      { title: "Befüllung und Service", description: "DentoPoint organisiert Befüllung und Wartung in Abstimmung mit der Praxis. Füllstände werden aus der Ferne überwacht." },
+      { title: "Befüllung durch Ihr Team", description: "Ihr Praxisteam befüllt den Automaten. Die Verwaltung zeigt den Bestand und den Nachbestellbedarf. Bei Wartung und Störungen hilft DentoPoint." },
       { title: "Produkte nach Empfehlung", description: "Das Sortiment wird gemeinsam mit der Praxis aus den Produkten unserer Partnerhersteller zusammengestellt. Der Zahnarzt empfiehlt, der Patient entscheidet." },
     ],
   },
@@ -87,7 +87,7 @@ export const de = {
     title: "Unser erster Standort",
     locationName: "Zahnarztpraxis Olga Henriette Seifert",
     locationAddress: "Clarenbachstraße 2, 50931 Köln",
-    locationNote: "Hier ist der erste DentoPoint-Automat in Betrieb.",
+    locationNote: "Hier steht der erste DentoPoint-Automat.",
     viewProducts: "Produkte an diesem Automaten ansehen",
     moreSoon: "Weitere Standorte folgen.",
     mapNote: "Karte: OpenStreetMap",
@@ -101,7 +101,7 @@ export const de = {
       { title: "Zahnarztpraxen", desc: "Sie möchten einen DentoPoint-Automaten in Ihrer Praxis aufstellen? Wir beraten Sie persönlich zu Standort, Sortiment und Ablauf. Die Praxis stellt den Platz, mehr nicht." },
       { title: "Hersteller", desc: "Sie stellen Mundpflegeprodukte oder Nahrungsergänzungsmittel her, die Zahnärzte empfehlen? Gemeinsam prüfen wir, ob Ihre Produkte ins Sortiment des Automaten passen." },
     ],
-    benefits: ["Kein Verkaufsaufwand für das Praxisteam", "Sortiment nach Empfehlung des Zahnarztes", "Persönlicher Ansprechpartner", "Start in Deutschland"],
+    benefits: ["Ihre Praxis verdient mit", "Sortiment nach Empfehlung des Zahnarztes", "Persönlicher Ansprechpartner", "Start in Deutschland"],
   },
 
   // Manufacturers Section
@@ -190,13 +190,13 @@ export const de = {
   },
 
   clinicsPage: {
-    hero: { label: "Für Zahnarztpraxen", title1: "Der Dental-Care-Automat", title2: "für Ihre Praxis", desc: "Ihre Patienten erhalten die Mundpflegeprodukte, die Sie empfehlen, direkt in der Praxis. Kein Verkauf, keine Abrechnung, kein Mehraufwand für Ihr Team. DentoPoint startet derzeit mit ersten Partnerpraxen in Deutschland." },
+    hero: { label: "Für Zahnarztpraxen", title1: "Der Dental-Care-Automat", title2: "für Ihre Praxis", desc: "Ihre Patienten erhalten die Mundpflegeprodukte, die Sie empfehlen, direkt in der Praxis. Ihr Team befüllt den Automaten, Ihre Praxis verdient am Verkauf mit. DentoPoint startet derzeit mit ersten Partnerpraxen in Deutschland." },
     revenue: {
       label: "Vorteile", title: "Was die Praxis davon hat",
       items: [
         { title: "Empfehlungen, die ankommen", desc: "Patienten bekommen das empfohlene Produkt direkt nach dem Termin, statt es später zu suchen oder gar nicht zu kaufen." },
-        { title: "Entlastung für das Team", desc: "Kein Verkauf in der Praxis, kein Lager, keine Zahlungen. Das Team empfiehlt, der Automat verkauft." },
-        { title: "Beteiligung möglich", desc: "Beteiligungsmodelle vereinbaren wir individuell mit jeder Praxis. Die Möglichkeiten erläutern wir im Beratungsgespräch." },],
+        { title: "Wenig Aufwand für das Team", desc: "Keine Kasse und keine Zahlungen am Empfang. Das Team empfiehlt und füllt bei Bedarf nach. Die Verwaltung zeigt, was fehlt." },
+        { title: "Ihre Praxis verdient mit", desc: "Es gibt zwei Modelle, wie Ihre Praxis am Verkauf beteiligt ist. Welches zu Ihnen passt, besprechen wir im Beratungsgespräch." },],
     },
     implementation: {
       label: "Start", title: "So geht es los",
@@ -204,7 +204,7 @@ export const de = {
         { title: "Beratungsgespräch", desc: "Wir sprechen über Ihre Praxis, den verfügbaren Platz und die Produkte, die Sie am häufigsten empfehlen.", duration: "Schritt 1" },
         { title: "Standort und Sortiment", desc: "Gemeinsam legen wir fest, wo der Automat steht und welche Produkte er enthält.", duration: "Schritt 2" },
         { title: "Aufstellung und Einweisung", desc: "Der Automat wird geliefert, angeschlossen und Ihr Team eingewiesen.", duration: "Schritt 3" },
-        { title: "Betrieb und Service", desc: "DentoPoint kümmert sich um Befüllung, Wartung und Störungen. Sie haben einen persönlichen Ansprechpartner.", duration: "Laufend" },
+        { title: "Betrieb und Service", desc: "Ihr Team befüllt den Automaten. Bei Nachbestellung, Wartung und Störungen hilft DentoPoint. Sie haben einen persönlichen Ansprechpartner.", duration: "Laufend" },
       ],
     },
     workflow: {
@@ -212,8 +212,8 @@ export const de = {
       benefits: [
         "Der Zahnarzt empfiehlt im Behandlungsgespräch ein Produkt",
         "Der Patient kauft es am Automaten in der Praxis, bezahlt per Karte und kann den Beleg per QR-Code aufs Handy laden",
-        "Kein Bargeld und keine Abrechnung in der Praxis",
-        "Befüllung wird von DentoPoint anhand der Füllstände geplant",
+        "Kein Bargeld und keine Kasse am Empfang",
+        "Das Praxisteam befüllt den Automaten, die Verwaltung zeigt Bestand und Nachbestellbedarf",
         "Störungen werden per Telefon oder E-Mail gemeldet, DentoPoint übernimmt den Rest",
         "Auf dem Display: Produktvideos, Patienteninformationen und Behandlungsthemen der Praxis",
       ],
@@ -247,7 +247,7 @@ export const de = {
       label: "Daten", title: "Verkaufszahlen und Telemetrie",
       items: [
         { label: "Verkäufe je Automat", value: "DentoPoint-Verwaltung" },
-        { label: "Füllstand und Befüllung", value: "Telemetrie" },
+        { label: "Bestand je Fach", value: "Verwaltung" },
         { label: "Berichte für Hersteller", value: "Geplant" },
         { label: "Datenexport", value: "Geplant" },
       ],
@@ -265,7 +265,7 @@ export const de = {
       label: "Logistik", title: "Logistik und Befüllung",
       benefits: [
         "Lieferung der Produkte an DentoPoint oder direkt in die Praxis",
-        "Befüllung durch DentoPoint anhand der Füllstände",
+        "Befüllung durch das Praxisteam, Nachbestellung gebündelt je Hersteller",
         "Verkaufszahlen je Automat in der DentoPoint-Verwaltung",
         "Produktinformationen und Videos auf dem 32-Zoll-Display",
         "Produktseiten mit QR-Codes für Patienten",
@@ -312,7 +312,7 @@ export const de = {
       benefits: [
         "Partnerhersteller von Mundpflegeprodukten und Nahrungsergänzungsmitteln",
         "Lieferanten von Automaten und Zahlungsterminals",
-        "Logistikpartner für die Befüllung",
+        "Logistikpartner für die Belieferung der Praxen",
         "Agenturen für Produktvideos und Display-Inhalte",
         "Vertriebspartner für weitere Regionen in Deutschland",
         "Berater für regulatorische Fragen",
@@ -694,16 +694,16 @@ export const de = {
     title: "Fragen aus Zahnarztpraxen",
     items: [
       { q: "Was steht genau in der Praxis?", a: "Ein Standautomat mit 32-Zoll-Display. Darin Mundpflegeprodukte und Nahrungsergänzungsmittel unserer Partnerhersteller. Er braucht eine Steckdose, einen Internetanschluss und etwa einen Quadratmeter Stellfläche." },
-      { q: "Wer befüllt den Automaten?", a: "DentoPoint organisiert die Befüllung gemeinsam mit der Praxis. Die Füllstände werden aus der Ferne überwacht, sodass nachgefüllt wird, bevor Produkte ausgehen." },
+      { q: "Wer befüllt den Automaten?", a: "Das Praxisteam. Die Ware liegt in der Praxis. Die Verwaltung zeigt den Bestand je Fach und erstellt die Nachbestellliste, so kann das Team nachfüllen, bevor Produkte ausgehen. Dafür verdient die Praxis am Verkauf mit." },
       { q: "Wer wählt die Produkte aus?", a: "Das Sortiment wird gemeinsam mit der Praxis aus den Produkten unserer Partnerhersteller zusammengestellt. Der Zahnarzt entscheidet, was den Patienten empfohlen wird." },
       { q: "Muss die Praxis den Automaten kaufen oder mieten?", a: "Die Konditionen besprechen wir persönlich mit jeder Praxis. Für die Pilotpraxen gibt es keine Kaufverpflichtung." },
       { q: "Wie bezahlen die Patienten?", a: "Per Karte direkt am Automaten. Die Praxis wickelt keine Zahlungen ab. Nach dem Kauf zeigt das Display einen QR-Code, mit dem der Patient den Beleg auf dem Handy öffnen kann, zum Beispiel für die Versicherung." },
-      { q: "Hat die Praxis Arbeit damit?", a: "Kein Verkauf, keine Abrechnung, keine Buchhaltung. Das Praxisteam empfiehlt im Behandlungsgespräch ein Produkt und verweist auf den Automaten." },
+      { q: "Hat die Praxis Arbeit damit?", a: "Wenig. Das Praxisteam empfiehlt im Behandlungsgespräch ein Produkt und verweist auf den Automaten. Ab und zu füllt das Team nach. Bezahlt wird am Automaten, nicht am Empfang." },
       { q: "Was passiert bei einer Störung?", a: "Die Praxis meldet die Störung per Telefon oder E-Mail an DentoPoint. Wir kümmern uns um die Behebung. Der Automat wird zusätzlich aus der Ferne überwacht." },
       { q: "Welche Produkte sind erhältlich?", a: "Therapeutische Zahnpasten, Mundspülungen, Zahnbürsten, Nahrungsergänzungsmittel, Sensitive Care und Alignerpflege von Partnerherstellern wie APOrtha, SDS Swiss Biohealth und bluem." },
-      { q: "Welchen Vorteil hat die Praxis?", a: "Patienten bekommen die empfohlenen Produkte sofort und zuverlässig, ohne dass die Praxis einen Verkauf betreiben muss. Das Team spart sich die Diskussion, wo es das Produkt zu kaufen gibt." },
+      { q: "Welchen Vorteil hat die Praxis?", a: "Patienten bekommen die empfohlenen Produkte sofort und zuverlässig, und die Praxis verdient am Verkauf mit. Das Team spart sich die Diskussion, wo es das Produkt zu kaufen gibt." },
       { q: "Welchen Vorteil haben die Patienten?", a: "Sie erhalten genau die Produkte, die ihr Zahnarzt empfiehlt, direkt nach dem Termin, ohne Suchen und Vergleichen." },
-      { q: "Gibt es eine Provision oder Beteiligung?", a: "Beteiligungsmodelle vereinbaren wir individuell mit jeder Praxis. Die Möglichkeiten erläutern wir gern im Beratungsgespräch." },
+      { q: "Gibt es eine Provision oder Beteiligung?", a: "Ja. Es gibt zwei Modelle, wie die Praxis am Verkauf beteiligt ist. Welches zu Ihrer Praxis passt, besprechen wir im Beratungsgespräch." },
       { q: "Wie schnell kann ein Gerät aufgestellt werden?", a: "Nach einem Beratungsgespräch stimmen wir Standort, Sortiment und Aufstelltermin mit der Praxis ab. Danach nennen wir einen konkreten Termin." },
     ],
   },
@@ -716,8 +716,8 @@ export const de = {
     inProgressLabel: "In Vorbereitung",
     plannedLabel: "Geplant",
     items: [
-      { title: "Automat in Köln in Betrieb", desc: "Der erste DentoPoint-Automat läuft in der Zahnarztpraxis Olga Henriette Seifert.", state: "available" },
-      { title: "Kartenzahlung", desc: "Patienten bezahlen per Karte direkt am Gerät.", state: "available" },
+      { title: "Automat in Köln aufgestellt", desc: "Der erste DentoPoint-Automat steht in der Zahnarztpraxis Olga Henriette Seifert. Die Anzeige läuft, der Verkauf startet nach Anbindung von Kartenterminal und Warenausgabe.", state: "available" },
+      { title: "Kartenzahlung", desc: "Patienten bezahlen per Karte direkt am Gerät. Das Kartenterminal wird gerade angebunden.", state: "inProgress" },
       { title: "Anzeige mit Produktinfos, Videos und QR-Codes", desc: "Auf dem 32-Zoll-Display: Produktinformationen, Videos, Patienteninformationen und QR-Codes, auf Deutsch, Englisch und Niederländisch.", state: "available" },
       { title: "Beleg per QR-Code", desc: "Nach dem Kauf erscheint ein QR-Code. Damit öffnet der Patient den Beleg auf dem Handy, zum Beispiel für die Versicherung.", state: "available" },
       { title: "Behandlungsthemen der Praxis", desc: "Die Praxis stellt auf dem Display eigene Leistungen vor, zum Beispiel Ozontherapie (OzoneDTA), Keramikimplantate von SDS Swiss Dental Solutions und den Vitamin-D-Schnelltest mit dem AFIAS-Gerät.", state: "available" },
@@ -727,8 +727,8 @@ export const de = {
     ],
   },
   seo: {
-    home: { title: "DentoPoint – Der Dental-Care-Automat für Zahnarztpraxen", desc: "DentoPoint stellt Dental-Care-Automaten in Zahnarztpraxen auf. Patienten kaufen dort die Mundpflegeprodukte, die ihr Zahnarzt empfiehlt. Ohne Verkaufsaufwand für das Praxisteam. Start mit ersten Partnerpraxen in Deutschland." },
-    clinics: { title: "Dental-Care-Automat für Ihre Zahnarztpraxis | DentoPoint", desc: "Empfohlene Mundpflegeprodukte direkt in der Praxis: kein Verkauf, keine Abrechnung, kein Mehraufwand für das Team. Ablauf, Vorteile und Datenschutz für Zahnarztpraxen." },
+    home: { title: "DentoPoint – Der Dental-Care-Automat für Zahnarztpraxen", desc: "DentoPoint stellt Dental-Care-Automaten in Zahnarztpraxen auf. Patienten kaufen dort die Mundpflegeprodukte, die ihr Zahnarzt empfiehlt. Das Praxisteam befüllt, die Praxis verdient mit. Start mit ersten Partnerpraxen in Deutschland." },
+    clinics: { title: "Dental-Care-Automat für Ihre Zahnarztpraxis | DentoPoint", desc: "Empfohlene Mundpflegeprodukte direkt in der Praxis: wenig Aufwand, die Praxis verdient mit. Ablauf, Vorteile und Datenschutz für Zahnarztpraxen." },
     manufacturers: { title: "Für Hersteller: Produkte direkt in der Zahnarztpraxis | DentoPoint", desc: "Mundpflegeprodukte und Nahrungsergänzungsmittel, die Zahnärzte empfehlen, im Dental-Care-Automaten der Partnerpraxen. So kommen Ihre Produkte ins Sortiment." },
     partners: { title: "Partner werden | DentoPoint aus Köln", desc: "DentoPoint ist ein junges Unternehmen aus Köln. Wir suchen Zahnarztpraxen, Hersteller, Technik- und Fortbildungspartner für den Dental-Care-Automaten." },
     impressum: { title: "Impressum | DentoPoint GbR", desc: "Impressum der DentoPoint GbR, Clarenbachstraße 6, 50931 Köln." },

@@ -51,7 +51,7 @@ export const en = {
   hero: {
     kicker: "The dental care vending machine for dental practices",
     title: "Recommended oral care products, available right in the practice",
-    subtitle: "DentoPoint places a dental care vending machine in your dental practice. Patients buy the products their dentist recommends directly on site. No sales or administration work for the practice team.",
+    subtitle: "DentoPoint places a dental care vending machine in your dental practice. Patients buy the products their dentist recommends directly on site. Your team refills the machine, your practice earns from the sales.",
     marketNote: "DentoPoint is currently launching with its first partner practices in Germany.",
     ctaClinics: "Information for dental practices",
     ctaConsult: "Request a consultation",
@@ -76,7 +76,7 @@ export const en = {
     features: [
       { title: "Fits into the practice", description: "A free-standing unit that needs a power socket and an internet connection. The practice provides the space, DentoPoint takes care of the rest." },
       { title: "Card payment at the machine", description: "Patients pay directly at the machine. The practice does not handle cash, invoices or bookkeeping." },
-      { title: "Refills and service", description: "DentoPoint organises refills and maintenance in coordination with the practice. Fill levels are monitored remotely." },
+      { title: "Refilled by your team", description: "Your practice team refills the machine. The admin area shows stock and what needs reordering. DentoPoint helps with maintenance and faults." },
       { title: "Products by recommendation", description: "The range is put together with the practice from the products of our partner manufacturers. The dentist recommends, the patient decides." },
     ],
   },
@@ -87,7 +87,7 @@ export const en = {
     title: "Our first location",
     locationName: "Zahnarztpraxis Olga Henriette Seifert",
     locationAddress: "Clarenbachstraße 2, 50931 Köln",
-    locationNote: "The first DentoPoint machine is in operation here.",
+    locationNote: "The first DentoPoint machine stands here.",
     viewProducts: "View the products at this machine",
     moreSoon: "More locations to follow.",
     mapNote: "Map: OpenStreetMap",
@@ -101,7 +101,7 @@ export const en = {
       { title: "Dental practices", desc: "You would like a DentoPoint machine in your practice? We advise you personally on placement, product range and the day-to-day process. The practice provides the space, nothing else." },
       { title: "Manufacturers", desc: "You produce oral care products or food supplements that dentists recommend? Together we check whether your products fit the range of the machine." },
     ],
-    benefits: ["No sales work for the practice team", "Range recommended by the dentist", "Personal contact person", "Starting in Germany"],
+    benefits: ["Your practice earns from it", "Range recommended by the dentist", "Personal contact person", "Starting in Germany"],
   },
 
   // Manufacturers Section
@@ -189,13 +189,13 @@ export const en = {
     ],
   },
   clinicsPage: {
-    hero: { label: "For Dental Practices", title1: "The dental care vending machine", title2: "for your practice", desc: "Your patients receive the oral care products you recommend directly in the practice. No sales, no invoicing, no extra work for your team. DentoPoint is currently starting with first partner practices in Germany." },
+    hero: { label: "For Dental Practices", title1: "The dental care vending machine", title2: "for your practice", desc: "Your patients receive the oral care products you recommend directly in the practice. Your team refills the machine, your practice earns from the sales. DentoPoint is currently starting with first partner practices in Germany." },
     revenue: {
       label: "Benefits", title: "What the practice gains",
       items: [
         { title: "Recommendations that arrive", desc: "Patients get the recommended product right after the appointment instead of searching for it later, or not at all." },
-        { title: "Relief for the team", desc: "No shop in the practice, no stock, no payments. The team recommends, the machine sells." },
-        { title: "Participation possible", desc: "Participation models are agreed individually with each practice. We explain the options in a consultation." },],
+        { title: "Little work for the team", desc: "No till and no payments at reception. The team recommends and refills when needed. The admin area shows what is missing." },
+        { title: "Your practice earns from it", desc: "There are two models for how your practice shares in the sales. We discuss which one suits you in a consultation." },],
     },
     implementation: {
       label: "Getting started", title: "How to get started",
@@ -203,7 +203,7 @@ export const en = {
         { title: "Consultation", desc: "We talk about your practice, the space available and the products you recommend most often.", duration: "Step 1" },
         { title: "Placement and range", desc: "Together we decide where the machine stands and which products it holds.", duration: "Step 2" },
         { title: "Installation and briefing", desc: "The machine is delivered, connected and your team is shown how it works.", duration: "Step 3" },
-        { title: "Operation and service", desc: "DentoPoint takes care of refills, maintenance and faults. You have a personal contact person.", duration: "Ongoing" },
+        { title: "Operation and service", desc: "Your team refills the machine. DentoPoint helps with reorders, maintenance and faults. You have a personal contact person.", duration: "Ongoing" },
       ],
     },
     workflow: {
@@ -211,8 +211,8 @@ export const en = {
       benefits: [
         "The dentist recommends a product in the treatment conversation",
         "The patient buys it at the machine in the practice, pays by card and can load the receipt to their phone via QR code",
-        "No cash handling and no invoicing in the practice",
-        "Refills are scheduled by DentoPoint based on fill levels",
+        "No cash and no till at reception",
+        "The practice team refills the machine, the admin area shows stock and reorder needs",
         "Faults are reported by phone or email, DentoPoint takes care of the rest",
         "On the display: product videos, patient information and the practice's treatment topics",
       ],
@@ -247,7 +247,7 @@ export const en = {
       label: "Data", title: "Sales figures and telemetry",
       items: [
         { label: "Sales per machine", value: "DentoPoint admin" },
-        { label: "Fill level and refills", value: "Telemetry" },
+        { label: "Stock per slot", value: "Admin area" },
         { label: "Reports for manufacturers", value: "Planned" },
         { label: "Data export", value: "Planned" },
       ],
@@ -265,7 +265,7 @@ export const en = {
       label: "Logistics", title: "Logistics and refills",
       benefits: [
         "Delivery of the products to DentoPoint or directly to the practice",
-        "Refills organised by DentoPoint based on fill levels",
+        "Refilled by the practice team, reorders bundled per manufacturer",
         "Sales figures per machine in the DentoPoint admin",
         "Product information and videos on the 32-inch display",
         "Product pages with QR codes for patients",
@@ -313,7 +313,7 @@ export const en = {
       benefits: [
         "Partner manufacturers of oral care products and food supplements",
         "Suppliers of vending machines and payment terminals",
-        "Logistics partners for refills",
+        "Logistics partners for supplying the practices",
         "Agencies for product videos and display content",
         "Distribution partners for further regions in Germany",
         "Advisors for regulatory questions",
@@ -729,16 +729,16 @@ export const en = {
     title: "Questions from dental practices",
     items: [
       { q: "What exactly is placed in the practice?", a: "A free-standing vending machine with a 32-inch display. It holds oral care products and food supplements from our partner manufacturers. It needs a power socket, an internet connection and about one square metre of floor space." },
-      { q: "Who fills the machine?", a: "DentoPoint organises refills together with the practice. Fill levels are monitored remotely, so refills are scheduled before products run out." },
+      { q: "Who fills the machine?", a: "The practice team. The stock is kept in the practice. The admin area shows the stock per slot and creates the reorder list, so the team can refill before products run out. In return, the practice earns from the sales." },
       { q: "Who selects the products?", a: "The range is put together with the practice from the products of our partner manufacturers. The dentist decides what is recommended to patients." },
       { q: "Does the practice have to buy or rent the machine?", a: "We discuss the terms personally with each practice. There is no obligation to buy for the pilot practices." },
       { q: "How do patients pay?", a: "By card directly at the machine. The practice does not handle any payments. After the purchase, the display shows a QR code that opens the receipt on the patient's phone, for example for their insurance." },
-      { q: "Does the practice have work with it?", a: "No sales, no invoicing, no bookkeeping. The practice team recommends products in the treatment conversation and points to the machine." },
+      { q: "Does the practice have work with it?", a: "Little. The practice team recommends products in the treatment conversation and points to the machine. Now and then the team refills it. Payment happens at the machine, not at reception." },
       { q: "What happens if the machine breaks down?", a: "The practice reports the fault by phone or email to DentoPoint. We take care of the repair. The machine is also monitored remotely." },
       { q: "Which products are available?", a: "Therapeutic toothpastes, mouthwashes, toothbrushes, food supplements, sensitive care and aligner care from partner manufacturers such as APOrtha, SDS Swiss Biohealth and bluem." },
-      { q: "What does the practice gain?", a: "Patients receive the recommended products immediately and reliably, without the practice having to run a shop. The practice team saves the discussions about where to buy." },
+      { q: "What does the practice gain?", a: "Patients receive the recommended products immediately and reliably, and the practice earns from the sales. The practice team saves the discussions about where to buy." },
       { q: "What do patients gain?", a: "They get exactly the products their dentist recommends, right after the appointment, without searching or comparing." },
-      { q: "Is there a commission or a share in sales?", a: "Participation models are agreed individually with each practice. We are happy to explain the options in a consultation." },
+      { q: "Is there a commission or a share in sales?", a: "Yes. There are two models for how the practice shares in the sales. We discuss which one suits your practice in a consultation." },
       { q: "How quickly can a machine be installed?", a: "After a consultation we agree placement, range and an installation date with the practice. We then confirm a concrete date." },
     ],
   },
@@ -751,8 +751,8 @@ export const en = {
     inProgressLabel: "In preparation",
     plannedLabel: "Planned",
     items: [
-      { title: "Machine in operation in Cologne", desc: "The first DentoPoint machine is running at Zahnarztpraxis Olga Henriette Seifert.", state: "available" },
-      { title: "Card payment", desc: "Patients pay by card directly at the machine.", state: "available" },
+      { title: "Machine installed in Cologne", desc: "The first DentoPoint machine stands in Zahnarztpraxis Olga Henriette Seifert. The display is running, sales start once the card terminal and product dispensing are connected.", state: "available" },
+      { title: "Card payment", desc: "Patients pay by card directly at the machine. The card terminal is currently being connected.", state: "inProgress" },
       { title: "Display with product info, videos and QR codes", desc: "On the 32-inch display: product information, videos, patient information and QR codes, in German, English and Dutch.", state: "available" },
       { title: "Receipt via QR code", desc: "After the purchase a QR code appears. The patient uses it to open the receipt on their phone, for example for their insurance.", state: "available" },
       { title: "Treatment topics of the practice", desc: "The practice presents its own services on the display, for example ozone therapy (OzoneDTA), ceramic implants by SDS Swiss Dental Solutions and the vitamin D rapid test with the AFIAS analyser.", state: "available" },
@@ -762,8 +762,8 @@ export const en = {
     ],
   },
   seo: {
-    home: { title: "DentoPoint – The dental care vending machine for dental practices", desc: "DentoPoint places dental care vending machines in dental practices. Patients buy the oral care products their dentist recommends, with no sales effort for the practice team. Starting with first partner practices in Germany." },
-    clinics: { title: "Dental care vending machine for your practice | DentoPoint", desc: "Recommended oral care products right in the practice: no selling, no billing, no extra work for the team. Process, benefits and data protection for dental practices." },
+    home: { title: "DentoPoint – The dental care vending machine for dental practices", desc: "DentoPoint places dental care vending machines in dental practices. Patients buy the oral care products their dentist recommends, the practice team refills, the practice earns from it. Starting with first partner practices in Germany." },
+    clinics: { title: "Dental care vending machine for your practice | DentoPoint", desc: "Recommended oral care products right in the practice: little work, the practice earns from it. Process, benefits and data protection for dental practices." },
     manufacturers: { title: "For manufacturers: your products in the dental practice | DentoPoint", desc: "Oral care products and supplements that dentists recommend, sold in the dental care vending machines of our partner practices. How your products get into the range." },
     partners: { title: "Become a partner | DentoPoint from Cologne", desc: "DentoPoint is a young company from Cologne. We are looking for dental practices, manufacturers, technology and training partners for the dental care vending machine." },
     impressum: { title: "Legal notice | DentoPoint GbR", desc: "Legal notice of DentoPoint GbR, Clarenbachstraße 6, 50931 Cologne, Germany." },
