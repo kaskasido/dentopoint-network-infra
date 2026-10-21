@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Building2, CreditCard, PackageCheck, Stethoscope } from "lucide-react";
-import smartCareModule from "@/assets/smart-care-module.png";
+import smartCareModule from "@/assets/dentopoint-automat.webp";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const icons = [Building2, CreditCard, PackageCheck, Stethoscope];
@@ -36,20 +36,16 @@ const InfrastructureSection = () => {
         >
           <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
             <div className="flex justify-center">
-              <div className="relative max-w-xs">
+              <div className="relative max-w-[17rem]">
                 <img
                   src={smartCareModule}
                   alt={t.infrastructure.aiImageAlt}
                   width={640}
-                  height={640}
-                  className="rounded-xl shadow-brand-lg"
+                  height={1473}
                   loading="lazy"
                 />
-                <div className="absolute -bottom-3 -right-3 bg-gradient-brand text-primary-foreground text-xs font-medium px-4 py-2 rounded-md">
-                  {t.infrastructure.whiteEdition} · {t.infrastructure.blackEdition}
-                </div>
-                {/* KI-Kennzeichnung (Art. 50 Abs. 4 KI-Verordnung, Irreführungsverbot § 5 UWG) */}
-                <p className="mt-6 text-xs text-muted-foreground">{t.infrastructure.aiImageNote}</p>
+                {/* Kennzeichnung als Visualisierung (Irreführungsverbot § 5 UWG) */}
+                <p className="mt-4 text-xs text-muted-foreground">{t.infrastructure.aiImageNote}</p>
               </div>
             </div>
             <div className="max-w-xl">
