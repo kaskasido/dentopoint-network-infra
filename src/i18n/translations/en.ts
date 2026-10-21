@@ -729,7 +729,7 @@ export const en = {
     label: "FAQ",
     title: "Questions from dental practices",
     items: [
-      { q: "What exactly is placed in the practice?", a: "A free-standing vending machine with a 32-inch touchscreen. It holds oral care products and food supplements from our partner manufacturers. It needs a power socket, an internet connection and about one square metre of floor space." },
+      { q: "What exactly is placed in the practice?", a: "A free-standing vending machine with a 32-inch touchscreen. It holds oral care products and food supplements from our partner manufacturers. Dimensions according to the manufacturer: about 170 cm high, 65 cm wide and 38 cm deep, on a 75 × 50 cm base, weight about 70 kg. It needs a standard power socket (about 50 W), internet via Wi-Fi, cable or mobile network and, including space in front, about one square metre." },
       { q: "Who fills the machine?", a: "The practice team. The stock is kept in the practice. The admin area shows the stock per slot and creates the reorder list, so the team can refill before products run out. In return, the practice earns from the sales." },
       { q: "Who selects the products?", a: "The range is put together with the practice from the products of our partner manufacturers. The dentist decides what is recommended to patients." },
       { q: "Does the practice have to buy or rent the machine?", a: "We discuss the terms personally with each practice. There is no obligation to buy for the pilot practices." },

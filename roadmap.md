@@ -43,3 +43,4 @@ Die Patientenseite „DentoPoint Connect" hat eine eigene Aufgabenliste im Lovab
 ## Design
 - [x] Network-Seite: Farben und Schrift wie die Automatenoberfläche (Grün #0e7c6b, Text #12211f, Inter auch für Überschriften, rundere Ecken), 21.10.2026
 - [ ] Patientenseite (Lovable-Projekt DentoPoint Connect) ebenso angleichen
+- [ ] Maße des Automaten (FAQ „Was steht genau in der Praxis?“, laut Herstellerseite ZD-C-32) vor Veröffentlichung von Max am Gerät bestätigen lassen; Modell am Typenschild prüfen

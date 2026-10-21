@@ -399,7 +399,7 @@ export const nl = {
     label: "Veelgestelde vragen",
     title: "Vragen van tandartspraktijken",
     items: [
-      { q: "Wat staat er precies in de praktijk?", a: "Een staande automaat met een touchscreen van 32 inch. Daarin mondverzorgingsproducten en voedingssupplementen van onze partnerfabrikanten. Hij heeft een stopcontact, een internetaansluiting en ongeveer één vierkante meter vloeroppervlak nodig." },
+      { q: "Wat staat er precies in de praktijk?", a: "Een staande automaat met een touchscreen van 32 inch. Daarin mondverzorgingsproducten en voedingssupplementen van onze partnerfabrikanten. Afmetingen volgens de fabrikant: ongeveer 170 cm hoog, 65 cm breed en 38 cm diep, op een voet van 75 × 50 cm, gewicht ongeveer 70 kg. Hij heeft een gewoon stopcontact nodig (ongeveer 50 W), internet via wifi, kabel of mobiel netwerk en, inclusief ruimte ervoor, ongeveer één vierkante meter." },
       { q: "Wie vult de automaat bij?", a: "Het praktijkteam. De producten liggen in de praktijk. De beheeromgeving toont de voorraad per vak en stelt de nabestellijst op, zodat het team kan bijvullen voordat producten op raken. Daarvoor verdient de praktijk mee aan de verkoop." },
       { q: "Wie kiest de producten uit?", a: "Het assortiment wordt samen met de praktijk samengesteld uit de producten van onze partnerfabrikanten. De tandarts bepaalt wat de patiënten wordt aanbevolen." },
       { q: "Moet de praktijk de automaat kopen of huren?", a: "De voorwaarden bespreken we persoonlijk met elke praktijk. Voor de pilotpraktijken geldt geen aankoopverplichting." },

@@ -694,7 +694,7 @@ export const de = {
     label: "FAQ",
     title: "Fragen aus Zahnarztpraxen",
     items: [
-      { q: "Was steht genau in der Praxis?", a: "Ein Standautomat mit 32-Zoll-Touchscreen. Darin Mundpflegeprodukte und Nahrungsergänzungsmittel unserer Partnerhersteller. Er braucht eine Steckdose, einen Internetanschluss und etwa einen Quadratmeter Stellfläche." },
+      { q: "Was steht genau in der Praxis?", a: "Ein Standautomat mit 32-Zoll-Touchscreen. Darin Mundpflegeprodukte und Nahrungsergänzungsmittel unserer Partnerhersteller. Maße laut Hersteller: etwa 170 cm hoch, 65 cm breit und 38 cm tief, auf einem Standfuß von 75 × 50 cm, Gewicht etwa 70 kg. Er braucht eine normale Steckdose (etwa 50 W), Internet per WLAN, Kabel oder Mobilfunk und mit Platz davor etwa einen Quadratmeter." },
       { q: "Wer befüllt den Automaten?", a: "Das Praxisteam. Die Ware liegt in der Praxis. Die Verwaltung zeigt den Bestand je Fach und erstellt die Nachbestellliste, so kann das Team nachfüllen, bevor Produkte ausgehen. Dafür verdient die Praxis am Verkauf mit." },
       { q: "Wer wählt die Produkte aus?", a: "Das Sortiment wird gemeinsam mit der Praxis aus den Produkten unserer Partnerhersteller zusammengestellt. Der Zahnarzt entscheidet, was den Patienten empfohlen wird." },
       { q: "Muss die Praxis den Automaten kaufen oder mieten?", a: "Die Konditionen besprechen wir persönlich mit jeder Praxis. Für die Pilotpraxen gibt es keine Kaufverpflichtung." },
