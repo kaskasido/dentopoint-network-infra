@@ -797,7 +797,7 @@ export const en = {
       text: "A forgotten toothbrush, fresh breath before a meeting, vitamins for long travel days: the Care Station in the lobby helps your guests around the clock. On its screen, your hotel presents itself.",
       benefits: [
         { title: "Around the clock", text: "Guests help themselves, even late at night when the shops are closed." },
-        { title: "Your hotel on screen", text: "If you wish, the top of the screen shows your name, your restaurants, the bar and the spa, with pictures and opening hours. You book this presentation as an additional service." },
+        { title: "Your hotel on screen", text: "If you wish, the top of the screen shows your name, your restaurants, the bar and the spa, with pictures and opening hours. You book this presentation as an additional service, free of charge during the pilot phase." },
         { title: "Requests to reception", text: "Part of your hotel presentation: when a guest taps “Reserve a table” or “Book a massage”, reception is informed. Only the topic is stored, not who it was." },
         { title: "No extra work", text: "DentoPoint installs, refills, maintains and handles the accounting. We rent the spot if you wish." },
         { title: "Matches your hotel", text: "Colours and patterns of the interface follow your hotel's style." },
@@ -856,7 +856,7 @@ export const en = {
         { q: "Does the Care Station store guest data?", a: "For a request to reception, only the topic is stored, not who it was. For statistics, the Care Station anonymously counts which content is tapped." },
         { q: "How do guests pay?", a: "By card directly at the Care Station. The card terminal is currently being connected." },
         { q: "Which products are available?", a: "Dental care for travellers, mouth spray and micronutrients from partner manufacturers such as bluem, APOrtha and SDS Swiss Biohealth. The range is tailored to each location." },
-        { q: "What does the Care Station cost the hotel?", a: "The hotel pays nothing for the Care Station itself, and we rent the spot if you wish. Presenting your hotel on the screen is a service you can book in addition. Without it, the top of the screen shows DentoPoint only. We discuss the terms personally." },
+        { q: "What does the Care Station cost the hotel?", a: "The hotel pays nothing for the Care Station itself, and we rent the spot if you wish. During the pilot phase, presenting your hotel on the screen is free of charge as well. Afterwards we review the results together and discuss further cooperation and its terms." },
         { q: "Which languages does the Care Station use?", a: "German, English and Dutch today. More languages for international guests are planned." },
       ],
     },
@@ -868,7 +868,7 @@ export const en = {
       screen: {
         label: "On the screen",
         title: "Your venue and our range on one screen",
-        note: "Presenting your venue, with the top area and requests to reception, is a DentoPoint service. We design and maintain the content for you.",
+        note: "Presenting your venue, with the top area and requests to reception, is a DentoPoint service, free of charge during the pilot phase. We design and maintain the content for you.",
         points: [
           { title: "Top area for your venue", text: "Name, restaurants, bar and spa with pictures, opening hours and a QR code to your website." },
           { title: "Requests to reception", text: "Guests tap “Reserve a table” or “Book a massage”. Reception sees the request in a simple view on a computer or tablet." },
@@ -885,6 +885,7 @@ export const en = {
           { title: "Space and range", text: "Together we choose the spot in the lobby and the right product range." },
           { title: "Your content", text: "You give us pictures and texts about restaurants, bar and spa. We prepare them for the screen, you approve them." },
           { title: "Installation and operation", text: "We install the Care Station, refill it and take care of maintenance and accounting." },
+          { title: "Joint review", text: "At the end of the pilot phase we look at sales, interest and your experience together and discuss further cooperation." },
         ],
       },
       needs: {

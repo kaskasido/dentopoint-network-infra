@@ -762,7 +762,7 @@ export const de = {
       text: "Zahnbürste vergessen, frischer Atem vor dem Termin, Vitamine für lange Reisetage: Die Care Station in der Lobby hilft Ihren Gästen rund um die Uhr. Auf dem Bildschirm stellt sich Ihr Haus vor.",
       benefits: [
         { title: "Rund um die Uhr", text: "Gäste versorgen sich selbst, auch spät abends, wenn kein Geschäft mehr geöffnet hat." },
-        { title: "Ihr Haus auf dem Bildschirm", text: "Auf Wunsch laufen oben Ihr Name, Ihre Restaurants, die Bar und das Spa, mit Bildern und Öffnungszeiten. Diese Vorstellung buchen Sie als Dienstleistung dazu." },
+        { title: "Ihr Haus auf dem Bildschirm", text: "Auf Wunsch laufen oben Ihr Name, Ihre Restaurants, die Bar und das Spa, mit Bildern und Öffnungszeiten. Diese Vorstellung buchen Sie als Dienstleistung dazu, in der Pilotphase kostenfrei." },
         { title: "Wünsche an die Rezeption", text: "Zur Vorstellung Ihres Hauses gehört: Tippt ein Gast auf „Tisch reservieren“ oder „Massage buchen“, erfährt es die Rezeption. Gespeichert wird nur das Thema, nicht wer es war." },
         { title: "Kein Aufwand", text: "DentoPoint stellt auf, befüllt, wartet und rechnet ab. Den Stellplatz mieten wir auf Wunsch." },
         { title: "Passt zu Ihrem Haus", text: "Farben und Muster der Oberfläche richten sich nach Ihrem Haus." },
@@ -821,7 +821,7 @@ export const de = {
         { q: "Speichert die Care Station Daten der Gäste?", a: "Bei einem Wunsch an die Rezeption wird nur das Thema gespeichert, nicht wer es war. Für Auswertungen zählt die Care Station anonym, welche Inhalte angetippt werden." },
         { q: "Wie bezahlen die Gäste?", a: "Per Karte direkt an der Care Station. Das Kartenterminal wird gerade angebunden." },
         { q: "Welche Produkte gibt es?", a: "Zahnpflege für unterwegs, Mundspray und Mikronährstoffe von Partnerherstellern wie bluem, APOrtha und SDS Swiss Biohealth. Das Sortiment wird je Standort abgestimmt." },
-        { q: "Was kostet die Care Station das Hotel?", a: "Für die Care Station selbst zahlt das Hotel nichts, den Stellplatz mieten wir auf Wunsch. Die Vorstellung Ihres Hauses auf dem Bildschirm ist eine Dienstleistung, die Sie dazubuchen können. Ohne sie zeigt der Bildschirm oben nur DentoPoint. Die Konditionen besprechen wir persönlich." },
+        { q: "Was kostet die Care Station das Hotel?", a: "Für die Care Station selbst zahlt das Hotel nichts, den Stellplatz mieten wir auf Wunsch. In der Pilotphase ist auch die Vorstellung Ihres Hauses auf dem Bildschirm kostenfrei. Danach ziehen wir gemeinsam Bilanz und besprechen die weitere Zusammenarbeit und ihre Konditionen." },
         { q: "In welchen Sprachen läuft die Care Station?", a: "Heute auf Deutsch, Englisch und Niederländisch. Weitere Sprachen für internationale Gäste sind geplant." },
       ],
     },
@@ -833,7 +833,7 @@ export const de = {
       screen: {
         label: "Auf dem Bildschirm",
         title: "Ihr Haus und unser Sortiment auf einem Bildschirm",
-        note: "Die Vorstellung Ihres Hauses mit Kopfbereich und Wünschen an die Rezeption ist eine Dienstleistung von DentoPoint. Wir gestalten und pflegen die Inhalte für Sie.",
+        note: "Die Vorstellung Ihres Hauses mit Kopfbereich und Wünschen an die Rezeption ist eine Dienstleistung von DentoPoint, in der Pilotphase kostenfrei. Wir gestalten und pflegen die Inhalte für Sie.",
         points: [
           { title: "Kopfbereich für Ihr Haus", text: "Name, Restaurants, Bar und Spa mit Bildern, Öffnungszeiten und QR-Code zur Website." },
           { title: "Wünsche an die Rezeption", text: "Gäste tippen auf „Tisch reservieren“ oder „Massage buchen“. Die Rezeption sieht den Wunsch in einer einfachen Ansicht am Computer oder Tablet." },
@@ -850,6 +850,7 @@ export const de = {
           { title: "Platz und Sortiment", text: "Gemeinsam wählen wir den Platz in der Lobby und das passende Sortiment." },
           { title: "Ihre Inhalte", text: "Sie geben uns Bilder und Texte zu Restaurants, Bar und Spa. Wir bereiten sie für den Bildschirm auf, Sie geben frei." },
           { title: "Aufstellen und Betrieb", text: "Wir stellen die Care Station auf, befüllen sie und kümmern uns um Wartung und Abrechnung." },
+          { title: "Gemeinsame Bilanz", text: "Am Ende der Pilotphase sehen wir uns Verkäufe, Interesse und Ihre Erfahrungen gemeinsam an und besprechen die weitere Zusammenarbeit." },
         ],
       },
       needs: {
