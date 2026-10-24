@@ -15,9 +15,11 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
-        display: ["Inter", "system-ui", "sans-serif"],
+        display: ["Caladea", "Georgia", "Times New Roman", "serif"],
       },
       colors: {
+        gold: "hsl(var(--gold))",
+        "gold-ink": "hsl(var(--gold-ink))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -70,6 +72,9 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+      },
+      boxShadow: {
+        soft: "0 12px 40px hsl(189 39% 10% / 0.08)",
       },
       borderRadius: {
         lg: "var(--radius)",

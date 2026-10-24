@@ -141,7 +141,7 @@ const Navbar = () => {
           )}
           <button
             onClick={() => oeffne("demo")}
-            className="bg-gradient-brand text-primary-foreground px-5 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-opacity"
+            className="bg-gradient-brand text-primary-foreground px-5 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
           >
             {t.netzwerk.nav.demo}
           </button>
@@ -212,7 +212,7 @@ const Navbar = () => {
             </Link>
           )}
           <button
-            className="block w-full mt-4 bg-gradient-brand text-primary-foreground px-5 py-2.5 rounded-md text-sm font-medium text-center"
+            className="block w-full mt-4 bg-gradient-brand text-primary-foreground px-5 py-2.5 rounded-full text-sm font-medium text-center"
             onClick={() => { setIsOpen(false); oeffne("demo"); }}
           >
             {t.netzwerk.nav.demo}

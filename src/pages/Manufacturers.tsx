@@ -26,7 +26,7 @@ const Manufacturers = () => {
   const schirmIcons = [Image, Tag, Building2, Star, Languages];
 
   const Knopf = () => (
-    <button type="button" onClick={() => setKontakt(true)} className="inline-flex items-center justify-center gap-2 bg-gradient-brand text-primary-foreground px-8 py-3.5 rounded-md text-sm font-medium hover:opacity-90 transition-opacity">
+    <button type="button" onClick={() => setKontakt(true)} className="inline-flex items-center justify-center gap-2 bg-gradient-brand text-primary-foreground px-8 py-3.5 rounded-full text-sm font-medium hover:opacity-90 transition-opacity">
       <Factory size={18} />
       {p.cta}
     </button>
@@ -42,8 +42,8 @@ const Manufacturers = () => {
             <Link to="/" className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-6">
               <ArrowLeft size={16} /> {t.nav.backToHome}
             </Link>
-            <p className="text-sm font-medium tracking-[0.2em] uppercase text-accent mb-4">{p.kicker}</p>
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground leading-tight mb-6">{p.title}</h1>
+            <p className="text-xs font-semibold tracking-[0.24em] uppercase text-gold-ink mb-4">{p.kicker}</p>
+            <h1 className="font-display text-4xl md:text-5xl font-normal text-foreground leading-tight mb-6">{p.title}</h1>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8">{p.subtitle}</p>
             <div className="flex flex-col sm:flex-row sm:items-center gap-4">
               <Knopf />
@@ -71,19 +71,19 @@ const Manufacturers = () => {
         </div>
       </section>
 
-      <section id="bildschirm" className="py-24 bg-foreground text-primary-foreground">
+      <section id="bildschirm" className="py-24 bg-muted text-foreground border-y border-border">
         <div className="container mx-auto px-6 grid lg:grid-cols-[1.2fr_0.8fr] gap-14 items-center">
           <div>
-            <Kopf label={p.bildschirm.label} title={p.bildschirm.title} hell />
+            <Kopf label={p.bildschirm.label} title={p.bildschirm.title} />
             <div className="space-y-6">
               {p.bildschirm.items.map((it, i) => {
                 const Icon = schirmIcons[i] ?? Image;
                 return (
                   <motion.div key={it.title} {...einblenden} transition={{ duration: 0.4, delay: i * 0.06 }} className="flex gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary-foreground/10 text-accent"><Icon size={20} /></div>
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-card border border-border text-accent"><Icon size={20} /></div>
                     <div>
                       <h3 className="font-display font-semibold mb-1">{it.title}</h3>
-                      <p className="text-sm text-primary-foreground/70 leading-relaxed">{it.text}</p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{it.text}</p>
                     </div>
                   </motion.div>
                 );
@@ -91,10 +91,10 @@ const Manufacturers = () => {
             </div>
           </div>
           <motion.figure {...einblenden} className="mx-auto w-full max-w-[300px]">
-            <div className="overflow-hidden rounded-xl border-[6px] border-black bg-black shadow-2xl">
+            <div className="overflow-hidden rounded-xl border-[6px] border-black bg-black shadow-soft">
               <img src={schirmStart} alt={p.imageAlt} width={540} height={934} loading="lazy" className="block w-full h-auto" />
             </div>
-            <figcaption className="mt-3 text-xs text-primary-foreground/60 text-center">{p.bildschirm.caption}</figcaption>
+            <figcaption className="mt-3 text-xs text-muted-foreground text-center">{p.bildschirm.caption}</figcaption>
           </motion.figure>
         </div>
       </section>

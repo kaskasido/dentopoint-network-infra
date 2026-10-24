@@ -16,60 +16,60 @@ const Footer = () => {
   ];
 
   return (
-    <footer id="contact" className="py-16 bg-foreground text-primary-foreground">
+    <footer id="contact" className="py-16 bg-muted text-foreground border-t border-gold">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="md:col-span-1">
             <div className="flex items-center gap-3 mb-4">
               <img src={logo} alt="DentoPoint" width={44} height={44} className="h-11 w-11 rounded" />
-              <span className="font-display font-bold text-lg">DentoPoint</span>
+              <span className="font-display text-xl">DentoPoint</span>
             </div>
-            <p className="text-sm opacity-60 leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               {t.netzwerk.footerDescription}
             </p>
           </div>
 
           <div>
-            <h4 className="font-display font-semibold text-sm mb-4 opacity-80">{t.footer.platform}</h4>
-            <ul className="space-y-2.5 text-sm opacity-60">
+            <h4 className="font-display font-semibold text-sm mb-4">{t.footer.platform}</h4>
+            <ul className="space-y-2.5 text-sm text-muted-foreground">
               {overview.map((o) => (
                 <li key={o.href}>
-                  <Link to={o.href} className="hover:opacity-100 transition-opacity">{o.label}</Link>
+                  <Link to={o.href} className="hover:text-primary transition-colors">{o.label}</Link>
                 </li>
               ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="font-display font-semibold text-sm mb-4 opacity-80">{t.footer.legal}</h4>
-            <ul className="space-y-2.5 text-sm opacity-60">
-              <li><Link to="/impressum" className="hover:opacity-100 transition-opacity">{t.footer.impressum}</Link></li>
-              <li><Link to="/datenschutz" className="hover:opacity-100 transition-opacity">{t.footer.privacyPolicy}</Link></li>
+            <h4 className="font-display font-semibold text-sm mb-4">{t.footer.legal}</h4>
+            <ul className="space-y-2.5 text-sm text-muted-foreground">
+              <li><Link to="/impressum" className="hover:text-primary transition-colors">{t.footer.impressum}</Link></li>
+              <li><Link to="/datenschutz" className="hover:text-primary transition-colors">{t.footer.privacyPolicy}</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-display font-semibold text-sm mb-4 opacity-80">{t.footer.contactLabel}</h4>
-            <p className="text-sm opacity-60 leading-relaxed mb-1">
+            <h4 className="font-display font-semibold text-sm mb-4">{t.footer.contactLabel}</h4>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-1">
               DentoPoint GbR<br />
               Clarenbachstraße 6<br />
               50931 Köln
             </p>
-            <p className="text-sm opacity-60 leading-relaxed mb-4">
-              <a href="mailto:info@dentopoint.care" className="hover:opacity-100">info@dentopoint.care</a><br />
-              <a href="tel:+491735108172" className="hover:opacity-100">+49 173 5108172</a>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+              <a href="mailto:info@dentopoint.care" className="hover:text-primary">info@dentopoint.care</a><br />
+              <a href="tel:+491735108172" className="hover:text-primary">+49 173 5108172</a>
             </p>
 
-            <h4 className="font-display font-semibold text-sm mb-3 opacity-80">{t.footer.language}</h4>
+            <h4 className="font-display font-semibold text-sm mb-3">{t.footer.language}</h4>
             <div className="flex flex-wrap gap-2">
               {SUPPORTED_LANGUAGES.map((l) => (
                 <button
                   key={l.code}
                   onClick={() => setLang(l.code)}
-                  className={`px-3 py-1.5 rounded border text-xs font-medium transition-opacity ${
+                  className={`px-3 py-1.5 rounded border text-xs font-medium transition-colors ${
                     lang === l.code
-                      ? "border-primary-foreground/60 opacity-100"
-                      : "border-primary-foreground/20 opacity-60 hover:opacity-100"
+                      ? "border-primary text-primary"
+                      : "border-border text-muted-foreground hover:text-primary"
                   }`}
                 >
                   {l.code}
@@ -79,11 +79,11 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs opacity-40">
+        <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-xs text-muted-foreground">
             {t.footer.copyright.replace("{year}", new Date().getFullYear().toString())}
           </p>
-          <p className="text-xs opacity-40">
+          <p className="text-xs text-muted-foreground">
             {t.netzwerk.footerTagline}
           </p>
         </div>

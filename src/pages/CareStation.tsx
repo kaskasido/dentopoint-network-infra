@@ -34,11 +34,11 @@ const CareStation = () => {
             <Link to="/" className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-6">
               <ArrowLeft size={16} /> {t.nav.backToHome}
             </Link>
-            <p className="text-sm font-medium tracking-[0.2em] uppercase text-accent mb-4">{st.kicker}</p>
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground leading-tight mb-6">{st.title}</h1>
+            <p className="text-xs font-semibold tracking-[0.24em] uppercase text-gold-ink mb-4">{st.kicker}</p>
+            <h1 className="font-display text-4xl md:text-5xl font-normal text-foreground leading-tight mb-6">{st.title}</h1>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl mb-8">{st.subtitle}</p>
             <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-              <button type="button" onClick={() => setKontakt(true)} className="inline-flex items-center justify-center gap-2 bg-gradient-brand text-primary-foreground px-8 py-3.5 rounded-md text-sm font-medium hover:opacity-90 transition-opacity">
+              <button type="button" onClick={() => setKontakt(true)} className="inline-flex items-center justify-center gap-2 bg-gradient-brand text-primary-foreground px-8 py-3.5 rounded-full text-sm font-medium hover:opacity-90 transition-opacity">
                 <Hotel size={18} />
                 {h.cta}
               </button>
@@ -46,7 +46,7 @@ const CareStation = () => {
             </div>
           </motion.div>
           <motion.img initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.15 }}
-            src={automat} alt={t.netzwerk.hero.imageAlt} width={640} height={1473} className="mx-auto w-full max-w-[220px] sm:max-w-[260px] h-auto drop-shadow-2xl" />
+            src={automat} alt={t.netzwerk.hero.imageAlt} width={640} height={1473} className="mx-auto w-full max-w-[220px] sm:max-w-[260px] h-auto" />
         </div>
       </section>
 
@@ -66,19 +66,19 @@ const CareStation = () => {
       </section>
 
       {/* Was der Bildschirm zeigt, mit drei echten Bildschirmen der Oberfläche */}
-      <section id="bildschirm" className="py-24 bg-foreground text-primary-foreground">
+      <section id="bildschirm" className="py-24 bg-muted text-foreground border-y border-border">
         <div className="container mx-auto px-6">
-          <Kopf label={st.screen.label} title={st.screen.title} intro={st.screen.note} hell />
+          <Kopf label={st.screen.label} title={st.screen.title} intro={st.screen.note} />
           <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-14 items-start">
             <div className="space-y-6">
               {st.screen.points.map((p, i) => {
                 const Icon = punktIcons[i] ?? MonitorSmartphone;
                 return (
                   <motion.div key={p.title} {...einblenden} transition={{ duration: 0.4, delay: i * 0.08 }} className="flex gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary-foreground/10 text-accent"><Icon size={20} /></div>
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-card border border-border text-accent"><Icon size={20} /></div>
                     <div>
                       <h3 className="font-display font-semibold mb-1">{p.title}</h3>
-                      <p className="text-sm text-primary-foreground/70 leading-relaxed">{p.text}</p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{p.text}</p>
                     </div>
                   </motion.div>
                 );
@@ -87,10 +87,10 @@ const CareStation = () => {
             <div className="grid grid-cols-3 gap-4">
               {[schirmStart, schirmTafel, schirmInteresse].map((src, i) => (
                 <motion.figure key={src} {...einblenden} transition={{ duration: 0.6, delay: 0.1 + i * 0.12 }} className={i === 1 ? "mt-10" : ""}>
-                  <div className="overflow-hidden rounded-xl border-[5px] border-black bg-black shadow-2xl">
+                  <div className="overflow-hidden rounded-xl border-[5px] border-black bg-black shadow-soft">
                     <img src={src} alt={st.screen.captions[i]} width={540} height={934} loading="lazy" className="block w-full h-auto" />
                   </div>
-                  <figcaption className="mt-3 text-xs text-primary-foreground/60 text-center">{st.screen.captions[i]}</figcaption>
+                  <figcaption className="mt-3 text-xs text-muted-foreground text-center">{st.screen.captions[i]}</figcaption>
                 </motion.figure>
               ))}
             </div>
@@ -125,7 +125,7 @@ const CareStation = () => {
                 </li>
               ))}
             </ul>
-            <button type="button" onClick={() => setKontakt(true)} className="mt-10 inline-flex items-center justify-center gap-2 bg-gradient-brand text-primary-foreground px-8 py-3.5 rounded-md text-sm font-medium hover:opacity-90 transition-opacity">
+            <button type="button" onClick={() => setKontakt(true)} className="mt-10 inline-flex items-center justify-center gap-2 bg-gradient-brand text-primary-foreground px-8 py-3.5 rounded-full text-sm font-medium hover:opacity-90 transition-opacity">
               <Hotel size={18} />
               {h.cta}
             </button>
