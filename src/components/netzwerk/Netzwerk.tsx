@@ -17,14 +17,14 @@ import schirmInteresse from "@/assets/netz-schirm-interesse.webp";
  * Zahnärzte nur als fachlicher Hintergrund, keine Praxen als Standorte, keine Hotelnamen ohne Zustimmung.
  */
 
-const einblenden = {
+export const einblenden = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
   transition: { duration: 0.6 },
 };
 
-const Kopf = ({ label, title, intro, hell = false }: { label: string; title: string; intro?: string; hell?: boolean }) => (
+export const Kopf = ({ label, title, intro, hell = false }: { label: string; title: string; intro?: string; hell?: boolean }) => (
   <motion.div {...einblenden} className="max-w-3xl mb-14">
     <p className={`text-sm font-medium tracking-[0.2em] uppercase mb-4 ${hell ? "text-primary-foreground/70" : "text-accent"}`}>{label}</p>
     <h2 className={`font-display text-3xl md:text-4xl font-bold mb-4 ${hell ? "text-primary-foreground" : "text-foreground"}`}>{title}</h2>
@@ -147,8 +147,12 @@ export const NetzHotels = () => {
               <Hotel size={18} />
               {h.cta}
             </button>
-            <p className="text-sm text-muted-foreground">{h.ctaNote}</p>
+            <Link to="/care-station" className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:opacity-80">
+              {h.more}
+              <ArrowRight size={16} />
+            </Link>
           </div>
+          <p className="mt-3 text-sm text-muted-foreground">{h.ctaNote}</p>
         </div>
 
         {/* Zwei Bildschirme der Hotel-Oberfläche, leicht versetzt */}
@@ -231,30 +235,37 @@ export const NetzStatus = () => {
 export const NetzPartner = () => {
   const { t } = useLanguage();
   const p = t.netzwerk.partners;
-  const icons = [Factory, Handshake];
+  const [kontakt, setKontakt] = useState(false);
+  const icons = [Hotel, Factory, MessageSquare];
   return (
     <section id="partner" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-6">
         <Kopf label={p.label} title={p.title} />
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {p.items.map((item, i) => {
             const Icon = icons[i] ?? Handshake;
+            const inhalt = (
+              <>
+                <Icon size={28} className="text-accent mb-5" />
+                <h3 className="font-display text-xl font-semibold text-foreground mb-3">{item.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-6">{item.text}</p>
+                <span className="mt-auto inline-flex items-center gap-2 text-sm font-medium text-primary">
+                  {item.link}
+                  <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                </span>
+              </>
+            );
+            const karte = "group flex h-full w-full flex-col text-left rounded-lg border border-border bg-card p-8 hover:border-primary/40 transition-colors";
             return (
               <motion.div key={item.title} {...einblenden} transition={{ duration: 0.5, delay: i * 0.1 }}>
-                <Link to={item.href} className="group flex h-full flex-col rounded-lg border border-border bg-card p-8 hover:border-primary/40 transition-colors">
-                  <Icon size={28} className="text-accent mb-5" />
-                  <h3 className="font-display text-xl font-semibold text-foreground mb-3">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">{item.text}</p>
-                  <span className="mt-auto inline-flex items-center gap-2 text-sm font-medium text-primary">
-                    {item.link}
-                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-                  </span>
-                </Link>
+                {/* Ohne Ziel (Sonstige Anfragen): öffnet das Kontaktformular */}
+                {item.href ? <Link to={item.href} className={karte}>{inhalt}</Link> : <button type="button" onClick={() => setKontakt(true)} className={karte}>{inhalt}</button>}
               </motion.div>
             );
           })}
         </div>
       </div>
+      <ContactDialog open={kontakt} onOpenChange={setKontakt} subject={t.netzwerk.sonstigeSubject} title={t.netzwerk.nav.sonstige} description={t.netzwerk.sonstigeDesc} defaultRole="Sonstiges" />
     </section>
   );
 };

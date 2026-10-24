@@ -15,7 +15,15 @@ import ContactDialog from "@/components/ContactDialog";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
+  // Welches Formular der Kontakt öffnet: Vorführung für ein Hotel oder sonstige Anfrage
+  const [anfrage, setAnfrage] = useState<"demo" | "sonstige">("demo");
+  const oeffne = (art: "demo" | "sonstige") => { setAnfrage(art); setContactOpen(true); };
   const { lang, setLang, t } = useLanguage();
+  // Seiten neben dem Netzwerk-Menü: Standorte und Hersteller
+  const seiten = [
+    { label: t.netzwerk.nav.station, href: "/care-station" },
+    { label: t.netzwerk.nav.produkte, href: "/manufacturers" },
+  ];
   const { user, role, signOut } = useAuth();
   const navigate = useNavigate();
 
@@ -36,26 +44,6 @@ const Navbar = () => {
         { label: t.netzwerk.nav.faq, href: "/#faq" },
       ],
     },
-    {
-      label: t.nav.manufacturers,
-      items: [
-        { label: t.nav.manufacturersItems.overview, href: "/manufacturers" },
-        { label: t.nav.manufacturersItems.integration, href: "/manufacturers#integration" },
-        { label: t.nav.manufacturersItems.data, href: "/manufacturers#data" },
-        { label: t.nav.manufacturersItems.performance, href: "/manufacturers#performance" },
-        { label: t.nav.manufacturersItems.distribution, href: "/manufacturers#distribution" },
-      ],
-    },
-    {
-      label: t.nav.strategicPartners,
-      items: [
-        { label: t.nav.partnersItems.tech, href: "/partners#technology" },
-        { label: t.nav.partnersItems.healthcare, href: "/partners#healthcare" },
-        { label: t.nav.partnersItems.academic, href: "/partners#academic" },
-        { label: t.nav.partnersItems.industry, href: "/partners#industry" },
-        { label: t.nav.partnersItems.global, href: "/partners#global" },
-      ],
-    },
   ];
 
   return (
@@ -71,7 +59,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden xl:flex items-center gap-7">
           {navSections.map((section) => (
             <DropdownMenu key={section.label}>
               <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors outline-none">
@@ -88,6 +76,15 @@ const Navbar = () => {
               </DropdownMenuContent>
             </DropdownMenu>
           ))}
+
+          {seiten.map((sp) => (
+            <Link key={sp.href} to={sp.href} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+              {sp.label}
+            </Link>
+          ))}
+          <button type="button" onClick={() => oeffne("sonstige")} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+            {t.netzwerk.nav.sonstige}
+          </button>
 
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors outline-none">
@@ -143,23 +140,26 @@ const Navbar = () => {
             </Link>
           )}
           <button
-            onClick={() => setContactOpen(true)}
+            onClick={() => oeffne("demo")}
             className="bg-gradient-brand text-primary-foreground px-5 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-opacity"
           >
-            {t.nav.contact}
+            {t.netzwerk.nav.demo}
           </button>
         </div>
 
         <ContactDialog
+          key={anfrage}
           open={contactOpen}
           onOpenChange={setContactOpen}
-          title={t.nav.contactTitle}
-          description={t.nav.contactDesc}
+          subject={anfrage === "demo" ? t.netzwerk.hotels.contactSubject : t.netzwerk.sonstigeSubject}
+          title={anfrage === "demo" ? t.netzwerk.nav.demo : t.netzwerk.nav.sonstige}
+          description={anfrage === "demo" ? t.netzwerk.hotels.ctaNote : t.netzwerk.sonstigeDesc}
+          defaultRole={anfrage === "demo" ? "Hotel" : "Sonstiges"}
         />
 
         {/* Mobile toggle */}
         <button
-          className="lg:hidden text-foreground"
+          className="xl:hidden text-foreground"
           aria-label="Menü"
           onClick={() => setIsOpen(!isOpen)}
         >
@@ -169,7 +169,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="lg:hidden bg-background border-b border-border px-6 pb-6">
+        <div className="xl:hidden bg-background border-b border-border px-6 pb-6">
           {navSections.map((section) => (
             <div key={section.label} className="py-3 border-b border-border/50">
               <p className="text-sm font-semibold text-foreground mb-1">{section.label}</p>
@@ -185,6 +185,14 @@ const Navbar = () => {
               ))}
             </div>
           ))}
+          {seiten.map((sp) => (
+            <Link key={sp.href} to={sp.href} onClick={() => setIsOpen(false)} className="block py-3 text-sm font-semibold text-foreground border-b border-border/50 hover:text-primary">
+              {sp.label}
+            </Link>
+          ))}
+          <button type="button" onClick={() => { setIsOpen(false); oeffne("sonstige"); }} className="block w-full text-left py-3 text-sm font-semibold text-foreground border-b border-border/50 hover:text-primary">
+            {t.netzwerk.nav.sonstige}
+          </button>
           {user && role === "admin" && (
             <Link
               to="/portal/admin"
@@ -205,9 +213,9 @@ const Navbar = () => {
           )}
           <button
             className="block w-full mt-4 bg-gradient-brand text-primary-foreground px-5 py-2.5 rounded-md text-sm font-medium text-center"
-            onClick={() => { setIsOpen(false); setContactOpen(true); }}
+            onClick={() => { setIsOpen(false); oeffne("demo"); }}
           >
-            {t.nav.contact}
+            {t.netzwerk.nav.demo}
           </button>
           <div className="flex gap-2 mt-4">
             {SUPPORTED_LANGUAGES.map((l) => (

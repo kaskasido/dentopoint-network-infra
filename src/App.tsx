@@ -8,6 +8,7 @@ import { LanguageProvider } from "@/i18n/LanguageContext";
 import Index from "./pages/Index";
 import Manufacturers from "./pages/Manufacturers";
 import Clinics from "./pages/Clinics";
+import CareStation from "./pages/CareStation";
 import Partners from "./pages/Partners";
 import Login from "./pages/Login";
 import Impressum from "./pages/Impressum";
@@ -35,6 +36,7 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/manufacturers" element={<Manufacturers />} />
               <Route path="/clinics" element={<Clinics />} />
+              <Route path="/care-station" element={<CareStation />} />
               <Route path="/partners" element={<Partners />} />
               <Route path="/login" element={<Login />} />
               <Route path="/impressum" element={<Impressum />} />

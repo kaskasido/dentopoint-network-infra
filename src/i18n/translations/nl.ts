@@ -437,7 +437,8 @@ export const nl = {
   seo: {
     home: { title: "DentoPoint – Het zorgnetwerk voor mondverzorging en vitamines", desc: "DentoPoint bouwt een netwerk van dental-care-automaten op, te beginnen met hotels in Keulen en Bonn. Mondverzorging voor onderweg en micronutriënten voor gasten, de klok rond, zonder extra werk voor het hotel." },
     clinics: { title: "Dental-care-automaat voor uw tandartspraktijk | DentoPoint", desc: "Aanbevolen mondverzorgingsproducten direct in de praktijk: weinig werk, de praktijk verdient mee. Werkwijze, voordelen en privacy voor tandartspraktijken." },
-    manufacturers: { title: "Voor fabrikanten: producten direct in de tandartspraktijk | DentoPoint", desc: "Mondverzorgingsproducten en voedingssupplementen die tandartsen aanbevelen, in de dental-care-automaat van de partnerpraktijken. Zo komen uw producten in het assortiment." },
+    careStation: { title: "Een Care Station voor uw hotel | DentoPoint", desc: "Het DentoPoint Care Station voor hotels: mondverzorging en micronutriënten voor gasten, de klok rond, uw hotel op het scherm, wensen naar de receptie, geen extra werk voor uw team." },
+    manufacturers: { title: "Uw producten in het Care Station | DentoPoint", desc: "Mondverzorging en micronutriënten voor mensen onderweg: zo komen uw producten in de DentoPoint Care Stations, te beginnen in hotels in Keulen en Bonn." },
     partners: { title: "Partner worden | DentoPoint uit Köln", desc: "DentoPoint is een jong bedrijf uit Köln. Wij zoeken tandartspraktijken, fabrikanten, technologie- en bijscholingspartners voor de dental-care-automaat." },
     impressum: { title: "Colofon | DentoPoint GbR", desc: "Colofon van DentoPoint GbR, Clarenbachstraße 6, 50931 Köln." },
     privacy: { title: "Privacyverklaring | DentoPoint", desc: "Hoe DentoPoint GbR persoonsgegevens op deze website verwerkt." },

@@ -13,7 +13,7 @@ const { chromium } = require("playwright");
 const DIST = process.argv[2] || "dist";
 // Öffentliche Seiten; dieselben wie in public/sitemap.xml
 // /clinics ist seit 24.10.2026 nicht verlinkt und nicht in der Sitemap (Aufbau über Hotels, rechtliche Klärung für Praxen offen)
-const ROUTES = ["/", "/manufacturers", "/partners", "/impressum", "/datenschutz"];
+const ROUTES = ["/", "/care-station", "/manufacturers", "/partners", "/impressum", "/datenschutz"];
 
 const TYPES = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".png": "image/png", ".jpg": "image/jpeg", ".svg": "image/svg+xml", ".ico": "image/x-icon", ".webp": "image/webp", ".woff2": "font/woff2", ".json": "application/json", ".xml": "application/xml", ".txt": "text/plain", ".mp4": "video/mp4" };
 

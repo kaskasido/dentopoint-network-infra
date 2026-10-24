@@ -11,6 +11,8 @@ const Footer = () => {
     { href: "/#sortiment", label: t.netzwerk.nav.range },
     { href: "/#status", label: t.netzwerk.nav.status },
     { href: "/#faq", label: t.netzwerk.nav.faq },
+    { href: "/care-station", label: t.netzwerk.nav.station },
+    { href: "/manufacturers", label: t.netzwerk.nav.produkte },
   ];
 
   return (
