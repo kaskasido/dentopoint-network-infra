@@ -793,7 +793,7 @@ export const de = {
       inProgressLabel: "In Vorbereitung",
       plannedLabel: "Geplant",
       items: [
-        { title: "Erste Care Station im Testbetrieb", desc: "Eine DentoPoint Care Station läuft im Testbetrieb in Köln. Anzeige und Verwaltung sind in Betrieb, jeder Kauf und der Bestand je Fach werden erfasst.", state: "available" },
+        { title: "Care Station und Verwaltung", desc: "Anzeige und Verwaltung sind fertig und erprobt: Jeder Kauf und der Bestand je Fach werden erfasst.", state: "available" },
         { title: "Oberfläche für Hotels", desc: "Kopfbereich mit Restaurants, Bar und Spa, Wünsche an die Rezeption, Produkte im Slider, auf Deutsch, Englisch und Niederländisch.", state: "available" },
         { title: "Erste Hotels", desc: "Wir sprechen gerade erste Hotels in Köln und Bonn an.", state: "inProgress" },
         { title: "Kartenzahlung", desc: "Bezahlen per Karte direkt am Gerät. Das Kartenterminal wird angebunden.", state: "inProgress" },

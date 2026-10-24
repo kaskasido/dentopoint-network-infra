@@ -828,7 +828,7 @@ export const en = {
       inProgressLabel: "In preparation",
       plannedLabel: "Planned",
       items: [
-        { title: "First Care Station in test operation", desc: "A DentoPoint Care Station is in test operation in Cologne. Display and management are running, every purchase and the stock per compartment are recorded.", state: "available" },
+        { title: "Care Station and management system", desc: "Display and management system are ready and tested: every purchase and the stock per compartment are recorded.", state: "available" },
         { title: "Interface for hotels", desc: "Top area with restaurants, bar and spa, requests to reception, products in a slider, in German, English and Dutch.", state: "available" },
         { title: "First hotels", desc: "We are currently approaching the first hotels in Cologne and Bonn.", state: "inProgress" },
         { title: "Card payment", desc: "Pay by card directly at the device. The card terminal is being connected.", state: "inProgress" },
