@@ -11,6 +11,18 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import automat from "@/assets/netz-automat-hotel.webp";
 import schirmTafel from "@/assets/netz-schirm-tafel.webp";
 import schirmInteresse from "@/assets/netz-schirm-interesse.webp";
+import logoAportha from "@/assets/partner/logo-aportha.png";
+import logoBluem from "@/assets/partner/logo-bluem.png";
+import logoSds from "@/assets/partner/logo-sds.png";
+
+// Produktbilder aus den Freigabe-Unterlagen der Hersteller (dentopoint_app/docs/freigabe). APOrtha Vitamin D3 20.000 I.E. bewusst nicht gezeigt.
+const produktBilder = import.meta.glob<string>("@/assets/partner/*.webp", { eager: true, import: "default" });
+const bild = (key: string) => produktBilder[`/src/assets/partner/${key}.webp`];
+const PARTNER = [
+  { name: "SDS Swiss Biohealth", logo: logoSds, logoHoehe: "h-6 md:h-7", produkte: ["sds-boost", "sds-baseline", "sds-big5"], foto: false },
+  { name: "APOrtha", logo: logoAportha, logoHoehe: "h-11 md:h-12", produkte: ["aportha-d3-5000", "aportha-d3-spray", "aportha-magnesium"], foto: false },
+  { name: "bluem", logo: logoBluem, logoHoehe: "h-9 md:h-10", produkte: ["bluem-zahnbuerste", "bluem-mundspuelung", "bluem-mundschaum", "bluem-mundgel", "bluem-sauerstoff"], foto: true },
+];
 
 /**
  * Startseite „Das Versorgungsnetzwerk“: Aufbau über Hotels. Alle Texte unter t.netzwerk (DE, EN; NL fällt auf EN zurück).
@@ -205,7 +217,7 @@ export const NetzStatus = () => {
     planned: { label: s.plannedLabel, className: "bg-secondary text-muted-foreground", Icon: Clock },
   };
   return (
-    <section id="status" className="py-24 md:py-32 bg-background">
+    <section id="status" className="py-24 md:py-32 bg-gradient-subtle">
       <div className="container mx-auto px-6">
         <Kopf label={s.label} title={s.title} intro={s.intro} />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -234,7 +246,7 @@ export const NetzPartner = () => {
   const [kontakt, setKontakt] = useState(false);
   const icons = [Hotel, Factory, MessageSquare];
   return (
-    <section id="partner" className="py-24 md:py-32 bg-gradient-subtle">
+    <section id="partner" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-6">
         <Kopf label={p.label} title={p.title} />
         <div className="grid md:grid-cols-3 gap-6">
@@ -270,7 +282,7 @@ export const NetzFAQ = () => {
   const { t } = useLanguage();
   const f = t.netzwerk.faq;
   return (
-    <section id="faq" className="py-24 md:py-32 bg-background">
+    <section id="faq" className="py-24 md:py-32 bg-gradient-subtle">
       <div className="container mx-auto px-6">
         <Kopf label={f.label} title={f.title} />
         <div className="max-w-3xl">
@@ -283,6 +295,40 @@ export const NetzFAQ = () => {
             ))}
           </Accordion>
         </div>
+      </div>
+    </section>
+  );
+};
+
+/** Partner mit Logo und ihren Produkten in der Care Station (Freigabe der Hersteller liegt vor). */
+export const NetzPartnerProdukte = () => {
+  const { t } = useLanguage();
+  const pp = t.netzwerk.partnerProdukte;
+  return (
+    <section id="partner-produkte" className="py-24 md:py-32 bg-background">
+      <div className="container mx-auto px-6">
+        <Kopf label={pp.label} title={pp.title} intro={pp.intro} />
+        <div className="space-y-16">
+          {PARTNER.map((p) => (
+            <motion.div key={p.name} {...einblenden}>
+              <div className="flex items-center gap-6 border-b border-gold pb-5 mb-8">
+                <img src={p.logo} alt={p.name} loading="lazy" className={`${p.logoHoehe} w-auto object-contain`} />
+                <span className="text-xs font-semibold tracking-[0.24em] uppercase text-muted-foreground">{p.name}</span>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+                {p.produkte.map((key) => (
+                  <figure key={key} className="rounded-lg border border-border bg-card overflow-hidden">
+                    <div className="aspect-[4/5] bg-white">
+                      <img src={bild(key)} alt={`${p.name}: ${pp.names[key]}`} loading="lazy" className={`h-full w-full ${p.foto ? "object-cover" : "object-contain p-4"}`} />
+                    </div>
+                    <figcaption className="border-t border-border p-4 text-sm leading-snug text-foreground">{pp.names[key]}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+        <p className="mt-8 text-xs text-muted-foreground">{pp.imageNote}</p>
       </div>
     </section>
   );

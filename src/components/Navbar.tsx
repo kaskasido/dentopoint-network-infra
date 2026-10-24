@@ -40,6 +40,7 @@ const Navbar = () => {
         { label: t.netzwerk.nav.hotels, href: "/#hotels" },
         { label: t.netzwerk.nav.how, href: "/#netzwerk" },
         { label: t.netzwerk.nav.range, href: "/#sortiment" },
+        { label: t.netzwerk.partnerProdukte.label, href: "/#partner-produkte" },
         { label: t.netzwerk.nav.status, href: "/#status" },
         { label: t.netzwerk.nav.faq, href: "/#faq" },
       ],

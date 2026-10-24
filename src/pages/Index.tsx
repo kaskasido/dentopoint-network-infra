@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import { NetzFAQ, NetzHero, NetzHotels, NetzPartner, NetzSortiment, NetzStatus, NetzWie } from "@/components/netzwerk/Netzwerk";
+import { NetzFAQ, NetzHero, NetzHotels, NetzPartner, NetzPartnerProdukte, NetzSortiment, NetzStatus, NetzWie } from "@/components/netzwerk/Netzwerk";
 import Footer from "@/components/Footer";
 import { useScrollToHash } from "@/hooks/useScrollToHash";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -27,11 +27,12 @@ const Index = () => {
       <Navbar />
       {/* Seit 24.10.2026: „Das Versorgungsnetzwerk“, Aufbau über Hotels. Die frühere Startseite für Zahnarztpraxen
           liegt im Zweig archiv/network-seite-2026-10-24; Standort-Karte mit Praxisnamen und Praxis-Abschnitte sind entfernt.
-          Die Herstellerliste kommt zurück, sobald die Hersteller der Nennung zugestimmt haben. */}
+          Seit 24.10.2026 wieder mit Partnern und ihren Produkten (NetzPartnerProdukte). */}
       <NetzHero />
       <NetzWie />
       <NetzHotels />
       <NetzSortiment />
+      <NetzPartnerProdukte />
       <NetzStatus />
       <NetzPartner />
       <NetzFAQ />

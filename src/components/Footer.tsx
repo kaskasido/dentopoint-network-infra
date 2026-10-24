@@ -9,6 +9,7 @@ const Footer = () => {
     { href: "/#hotels", label: t.netzwerk.nav.hotels },
     { href: "/#netzwerk", label: t.netzwerk.nav.how },
     { href: "/#sortiment", label: t.netzwerk.nav.range },
+    { href: "/#partner-produkte", label: t.netzwerk.partnerProdukte.label },
     { href: "/#status", label: t.netzwerk.nav.status },
     { href: "/#faq", label: t.netzwerk.nav.faq },
     { href: "/care-station", label: t.netzwerk.nav.station },
