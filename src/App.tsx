@@ -2,12 +2,11 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "@/hooks/useAuth";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 import Index from "./pages/Index";
 import Manufacturers from "./pages/Manufacturers";
-import Clinics from "./pages/Clinics";
 import CareStation from "./pages/CareStation";
 import Partners from "./pages/Partners";
 import Login from "./pages/Login";
@@ -35,7 +34,8 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/manufacturers" element={<Manufacturers />} />
-              <Route path="/clinics" element={<Clinics />} />
+              {/* Seite für Zahnarztpraxen seit 24.10.2026 entfernt (Archiv: Zweig archiv/network-seite-2026-10-24); alte Links landen auf der Startseite */}
+              <Route path="/clinics" element={<Navigate to="/" replace />} />
               <Route path="/care-station" element={<CareStation />} />
               <Route path="/partners" element={<Partners />} />
               <Route path="/login" element={<Login />} />

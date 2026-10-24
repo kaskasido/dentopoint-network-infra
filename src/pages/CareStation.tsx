@@ -68,7 +68,7 @@ const CareStation = () => {
       {/* Was der Bildschirm zeigt, mit drei echten Bildschirmen der Oberfläche */}
       <section id="bildschirm" className="py-24 bg-foreground text-primary-foreground">
         <div className="container mx-auto px-6">
-          <Kopf label={st.screen.label} title={st.screen.title} hell />
+          <Kopf label={st.screen.label} title={st.screen.title} intro={st.screen.note} hell />
           <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-14 items-start">
             <div className="space-y-6">
               {st.screen.points.map((p, i) => {

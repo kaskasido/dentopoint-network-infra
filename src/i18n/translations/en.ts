@@ -786,7 +786,7 @@ export const en = {
       title: "Three partners, one Care Station",
       intro: "The network connects places where people are on the move with makers of good dental care. DentoPoint runs the Care Stations in between.",
       pillars: [
-        { title: "Locations", text: "Hotels provide a small space in the lobby, about one square metre. Other types of locations will follow." },
+        { title: "Locations", text: "Hotels offer a small space in the lobby, about one square metre. We rent the spot if you wish. Other types of locations will follow." },
         { title: "Product range", text: "Selected manufacturers supply dental care for travellers and micronutrients. The range is put together with dental expertise." },
         { title: "Operation", text: "DentoPoint installs the Care Station, refills it and takes care of technology, payment and accounting." },
       ],
@@ -797,9 +797,9 @@ export const en = {
       text: "A forgotten toothbrush, fresh breath before a meeting, vitamins for long travel days: the Care Station in the lobby helps your guests around the clock. On its screen, your hotel presents itself.",
       benefits: [
         { title: "Around the clock", text: "Guests help themselves, even late at night when the shops are closed." },
-        { title: "Your hotel on screen", text: "The top of the screen shows your name, your restaurants, the bar and the spa, with pictures and opening hours." },
-        { title: "Requests to reception", text: "When a guest taps “Reserve a table” or “Book a massage”, reception is informed. Only the topic is stored, not who it was." },
-        { title: "No extra work", text: "DentoPoint refills, maintains and handles the accounting. The hotel provides space and power." },
+        { title: "Your hotel on screen", text: "If you wish, the top of the screen shows your name, your restaurants, the bar and the spa, with pictures and opening hours. You book this presentation as an additional service." },
+        { title: "Requests to reception", text: "Part of your hotel presentation: when a guest taps “Reserve a table” or “Book a massage”, reception is informed. Only the topic is stored, not who it was." },
+        { title: "No extra work", text: "DentoPoint installs, refills, maintains and handles the accounting. We rent the spot if you wish." },
         { title: "Matches your hotel", text: "Colours and patterns of the interface follow your hotel's style." },
         { title: "Multilingual", text: "German, English and Dutch today, more languages to follow." },
       ],
@@ -856,7 +856,7 @@ export const en = {
         { q: "Does the Care Station store guest data?", a: "For a request to reception, only the topic is stored, not who it was. For statistics, the Care Station anonymously counts which content is tapped." },
         { q: "How do guests pay?", a: "By card directly at the Care Station. The card terminal is currently being connected." },
         { q: "Which products are available?", a: "Dental care for travellers, mouth spray and micronutrients from partner manufacturers such as bluem, APOrtha and SDS Swiss Biohealth. The range is tailored to each location." },
-        { q: "What does the Care Station cost the hotel?", a: "We discuss the terms personally with each hotel." },
+        { q: "What does the Care Station cost the hotel?", a: "The hotel pays nothing for the Care Station itself, and we rent the spot if you wish. Presenting your hotel on the screen is a service you can book in addition. Without it, the top of the screen shows DentoPoint only. We discuss the terms personally." },
         { q: "Which languages does the Care Station use?", a: "German, English and Dutch today. More languages for international guests are planned." },
       ],
     },
@@ -864,10 +864,11 @@ export const en = {
     station: {
       kicker: "For hotels and locations",
       title: "A Care Station for your venue",
-      subtitle: "The DentoPoint Care Station is a dental care vending machine with a large touchscreen. Your guests find dental care for travellers and micronutrients, around the clock. At the top of the screen, your venue presents itself.",
+      subtitle: "The DentoPoint Care Station is a dental care vending machine with a large touchscreen. Your guests find dental care for travellers and micronutrients, around the clock. If you wish, your venue presents itself at the top of the screen.",
       screen: {
         label: "On the screen",
         title: "Your venue and our range on one screen",
+        note: "Presenting your venue, with the top area and requests to reception, is a DentoPoint service. We design and maintain the content for you.",
         points: [
           { title: "Top area for your venue", text: "Name, restaurants, bar and spa with pictures, opening hours and a QR code to your website." },
           { title: "Requests to reception", text: "Guests tap “Reserve a table” or “Book a massage”. Reception sees the request in a simple view on a computer or tablet." },

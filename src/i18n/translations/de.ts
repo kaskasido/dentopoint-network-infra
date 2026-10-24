@@ -751,7 +751,7 @@ export const de = {
       title: "Drei Partner, eine Care Station",
       intro: "Das Netzwerk verbindet Orte, an denen Menschen unterwegs sind, mit Herstellern guter Zahnpflege. DentoPoint betreibt die Care Stations dazwischen.",
       pillars: [
-        { title: "Standorte", text: "Hotels stellen eine kleine Fläche in der Lobby, etwa einen Quadratmeter. Weitere Arten von Standorten folgen." },
+        { title: "Standorte", text: "Hotels bieten eine kleine Fläche in der Lobby, etwa einen Quadratmeter. Den Stellplatz mieten wir auf Wunsch. Weitere Arten von Standorten folgen." },
         { title: "Sortiment", text: "Ausgewählte Hersteller liefern Zahnpflege für unterwegs und Mikronährstoffe. Das Sortiment ist mit zahnmedizinischer Erfahrung zusammengestellt." },
         { title: "Betrieb", text: "DentoPoint stellt die Care Station auf, befüllt sie und kümmert sich um Technik, Bezahlung und Abrechnung." },
       ],
@@ -762,9 +762,9 @@ export const de = {
       text: "Zahnbürste vergessen, frischer Atem vor dem Termin, Vitamine für lange Reisetage: Die Care Station in der Lobby hilft Ihren Gästen rund um die Uhr. Auf dem Bildschirm stellt sich Ihr Haus vor.",
       benefits: [
         { title: "Rund um die Uhr", text: "Gäste versorgen sich selbst, auch spät abends, wenn kein Geschäft mehr geöffnet hat." },
-        { title: "Ihr Haus auf dem Bildschirm", text: "Oben laufen Ihr Name, Ihre Restaurants, die Bar und das Spa, mit Bildern und Öffnungszeiten." },
-        { title: "Wünsche an die Rezeption", text: "Tippt ein Gast auf „Tisch reservieren“ oder „Massage buchen“, erfährt es die Rezeption. Gespeichert wird nur das Thema, nicht wer es war." },
-        { title: "Kein Aufwand", text: "DentoPoint befüllt, wartet und rechnet ab. Das Hotel stellt Platz und Strom." },
+        { title: "Ihr Haus auf dem Bildschirm", text: "Auf Wunsch laufen oben Ihr Name, Ihre Restaurants, die Bar und das Spa, mit Bildern und Öffnungszeiten. Diese Vorstellung buchen Sie als Dienstleistung dazu." },
+        { title: "Wünsche an die Rezeption", text: "Zur Vorstellung Ihres Hauses gehört: Tippt ein Gast auf „Tisch reservieren“ oder „Massage buchen“, erfährt es die Rezeption. Gespeichert wird nur das Thema, nicht wer es war." },
+        { title: "Kein Aufwand", text: "DentoPoint stellt auf, befüllt, wartet und rechnet ab. Den Stellplatz mieten wir auf Wunsch." },
         { title: "Passt zu Ihrem Haus", text: "Farben und Muster der Oberfläche richten sich nach Ihrem Haus." },
         { title: "Mehrsprachig", text: "Heute Deutsch, Englisch und Niederländisch, weitere Sprachen folgen." },
       ],
@@ -821,7 +821,7 @@ export const de = {
         { q: "Speichert die Care Station Daten der Gäste?", a: "Bei einem Wunsch an die Rezeption wird nur das Thema gespeichert, nicht wer es war. Für Auswertungen zählt die Care Station anonym, welche Inhalte angetippt werden." },
         { q: "Wie bezahlen die Gäste?", a: "Per Karte direkt an der Care Station. Das Kartenterminal wird gerade angebunden." },
         { q: "Welche Produkte gibt es?", a: "Zahnpflege für unterwegs, Mundspray und Mikronährstoffe von Partnerherstellern wie bluem, APOrtha und SDS Swiss Biohealth. Das Sortiment wird je Standort abgestimmt." },
-        { q: "Was kostet die Care Station das Hotel?", a: "Die Konditionen besprechen wir persönlich mit jedem Haus." },
+        { q: "Was kostet die Care Station das Hotel?", a: "Für die Care Station selbst zahlt das Hotel nichts, den Stellplatz mieten wir auf Wunsch. Die Vorstellung Ihres Hauses auf dem Bildschirm ist eine Dienstleistung, die Sie dazubuchen können. Ohne sie zeigt der Bildschirm oben nur DentoPoint. Die Konditionen besprechen wir persönlich." },
         { q: "In welchen Sprachen läuft die Care Station?", a: "Heute auf Deutsch, Englisch und Niederländisch. Weitere Sprachen für internationale Gäste sind geplant." },
       ],
     },
@@ -829,10 +829,11 @@ export const de = {
     station: {
       kicker: "Für Hotels und Standorte",
       title: "Eine Care Station für Ihr Haus",
-      subtitle: "Die DentoPoint Care Station ist ein Dental-Care-Automat mit großem Touchscreen. Ihre Gäste finden darin Zahnpflege für unterwegs und Mikronährstoffe, rund um die Uhr. Oben auf dem Bildschirm stellt sich Ihr Haus vor.",
+      subtitle: "Die DentoPoint Care Station ist ein Dental-Care-Automat mit großem Touchscreen. Ihre Gäste finden darin Zahnpflege für unterwegs und Mikronährstoffe, rund um die Uhr. Auf Wunsch stellt sich oben auf dem Bildschirm Ihr Haus vor.",
       screen: {
         label: "Auf dem Bildschirm",
         title: "Ihr Haus und unser Sortiment auf einem Bildschirm",
+        note: "Die Vorstellung Ihres Hauses mit Kopfbereich und Wünschen an die Rezeption ist eine Dienstleistung von DentoPoint. Wir gestalten und pflegen die Inhalte für Sie.",
         points: [
           { title: "Kopfbereich für Ihr Haus", text: "Name, Restaurants, Bar und Spa mit Bildern, Öffnungszeiten und QR-Code zur Website." },
           { title: "Wünsche an die Rezeption", text: "Gäste tippen auf „Tisch reservieren“ oder „Massage buchen“. Die Rezeption sieht den Wunsch in einer einfachen Ansicht am Computer oder Tablet." },
