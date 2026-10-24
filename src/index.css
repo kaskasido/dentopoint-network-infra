@@ -150,3 +150,19 @@
     box-shadow: 0 12px 40px hsl(var(--foreground) / 0.08);
   }
 }
+
+/* Feine Leinenstruktur unter dem Weiß (DentoPoint Design System, seit 24.10.2026): Seitengrund und Abschnitte,
+   Karten, Fenster und Eingabefelder bleiben reinweiß und heben sich dadurch leicht ab. */
+:root {
+  --leinen: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='260'%20height='260'%3E%3Cfilter%20id='l'%20x='0'%20y='0'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.85%200.03'%20numOctaves='2'%20seed='4'%20stitchTiles='stitch'%20result='a'/%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.03%200.85'%20numOctaves='2'%20seed='9'%20stitchTiles='stitch'%20result='b'/%3E%3CfeComposite%20in='a'%20in2='b'%20operator='arithmetic'%20k1='0'%20k2='.5'%20k3='.5'%20k4='0'/%3E%3CfeColorMatrix%20type='matrix'%20values='0%200%200%200%20.36%200%200%200%200%20.34%200%200%200%200%20.28%20-0.13%20-0.13%20-0.13%200%200.247'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url%28%23l%29'/%3E%3C/svg%3E");
+}
+body,
+.min-h-screen.bg-background,
+section.bg-background,
+section.section-gradient,
+section.bg-muted,
+section.bg-gradient-subtle,
+footer.bg-muted {
+  background-image: var(--leinen);
+  background-size: 260px 260px;
+}
