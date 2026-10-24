@@ -11,7 +11,9 @@ type PortalSections =
   | "clinicPortal"
   | "partnerPortal"
   | "adminPortal"
-  | "mockData";
+  | "mockData"
+  // Neue Startseite „Das Versorgungsnetzwerk“: Niederländisch folgt, bis dahin Englisch
+  | "netzwerk";
 
 export const nl = {
   // Navbar
@@ -433,7 +435,7 @@ export const nl = {
     ],
   },
   seo: {
-    home: { title: "DentoPoint – De dental-care-automaat voor tandartspraktijken", desc: "DentoPoint plaatst dental-care-automaten in tandartspraktijken. Patiënten kopen daar de mondverzorgingsproducten die hun tandarts aanbeveelt. Het praktijkteam vult bij, de praktijk verdient mee. Start met de eerste partnerpraktijken in Duitsland." },
+    home: { title: "DentoPoint – Het zorgnetwerk voor mondverzorging en vitamines", desc: "DentoPoint bouwt een netwerk van dental-care-automaten op, te beginnen met hotels in Keulen en Bonn. Mondverzorging voor onderweg en micronutriënten voor gasten, de klok rond, zonder extra werk voor het hotel." },
     clinics: { title: "Dental-care-automaat voor uw tandartspraktijk | DentoPoint", desc: "Aanbevolen mondverzorgingsproducten direct in de praktijk: weinig werk, de praktijk verdient mee. Werkwijze, voordelen en privacy voor tandartspraktijken." },
     manufacturers: { title: "Voor fabrikanten: producten direct in de tandartspraktijk | DentoPoint", desc: "Mondverzorgingsproducten en voedingssupplementen die tandartsen aanbevelen, in de dental-care-automaat van de partnerpraktijken. Zo komen uw producten in het assortiment." },
     partners: { title: "Partner worden | DentoPoint uit Köln", desc: "DentoPoint is een jong bedrijf uit Köln. Wij zoeken tandartspraktijken, fabrikanten, technologie- en bijscholingspartners voor de dental-care-automaat." },

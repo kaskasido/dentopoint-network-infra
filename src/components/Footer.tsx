@@ -6,11 +6,11 @@ const Footer = () => {
   const { lang, setLang, t } = useLanguage();
 
   const overview = [
-    { href: "/#automat", label: t.infrastructure.label },
-    { href: "/#standort", label: t.locator.label },
-    { href: "/#sortiment", label: t.categories.label },
-    { href: "/#status", label: t.status.label },
-    { href: "/#faq", label: t.faq.label },
+    { href: "/#hotels", label: t.netzwerk.nav.hotels },
+    { href: "/#netzwerk", label: t.netzwerk.nav.how },
+    { href: "/#sortiment", label: t.netzwerk.nav.range },
+    { href: "/#status", label: t.netzwerk.nav.status },
+    { href: "/#faq", label: t.netzwerk.nav.faq },
   ];
 
   return (
@@ -23,7 +23,7 @@ const Footer = () => {
               <span className="font-display font-bold text-lg">DentoPoint</span>
             </div>
             <p className="text-sm opacity-60 leading-relaxed">
-              {t.footer.description}
+              {t.netzwerk.footerDescription}
             </p>
           </div>
 
@@ -82,7 +82,7 @@ const Footer = () => {
             {t.footer.copyright.replace("{year}", new Date().getFullYear().toString())}
           </p>
           <p className="text-xs opacity-40">
-            {t.footer.tagline}
+            {t.netzwerk.footerTagline}
           </p>
         </div>
       </div>

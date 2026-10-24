@@ -26,14 +26,14 @@ const Navbar = () => {
 
   const navSections = [
     {
-      label: t.nav.clinics,
+      // Das Versorgungsnetzwerk (Aufbau über Hotels); die Seite für Zahnarztpraxen ist bis zur rechtlichen Klärung nicht verlinkt
+      label: t.netzwerk.nav.label,
       items: [
-        { label: t.nav.clinicsItems.overview, href: "/clinics" },
-        { label: t.nav.clinicsItems.revenue, href: "/clinics#revenue" },
-        { label: t.nav.clinicsItems.implementation, href: "/clinics#implementation" },
-        { label: t.nav.clinicsItems.workflow, href: "/clinics#workflow" },
-        { label: t.nav.clinicsItems.compliance, href: "/clinics#compliance" },
-        { label: t.faq.label, href: "/#faq" },
+        { label: t.netzwerk.nav.hotels, href: "/#hotels" },
+        { label: t.netzwerk.nav.how, href: "/#netzwerk" },
+        { label: t.netzwerk.nav.range, href: "/#sortiment" },
+        { label: t.netzwerk.nav.status, href: "/#status" },
+        { label: t.netzwerk.nav.faq, href: "/#faq" },
       ],
     },
     {

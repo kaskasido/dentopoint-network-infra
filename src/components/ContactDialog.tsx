@@ -143,6 +143,7 @@ const ContactDialog = ({
                   <Select value={form.role} onValueChange={(v) => update("role", v)}>
                     <SelectTrigger><SelectValue placeholder={c.rolePlaceholder} /></SelectTrigger>
                     <SelectContent>
+                      <SelectItem value="Hotel">{t.netzwerk.roleHotel}</SelectItem>
                       <SelectItem value="Klinik">{c.roleClinic}</SelectItem>
                       <SelectItem value="Hersteller">{c.roleManufacturer}</SelectItem>
                       <SelectItem value="Partner">{c.rolePartner}</SelectItem>
