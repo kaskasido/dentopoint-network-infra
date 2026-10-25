@@ -812,7 +812,7 @@ export const en = {
     range: {
       label: "Product range",
       title: "What guests find in the Care Station",
-      intro: "The range is put together with dental expertise and tailored to travellers.",
+      intro: "Selected brand products, just like from the pharmacy. The range is put together with dental expertise and tailored to travellers.",
       items: [
         { name: "Dental care on the go", desc: "Soft toothbrushes, mouth foam and mouthwash in travel sizes." },
         { name: "Fresh breath", desc: "In between, before a meeting or after dinner." },

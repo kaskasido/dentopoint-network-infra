@@ -777,7 +777,7 @@ export const de = {
     range: {
       label: "Sortiment",
       title: "Was Gäste in der Care Station finden",
-      intro: "Das Sortiment ist mit zahnmedizinischer Erfahrung zusammengestellt und auf Reisende abgestimmt.",
+      intro: "Ausgewählte Markenprodukte, wie aus der Apotheke. Das Sortiment ist mit zahnmedizinischer Erfahrung zusammengestellt und auf Reisende abgestimmt.",
       items: [
         { name: "Zahnpflege für unterwegs", desc: "Weiche Zahnbürsten, Mundschaum und Mundspülung im Reiseformat." },
         { name: "Frischer Atem", desc: "Für zwischendurch, vor dem Meeting oder nach dem Dinner." },
