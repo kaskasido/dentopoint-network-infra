@@ -876,7 +876,7 @@ export const en = {
         { q: "How do guests pay?", a: "By card directly at the Care Station. The card terminal is currently being connected." },
         { q: "Which products are available?", a: "Dental care for travellers, mouth spray and micronutrients from partner manufacturers such as bluem, APOrtha and SDS Swiss Biohealth. The range is tailored to each location." },
         { q: "What does the Care Station cost the hotel?", a: "The hotel pays nothing for the Care Station itself, and we rent the spot if you wish. During the pilot phase, presenting your hotel on the screen is free of charge as well. Afterwards we review the results together and discuss further cooperation and its terms." },
-        { q: "Which languages does the Care Station use?", a: "German, English and Dutch today. More languages for international guests are planned." },
+        { q: "Which languages does the Care Station speak?", a: "Guests can use it in German, English and Dutch today and choose the language with the flag at the top left. While nobody is using it, the screen greets guests in twelve languages in turn, including French, Spanish, Chinese, Arabic and Japanese. More languages for operation will follow." },
       ],
     },
     // Page /care-station: for hotels and future locations

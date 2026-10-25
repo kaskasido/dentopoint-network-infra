@@ -841,7 +841,7 @@ export const de = {
         { q: "Wie bezahlen die Gäste?", a: "Per Karte direkt an der Care Station. Das Kartenterminal wird gerade angebunden." },
         { q: "Welche Produkte gibt es?", a: "Zahnpflege für unterwegs, Mundspray und Mikronährstoffe von Partnerherstellern wie bluem, APOrtha und SDS Swiss Biohealth. Das Sortiment wird je Standort abgestimmt." },
         { q: "Was kostet die Care Station das Hotel?", a: "Für die Care Station selbst zahlt das Hotel nichts, den Stellplatz mieten wir auf Wunsch. In der Pilotphase ist auch die Vorstellung Ihres Hauses auf dem Bildschirm kostenfrei. Danach ziehen wir gemeinsam Bilanz und besprechen die weitere Zusammenarbeit und ihre Konditionen." },
-        { q: "In welchen Sprachen läuft die Care Station?", a: "Heute auf Deutsch, Englisch und Niederländisch. Weitere Sprachen für internationale Gäste sind geplant." },
+        { q: "In welchen Sprachen läuft die Care Station?", a: "Bedienen lässt sie sich heute auf Deutsch, Englisch und Niederländisch, die Sprache wählt der Gast oben links per Fahne. Solange niemand tippt, begrüßt der Bildschirm im Wechsel in zwölf Sprachen, darunter Französisch, Spanisch, Chinesisch, Arabisch und Japanisch. Weitere Sprachen für die Bedienung folgen." },
       ],
     },
     // Seite /care-station: für Hotels und spätere Standorte
