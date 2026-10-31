@@ -181,6 +181,7 @@ export const nl = {
     privacyPolicy: "Privacyverklaring",
     contactLabel: "Contact",
     language: "Taal",
+    follow: "Volg ons",
     copyright: "© {year} DentoPoint GbR, Köln. Alle rechten voorbehouden.",
     tagline: "Dental-care-automaten · Duitsland",
   },

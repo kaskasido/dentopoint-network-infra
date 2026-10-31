@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import logo from "@/assets/dentopoint-logo.png";
 import { useLanguage, SUPPORTED_LANGUAGES } from "@/i18n/LanguageContext";
+import { socialLinks } from "@/lib/social";
 
 const Footer = () => {
   const { lang, setLang, t } = useLanguage();
+  const social = socialLinks();
 
   const overview = [
     { href: "/#hotels", label: t.netzwerk.nav.hotels },
@@ -60,6 +62,25 @@ const Footer = () => {
               <a href="mailto:info@dentopoint.care" className="hover:text-primary">info@dentopoint.care</a><br />
               <a href="tel:+491735108172" className="hover:text-primary">+49 173 5108172</a>
             </p>
+
+            {social.length > 0 && (
+              <>
+                <h4 className="font-display font-semibold text-sm mb-3">{t.footer.follow}</h4>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {social.map((s) => (
+                    <a
+                      key={s.id}
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-3 py-1.5 rounded border border-border text-xs font-medium text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {s.label}
+                    </a>
+                  ))}
+                </div>
+              </>
+            )}
 
             <h4 className="font-display font-semibold text-sm mb-3">{t.footer.language}</h4>
             <div className="flex flex-wrap gap-2">

@@ -165,6 +165,7 @@ export const en = {
     privacyPolicy: "Privacy Policy",
     contactLabel: "Contact",
     language: "Language",
+    follow: "Follow us",
     copyright: "© {year} DentoPoint GbR, Cologne. All rights reserved.",
     tagline: "Dental care vending machines · Germany",
   },

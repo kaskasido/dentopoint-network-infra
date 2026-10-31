@@ -165,6 +165,7 @@ export const de = {
     privacyPolicy: "Datenschutzerklärung",
     contactLabel: "Kontakt",
     language: "Sprache",
+    follow: "Folgen Sie uns",
     copyright: "© {year} DentoPoint GbR, Köln. Alle Rechte vorbehalten.",
     tagline: "Dental-Care-Automaten · Deutschland",
   },
