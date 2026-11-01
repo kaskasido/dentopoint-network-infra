@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 import logo from "@/assets/dentopoint-logo.png";
 import { useLanguage, SUPPORTED_LANGUAGES } from "@/i18n/LanguageContext";
 import { socialLinks } from "@/lib/social";
+import { shopLink } from "@/lib/shop";
 
 const Footer = () => {
   const { lang, setLang, t } = useLanguage();
   const social = socialLinks();
+  const shop = shopLink("/");
 
   const overview = [
     { href: "/#hotels", label: t.netzwerk.nav.hotels },
@@ -49,6 +51,13 @@ const Footer = () => {
               <li><Link to="/impressum" className="hover:text-primary transition-colors">{t.footer.impressum}</Link></li>
               <li><Link to="/datenschutz" className="hover:text-primary transition-colors">{t.footer.privacyPolicy}</Link></li>
             </ul>
+            {shop && (
+              <ul className="space-y-2.5 text-sm text-muted-foreground mt-6 pt-6 border-t border-border">
+                <li><a href={shop} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">{t.footer.shop}</a></li>
+                <li><a href={shopLink("/agb")} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">{t.footer.shopTerms}</a></li>
+                <li><a href={shopLink("/widerruf")} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">{t.footer.shopWithdrawal}</a></li>
+              </ul>
+            )}
           </div>
 
           <div>
