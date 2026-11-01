@@ -17,6 +17,9 @@ const TEXTS = {
     email: "E-Mail:",
     vatTitle: "Umsatzsteuer-Identifikationsnummer",
     vatText: "Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:",
+    copyrightTitle: "Urheberrechtliche Hinweise",
+    copyrightText:
+      "Die Inhalte, Texte und Bilder dieser Website sind urheberrechtlich geschützt. Soweit nicht anders angegeben, liegen alle Rechte bei der DentoPoint GbR.",
     responsibleTitle: "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV",
     addressAsAbove: "Anschrift wie oben",
     disputeTitle: "Streitbeilegung",
@@ -34,6 +37,9 @@ const TEXTS = {
     email: "E-mail:",
     vatTitle: "Btw-identificatienummer",
     vatText: "Btw-identificatienummer conform § 27a van de Duitse omzetbelastingwet (Umsatzsteuergesetz):",
+    copyrightTitle: "Auteursrecht",
+    copyrightText:
+      "De inhoud, teksten en afbeeldingen van deze website zijn auteursrechtelijk beschermd. Tenzij anders vermeld, berusten alle rechten bij DentoPoint GbR.",
     responsibleTitle: "Verantwoordelijk voor de inhoud conform § 18 lid 2 MStV",
     addressAsAbove: "Adres zie boven",
     disputeTitle: "Geschillenbeslechting",
@@ -70,7 +76,7 @@ const Impressum = () => {
 
           <div>
             <p>
-              Clarenbachstraße 6<br />
+              Clarenbachstraße 2<br />
               50931 Köln<br />
               {x.country}
             </p>
@@ -98,6 +104,15 @@ const Impressum = () => {
             <p>
               {x.vatText}<br />
               DE459232045
+            </p>
+          </div>
+
+          <div>
+            <h2 className="font-display font-semibold text-foreground text-base mb-2">
+              {x.copyrightTitle}
+            </h2>
+            <p>
+              {x.copyrightText}
             </p>
           </div>
 

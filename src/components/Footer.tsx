@@ -55,7 +55,7 @@ const Footer = () => {
             <h4 className="font-display font-semibold text-sm mb-4">{t.footer.contactLabel}</h4>
             <p className="text-sm text-muted-foreground leading-relaxed mb-1">
               DentoPoint GbR<br />
-              Clarenbachstraße 6<br />
+              Clarenbachstraße 2<br />
               50931 Köln
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">

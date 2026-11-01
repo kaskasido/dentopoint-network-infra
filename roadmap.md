@@ -18,7 +18,8 @@ Die Patientenseite „DentoPoint Connect" hat eine eigene Aufgabenliste im Lovab
 - [x] robots.txt mit Portal-Ausschlüssen, sitemap.xml angelegt
 - [x] Lovable-Badge in den Projekteinstellungen abgeschaltet
 - [x] Domain dentopoint.care in sitemap.xml, robots.txt (Sitemap-Zeile) und als Canonical je Seite eingetragen (09.10.2026)
-- [x] Geschäftsanschrift bestätigt: Clarenbachstraße 6 (laut Bescheid des Bundeszentralamts für Steuern und Bundesbank-Schreiben); Praxis mit dem Automaten ist Clarenbachstraße 2
+- [x] Geschäftsanschrift auf der Website: Clarenbachstraße 2 (Praxis mit dem Automaten; Peter, 01.11.2026). Nr. 6 ist eine Privatadresse und erscheint nicht mehr auf der Seite.
+- [ ] Anschriftenänderung beim Finanzamt/BZSt melden (Bescheide nennen noch Nr. 6) und Gewerbeanmeldung prüfen
 - [x] Schreibweise des Gesellschafters bestätigt: Kassig
 - [x] USt-IdNr. DE459232045 im Impressum eingetragen (gültig ab 03.08.2026)
 - [ ] FAQ-Antworten fachlich bestätigen: Konditionen „keine Kaufverpflichtung für Pilotpraxen", Störungsablauf, Stellfläche ca. 1 m²
