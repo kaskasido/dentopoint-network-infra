@@ -71,7 +71,7 @@ export const en = {
     whiteEdition: "White Edition",
     blackEdition: "Black Edition",
     aiImageAlt: "Visualisation of the DentoPoint machine (Zhongda ZD-C-32) with the DentoPoint interface on screen",
-    aiImageNote: "Visualisation based on a manufacturer photo (Zhongda). The interface on screen is real; card terminal and dispensing tray may look different on the actual machine.",
+    aiImageNote: "AI-edited photo based on a manufacturer photo (Zhongda): the logo and lettering are AI-generated; the interface on screen is real and inserted. Card terminal and dispensing tray may look different on the actual machine.",
     tags: ["Card payment at the machine", "Products recommended by the dentist", "Fill level and telemetry via the operator software", "Product info, videos and QR codes on the touchscreen"],
     features: [
       { title: "Fits into the practice", description: "A free-standing unit that needs a power socket and an internet connection. The practice provides the space, DentoPoint takes care of the rest." },
@@ -785,8 +785,8 @@ export const en = {
       ctaHotels: "For hotels",
       ctaManufacturers: "Your products",
       ctaContact: "Get in touch",
-      imageAlt: "DentoPoint Care Station with the hotel interface on its screen",
-      imageNote: "Visualisation: Care Station with the hotel interface, example “Your hotel”.",
+      imageAlt: "DentoPoint Care Station with the hotel interface on its screen (photo, edited with AI)",
+      imageNote: "AI-edited photo: Care Station with the hotel interface, example “Your hotel”. The logo and lettering on the machine are AI-generated; the interface on screen is real and inserted.",
     },
     how: {
       label: "How it works",
@@ -810,7 +810,7 @@ export const en = {
         { title: "Matches your hotel", text: "Colours and patterns of the interface follow your hotel's style." },
         { title: "Multilingual", text: "German, English and Dutch today, more languages to follow." },
       ],
-      captions: ["Your restaurant at the top of the screen", "A request goes to reception"],
+      captions: ["Your restaurant at the top of the screen (AI-generated image)", "A request goes to reception (AI-generated image)"],
       cta: "Request a demonstration",
       ctaNote: "We show you the Care Station with the interface for your hotel.",
       more: "All about a Care Station for your venue",
@@ -901,7 +901,7 @@ export const en = {
           { title: "Products in a slider", text: "The products run in a loop. Guests swipe or tap and see how to use them and the price." },
           { title: "Calm while in use", text: "As soon as a guest touches the screen, nothing changes by itself. After 50 seconds without use, the presentation starts again." },
         ],
-        captions: ["Start page with your venue", "Your restaurant at the top", "A request goes to reception"],
+        captions: ["Start page with your venue", "Your restaurant at the top (AI-generated image)", "A request goes to reception (AI-generated image)"],
       },
       steps: {
         label: "Process",

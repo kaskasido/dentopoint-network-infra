@@ -71,7 +71,7 @@ export const de = {
     whiteEdition: "White Edition",
     blackEdition: "Black Edition",
     aiImageAlt: "Visualisierung des DentoPoint-Automaten (Zhongda ZD-C-32) mit der DentoPoint-Oberfläche auf dem Bildschirm",
-    aiImageNote: "Visualisierung auf Grundlage eines Herstellerfotos (Zhongda). Die Oberfläche auf dem Bildschirm ist echt, Kartenterminal und Ausgabefach können am Gerät anders aussehen.",
+    aiImageNote: "KI-bearbeitetes Foto auf Grundlage eines Herstellerfotos (Zhongda): Logo und Schriftzug sind KI-generiert, die Oberfläche auf dem Bildschirm ist echt und eingesetzt. Kartenterminal und Ausgabefach können am Gerät anders aussehen.",
     tags: ["Kartenzahlung am Gerät", "Produkte nach Empfehlung des Zahnarztes", "Füllstand und Telemetrie über die Betreiber-Software", "Produktinfos, Videos und QR-Codes auf dem Touchscreen"],
     features: [
       { title: "Passt in die Praxis", description: "Ein Standgerät, das eine Steckdose und einen Internetanschluss braucht. Die Praxis stellt den Platz, um den Rest kümmert sich DentoPoint." },
@@ -750,8 +750,8 @@ export const de = {
       ctaHotels: "Für Hotels",
       ctaManufacturers: "Ihre Produkte",
       ctaContact: "Kontakt aufnehmen",
-      imageAlt: "DentoPoint Care Station mit der Oberfläche für Hotels auf dem Bildschirm",
-      imageNote: "Visualisierung: Care Station mit der Oberfläche für Hotels, Beispiel „Ihr Hotel“.",
+      imageAlt: "DentoPoint Care Station mit der Oberfläche für Hotels auf dem Bildschirm (Foto, mit KI bearbeitet)",
+      imageNote: "KI-bearbeitetes Foto: Care Station mit der Oberfläche für Hotels, Beispiel „Ihr Hotel“. Logo und Schriftzug am Gerät sind KI-generiert, die Oberfläche auf dem Bildschirm ist echt und eingesetzt.",
     },
     how: {
       label: "So funktioniert es",
@@ -775,7 +775,7 @@ export const de = {
         { title: "Passt zu Ihrem Haus", text: "Farben und Muster der Oberfläche richten sich nach Ihrem Haus." },
         { title: "Mehrsprachig", text: "Heute Deutsch, Englisch und Niederländisch, weitere Sprachen folgen." },
       ],
-      captions: ["Ihr Restaurant im Kopfbereich", "Ein Wunsch geht an die Rezeption"],
+      captions: ["Ihr Restaurant im Kopfbereich (KI-generiertes Bild)", "Ein Wunsch geht an die Rezeption (KI-generiertes Bild)"],
       cta: "Vorführung anfragen",
       ctaNote: "Wir zeigen Ihnen die Care Station mit der Oberfläche für Ihr Haus.",
       more: "Alles zur Care Station für Ihr Haus",
@@ -866,7 +866,7 @@ export const de = {
           { title: "Produkte im Slider", text: "Die Produkte laufen im Kreis. Gäste wischen oder tippen und sehen Anwendung und Preis." },
           { title: "Ruhe beim Bedienen", text: "Sobald ein Gast den Bildschirm berührt, wechselt nichts mehr von selbst. Nach 50 Sekunden ohne Bedienung beginnt wieder die Vorstellung." },
         ],
-        captions: ["Startseite mit Ihrem Haus", "Ihr Restaurant im Kopfbereich", "Ein Wunsch geht an die Rezeption"],
+        captions: ["Startseite mit Ihrem Haus", "Ihr Restaurant im Kopfbereich (KI-generiertes Bild)", "Ein Wunsch geht an die Rezeption (KI-generiertes Bild)"],
       },
       steps: {
         label: "Ablauf",

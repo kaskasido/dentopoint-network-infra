@@ -88,7 +88,7 @@ export const nl = {
     whiteEdition: "White Edition",
     blackEdition: "Black Edition",
     aiImageAlt: "Visualisatie van de DentoPoint-automaat (Zhongda ZD-C-32) met de DentoPoint-interface op het scherm",
-    aiImageNote: "Visualisatie op basis van een productfoto van de fabrikant (Zhongda). De interface op het scherm is echt; de kaartterminal en het uitgiftevak kunnen er op het apparaat anders uitzien.",
+    aiImageNote: "Met AI bewerkte foto op basis van een productfoto van de fabrikant (Zhongda): logo en opschrift zijn door AI gegenereerd, de interface op het scherm is echt en ingevoegd. De kaartterminal en het uitgiftevak kunnen er op het apparaat anders uitzien.",
     tags: ["Kaartbetaling aan het apparaat", "Producten op aanbeveling van de tandarts", "Vulniveau en telemetrie via de operatorsoftware", "Productinformatie, video's en QR-codes op het touchscreen"],
     features: [
       { title: "Past in de praktijk", description: "Een staand apparaat dat een stopcontact en een internetaansluiting nodig heeft. De praktijk zorgt voor de ruimte, DentoPoint regelt de rest." },

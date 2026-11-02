@@ -65,7 +65,7 @@ const CareStation = () => {
         </div>
       </section>
 
-      {/* Was der Bildschirm zeigt, mit drei echten Bildschirmen der Oberfläche */}
+      {/* Was der Bildschirm zeigt: Startseite echt, die beiden anderen Bilder KI-generiert (in der Bildunterschrift gekennzeichnet) */}
       <section id="bildschirm" className="py-24 bg-muted text-foreground border-y border-border">
         <div className="container mx-auto px-6">
           <Kopf label={st.screen.label} title={st.screen.title} intro={st.screen.note} />
