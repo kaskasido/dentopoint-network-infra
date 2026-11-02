@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "@/assets/dentopoint-logo.png";
+import logo from "@/assets/dentopoint-logo-128.png";
 import { Mail, ArrowRight, CheckCircle, Lock, Eye, EyeOff } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { usePageSeo } from "@/lib/seo";

@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { LogOut, type LucideIcon, LayoutGrid, Factory, Building2, Handshake, Shield } from "lucide-react";
-import logo from "@/assets/dentopoint-logo.png";
+import logo from "@/assets/dentopoint-logo-128.png";
 
 interface NavItem {
   label: string;

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Menu, X, Globe, ChevronDown, LogOut } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
-import logo from "@/assets/dentopoint-logo.png";
+import logo from "@/assets/dentopoint-logo-128.png";
 import { useLanguage, SUPPORTED_LANGUAGES } from "@/i18n/LanguageContext";
 import {
   DropdownMenu,
@@ -51,12 +51,9 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex items-center justify-between h-16 px-6">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="DentoPoint" width={44} height={44} className="h-11 w-11" />
-          <div className="leading-none">
-            <span className="font-display font-bold text-lg tracking-tight text-foreground">
-              Dento<span className="text-accent">Point</span>
-            </span>
-          </div>
+          {/* Logo und Name wie auf der Patientenseite DentoPoint Connect */}
+          <img src={logo} alt="DentoPoint" width={40} height={40} className="h-10 w-10 object-contain" />
+          <span className="text-xl font-bold text-foreground">DentoPoint</span>
         </Link>
 
         {/* Desktop */}

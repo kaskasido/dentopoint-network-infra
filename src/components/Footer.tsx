@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "@/assets/dentopoint-logo.png";
+import logo from "@/assets/dentopoint-logo-128.png";
 import { useLanguage, SUPPORTED_LANGUAGES } from "@/i18n/LanguageContext";
 import { socialLinks } from "@/lib/social";
 import { shopLink } from "@/lib/shop";
