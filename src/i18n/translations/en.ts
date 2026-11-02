@@ -901,7 +901,7 @@ export const en = {
           { title: "Products in a slider", text: "The products run in a loop. Guests swipe or tap and see how to use them and the price." },
           { title: "Calm while in use", text: "As soon as a guest touches the screen, nothing changes by itself. After 50 seconds without use, the presentation starts again." },
         ],
-        captions: ["Start page with your venue", "Your restaurant at the top (AI-generated image)", "A request goes to reception (AI-generated image)"],
+        captions: ["Start page with your venue (AI-generated image)", "Your restaurant at the top (AI-generated image)", "A request goes to reception (AI-generated image)"],
       },
       steps: {
         label: "Process",
@@ -928,7 +928,7 @@ export const en = {
       cta: "Suggest a product",
       ctaNote: "Tell us briefly which products you would like to offer. We will get back to you personally.",
       contactSubject: "Product suggestion for the Care Station",
-      imageAlt: "Care Station start page with product slider and a manufacturer in focus",
+      imageAlt: "Care Station start page with product slider and a manufacturer in focus (AI-generated image)",
       passt: {
         label: "What fits",
         title: "Products for people on the move",
@@ -950,7 +950,7 @@ export const en = {
           { title: "In focus", text: "At each location, one manufacturer can be highlighted with its own block on the start page." },
           { title: "Three languages", text: "German, English and Dutch. We translate, you approve." },
         ],
-        caption: "Your product in the slider, below it a manufacturer in focus",
+        caption: "Your product in the slider, below it a manufacturer in focus (AI-generated image)",
       },
       weg: {
         label: "Process",

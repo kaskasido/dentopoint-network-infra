@@ -866,7 +866,7 @@ export const de = {
           { title: "Produkte im Slider", text: "Die Produkte laufen im Kreis. Gäste wischen oder tippen und sehen Anwendung und Preis." },
           { title: "Ruhe beim Bedienen", text: "Sobald ein Gast den Bildschirm berührt, wechselt nichts mehr von selbst. Nach 50 Sekunden ohne Bedienung beginnt wieder die Vorstellung." },
         ],
-        captions: ["Startseite mit Ihrem Haus", "Ihr Restaurant im Kopfbereich (KI-generiertes Bild)", "Ein Wunsch geht an die Rezeption (KI-generiertes Bild)"],
+        captions: ["Startseite mit Ihrem Haus (KI-generiertes Bild)", "Ihr Restaurant im Kopfbereich (KI-generiertes Bild)", "Ein Wunsch geht an die Rezeption (KI-generiertes Bild)"],
       },
       steps: {
         label: "Ablauf",
@@ -893,7 +893,7 @@ export const de = {
       cta: "Produkt vorschlagen",
       ctaNote: "Schreiben Sie uns kurz, welche Produkte Sie anbieten möchten. Wir melden uns persönlich.",
       contactSubject: "Produktvorschlag für die Care Station",
-      imageAlt: "Startseite der Care Station mit Produkt-Slider und einem Hersteller im Fokus",
+      imageAlt: "Startseite der Care Station mit Produkt-Slider und einem Hersteller im Fokus (KI-generiertes Bild)",
       passt: {
         label: "Was passt",
         title: "Produkte für Menschen unterwegs",
@@ -915,7 +915,7 @@ export const de = {
           { title: "Im Fokus", text: "Je Standort kann ein Hersteller hervorgehoben werden, mit eigenem Block auf der Startseite." },
           { title: "Drei Sprachen", text: "Deutsch, Englisch und Niederländisch. Wir übersetzen, Sie geben frei." },
         ],
-        caption: "Ihr Produkt im Slider, darunter ein Hersteller im Fokus",
+        caption: "Ihr Produkt im Slider, darunter ein Hersteller im Fokus (KI-generiertes Bild)",
       },
       weg: {
         label: "Ablauf",
