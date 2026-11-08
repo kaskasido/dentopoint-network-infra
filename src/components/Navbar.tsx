@@ -50,7 +50,8 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex items-center justify-between h-16 px-6">
-        <Link to="/" className="flex items-center gap-3">
+        {/* Logo und Name führen zur Startseite, ganz nach oben, auch wenn man schon auf der Startseite ist */}
+        <Link to="/" aria-label="DentoPoint – zur Startseite" onClick={() => { setIsOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="flex items-center gap-3">
           {/* Logo und Name wie auf der Patientenseite DentoPoint Connect */}
           <img src={logo} alt="DentoPoint" width={40} height={40} className="h-10 w-10 object-contain" />
           <span className="text-xl font-bold text-foreground">DentoPoint</span>
