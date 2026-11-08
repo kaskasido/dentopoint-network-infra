@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, BellRing, Check, Hand, Hotel, MonitorSmartphone, RefreshCw } from "lucide-react";
+import { ArrowLeft, BellRing, Check, Hand, Store, MonitorSmartphone, RefreshCw } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactDialog from "@/components/ContactDialog";
@@ -14,7 +14,7 @@ import schirmStart from "@/assets/netz-schirm-start.webp";
 import schirmTafel from "@/assets/netz-schirm-tafel.webp";
 import schirmInteresse from "@/assets/netz-schirm-interesse.webp";
 
-/** „Eine Care Station für Ihr Haus“: für Hotels und spätere Standorte (Texte unter t.netzwerk.station). */
+/** „Eine Care Station für Ihren Standort“: für Standorte jeder Art (Texte unter t.netzwerk.station). */
 const CareStation = () => {
   usePageSeo("careStation", "/care-station");
   useScrollToHash();
@@ -39,7 +39,7 @@ const CareStation = () => {
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl mb-8">{st.subtitle}</p>
             <div className="flex flex-col sm:flex-row sm:items-center gap-4">
               <button type="button" onClick={() => setKontakt(true)} className="inline-flex items-center justify-center gap-2 bg-gradient-brand text-primary-foreground px-8 py-3.5 rounded-full text-sm font-medium hover:opacity-90 transition-opacity">
-                <Hotel size={18} />
+                <Store size={18} />
                 {h.cta}
               </button>
               <p className="text-sm text-muted-foreground max-w-xs">{h.ctaNote}</p>
@@ -126,7 +126,7 @@ const CareStation = () => {
               ))}
             </ul>
             <button type="button" onClick={() => setKontakt(true)} className="mt-10 inline-flex items-center justify-center gap-2 bg-gradient-brand text-primary-foreground px-8 py-3.5 rounded-full text-sm font-medium hover:opacity-90 transition-opacity">
-              <Hotel size={18} />
+              <Store size={18} />
               {h.cta}
             </button>
           </div>
@@ -135,7 +135,7 @@ const CareStation = () => {
 
       <NetzFAQ />
       <Footer />
-      <ContactDialog open={kontakt} onOpenChange={setKontakt} subject={h.contactSubject} title={h.cta} description={h.ctaNote} defaultRole="Hotel" />
+      <ContactDialog open={kontakt} onOpenChange={setKontakt} subject={h.contactSubject} title={h.cta} description={h.ctaNote} defaultRole="Standort" />
     </div>
   );
 };

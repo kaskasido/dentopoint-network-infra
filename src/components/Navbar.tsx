@@ -15,7 +15,7 @@ import ContactDialog from "@/components/ContactDialog";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
-  // Welches Formular der Kontakt öffnet: Vorführung für ein Hotel oder sonstige Anfrage
+  // Welches Formular der Kontakt öffnet: Vorführung für einen Standort oder sonstige Anfrage
   const [anfrage, setAnfrage] = useState<"demo" | "sonstige">("demo");
   const oeffne = (art: "demo" | "sonstige") => { setAnfrage(art); setContactOpen(true); };
   const { lang, setLang, t } = useLanguage();
@@ -34,7 +34,7 @@ const Navbar = () => {
 
   const navSections = [
     {
-      // Das Versorgungsnetzwerk (Aufbau über Hotels); die Seite für Zahnarztpraxen ist bis zur rechtlichen Klärung nicht verlinkt
+      // Das Versorgungsnetzwerk (Standorte jeder Art); die alte Seite für Zahnarztpraxen (/clinics) bleibt unverlinkt
       label: t.netzwerk.nav.label,
       items: [
         { label: t.netzwerk.nav.hotels, href: "/#hotels" },
@@ -152,7 +152,7 @@ const Navbar = () => {
           subject={anfrage === "demo" ? t.netzwerk.hotels.contactSubject : t.netzwerk.sonstigeSubject}
           title={anfrage === "demo" ? t.netzwerk.nav.demo : t.netzwerk.nav.sonstige}
           description={anfrage === "demo" ? t.netzwerk.hotels.ctaNote : t.netzwerk.sonstigeDesc}
-          defaultRole={anfrage === "demo" ? "Hotel" : "Sonstiges"}
+          defaultRole={anfrage === "demo" ? "Standort" : "Sonstiges"}
         />
 
         {/* Mobile toggle */}

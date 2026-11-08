@@ -2,11 +2,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
-  ArrowRight, BellRing, CheckCircle2, Clock, Factory, Hammer, Handshake, Hotel, Languages, MapPinned,
-  MessageSquare, MonitorSmartphone, Package, Palette, Pill, Smile, Sparkles, Wind, Wrench,
+  ArrowRight, BellRing, CheckCircle2, Clock, Factory, Hammer, Handshake, Store, Languages, MapPinned,
+  MessageSquare, MonitorSmartphone, Package, Palette, Pill, Play, Smile, Sparkles, Wind, Wrench,
 } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import ContactDialog from "@/components/ContactDialog";
+import Anhoeren from "@/components/Anhoeren";
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
+import { PARTNER_PRODUKTE, produktPoster, produktVideo } from "@/data/partnerProdukte";
 import { useLanguage } from "@/i18n/LanguageContext";
 import automat from "@/assets/netz-automat-hotel.webp";
 import schirmTafel from "@/assets/netz-schirm-tafel.webp";
@@ -25,8 +28,8 @@ const PARTNER = [
 ];
 
 /**
- * Startseite „Das Versorgungsnetzwerk“: Aufbau über Hotels. Alle Texte unter t.netzwerk (DE, EN; NL fällt auf EN zurück).
- * Zahnärzte nur als fachlicher Hintergrund, keine Praxen als Standorte, keine Hotelnamen ohne Zustimmung.
+ * Startseite „Das Versorgungsnetzwerk“: Standorte jeder Art (Hotel, Praxis, Geschäft …), Partner als Vorschlag, Bestückung und
+ * Oberfläche individuell (seit 08.11.2026). Alle Texte unter t.netzwerk (DE, EN, NL). Keine Namen von Standorten ohne Zustimmung.
  */
 
 export const einblenden = {
@@ -66,7 +69,7 @@ export const NetzHero = () => {
           <p className="font-display italic text-lg md:text-xl text-gold-ink mb-10">{h.claim}</p>
           <div className="flex flex-col sm:flex-row gap-4 sm:items-center flex-wrap">
             <a href="#hotels" className="inline-flex items-center justify-center gap-2 bg-gradient-brand text-primary-foreground px-8 py-3.5 rounded-full text-sm font-medium hover:opacity-90 transition-opacity">
-              <Hotel size={18} />
+              <Store size={18} />
               {h.ctaHotels}
               <ArrowRight size={16} />
             </a>
@@ -98,7 +101,7 @@ export const NetzHero = () => {
 export const NetzWie = () => {
   const { t } = useLanguage();
   const w = t.netzwerk.how;
-  const icons = [Hotel, Package, Wrench];
+  const icons = [Store, Package, Wrench];
   return (
     <section id="netzwerk" className="py-24 md:py-32 bg-gradient-subtle">
       <div className="container mx-auto px-6">
@@ -152,7 +155,7 @@ export const NetzHotels = () => {
           </div>
           <div className="flex flex-col sm:flex-row sm:items-center gap-4">
             <button type="button" onClick={() => setKontakt(true)} className="inline-flex items-center justify-center gap-2 bg-gradient-brand text-primary-foreground px-8 py-3.5 rounded-full text-sm font-medium hover:opacity-90 transition-opacity">
-              <Hotel size={18} />
+              <Store size={18} />
               {h.cta}
             </button>
             <Link to="/care-station" className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:opacity-80">
@@ -163,7 +166,7 @@ export const NetzHotels = () => {
           <p className="mt-3 text-sm text-muted-foreground">{h.ctaNote}</p>
         </div>
 
-        {/* Zwei Bildschirme der Hotel-Oberfläche, leicht versetzt */}
+        {/* Zwei Bildschirme der Beispiel-Oberfläche für ein Hotel, leicht versetzt */}
         <div className="relative mx-auto grid w-full max-w-xl grid-cols-2 gap-6 lg:mt-20">
           {[schirmTafel, schirmInteresse].map((src, i) => (
             <motion.figure key={src} {...einblenden} transition={{ duration: 0.6, delay: 0.15 + i * 0.15 }} className={i === 1 ? "mt-12" : ""}>
@@ -176,7 +179,7 @@ export const NetzHotels = () => {
         </div>
       </div>
 
-      <ContactDialog open={kontakt} onOpenChange={setKontakt} subject={h.contactSubject} title={h.cta} description={h.ctaNote} defaultRole="Hotel" />
+      <ContactDialog open={kontakt} onOpenChange={setKontakt} subject={h.contactSubject} title={h.cta} description={h.ctaNote} defaultRole="Standort" />
     </section>
   );
 };
@@ -244,7 +247,7 @@ export const NetzPartner = () => {
   const { t } = useLanguage();
   const p = t.netzwerk.partners;
   const [kontakt, setKontakt] = useState(false);
-  const icons = [Hotel, Factory, MessageSquare];
+  const icons = [Store, Factory, MessageSquare];
   return (
     <section id="partner" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-6">
@@ -302,8 +305,11 @@ export const NetzFAQ = () => {
 
 /** Partner mit Logo und ihren Produkten in der Care Station (Freigabe der Hersteller liegt vor). */
 export const NetzPartnerProdukte = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const pp = t.netzwerk.partnerProdukte;
+  // Angetipptes Produkt: Fenster mit Produktvideo, Kurztext und „Anhören“
+  const [offen, setOffen] = useState<{ key: string; marke: string } | null>(null);
+  const produkt = offen ? PARTNER_PRODUKTE[offen.key] : null;
   return (
     <section id="partner-produkte" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-6">
@@ -317,12 +323,20 @@ export const NetzPartnerProdukte = () => {
               </div>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
                 {p.produkte.map((key) => (
-                  <figure key={key} className="rounded-lg border border-border bg-card overflow-hidden">
-                    <div className="aspect-[4/5] bg-white">
-                      <img src={bild(key)} alt={`${p.name}: ${pp.names[key]}`} loading="lazy" className={`h-full w-full ${p.foto ? "object-cover" : "object-contain p-4"}`} />
+                  <button
+                    key={key}
+                    type="button"
+                    onClick={() => setOffen({ key, marke: p.name })}
+                    className="group text-left rounded-lg border border-border bg-card overflow-hidden transition-shadow hover:shadow-[0_12px_40px_hsl(var(--foreground)/0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    <div className="relative aspect-[4/5] bg-white">
+                      <img src={bild(key)} alt={`${p.name}: ${pp.names[key]}`} loading="lazy" className={`h-full w-full transition-transform duration-500 group-hover:scale-[1.03] ${p.foto ? "object-cover" : "object-contain p-4"}`} />
+                      <span className="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-primary shadow-sm" aria-hidden="true">
+                        <Play size={15} className="ml-0.5" />
+                      </span>
                     </div>
-                    <figcaption className="border-t border-border p-4 text-sm leading-snug text-foreground">{pp.names[key]}</figcaption>
-                  </figure>
+                    <span className="block border-t border-border p-4 text-sm leading-snug text-foreground">{pp.names[key]}</span>
+                  </button>
                 ))}
               </div>
             </motion.div>
@@ -330,6 +344,36 @@ export const NetzPartnerProdukte = () => {
         </div>
         <p className="mt-8 text-xs text-muted-foreground">{pp.imageNote}</p>
       </div>
+
+      <Dialog open={!!offen} onOpenChange={(o) => !o && setOffen(null)}>
+        <DialogContent className="max-w-3xl max-h-[92vh] overflow-y-auto p-0 gap-0 [&>button]:z-10 [&>button]:rounded-full [&>button]:bg-white/95 [&>button]:p-1.5 [&>button]:opacity-100 [&>button]:shadow-sm">
+          {offen && produkt && (
+            <div className="grid md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+              <div className="bg-[#0f1f22] flex items-center justify-center">
+                {/* Bildschirm-Clip der Care Station (9:16); lädt erst beim Öffnen */}
+                <video
+                  key={offen.key}
+                  src={produktVideo(produkt)}
+                  poster={produktPoster(produkt)}
+                  controls
+                  playsInline
+                  preload="none"
+                  className="w-full max-h-[55vh] md:max-h-[70vh] aspect-[9/16] object-contain"
+                />
+              </div>
+              <div className="p-7 md:p-9 flex flex-col">
+                <p className="text-xs font-semibold tracking-[0.24em] uppercase text-gold-ink mb-3">{offen.marke}</p>
+                <DialogTitle className="font-display text-2xl md:text-3xl font-normal text-foreground mb-4">{pp.names[offen.key]}</DialogTitle>
+                <div className="w-12 h-px bg-gold mb-5" />
+                <DialogDescription className="text-base leading-relaxed text-muted-foreground mb-7">{produkt.text[lang]}</DialogDescription>
+                <div className="mt-auto">
+                  <Anhoeren key={`${offen.key}-${lang}`} text={`${pp.names[offen.key]}. ${produkt.text[lang]}`} lang={lang} audioUrl={produkt.audio?.[lang]} />
+                </div>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
